@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<title>This 'ush is Basic</title>
+		<style>
+			html, body {padding:0; margin:0 }
+			#carousel { width: 90%; background: violet; border: 1px solid green; overflow: hidden; margin:0 auto;}
+			#carousel ul { width: 500%; background: green; padding:0; margin:0; position:relative;
+				-webkit-animation-name: tester;
+		    	-webkit-animation-duration: 1000ms;
+		    	-webkit-animation-timing-function: ease-in-out;  
+		    	-webkit-transition: left 0.2s;  
+			}	
+			#carousel ul li { position: relative;  width: 200px ; height: 200px; display:inline-block;  
+				float:left;
+			}
+			#carousel .navButton { opacity: 0.8; height: 300px; width: 40px; position: absolute; display:block; cursor:pointer; background: #888;}
+			#carousel .navButton:hover { background: #999;  }
+			#carousel #prev { left: 0; top:0; }
+			#carousel #next { right: 0; top:0; }
+			.red { background: red;}
+			.gold {background: gold; }
+			.green {background: green;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="carousel">
+			<ul>
+				<li class="red">One</li>
+				<li class="gold">Two</li>
+				<li class="green">Three</li>
+				<li class="red">Four</li>
+				<li class="gold">Five</li>
+				<li class="green">Six</li>
+				<li class="red">Seven</li>
+				<li class="gold">Eight</li>
+			</ul>
+			<a class="navButton" id="prev">Prev</a>
+			<a class="navButton" id="next">Next</a>
+		</div>
+	</body>
+	<script>
+		var carousel = (function() {
+			var curPos = 0;
+			var curIndex = 0;
+			var slider = document.querySelector('#carousel ul');
+			var LI_WIDTH = 200;
+			var touchStartX, touchEndX;
+
+			return {
+				init: function() {
+					this.attatchListeners();
+				},
+				attatchListeners: function () {
+					document.querySelector('#next').addEventListener('click', function(e) {
+						carousel.next(e); 
+					}, false);
+
+					document.querySelector('#prev').addEventListener('click', function(e) {  carousel.prev(e); }, false);
+
+					//document.querySelector('#carousel ul').addEventListener('touchstart', function(e) {  carousel.touchStart(e); }, false);
+					//document.querySelector('#carousel ul').addEventListener('touchmove', function(e) {  carousel.touchMove(e); }, false);
+					//document.querySelector('#carousel ul').addEventListener('touchend', function(e) {  carousel.touchEnd(e); }, false);
+				},
+				next: function(e) {
+					nextIndex = curIndex + 1;
+					carousel.goto(nextIndex);
+				},
+				prev: function(e) {
+					prevIndex = curIndex - 1;
+					carousel.goto(prevIndex);
+				},
+				goto: function(index) {
+					curIndex = index;
+					slider.style.left = -1 * (index * LI_WIDTH);
+				}
+
+/*				touchStart: function(e) {
+					e.preventDefault;
+					touchStartX = e.targetTouches[0].pageX;
+					//slider.style.left = curPos;
+				},
+				touchMove: function(e) {
+					e.preventDefault;
+					console.log(e.targetTouches);
+					touchEndX = e.targetTouches[0].pageX;
+				},
+				touchEnd: function(e) {
+					e.preventDefault;
+					console.log('hi', e.changedTouches[0].pageX);
+					touchEndX = e.changedTouches[0].pageX;
+					newPos =  curPos - (parseInt(touchStartX - touchEndX));
+					slider.style.left = newPos;
+					curPos = newPos;
+
+				}, */
+
+			}
+		})();
+
+		carousel.init();
+	</script>
+
+
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Web Experiemnets</title>
+		<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+		<link href='http://fonts.googleapis.com/css?family=Quantico' rel='stylesheet' type='text/css'>
+		<style>
+			html {background: #999;   }
+			#slice {border:1px solid red; display:none;}
+			#circWrap {border: 1px solid transparent; left:-350px; top:-190px;  height: 500px; width:500px;  margin: auto auto; position:absolute; -webkit-transition: all .2s ;}
+			
+			.circ {border:0px solid #000; height:0px; width:0px; top:250px; left:250px; display:block; position: relative; background:green;}
+			.circ li {display:inline-block; border:0px solid green; height: 100px; width: 100px; position:absolute; display:block; background: purple; border-radius:10px; box-shadow: 2px 3px 3px #000; -webkit-transition: top 1s, left 1s;  }
+			.circ li .inner {font-size: 50px; color: #fff; font-family: 'Quantico', sans-serif; padding:25px 10px; margin: 0; text-shadow: 2px 2px 3px #222; background: transparent; cursor:pointer;}
+			.circ li:hover { background: green; }
+
+			#main { width: 500px; background: green; border-radius: 10px; position:relative; margin: 20px auto 0; padding:10px; box-shadow:0px 3px 2px 5px #222; color:#fff; font-family: sans-serif; opacity:0; -webkit-transition: opacity .2s linear;}
+			#main.open { ; opacity:1;}
+			#main h1 { font-size:50px;}
+
+		</style>
+	</head>
+	<body>
+
+		<div id="circWrap">
+			<ul id="circ" class="circ">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+		<div id="main">
+			<h1>!</h2>
+		</div>
+
+	<svg id="slice" width="300" height="300">
+	  <path d="M150,300 L25,83 A250,250 0 0,1 275,83 z"/>
+	</svg>
+
+	<script>
+		//Helper Function for selectors
+		var $ = function(id) {
+			return document.getElementById(id);
+		}
+
+		var circJS = (function() {
+			var circEls = document.getElementsByTagName('li');
+			var elHeight = window.getComputedStyle(circEls[0])['height'];
+			var elWidth = window.getComputedStyle(circEls[0])['width'];
+
+			var numItems = circEls.length
+			var degreeOffset =  360/ numItems;
+			var ratio = 13/50 * parseInt(elHeight);
+			var radiusOffset =  numItems * ratio;
+			var deg = 0 - (degreeOffset * numItems) + degreeOffset;
+			var rwDegreeOffset = 0;
+
+			return {
+				toRadians: function(angle) {
+				 	return angle * (Math.PI / 180);
+				},	
+				init: function() {
+					for(var i = 0; i< numItems; i++) {
+						deg -=degreeOffset;
+						circEls[i].style.webkitTransform = 'rotate(' + deg + 'deg)';
+						var x = Math.cos(circJS.toRadians(deg)) * radiusOffset - (parseInt(elWidth) / 2);
+						var y = Math.sin(circJS.toRadians(deg)) * radiusOffset - parseInt(elHeight) / 2;
+						circEls[i].style.left = x  + "px";
+						circEls[i].style.top = y + "px";
+						circEls[i].innerHTML = '<div class="inner">.0' + (i +1 ) + '</div>';
+					}
+					circJS.addEventListeners();
+				},
+				addEventListeners: function() {
+					//$('circWrap').addEventListener('click', circJS.rotate, false);
+					document.addEventListener('keyup', circJS.keyPress, false);
+					$('circWrap').addEventListener('mouseover', circJS.elHover, false);
+				},
+				elHover: function(e) {
+					//console.log(e.target);
+					if(e.target.className == 'inner') {
+						//e.target.style.webkitTransform = 
+					}
+				},
+				rotate: function(direction) {
+					if (direction === 'undefiend' || direction == '1') { 
+						rwDegreeOffset += degreeOffset; 		
+					} else {
+						rwDegreeOffset -= degreeOffset; 
+					}
+					$('circWrap').style.webkitTransform = 'rotate(' + rwDegreeOffset + 'deg)';
+				},
+				openMain: function() {
+					if( $('main').className == 'open') {
+						$('main').className = '';	
+					} else {
+						$('main').className = 'open';
+					}
+
+				},
+				keyPress: function(e) {
+					//console.log(e.keyCode);
+					switch(e.keyCode) {
+						case 37: case 38:
+							circJS.rotate(-1);
+							break;
+						case 39: case  40:
+							circJS.rotate(1);
+							break;
+						case 13:
+							circJS.openMain();
+							break;
+					}
+				}
+ 			}
+		})();
+
+		circJS.init();
+
+
+	</script>
+
+	</body>
+</html>

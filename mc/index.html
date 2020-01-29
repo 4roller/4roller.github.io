@@ -1,0 +1,105 @@
+<html>
+
+<head>
+  <title>MC</title>
+  <style>
+    @media (min-width:600px) {
+      body {
+        font-size: 3em;
+      }
+    }
+
+    body {
+      background: #222;
+      color: #ccc;
+      font-family: sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .crumb {
+      overflow: hidden;
+      word-break: break-word;
+    }
+
+    video,
+    audio {
+      width: 100%;
+      transition: max-height 0.3 ease-in-out;
+    }
+
+    img[src=''],
+    video[src=''],
+    audio[src=''] {
+      max-height: 0;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      position: relative;
+      list-style-type: none;
+      display: block;
+      word-break: break-all;
+      margin: 30px 0;
+      padding-left: 1.6em;
+      font-size: 1em;
+    }
+
+    li:before {
+      position: absolute;
+      left: 0px;
+      top: 5px;
+    }
+
+    li.audio::before {
+      content: '\266C';
+    }
+
+    li.video::before {
+      content: '\1F3AC';
+    }
+    
+    li.parent {
+      background: #333;
+    }
+
+    li.parent::before {
+      content: '\1f448';
+    }
+
+    li.selected {
+      font-style: italic;
+      color: yellowgreen;
+    }
+
+    .mediaControls {
+      border: 1px solid #555;
+    }
+
+    .mediaControls button {
+      background: #999;
+      padding: 10px;
+      font-size: 1em;
+    }
+
+  </style>
+</head>
+
+<body>
+  <img class='imageMain' src=""></img>
+  <video controls autoplay src=""></video>
+  <audio controls autoplay src=""></audio>  
+  <h2 class="crumb">&#x266C &#x1F3AC  </h2>
+  <ul class="listing"></ul>
+</body>
+
+<script src="assets/js/jDataView.js"></script>
+<script src="mc.js"></script>
+
+</html>

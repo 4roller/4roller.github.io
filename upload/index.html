@@ -1,0 +1,34 @@
+<html>
+
+<form action="upload.php" method="POST" enctype="multipart/form-data" name="testform">
+Message: <input type="text" name="message"><br>
+<input type="file" name="file"><br>
+<input id="submit" type="submit" value="Submit">
+</form>
+
+
+<script>
+
+document.querySelector('#submit').addEventListener('click', function(e) {
+	e.preventDefault();
+	handleSubmit(e);
+});
+
+function handleSubmit(e) {	
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', 'upload.php', true);
+	oData = new FormData(document.forms.namedItem("testForm"));
+	
+	xhr.send(oData);
+
+	xhr.onload = function(e) {
+		console.log(e.target.response);
+	}
+
+
+}
+
+</script>
+
+
+</html>

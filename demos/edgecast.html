@@ -1,0 +1,43 @@
+<html>
+<style>
+	
+	body { display:block; width: 1000px;  margin: 0 auto;}
+</style>
+
+<body>
+	hi
+</body>
+<script>
+	var thing = document.querySelector('#thing');
+	if(thing) { console.log('hi');}
+
+
+
+    if (window.XMLHttpRequest) {
+	    // code for IE7+, Firefox, Chrome, Opera, Safari
+    	xmlhttp=new XMLHttpRequest();
+    }
+    else {
+	    // code for IE6, IE5
+    	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("GET","data2.php",false);
+    xmlhttp.send();
+    if(xmlhttp.status == 200) {
+    	//alert('success');
+    } else {
+    	//alert('error');
+    }
+</script>
+</html>
+
+<!--
+
+	Okay, I just answered this question, but here it is again.
+
+JQuery's ".on" function will listen to events of  any selector currently on the page, or placed in the future. 
+
+Thus, 
+$('#myButton').on('click', function(e) {alert("Hello world")} );
+
+-->

@@ -1,0 +1,60 @@
+<html>
+<style>
+	html {
+		text-align: center;
+	}
+	.logo {		
+		max-width: 50%;
+		margin: 20px;
+	}
+	.button-wrapper {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		
+	}
+	.soundButton {
+		width: 30%;
+		height: 20%;
+		font-size: 3.8vw;			
+		border-radius: 20px;
+		border: 2px solid #000;
+		padding: 20px;
+		text-align: center;
+		outline: 0;
+		margin: 10px;
+		text-transform: uppercase;
+		
+	}
+
+</style>
+
+<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/WRC_logo.svg/2000px-WRC_logo.svg.png"/>
+<audio id="ap0" src="" preload="metadata"></audio>
+<audio id="ap1" src="" preload="metadata"></audio>
+
+<div class="button-wrapper">
+	<button class="soundButton" data-src="Celica-drivebyCrackle.mp3">Celica - Drive By Crackle</button>
+	<button class="soundButton" data-src="Celica-highSpeedDriveby.mp3">Celica - High Speed</button>	
+	<button class="soundButton" data-src="Celica-missfireCrackle.mp3">Celica - Misfire</button>
+	<button class="soundButton" data-src="Celica-powerSlide.mp3">Celica - Power Slide</button>		
+	<button class="soundButton" data-src="LanciaDelta-announcer.mp3">Delta - announcer</button>
+	<button class="soundButton" data-src="LanciaDelta-boostBlowoff.mp3">Delta - Boost Blowoff</button>
+	<button class="soundButton" data-src="LanciaDelta-boostShift.mp3">Delta - Boost Shift</button>
+	<button class="soundButton" data-src="LanciaDelta-idelGrumble.mp3">Delta - Gruble Idle</button>
+	<button class="soundButton" data-src="LanciaDelta-medSpeedCorner.mp3">Delta - Med Corner</button>
+	<button class="soundButton" data-src="SubaruImpreza-chipBrap.mp3">Impreza - Chip Brap</button>
+	<button class="soundButton" data-src="SubaruImpreza-crowdHorns.mp3">Impreza - Crowd Horns</button>
+	<button class="soundButton" data-src="SubaruImpreza-gearShift.mp3">Impreza - Gear Shift</button>
+	<button class="soundButton" data-src="SubaruImpreza-hairpinSkid.mp3">Impreza - Hair Pin Skid</button>
+	<button class="soundButton" data-src="SubaruImpreza-screechShifts.mp3">Impreza - Tire Screech</button>
+	<button class="soundButton" data-src="SubaruImpreza-tarmacShift.mp3">Impreza - Tarmac Shift</button>	
+</div>
+
+<label class="ap-status"></label>
+<label class="ap1-status"></label>
+
+<script src="sound-board.js"></script>
+
+</html>

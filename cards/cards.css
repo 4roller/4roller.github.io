@@ -1,0 +1,84 @@
+.dropZone {
+	border: 1px dashed #999;
+	width: 80%;
+	margin: 0 auto;
+	height: 200px;
+	border-radius: 10px;
+	text-align: center;
+	background-color: #99ff00;
+}
+
+.dropZone:before {
+	display:block;
+	font-family: sans-serif;
+	content: "File Drop Zone";
+	height: 20px;
+	margin-top: 85px;
+}
+
+.dropZone.over {
+	opacity: 0.5;
+	background: #efefef;
+}
+
+
+.card {
+	list-style-type: none;
+	text-align:center;
+	box-sizing: border-box;
+	float:left;
+	width:200px;
+	min-height: 100px;
+	padding: 5px 0;
+	border: 1px solid #999;
+	opacity:1;
+	transition: -webkit-transform 0.2s ease-in, color 0.6s ease-in;
+	margin:10px;
+	background: #fff;
+	font-family: sans-serif;
+	box-shadow: 1px 2px 2px 2px #999;
+}
+
+.card:hover {
+	cursor: move;
+}
+
+.card h3 { 
+	margin:0;
+	font-size: 15px;
+}
+
+.card.selected {
+	color:orange;
+	opacity: 0.8;
+	-webkit-transform: scale(0.5);
+}
+
+.card.notify {
+	color:orange;
+	
+}
+
+.card.shrink {
+	-webkit-transform: scale(0.0);
+}
+
+.card.drag {
+	/*background: #fafaff;*/
+	cursor: move;
+}
+
+.card.over {
+	border: 1px dashed #999;
+	opacity:0.8;
+	-webkit-transform: rotate3d(1, 1, 0, 30deg);
+	-webkit-transform-origin: bottom center;
+	
+}
+
+@-webkit-keyframes scaleDown{
+	 100% { -webkit-transform: scale(0.9); }
+	 /*50% { -webkit-transform: scale(1);}*/
+}
+
+

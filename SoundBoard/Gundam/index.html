@@ -1,0 +1,56 @@
+<html>
+<style>
+	html {
+		text-align: center;
+	}
+	.logo {		
+		max-width: 50%;
+		margin: 20px;
+	}
+	.button-wrapper {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		
+	}
+	.soundButton {
+		width: 30%;
+		height: 20%;
+		font-size: 3.8vw;			
+		border-radius: 20px;
+		border: 2px solid #000;
+		padding: 20px;
+		text-align: center;
+		outline: 0;
+		margin: 10px;
+		text-transform: uppercase;
+		
+	}
+
+</style>
+
+<img class="logo" src="http://img05.deviantart.net/18ee/i/2015/265/d/c/mobile_suit_gundam_0079_logo_by_animedark2-d9ai2fu.png"/>
+<!-- <audio id="ap" src="" preload="metadata"></audio> -->
+<audio id="ap0" src="https://dl.dropbox.com/u/48782901/Audio/03%20-%20Collie%20Weed.mp3" preload="metadata"></audio>
+<audio id="ap1" src="https://dl.dropbox.com/u/48782901/Audio/03%20-%20Collie%20Weed.mp3" preload="metadata"></audio>
+
+
+<div class="button-wrapper">
+	<button class="soundButton" data-src="Gundam - Explosion - Post Decay.mp3">Post Decay</button>
+	<button class="soundButton" data-src="Gundam - Machine Gun.mp3">Machine Gun</button>	
+	<button class="soundButton" data-src="Gundam - Piercing Shot.mp3">Piercing Shot</button>
+	<button class="soundButton" data-src="Gundam - Lock On Target.mp3">Lock On Target</button>		
+	<button class="soundButton" data-src="Gundam - Movement - Desend to Move.mp3">Move</button>
+	<button class="soundButton" data-src="Gundam - Movement - Boost.mp3 ">Boost</button>
+	<button class="soundButton" data-src="Gundam - Movement - Thrust.mp3">Thrust</button>
+	<button class="soundButton" data-src="Gundam - Movement - Crumbling Ground.mp3">Crumble</button>
+	<button class="soundButton" data-src="Gundam - Movement - Directional Change.mp3">Directional</button>
+</div>
+
+<label class="ap-status"></label>
+<label class="ap1-status"></label>
+
+<script src="sound-board.js"></script>
+
+</html>

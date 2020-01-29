@@ -1,0 +1,246 @@
+/* Include Reset CSS */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  background: white; }
+
+.card {
+  height: 94px;
+  width: 69px;
+  position: relative;
+  border-radius: 3px;
+  display: inline-block;
+  box-shadow: 0px 1px 1px 1px #777;
+  background-image: url(/node/assets/images/playingcards.png);
+  background-repeat: no-repeat;
+  margin-left: -50px;
+  cursor: move; }
+  .card:hover, .card.selected {
+    -webkit-transition: all .2s ease-in-out;
+    -webkit-transform: rotate(10deg) translate(0px, -15px); }
+
+.container {
+  position: relative;
+  display: block;
+  height: 100px;
+  margin-top: 20px;
+  -webkit-perspective: 600px; }
+
+.top, .right, .left, .bottom {
+  text-align: center;
+  border: 0px solid red;
+  position: relative;
+  width: 100%; }
+
+.top {
+  -webkit-transform: rotateY(0deg); }
+
+.left {
+  -webkit-transform: rotateY(0deg); }
+
+.right {
+  -webkit-transform: rotateY(0deg); }
+
+.bottom {
+  -webkit-transform: rotateX(10deg); }
+
+.d1 {
+  background-position: -2px -296px; }
+
+.d2 {
+  background-position: -75px -296px; }
+
+.d3 {
+  background-position: -148px -296px; }
+
+.d4 {
+  background-position: -221px -296px; }
+
+.d5 {
+  background-position: -294px -296px; }
+
+.d6 {
+  background-position: -367px -296px; }
+
+.d7 {
+  background-position: -440px -296px; }
+
+.d8 {
+  background-position: -513px -296px; }
+
+.d9 {
+  background-position: -586px -296px; }
+
+.d10 {
+  background-position: -659px -296px; }
+
+.dj {
+  background-position: -732px -296px; }
+
+.dq {
+  background-position: -805px -296px; }
+
+.dk {
+  background-position: -878px -296px; }
+
+.c1 {
+  background-position: -2px -2px; }
+
+.c2 {
+  background-position: -75px -2px; }
+
+.c3 {
+  background-position: -148px -2px; }
+
+.c4 {
+  background-position: -221px -2px; }
+
+.c5 {
+  background-position: -294px -2px; }
+
+.c6 {
+  background-position: -367px -2px; }
+
+.c7 {
+  background-position: -440px -2px; }
+
+.c8 {
+  background-position: -513px -2px; }
+
+.c9 {
+  background-position: -586px -2px; }
+
+.c10 {
+  background-position: -659px -2px; }
+
+.cj {
+  background-position: -732px -2px; }
+
+.cq {
+  background-position: -805px -2px; }
+
+.ck {
+  background-position: -878px -2px; }
+
+.h1 {
+  background-position: -2px -198px; }
+
+.h2 {
+  background-position: -75px -198px; }
+
+.h3 {
+  background-position: -148px -198px; }
+
+.h4 {
+  background-position: -221px -198px; }
+
+.h5 {
+  background-position: -294px -198px; }
+
+.h6 {
+  background-position: -367px -198px; }
+
+.h7 {
+  background-position: -440px -198px; }
+
+.h8 {
+  background-position: -513px -198px; }
+
+.h9 {
+  background-position: -586px -198px; }
+
+.h10 {
+  background-position: -659px -198px; }
+
+.hj {
+  background-position: -732px -198px; }
+
+.hq {
+  background-position: -805px -198px; }
+
+.hk {
+  background-position: -878px -198px; }
+
+.s1 {
+  background-position: -2px -100px; }
+
+.s2 {
+  background-position: -75px -100px; }
+
+.s3 {
+  background-position: -148px -100px; }
+
+.s4 {
+  background-position: -221px -100px; }
+
+.s5 {
+  background-position: -294px -100px; }
+
+.s6 {
+  background-position: -367px -100px; }
+
+.s7 {
+  background-position: -440px -100px; }
+
+.s8 {
+  background-position: -513px -100px; }
+
+.s9 {
+  background-position: -586px -100px; }
+
+.s10 {
+  background-position: -659px -100px; }
+
+.sj {
+  background-position: -732px -100px; }
+
+.sq {
+  background-position: -805px -100px; }
+
+.sk {
+  background-position: -878px -100px; }

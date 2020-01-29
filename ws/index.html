@@ -1,0 +1,156 @@
+<h1>Web Socket Test</h1>
+
+<style>
+    #content { height:300px; border: 2px solid #999; padding: 5px; overflow: scroll;}
+    #inputbox {margin: 10px 0;}
+    #dropZone {display: block; border: 1px solid black; width: 100%; height: 50px; text-align: center;}
+    #dropZone.over {border: 1px solid red;}
+</style>
+
+<div id="content"></div>
+<input id="inputBox" size="100" />
+<button id="btnHello">Send</button> 
+<button id="btnBinary">Img</button> 
+<div id="dropZone">Drop Zone</div>
+
+<script type="text/javascript">
+    var webSocket = (function() {
+        var content, btnHello, btnBinray, dropZone, inputBox, connection;
+        var thing;
+
+        var initDom = function() {
+            content = document.querySelector('#content');
+            btnHello = document.querySelector('#btnHello');
+            btnBinary = document.querySelector('#btnBinary');
+            inputBox = document.querySelector('#inputBox');
+            dropZone = document.querySelector('#dropZone');
+        }
+
+        var initEvents = function() {
+            // Define Connection to Server
+            connection = new WebSocket('ws://solid:1337', 'echo-protocol' );
+            //Handle Open
+            connection.onopen = function(evt) { onOpen(evt) };
+            // Handle Text message
+            connection.onmessage = function(evt) { onMessage(evt) };
+
+            btnHello.addEventListener('click', sendHello);
+            btnBinary.addEventListener('click', sendBinary);
+            inputBox.addEventListener('keyup', keyUpHandler);
+            dropZone.addEventListener('dragstart', dragStart);
+            dropZone.addEventListener('dragenter', dragEnter);
+            dropZone.addEventListener('dragover', dragOver);
+            dropZone.addEventListener('dragleave', dragLeave);
+            dropZone.addEventListener('drop', handleDrop);
+        }
+
+
+        var dragStart = function(e) {
+            var el = e.target;
+            el.style.opacity = '0.4';
+            e.dataTransfer.dropEffect = 'move';
+        }
+        var dragEnter = function(e) {
+            e.target.classList.add('over');
+        }
+        var dragOver =  function(e) {
+            e.preventDefault();
+            return false;
+        }
+        var dragLeave = function(e) {
+            e.target.classList.remove('over');          
+        }
+        var handleDrop = function(e) {
+            e.preventDefault();
+            dt = e.dataTransfer;
+            // Get file type
+            var fileType = dt.files[0].type;                        
+            
+            // Define a reader and onload Event
+            var reader = new FileReader();
+            reader.onload = function(){
+                thing = reader.result;                
+            }
+            // Read As Array Buffer
+            reader.readAsDataURL(dt.files[0]);
+
+    
+        }
+
+        var keyUpHandler = function(e) {
+            if(e.keyCode == 13) {
+                btnHello.click();
+            }
+            
+        }
+
+        var sendHello = function() {
+            connection.send(inputBox.value);
+            inputBox.value = "";
+        }
+
+        var sendBinary = function() {
+            //var blob = new Blob([123,456,789]);
+            //console.log(thing);
+            var JSONimg = {
+                'type' : 'img',
+                'data' : thing,
+            }
+            //console.log(JSON.stringify(JSONimg));
+            connection.send(JSON.stringify(JSONimg));
+        }
+
+        var onOpen = function (e) {
+            console.log('connection open');
+            // var obj = {
+            //     name: "Jason",
+            //     id: 12345,
+            //     status: "awesome"
+            // }
+            // connection.send(JSON.stringify(obj));
+            //connection.send('arrayBuffer');
+            //var blob = new Blob([123,456,789]);
+            //connection.send(blob);
+        }
+
+        var onMessage  = function (e) {
+            var div = document.createElement('div');
+            div.innerHTML = (e.data);
+            content.appendChild(div);
+            var offset = content.scrollHeight - content.offsetHeight;
+            content.scrollTop = offset;
+
+            console.log(e);
+
+            //console.log(e.data);        
+
+            //var reader = new FileReader();
+
+            //reader.onload = function(e) {
+            //    var dataURL = reader.result;
+            //}
+
+            //reader.readAsDataURL(e.data);
+            //console.log(reader);
+
+            // setTimeout(function() {
+            //     //console.log(reader.result);
+            //     var img = document.createElement('img');
+            //     img.src = reader.result;
+            //     content.appendChild(img);
+            // },10);
+
+        }
+
+        return {
+            // Public Methods
+            init: function() {
+                console.log('init');
+                initDom();
+                initEvents();
+            }
+        }
+    }());
+
+    webSocket.init();
+</script>

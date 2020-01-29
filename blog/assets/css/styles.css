@@ -1,0 +1,127 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  font-family: sans-serif; }
+
+body {
+  width: 100%;
+  background: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; }
+
+@media screen and (min-width: 900px) {
+  body {
+    background: auto; } }
+h1.header {
+  font-size: 140%;
+  font-family: "Titillium Web";
+  padding: 10px;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-shadow: 2px 5px 5px #cccccc;
+  border-bottom: 1px solid silver;
+  box-shadow: 0px 1px 25px 0px #cccccc; }
+
+div.stock1Wrapper {
+  max-width: 800px;
+  padding: 0px;
+  margin: 0 0 10px 0;
+  display: inline-block;
+  text-align: right;
+  position: relative;
+  box-shadow: 1px 3px 20px 1px #cccccc;
+  width: auto; }
+  div.stock1Wrapper img.stock1 {
+    display: block;
+    width: 100%; }
+
+div.stock1Wrapper::after {
+  content: "Jason Leung";
+  color: #000;
+  display: inline-block;
+  position: absolute;
+  padding: 3px;
+  font-size: 50%;
+  letter-spacing: 0.5em;
+  right: 5px;
+  margin-top: 0px; }
+
+article {
+  position: relative;
+  padding: 10px;
+  margin: 0 0 20px; }
+  article h2.title {
+    display: block;
+    font-size: 110%;
+    font-family: "Anonymous Pro";
+    margin: 0 0 5px 0;
+    color: #008820;
+    text-shadow: 1px 1px 5px #aaaaaa; }
+  article date {
+    position: relative;
+    display: block;
+    font-size: 80%;
+    color: #999;
+    font-style: italic;
+    margin-bottom: 5px; }
+  article p {
+    font-size: 100%;
+    font-weight: normal; }
+  article h4.subheader {
+    font-family: sans-serif;
+    font-style: italic;
+    font-size: 80%;
+    color: #000;
+    margin: 0 0 10px 10px; }
+  article h4.subheader:before {
+    content: " - "; }

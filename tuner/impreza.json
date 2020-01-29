@@ -1,0 +1,260 @@
+{
+  "results": {
+    "id": 401574187,
+    "name": "2.0i Sport Premium PZEV 4dr Hatchback AWD (2.0L 4cyl CVT)",
+    "price": {
+      "baseMSRP": 22095.0,
+      "baseInvoice": 20962.0
+    },
+    "totalSeating": 5,
+    "color": {
+      "EXTERIOR": [
+        {
+          "name": "Quartz Blue Pearl",
+          "rgb": "64,78,106"
+        },
+        {
+          "name": "Crystal White Pearl",
+          "rgb": "247,243,240"
+        },
+        {
+          "name": "Dark Gray Metallic",
+          "rgb": "130,132,129"
+        },
+        {
+          "name": "Crystal Black Silica",
+          "rgb": "0,0,0"
+        },
+        {
+          "name": "Ice Silver Metallic",
+          "rgb": "148,148,148"
+        },
+        {
+          "name": "Crystal White Pearl",
+          "rgb": "247,243,240"
+        },
+        {
+          "name": "Venetian Red Pearl",
+          "rgb": "128,0,0"
+        },
+        {
+          "name": "Dark Blue Metallic",
+          "rgb": "27,47,89"
+        },
+        {
+          "name": "Crystal Black Silica",
+          "rgb": "0,0,0"
+        }
+      ],
+      "INTERIOR": [
+        {
+          "name": "Ivory, cloth",
+          "rgb": "210,202,181"
+        },
+        {
+          "name": "Black, cloth",
+          "rgb": "0,0,0"
+        }
+      ]
+    },
+    "features": {
+      "Power Feature": {
+        "1 one-touch power windows": true,
+        "remote keyless power door locks": true,
+        "Heated mirrors": true
+      },
+      "Rearseats": {
+        "Rear head room": "37.7 in.",
+        "Rear hip Room": "53.1 in.",
+        "Rear leg room": "35.4 in.",
+        "Rear shoulder room": "54.2 in.",
+        "rear ventilation ducts": true,
+        "Split-folding rear seatback": true
+      },
+      "Warranty": {
+        "Basic": "3 yr./ 36000 mi.",
+        "Drivetrain": "5 yr./ 60000 mi.",
+        "Roadside": "3 yr./ 36000 mi."
+      },
+      "Measurements": {
+        "Maximum cargo capacity": "52.4 cu.ft.",
+        "Length": "174.0 in.",
+        "Cargo capacity, all seats in place": "22.5 cu.ft.",
+        "Height": "59.4 in.",
+        "EPA interior volume": "120.0 cu.ft.",
+        "Wheel base": "104.1 in.",
+        "Width": "68.5 in."
+      },
+      "Comfort & Convenience": {
+        "Air conditioning": true,
+        "front seatback storage": true,
+        "cruise control": true,
+        "leather steering wheel": true,
+        "turn signal in mirrors": true,
+        "front and rear cupholders": true,
+        "front and rear door pockets": true,
+        "electric power steering": true,
+        "rear view camera": true,
+        "tilt and telescopic steering wheel": true,
+        "Dual vanity mirrors": true,
+        "Transmission, cruise and audio controls on steering wheel": true,
+        "interior air filtration": true
+      },
+      "Exterior Options": {
+        "Sport Mesh Grille Dark Gray Metallic": true,
+        "Sport Mesh Grille Dark Blue Metallic": true,
+        "Aero Splash Guard Dark Gray Metallic": true,
+        "STI Roof Spoiler": true,
+        "Sport Mesh Grille Crystal Black Silica": true,
+        "Body Side Molding Kit Quartz Blue Pearl": true,
+        "Strake Sport Quartz Blue Pearl": true,
+        "Roof Spoiler Venetian Red Pearl": true,
+        "Roof Spoiler Dark Blue Metallic": true,
+        "Body Side Molding Kit Dark Gray Metallic": true,
+        "Aero Splash Guards Quartz Blue Pearl": true,
+        "Roof Spoiler Crystal Black Silica": true,
+        "Roof Spoiler Ice Silver Metallic": true,
+        "Strake Venetian Red Pearl": true,
+        "Aero Splash Guard Ice Silver Metallic": true,
+        "Aero Splash Guards Crystal White Pearl": true,
+        "Sport Mesh Grille Venetian Red Pearl": true,
+        "Body Side Molding Kit - Dark Blue Metallic": true,
+        "Sport Mesh Grille Crystal White Pearl": true,
+        "Wheel Locks - Aluminum Wheels": true,
+        "Body Side Molding Kit Crystal Black Silica": true,
+        "Aero Splash Guard Dark Blue Metallic": true,
+        "Aero Splash Guards Crystal Black Silica": true,
+        "Strake Crystal White Pearl": true,
+        "Strake Crystal Black Silica": true,
+        "Rear Bumper Applique": true,
+        "Body Side Molding Kit Ice Silver Metallic": true,
+        "Roof Spoiler Crystal White Pearl": true,
+        "Cross Bar Kit - Round": true,
+        "Strake Sport Ice Silver Metallic": true,
+        "Roof Spoiler Quartz Blue Pearl": true,
+        "Aero Splash Guards Venetian Red Pearl": true,
+        "Body Side Molding Kit - Crystal White Pearl": true,
+        "Strake Dark Blue Metallic": true,
+        "Roof Spoiler Dark Gray Metallic": true,
+        "Sport Mesh Grille Quartz Blue Pearl": true,
+        "Body Side Molding Kit Venetian Red Pearl": true,
+        "Aero Cross Bar Set": true,
+        "Sport Mesh Grille Ice Silver Metallic": true
+      },
+      "Drive Train": {
+        "Drive type": "all wheel drive",
+        "Center limited slip differential": true,
+        "Transmission": "continuously variable-speed automatic"
+      },
+      "Suspension": {
+        "four-wheel independent suspension": true,
+        "Front and rear stabilizer bar": true
+      },
+      "Instrumentation": {
+        "clock": true,
+        "external temperature display": true,
+        "trip computer": true,
+        "tachometer": true
+      },
+      "In Car Entertainment": {
+        "auxiliary audio input and USB with external media control": true,
+        "USB connection": true,
+        "AM/FM  stereo": true,
+        "6 total speakers": true
+      },
+      "Frontseats": {
+        "Front head room": "39.8 in.",
+        "6 -way manual driver seat adjustments": true,
+        "height adjustable driver seat": true,
+        "multi-level heating passenger seat": true,
+        "sport front seats": true,
+        "Front shoulder room": "55.6 in.",
+        "multi-level heating driver seat": true,
+        "Front leg room": "43.5 in.",
+        "4 -way manual passenger seat adjustment": true,
+        "Front hip room": "52.2 in.",
+        "cloth": true
+      },
+      "Packages": {
+        "Popular Package #1": true,
+        "Kicker Audio Upgrade Package #4": true,
+        "Standard Model": true,
+        "Moonroof + Navigation System + Eyesight + Subaru Starlink 7.0\" Multimedia\nPlus Audio": true,
+        "Moonroof": true
+      },
+      "Fuel": {
+        "EPA mileage est. (cty/hwy)": "28/37 mpg",
+        "Range in miles (cty/hwy)": "406.0/536.5 mi.",
+        "Fuel tank capacity": "14.5 gal.",
+        "Combined MPG": "31",
+        "Fuel type": "regular unleaded"
+      },
+      "Safety": {
+        "4-wheel ABS": true,
+        "Rear door child safety locks": true,
+        "Turn signal mirrors": true,
+        "daytime running lights": true,
+        "engine immobilizer": true,
+        "front fog/driving lights": true,
+        "Rear center 3-point belt": true,
+        "child seat anchors": true,
+        "dual front side-mounted airbags": true,
+        "front and rear head airbags": true,
+        "stability control": true,
+        "Emergency braking assist": true,
+        "Passenger airbag occupant sensing deactivation": true,
+        "Rear height adjustable headrests": true,
+        "remote anti-theft alarm system": true,
+        "2 front headrests": true,
+        "3 rear headrests": true,
+        "tire pressure monitoring": true,
+        "traction control": true,
+        "Ventilated front disc / solid rear disc brakes": true
+      },
+      "Tires and Wheels": {
+        "inside mounted spare tire": true,
+        "205/50R17 88V tires": true,
+        "temporary spare tire": true,
+        "All season tires": true,
+        "17 x 7.0 in. wheels": true,
+        "alloy wheels": true
+      },
+      "Engine": {
+        "Torque": "145 ft-lbs. @ 4200 rpm",
+        "Base engine size": "2.0 L",
+        "Horsepower": "148 hp @ 6200 rpm",
+        "Turning circle": "34.8 ft.",
+        "Valves": "16",
+        "Base engine type": "gas",
+        "Valve timing": "Variable",
+        "Cam type": "Double overhead cam (DOHC)",
+        "Cylinders": "flat 4"
+      },
+      "Interior Options": {
+        "Rear Seat Back Cargo Net": true,
+        "Center Console Sliding Armrest - Black": true,
+        "10\" Powered Subwoofer": true,
+        "Auto Dimming Mirror w/Compass and Homelink": true,
+        "Rear Seat Back Protector": true,
+        "All-Weather Floor Mats": true,
+        "STI Shift Knob CVT": true,
+        "Leather Shift Knob - CVT": true,
+        "110V Power Outlet": true,
+        "Interior Illumination Kit Red": true,
+        "Upgraded Speakers": true,
+        "Cargo Tray (5 Door)": true,
+        "Tweeter Kit": true,
+        "Sunshade": true,
+        "Side Cargo Nets": true,
+        "Center Console Tray - Ivory": true,
+        "Center Console Tray - Black": true,
+        "Interior Illumination Kit Blue": true,
+        "Cargo Net Trunk": true,
+        "Auto Dimming Mirror w/Compass": true,
+        "Center Console Sliding Armrest - Ivory": true,
+        "Side Sill Plates": true,
+        "Rear Cargo Net": true
+      }
+    }
+  }
+}

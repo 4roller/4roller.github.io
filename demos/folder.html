@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+	html,body {padding:0; margin:0; background:#222;}
+
+	.wrapper { margin: 100px; position:relative; -webkit-perspective: 800px; background: #333; height: 424px; width:640px; border:8px solid #fff;}
+
+	.slide {height:100%; 
+		border:0px solid green; width:10%; display:inline-block; position:relative; float:left; background-repeat:no-repeat;
+		background-image: url(http://farm6.staticflickr.com/5466/9232744563_bba23e43cc_z.jpg);
+		-webkit-transform-origin: left center;  
+		-webkit-transition: -webkit-transform .3s ease-in-out;
+	}
+	.slide1 {background-position: 0 0; }
+	.slide2 {background-position: 11% 0;}
+	.slide3 {background-position: 22% 0;}
+	.slide4 {background-position: 33% 0;}
+	.slide5 {background-position: 44% 0; }
+	.slide6 {background-position: 55% 0; }
+	.slide7 {background-position: 66% 0; }
+	.slide8 {background-position: 77% 0; }
+	.slide9 {background-position: 88% 0; }
+	.slide10 {background-position: 99% 0; }
+
+	.wrapper:hover .slide1 {-webkit-transform: translate3d(0px,0,0) rotate3d(0, 1, 0, 0deg); }
+	.wrapper:hover .slide2 {-webkit-transform: translate3d(-0%,0,0px) rotate3d(0, 1, 0, -0deg); }
+	.wrapper:hover .slide3 {-webkit-transform: translate3d(-0%,0,0px) rotate3d(0, 1, 0, -0deg); }
+	.wrapper:hover .slide4 {-webkit-transform: translate3d(-0%,0,0px) rotate3d(0, 1, 0, -0deg); }
+	.wrapper:hover .slide5 {-webkit-transform: translate3d(-0%,0,0px) rotate3d(0, 1, 0, -0deg); }
+	.wrapper:hover .slide6 {-webkit-transform: translate3d(-0%,0,0px) rotate3d(0, 1, 0, -20deg); }
+	.wrapper:hover .slide7 {-webkit-transform: translate3d(-7%,0,20px) rotate3d(0, 1, 0, -30deg); }
+	.wrapper:hover .slide8 {-webkit-transform: translate3d(-21%,0,50px) rotate3d(0, 1, 0, -50deg); }
+	.wrapper:hover .slide9 {-webkit-transform: translate3d(-58%,0,100px) rotate3d(0, 1, 0, -70deg); }
+	.wrapper:hover .slide10 {-webkit-transform: translate3d(-125%,0,160px) rotate3d(0, 1, 0, -90deg); }
+	
+
+
+</style>
+
+
+<body>
+	<div class="wrapper">
+		<div class="slide slide1"></div>
+		<div class="slide slide2"></div>
+		<div class="slide slide3"></div>
+		<div class="slide slide4"></div>
+		<div class="slide slide5"></div>
+		<div class="slide slide6"></div>
+		<div class="slide slide7"></div>
+		<div class="slide slide8"></div>
+		<div class="slide slide9"></div>
+		<div class="slide slide10"></div>
+	</div>
+	
+</body>
+
+
+
+</html>

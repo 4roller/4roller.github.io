@@ -1,0 +1,200 @@
+<html>
+<style>
+body {
+	margin:0;
+	background:#F2FBEF;
+}
+
+@-webkit-keyframes bg { 
+	from   { -webkit-transform: rotate(0) }
+	to { -webkit-transform: rotate(360deg) }
+}
+
+.bg {
+	display:none;
+	position:absolute;
+	margin: auto auto;
+	border: 0px solid #000;
+	width:2000px;
+	height:2000px;
+	left:50%;
+	top:50%;
+	margin-top: -1000px;
+	margin-left: -1000px;
+	background: linear-gradient(0deg, #D358F7 45%, #F4FA58 55% );
+	-webkit-animation: bg 10s infinite linear;
+	
+	/*z-index: 2;*/
+}
+
+
+.containter {
+	position: absolute;
+	opacity: 0.8;
+	-webkit-transition: opacity 2750;
+}
+
+#container0 {
+    margin:0;
+    padding:0;
+    float:left;
+    background: transparent;
+}
+
+#container1 {
+    margin:0;
+    padding:0;
+    float:left;
+    background: transparent;
+}
+
+
+.containter.fade {
+	opacity: 0;
+	-webkit-transition: opacity 2750;
+}
+
+
+@-webkit-keyframes block { 
+	from   { 
+		/*-webkit-transform: rotate(0);*/
+		-webkit-transform: rotate3d(1, 0, 0, 0deg) 
+		rotate3d(0, 1, 0, 0deg) 
+		rotate3d(0, 0, 1, 0deg)
+
+	}
+	to { 
+		/*-webkit-transform: rotate(360deg);*/
+		-webkit-transform: rotate3d(1, 0, 0, 0deg) 
+		rotate3d(0, 1, 0, 90deg) 
+		rotate3d(0, 0, 1, 360deg)
+		
+	}
+}
+
+.block { 
+    float:left;
+    display:block; 
+    width: 80px; 
+    height: 80px;
+    margin:0;
+    padding:0;
+    border:0px solid #999;
+    /*-webkit-animation: block 25000 infinite linear;*/
+    /*box-shadow: 0px 5px 5px #555;*/
+}
+
+.c1 { background: #74DF00; }
+.c2 { background: #31B404; }
+.c3 { background: #FE9A2E; }
+.c4 { background: #2E64FE; }
+.c5 { background: #40FF00; }
+
+.br1 { border-top-left-radius: 100px; }
+.br2 { border-top-right-radius: 100px; }
+.br3 { border-bottom-left-radius: 100px; }
+.br4 { border-bottom-right-radius: 100px; }
+
+</style>
+<div class="bg"></div>
+<div id="container0" class="containter"></div>
+<div id="container1" class="containter"></div>
+
+<script>
+var camo = (function() {
+	
+	// Constants
+	var NUM_COLORS = 5;
+	var NUM_BLOCKS = 800;
+	var BR = 4;
+	var DELAY = 8500;
+	var BLOCK_SIZE = 40;
+
+	// DOM stuff
+	var cont0 = document.querySelector('#container0');
+	var cont1 = document.querySelector('#container1');
+
+	// Variables
+	var flag = 0;
+	var clientW, clientH;
+
+	var getCorner = function() {
+		return Math.floor( (Math.random() * BR) + 1 );
+	};
+
+	var getColour = function() {
+		return Math.floor( (Math.random() * NUM_COLORS) + 1 );
+	};
+
+	// Private Functions
+	var repaint = function(thing) {
+		var cont = document.querySelector('#container' + thing);
+		cont.innerHTML = '';
+		var blockArr = [];
+		for( var i=0; i< NUM_BLOCKS; i++) {
+		    var block = document.createElement('div');
+		    var randColour = getColour();
+		    var randCorner = getCorner();
+		    block.classList.add("block");
+		    block.classList.add("c" + randColour);
+		    block.classList.add("br" + randCorner);
+		    if(blockArr.length > 0) {
+		    	var sameCorner = true;
+				if( blockArr[i-1].classList.contains("br" + randCorner)) {
+					var newCorner = randCorner;
+					while(newCorner == randCorner) {
+						newCorner = getCorner();
+						block.classList.remove("br" + randCorner);
+						block.classList.add("br" + newCorner);;
+					}
+				}
+		    }
+		    
+
+		    blockArr.push(block);
+		    cont.appendChild(block);
+		}
+		cont.classList.remove('fade');
+		setTimeout(function() {
+			cont.classList.add('fade');
+		},DELAY);
+	}
+
+	var start = function() {
+		setInterval(function() { 
+			if(flag == 0) {
+				repaint(flag);
+				flag = 1;	
+			} else {
+				repaint(flag);
+				flag = 0;
+			}
+		}, DELAY);
+		repaint(1);
+	}
+
+	var calcDimensions = function() {
+		clientW = document.body.clientWidth;
+		clientH = document.body.clientHeight;
+		NUM_BLOCKS = Math.floor(clientW/BLOCK_SIZE/2) * Math.floor(clientH/BLOCK_SIZE/2);
+	}
+
+	var getPrevious = function(curIndex) {
+		var retObj = {};
+		return retObj;
+	}
+
+	return {
+		init: function() {
+			calcDimensions();
+			start();
+		},
+	}
+
+})();
+
+camo.init();
+
+</script>
+</html>
+

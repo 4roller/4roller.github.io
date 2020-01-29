@@ -1,0 +1,69 @@
+<html>
+    <body>
+        <h1>Web Workers</h1>
+
+        <img class="spiderman" src="http://images.gmanews.tv/v3/webpics/v3/2014/03/640_2014_03_10_17_14_15.jpg"  />
+        <br />
+        <button onclick="sayHi()">Say Hi</button>
+        <button onclick="doSomething()">doSomething</button>
+        <button onclick="sendImage()">sendImage</button>
+        <button onclick="destroy()">destroy</button>
+
+        <div id="output">This is the default output.</div>
+
+        <script>
+
+	const sayHi = () => {
+		worker.postMessage({cmd: 'hi', msg:'hi'});
+	};
+
+	const doSomething = () => {
+		worker.postMessage( {cmd: 'doSomething', msg: 'I am doing sometihng'} );
+	};
+
+	const sendImage = () => {
+
+        let blob = new Blob(['this is an array']);
+        let blobUrl = window.URL.createObjectURL(blob, {'type': 'plain/text'});
+        console.log(blobUrl, blob);
+        worker.postMessage({cmd: 'sendImage', msg: blobUrl});
+    };
+
+	const destroy = () => {
+		worker.postMessage( {cmd: 'destroy', msg: 'worker is dead'} );
+	};
+
+	const worker = new Worker('task.js');
+
+	worker.addEventListener('message', (e) => {
+        const fReader = new FileReader();
+        fReader.onloadend = (e) => {
+            return e.srcElement.result;
+        }
+		console.log('hello',  typeof e.data);
+        if(typeof e.data === 'string' && e.data.indexOf('blob') != -1) {
+            let thing = fReader.readAsText(e.data);
+            console.log(thing);
+        } else {
+            output2Html(e.data);
+        }
+	
+	});
+
+    const output2Html = (thing) => {
+    	let el = document.createElement('div');
+		el.innerHTML = thing
+		document.querySelector('#output').appendChild(el);     
+    }
+
+	worker.addEventListener('error', (e) => {
+		console.log(e);
+	});
+
+
+        </script>
+
+    </body>
+
+
+</html>

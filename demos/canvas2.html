@@ -1,0 +1,29 @@
+<html>
+ <head>
+  <script type="application/javascript">
+    function draw() {
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+  		ctx.fillRect(25,25,100,100);
+    	ctx.clearRect(45,45,60,60);
+    	ctx.strokeRect(50,50,50,50);
+
+    	ctx.strokeRect(0,0,500,500);
+
+
+    	ctx.beginPath();
+    	ctx.moveTo(200,200);
+    	ctx.lineTo(200,400);
+    	ctx.lineTo(400,200);
+    	ctx.closePath();
+    	ctx.stroke();
+      }
+    }
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="canvas" width="500px" height="500px"></canvas>
+ </body>
+</html>

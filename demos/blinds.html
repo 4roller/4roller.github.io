@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Blinds Demo</title>
+		<style>
+			#frame {position: relative; border:0px solid green; width: 330px;}
+			.blind { width: 329px; height: 22px; color: #999; position:relative; border:0px solid #333; top:0; 
+				background: -webkit-linear-gradient(top, #888, black);
+				
+				-webkit-transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, 0deg) rotate3d(0, 0, 1, 0deg);
+			}
+			.blind.open {
+				-webkit-transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, 0deg) rotate3d(0, 0, 1, 0deg);
+				-webkit-transition: -webkit-transform .7s ease-in;
+				
+			}
+			#imageThing{ position: absolute; }
+		</style>
+	</head>
+	<body>
+		<h1></h1>
+		<div id="frame">
+			<img id="imageThing" src="http://www.biography.com/imported/images/Biography/Images/Galleries/Marilyn%20Monroe/marilyn-monroe-favorites-sized.jpg" />
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+			<div class="blind"></div>
+		</div>
+	</body>
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script>
+
+		var blindJS = (function(){ 
+			return {
+				openBlind: function(){
+					$('.blind').each(function(){
+						$(this).addClass('open');
+					});
+				},
+				closeBlind: function() {
+					$('.blind').each(function(){
+						$(this).removeClass('open');
+					});
+				}
+
+
+
+			}
+		})();
+
+
+		$('document').ready(function() {
+			
+			$('#frame').toggle(
+				function(){
+					blindJS.openBlind();				
+				}, 
+				function(){
+					blindJS.closeBlind();
+				}
+			);
+			
+		});
+
+	</script>
+</html>
