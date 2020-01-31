@@ -193,11 +193,10 @@ html {
     #deck #playerControls button {
       display: inline-block;
       margin: 0 10px;
-      float: left;
       border: 0px solid gold;
       text-indent: -999em;
       height: 40px;
-      background-image: url(http://solid.it.cx/jamd/assets/images/controls-sprite.png);
+      background-image: url(../images/controls-sprite.png);
       background-repeat: no-repeat;
       background-color: transparent; }
     #deck #playerControls #previousTrack {
