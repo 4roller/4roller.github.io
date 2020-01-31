@@ -1,0 +1,106 @@
+<!doctype html>
+<!--
+	JAMD - Just Another Music Deck
+		Jason Leung - 2013.03.15
+		HTML5 - Audio Deck
+		Interface - retro cassette deck, possibly skinable, digital readout
+		Playlist - drag and drop, accordian animation fold out (like cassette cover), dropbox/google drive integration.
+		Artist/Album information via 3rd party API, read meta data
+		Dual Players - playbackrate - mixing
+
+		Resources:
+		https://developer.mozilla.org/en-US/docs/HTML/Using_HTML5_audio_and_video
+		http://html5doctor.com/html5-audio-the-state-of-play/  
+		http://caniuse.com/
+		http://www.html5rocks.com/en/tutorials/file/dndfiles/
+		http://www.html5rocks.com/en/tutorials/webaudio/intro/
+		http://blog.gingertech.net/wp-content/uploads/2011/01/LCA_MM_AVProc2011/#slide1
+		http://thecssninja.com/talks/dnd_and_friends/
+
+-->
+<html lang="en">
+	<head>
+		<meta charset="uft-8">
+		<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=3.0" />
+		<title>JAMD - Just Another Music Deck</title>
+		<link rel="stylesheet" href="assets/css/style.css"></link>
+	</head>
+
+	<body>
+
+	<!-- <audio id="ap" src="https://dl.dropbox.com/u/48782901/Audio/03%20-%20Collie%20Weed.mp3" preload="metadata"></audio> -->
+	<!-- <audio id="ap" src="1xtra.mp3" preload="metadata"></audio> -->
+	<audio id="ap" src="" preload="metadata"></audio>
+
+	<div id="deck">
+		
+		<div id="display">
+			<div id="description"></div>
+			<div>
+				<div id="time">00:00:00</div>
+				<div id="duration">/ 00:00:00</div>
+			</div>
+			<div id="volumeLevel">Volume 100%</div>
+			<div id="pitchLevel">Speed: +-0</div>
+
+			<div id="trackProgressWrap">
+				<div id="buffer"></div>
+				<input class="trackProgress" type="range" min="0" value="0" />
+			</div>
+		</div>
+
+
+
+		<div id="playerControls">
+			<button id="previousTrack">Previous Track</button>
+			<button id="seekBackward">Seek Back</button>
+			<button id="play">Play</button>
+			<button id="seekForward">Seek Forward</button>
+			<button id="nextTrack">Next Track</button>
+			<div id="volSlideWrap">
+				<input class="volumeSlider" type="range" min="0" max="100" value="100" />
+			</div>
+			<div id="pitchSlideWrap">
+				<input class="pitchSlider" type="range" min="50" max="150" value="100" />
+			</div>
+		</div> 
+
+
+
+	</div>
+
+	<div id="playlistWrap">
+		<h2>Playlist</h2>
+		<div class="dropInstructions">Drop Your Files Here</div>
+		<ol id="playlist"></ol>
+	</div>
+		
+		<section id="legend">
+			<table>
+				<tr>	<th>Keys</th>			<th>Description</th>													</tr>
+				<tr>	<td>Space</td>			<td>Play / Pause</td> 													</tr>
+				<tr>	<td>&larr; &rarr;</td>	<td>Seek Forward / Backward 5 secs. <br />(shift for 1 min)</td> 		</tr>				
+				<tr>	<td>+ - </td>			<td>Volume up / down</td>												</tr>
+				<tr>	<td>[ ]</td>			<td>Speed up / down</td>												</tr>
+				<tr>	<td>\</td>				<td> Speed reset to neutral</td> 										</tr>
+				<tr>	<td>&lt; &gt; N P</td>	<td>Track Next / Previous (playlist)</td>								</tr>
+				<tr>	<td>C</td>				<td>Cue (Hold to play)</td>												</tr>
+				<tr>	<td>X</td>				<td>Mark Cue Spot</td>													</tr>
+				<tr>	<td>Z</td>				<td>Reset Cue to Start of Track</td>									</tr>
+				<tr>	<td>F</td>				<td>Fade Out and Pause</td>												</tr>
+			</table>
+		</section>
+
+    <div id="over">
+       Pause 
+    </div>
+
+	<script src="assets/js/jDataView.js"></script>
+	<script src="assets/js/jamd.js"></script>
+	<script src="assets/js/jamdPlaylist.js"></script>
+	<script src="assets/js/rover.js"></script>
+
+
+</body>
+
+</html>

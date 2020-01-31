@@ -1,0 +1,316 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: 'Proxima';
+  src: url("../fonts/ProximaNova-Light.ttf"); }
+
+@font-face {
+  font-family: 'Digital';
+  src: url("../fonts/digital-7__mono_.ttf"); }
+
+html {
+  background: #555555;
+  font-family: sans-serif; }
+
+#deck {
+  position: relative;
+  background-repeat: no-repeat;
+  background-color: #222222;
+  background-image: -webkit-gradient(linear, center top, center bottom, color-stop(0, #222222), color-stop(1, #111111));
+  padding-bottom: 10px;
+  width: 500px; }
+  #deck #display {
+    display: block;
+    position: relative;
+    height: auto;
+    background-color: #0B9975;
+    margin: 10px 10px;
+    border-radius: 5px;
+    border: 2px solid #666666;
+    font-family: 'Digital',courier; }
+    #deck #display #time {
+      font-size: 50px;
+      padding: 0 10px;
+      display: inline-block;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+    #deck #display #duration {
+      font-size: 25px;
+      padding: 0px;
+      display: inline-block;
+      margin: 0 10px 0 0;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+    #deck #display #description {
+      font-family: 'Proxima';
+      font-size: 11px;
+      margin: 5px;
+      background: transparent;
+      border: 0;
+      color: #000;
+      width: 95%;
+      height: 10px; }
+    #deck #display #volumeLevel {
+      display: inline-block;
+      font-size: 14px;
+      right: 10px;
+      bottom: 30px;
+      font-family: 'Proxima',courier;
+      margin: 0px 10px 5px; }
+    #deck #display #pitchLevel {
+      display: inline-block;
+      font-size: 14px;
+      right: 10px;
+      bottom: 30px;
+      font-family: 'Proxima',courier;
+      margin: 0px 10px 5px; }
+    #deck #display #trackProgressWrap {
+      background-color: #0B8965;
+      position: relative;
+      display: block;
+      height: 20px;
+      margin: 0 0 5px 0;
+      width: 100%; }
+    #deck #display #trackProgressWrap #buffer {
+      width: 0;
+      height: 3px;
+      top: 9px;
+      background-color: green;
+      position: absolute; }
+    #deck #display #trackProgressWrap input[type="range"] {
+      -webkit-appearance: none;
+      width: auto;
+      height: 2px;
+      background-color: #0B9975;
+      width: 100%;
+      margin: 0; }
+    #deck #display #trackProgressWrap input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 3px;
+      height: 10px;
+      background: #555;
+      cursor: pointer; }
+  #deck #playerControls {
+    margin: 0 10px 10px 10px;
+    position: relative;
+    border: 1px solid #333333;
+    height: 40px; }
+    #deck #playerControls #volSlideWrap {
+      position: relative;
+      display: inline-block;
+      height: 25px;
+      margin: 0 0 0 10px;
+      width: 80px; }
+    #deck #playerControls #volSlideWrap input[type="range"] {
+      -webkit-appearance: none;
+      width: auto;
+      height: 2px;
+      background-color: #888;
+      width: 100%;
+      margin: 0; }
+    #deck #playerControls #volSlideWrap input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fefefe), color-stop(0.49, #dddddd), color-stop(0.51, #d1d1d1), color-stop(1, #a1a1a1)); }
+    #deck #playerControls #pitchSlideWrap {
+      position: relative;
+      display: inline-block;
+      height: 30px;
+      width: 80px;
+      border: 0px solid gold;
+      padding-top: 6px;
+      -webkit-transform: rotate(0deg); }
+    #deck #playerControls #pitchSlideWrap input[type="range"] {
+      -webkit-appearance: none;
+      width: auto;
+      height: 2px;
+      background-color: #888;
+      width: 80%;
+      margin: 0 0 0 10px; }
+    #deck #playerControls #pitchSlideWrap input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fefefe), color-stop(0.49, #dddddd), color-stop(0.51, #d1d1d1), color-stop(1, #a1a1a1)); }
+    #deck #playerControls button {
+      display: inline-block;
+      margin: 0 10px;
+      float: left;
+      border: 0px solid gold;
+      text-indent: -999em;
+      height: 40px;
+      background-image: url(http://solid.it.cx/jamd/assets/images/controls-sprite.png);
+      background-repeat: no-repeat;
+      background-color: transparent; }
+    #deck #playerControls #previousTrack {
+      width: 25px;
+      background-position: 3px 0; }
+    #deck #playerControls #seekBackward {
+      width: 40px;
+      background-position: -27px 0; }
+    #deck #playerControls #play {
+      width: 50px;
+      background-position: -80px 0; }
+    #deck #playerControls #seekForward {
+      width: 40px;
+      background-position: -136px 0; }
+    #deck #playerControls #nextTrack {
+      width: 25px;
+      background-position: -178px 0; }
+
+#playlistWrap {
+  position: relative;
+  display: block;
+  width: 500px; }
+  #playlistWrap h2 {
+    font-family: "Proxima", helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 0 10px 10px;
+    background: #333;
+    color: #fff; }
+  #playlistWrap .dropInstructions {
+    text-align: center;
+    height: auto;
+    display: inline-block;
+    width: 200px;
+    background: orange;
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    right: 0; }
+  #playlistWrap .dropInstructions.over {
+    background-color: green; }
+  #playlistWrap #playlist {
+    display: block;
+    position: relative;
+    width: 500px;
+    height: auto;
+    background: #fff;
+    font-family: "Proxima", helvetica, sans-serif;
+    padding: 0px;
+    list-style: decimal; }
+    #playlistWrap #playlist li {
+      border-bottom: 1px solid #999999;
+      padding: 4px;
+      list-style-position: outside;
+      margin-left: 30px;
+      cursor: pointer; }
+      #playlistWrap #playlist li:hover {
+        color: green; }
+      #playlistWrap #playlist li.over {
+        border-top: 2px solid yellow;
+        background: green; }
+      #playlistWrap #playlist li.playing {
+        font-style: italic;
+        font-weight: bold; }
+
+#legend {
+  display: inline-block;
+  color: #fff;
+  font-family: sans-serif;
+  margin: 10px; }
+  #legend table {
+    border: 1px solid red;
+    font-size: 65%; }
+    #legend table th, #legend table tr {
+      border: 1px solid #444444;
+      text-align: left;
+      padding: 2px 5px; }
+    #legend table td {
+      border: 1px solid #444444;
+      padding: 2px 5px; }
+
+#over {
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 200px;
+  font-size: 50px;
+  color: #fff;
+  border: 0px solid #efefef;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -100px;
+  text-align: center;
+  opacity: 0;
+  display: none;
+  text-shadow: 3px 3px 2px black;
+  -webkit-animation-name: tester;
+  -webkit-animation-duration: 1000ms;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-transform: scale(0.5); }
+  #over.go {
+    display: block; }
+
+@-webkit-keyframes tester {
+  0% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.5; }
+
+  50% {
+    -webkit-transform: scale(1);
+    opacity: 1; }
+
+  100% {
+    -webkit-transform: scale(0.5);
+    opacity: 0; } }
