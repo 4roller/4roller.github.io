@@ -1,0 +1,90 @@
+
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css" />    
+</head>
+
+<body>
+    <h1>VS Auto</h1>
+    <div class='v1'>
+    </div>
+
+</body>
+
+</html>
+
+<script src="cars.js"></script>
+<script>
+
+    console.log('hi', ENGINE_INDUCTION);
+    let tabindex = 0;
+    const getVsCode = (car) => {
+        const returnCarRow = document.createElement('div');
+        returnCarRow.classList.add('vehicle');
+        returnCarRow.setAttribute('tabindex', tabindex++);
+        returnCarRow.setAttribute('type', "radio");
+        returnCarRow.setAttribute('name', "vehicle");
+        
+    
+        
+        
+        let c = car;
+        const p2w = getPowerToWeight(c);
+        let classTier = '';
+        c.tier = 0;
+        if (p2w > 8) {
+            c.tier = 1;
+        }
+        if (p2w <= 6 && p2w > 8) {
+            c.tier = 2;
+        }
+        if (p2w <= 6) {
+            c.tier = 3;
+        }
+        classTier = 'tier-' + c.tier;
+        let carRow = `        
+            <div class="image-wrap">
+                <img src="images/` + c.image + `.png" />
+            </div>
+            <div class="hp">` +  c.hp + `hp/` + c.weight + `lbs</div>
+            <div class="exp">` + (c.hp/c.weight*10000).toFixed() + `</div>
+            <div class="vehicle-data unit-sq">
+                <div class="ed">` + ENGINE_INDUCTION[c.engineType] + ` ` + c.drive + `</div>
+                <div class="et">` + c.displacement + `L ` + c.cylOr + c.cylNum  + ` ` +  c.trans  + `</div>
+            </div>
+            
+            <div>` + c.year +  `  ` +  c.oem + ` ` + c.model + ` <span class="trim">` + c.trim + ` ` + `</div>
+        `
+        
+        
+        returnCarRow.innerHTML = carRow;
+        return returnCarRow;
+    }
+
+    let carArr = [];
+    for (c in CARS) {
+        //console.log(   ((CARS[c].hp / CARS[c].weight) * 10).toFixed(3) );
+        carArr.push(CARS[c]);
+    }
+
+    let getPowerToWeight = function (obj) {
+        return (obj.hp / obj.weight * 100).toFixed(2);
+    }
+
+    let cars = carArr.sort(function (a, b) {
+        return getPowerToWeight(a) - getPowerToWeight(b);
+    });
+
+    //carArr.reverse();
+    const v1 = document.querySelector('.v1');
+
+    cars.forEach(function (c) {
+        v1.appendChild(getVsCode(c));
+    });
+
+
+
+
+</script>

@@ -1,0 +1,143 @@
+html {
+    background: black;
+    color: #888;
+    font-family: sans-serif;
+}
+
+.v1 {
+    display: flex;
+    position: relative;
+    bottom: 0;
+    flex-flow: wrap;
+}
+
+.vehicle {
+    border: 1px solid #222;
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+    position: relative;
+
+}
+
+.vehicle:hover {
+    background: #cc00cc;
+    animation: fadeIn ease 1s;
+    color: #ccc;
+}
+
+
+.vehicle:after {    
+    content: '*';
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    line-height: 0.9em;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    left: 0;
+    font-size: 6em;
+    transform: rotate3d(1, 1, 1, 45deg);
+ 
+}
+.vehicle:hover::after {    
+    animation: spinner ease 0.5s;
+}
+
+.vehicle:active {
+    background: greenyellow;
+    transform: rotate(.1deg);
+}
+
+.vehicle:active::after {
+    background: transparent;
+    transform: rotate(-260deg) translateY(-13px);
+    transition: ease-in .6s;
+}
+
+.vehicle:hover img {    
+    transform: translateY(2px);        
+    transition: 1s ease-in-out;
+}
+
+
+.vehicle .hp {
+    color: fuchsia;
+    font-size: 1.2em;
+    font-style: italic;
+    text-shadow: 1px 0px 1px #fa0;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.vehicle .exp {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    color: brown;
+    font-size: .8em;
+    font-style: italic;
+    text-shadow: 1px 0px 1px #fa0;
+    text-align: left;
+    padding-bottom: 8px;
+}
+
+.vehicle .image-wrap {
+    margin-top: 16px;
+    height: 140px;
+    position: relative;
+
+}
+
+.vehicle .image-wrap img {
+    width: 100%;
+    opacity: 0.9;
+    position: absolute;
+
+}
+
+
+.vehicle h3 {
+    line-clamp: 2;
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes spinner {
+    0% {
+        opacity: 0;
+        transform: rotate3d(1,1,1, 270deg)
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate3d(1,1,1, 45deg)
+    }
+}
+
+
+@keyframes pano {
+    0% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateX(1px);
+    }
+
+    100% {
+        
+    }
+}
