@@ -26,23 +26,7 @@ html {
     color: #ccc;
 }
 
-
-.vehicle:after {    
-    content: '*';
-    height: 40px;
-    width: 40px;
-    padding: 0;
-    margin: 0;
-    line-height: 0.9em;
-    position: absolute;
-    top: 0;
-    opacity: 1;
-    left: 0;
-    font-size: 6em;
-    transform: rotate3d(1, 1, 1, 45deg);
- 
-}
-.vehicle:hover::after {    
+.vehicle:hover::after {
     animation: spinner ease 0.5s;
 }
 
@@ -51,14 +35,9 @@ html {
     transform: rotate(.1deg);
 }
 
-.vehicle:active::after {
-    background: transparent;
-    transform: rotate(-260deg) translateY(-13px);
-    transition: ease-in .6s;
-}
 
-.vehicle:hover img {    
-    transform: translateY(2px);        
+.vehicle:hover img {
+    transform: translateY(2px);
     transition: 1s ease-in-out;
 }
 
@@ -118,26 +97,13 @@ html {
 @keyframes spinner {
     0% {
         opacity: 0;
-        transform: rotate3d(1,1,1, 270deg)
+        transform: rotate3d(1, 1, 1, 270deg)
     }
 
     100% {
         opacity: 1;
-        transform: rotate3d(1,1,1, 45deg)
+        transform: rotate3d(1, 1, 1, 45deg)
     }
 }
 
 
-@keyframes pano {
-    0% {
-        transform: translateX(0px);
-    }
-
-    50% {
-        transform: translateX(1px);
-    }
-
-    100% {
-        
-    }
-}
