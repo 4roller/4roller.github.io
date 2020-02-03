@@ -15,8 +15,6 @@
 
 <script src="cars.js"></script>
 <script>
-
-    console.log('hi', ENGINE_INDUCTION);
     let tabindex = 0;
     const getVsCode = (car) => {
         const returnCarRow = document.createElement('div');
@@ -27,33 +25,23 @@
 
 
         let c = car;
-        const p2w = getPowerToWeight(c);
-        let classTier = '';
-        c.tier = 0;
-        if (p2w > 8) {
-            c.tier = 1;
-        }
-        if (p2w <= 6 && p2w > 8) {
-            c.tier = 2;
-        }
-        if (p2w <= 6) {
-            c.tier = 3;
-        }
-        classTier = 'tier-' + c.tier;
+        const tierClass = 'tier-' + getTier(c);
+        returnCarRow.classList.add(tierClass);
+
         let carRow = `        
+            <div class="exp">` + (c.hp / c.weight * 10000).toFixed() + `</div>
             <div class="image-wrap">
                 <img src="images/` + c.image + `.png" />
             </div>
-            <div class="hp">` + c.hp + `hp/` + c.weight + `lbs</div>
-            <div class="exp">` + (c.hp / c.weight * 10000).toFixed() + `</div>
+            <div class="mmy">` + c.oem + ` ` + c.model + `</div>
+            <div class="mmy">` + c.trim + ` ` + c.year + `</div>
+            
             <div class="vehicle-data unit-sq">
                 <div class="ed">` + ENGINE_INDUCTION[c.engineType] + ` ` + c.drive + `</div>
                 <div class="et">` + c.displacement + `L ` + c.cylOr + c.cylNum + ` ` + c.trans + `</div>
             </div>
-            
-            <div>` + c.year + `  ` + c.oem + ` ` + c.model + ` <span class="trim">` + c.trim + ` ` + `</div>
+            <div class="hp">` + c.hp + `hp/` + c.weight + `lbs</div>
         `
-
 
         returnCarRow.innerHTML = carRow;
         return returnCarRow;
@@ -66,7 +54,26 @@
     }
 
     let getPowerToWeight = function (obj) {
-        return (obj.hp / obj.weight * 100).toFixed(2);
+        return (obj.hp / obj.weight * 10000).toFixed();
+
+    }
+
+    let getTier = function (c) {
+        const p2w = getPowerToWeight(c);
+        c.tier = 0;
+        // Tier 1 cars
+        if (p2w > 800) {
+            c.tier = 1;
+        }
+        // Tier 3 cars
+        if (p2w <= 600) {
+            c.tier = 3;
+        }
+        // Tier 2 cars
+        if (p2w > 600 && p2w <= 800) {
+            c.tier = 2;
+        }
+        return c.tier;
     }
 
     let cars = carArr.sort(function (a, b) {

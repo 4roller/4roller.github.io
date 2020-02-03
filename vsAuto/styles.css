@@ -20,6 +20,18 @@ html {
 
 }
 
+.vehicle.tier-3 .exp {
+    color: #555;
+}
+
+.vehicle.tier-2 .exp {
+    color: green;
+}
+
+.vehicle.tier-1 .exp {
+    color: yellow;
+}
+
 .vehicle:hover {
     background: #cc00cc;
     animation: fadeIn ease 1s;
@@ -42,7 +54,7 @@ html {
 }
 
 
-.vehicle .hp {
+.vehicle .mmy {
     color: fuchsia;
     font-size: 1.2em;
     font-style: italic;
@@ -54,13 +66,13 @@ html {
 .vehicle .exp {
     position: absolute;
     top: 5px;
-    right: 20px;
-    color: brown;
+    right: 5px;
     font-size: .8em;
     font-style: italic;
-    text-shadow: 1px 0px 1px #fa0;
     text-align: left;
-    padding-bottom: 8px;
+    margin-bottom: 8px;
+    padding: 1px 5px 1px 3px;
+
 }
 
 .vehicle .image-wrap {
@@ -105,5 +117,3 @@ html {
         transform: rotate3d(1, 1, 1, 45deg)
     }
 }
-
-
