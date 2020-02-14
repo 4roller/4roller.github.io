@@ -59,8 +59,11 @@ section {
     box-sizing: border-box;
 }
 
+section li {
+    color: yellow;
+    
+}
 
-.info {display: none;}
 
 
 section li a {
