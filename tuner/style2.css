@@ -1,0 +1,49 @@
+html {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background: #ccd;
+}
+
+a {
+    text-decoration: none;
+    color: yellow;
+}
+
+.oem-logo {
+    width: 80px;
+}
+
+h1 {
+    font-size: 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px;
+    background: #444;
+    color: #f0f0f0;
+}
+
+.main .a {
+    width: 100%;
+    height: 480px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid green;
+}
+
+section {
+    background: #999;
+    border-radius: 10px;
+    padding: .2em 1em;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+section li {
+    color: yellow;
+}
+
+section li a:hover {
+    text-decoration: underline;
+}

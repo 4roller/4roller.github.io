@@ -3,106 +3,12 @@
 
 <head>
   <title>Tuner</title>
-  <style>
-    html {
-      background: #222;
-      color: #ccc;
-      font-family: sans-serif;
-      text-align: center;
-    }
-
-    a {
-      color: #777;
-    }
-
-
-    .main {
-      display: none;
-      border: 1px solid #444;
-    }
-
-    .side {
-      display: none;
-      display: flex-inline;
-      flex-direction: column border: 1px solid #444;
-    }
-
-    .oem-logo {
-      vertical-align: middle;
-      max-height: 1em;
-      margin-right: 8px;
-
-    }
-
-    .trim,
-    .year {
-      vertical-align: center;
-      font-size: 0.7em;
-    }
-
-    img.primary {
-      width: 100%;
-      border: 3px solid #eee;
-      max-width: 800px;
-
-    }
-
-    img.secondary {
-
-      width: 100px;
-
-
-    }
-
-    figure {
-      vertical-align: top;
-
-    }
-
-    div.info,
-    div.mods {
-      margin-right: 25px;
-      vertical-align: top;
-      text-align: left;
-      display: inline-flex;
-      flex-wrap: wrap;
-    }
-
-    section {
-
-      padding: 8px;
-      background: #333;
-      margin: 5px;
-      border: 3px solid #332;
-      box-sizing: border-box;
-      min-width: 150px;
-    }
-
-    ul {
-      /* border: 1px solid red; */
-      margin: 0;
-      list-style-position: outside;
-      padding-inline-start: 20px;
-    }
-
-    li {
-      margin: 0;
-      padding: 2px 0;
-      list-style-position: outside;
-
-    }
-
-
-    h3 {
-      padding: 0 0 5px 0;
-      margin: 0;
-    }
-  </style>
-
-
+  <link rel="stylesheet" href="style2.css">
+  </link>
 </head>
 
 <body>
+  
   <h1>
     <img class="oem-logo" src="https://i.pinimg.com/originals/a8/68/9b/a8689bec0f5e1cea21d4ce3d69cab172.png" />
     <span class="year">2016</span>
@@ -110,17 +16,19 @@
     <span class="model">Impreza</span>
     <span class="trim">Sport Premium</span>
   </h1>
+  
   <figure>
     <div class="main">
-      <img class="primary" src="Subaru - rq.png" />
-    </div>
-    <div class="side">
-      <img class="secondary" src="Subaru - fq.png" />
-      <img class="secondary" src="Subaru - rq.png" />
-      <img class="secondary" src="Subaru - front.png" />
+      <div class="a box" style="background-image: url('Subaru - side quarter.png')"></div>
+      <div class="b box" style="background-image: url('Subaru - fq.png')"></div>
+      <div class="c box" style="background-image: url('Subaru - rq.png')"></div>
+      <div class="d box" style="background-image: url('Subaru - side.png')"></div>
+      <div class="e box" style="background-image: url('Subaru - front.png')"></div>      
     </div>
   </figure>
+  
 
+2.0 NA AWD CVT
   <div class="info">
     <section>
       <h3>Engine</h3>
@@ -130,9 +38,21 @@
       </ul>
     </section>
     <section>
+      <h3>Weight</h3>
+      <ul>
+        <li>3200 lbs</li>
+      </ul>
+    </section>
+    <section>
       <h3>Transmission</h3>
       <ul>
         <li>CVT</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Drivetrain</h3>
+      <ul>
+        <li>All-Wheel-Drive</li>
       </ul>
     </section>
     <section>
@@ -146,7 +66,7 @@
 
   <div class="mods">
     <section>
-      <h3>Wheels</h3>
+      <h3>Wheels + Brakes</h3>
       <ul>
         <li>
           <a target="_blank" href="https://www.instagram.com/p/B3OLfg1gQG-/?utm_source=ig_web_copy_link">15 Spoke Flow
@@ -154,10 +74,12 @@
           <a target="_blank" href="https://www.instagram.com/p/BDmfN8-JeCD/">Link 2</a>
         </li>
         <li>Indy 500 225/45R17 Tires - Firestone</li>
+        <li><a target="_blank" href="https://www.instagram.com/p/B014AeiAoAo/">Dot 4 Brake fluid - Pentosin Super</a>
+        </li>
       </ul>
     </section>
     <section>
-      <h3>Suspension + Brakes</h3>
+      <h3>Suspension + Drivetrain</h3>
       <ul>
         <li>
           <a target="_blank" href="https://www.instagram.com/p/BAn3kHkJeDV/">Flexible Strut Tower Bar - STI</a>
@@ -167,14 +89,16 @@
             stiffer</a></li>
         <li><a target="_blank" href="https://www.instagram.com/p/BrdGlmuAv0U/">22mm adjustable rear swaybar - Whiteline
             38% stiffer</a></li>
-        <li><a target="_blank" href="https://www.instagram.com/p/B014AeiAoAo/">Dot 4 Brake fluid - Pentosin Super</a>
-        </li>
+        <li><a target="_blank" href="https://www.instagram.com/p/B6M9i4ppvpP/">Differential Lockdown - Perrin</a>
+        </li>        
       </ul>
     </section>
     <section>
-      <h3>Engine + Exhaust</h3>
+      <h3>Engine + Bolt-ons + Exhaust</h3>
       <ul>
-        <li><a target="_blank" href="https://www.instagram.com/p/B7-Oa7TJh6R/">Intake Manifold Runner Extensions - Crawford Performance</a></li>
+        <li>Rev 5A CVT Impreza 91/93 octane e-tune - Throttle Happy (AU)</li>
+        <li><a target="_blank" href="https://www.instagram.com/p/B7-Oa7TJh6R/">Intake Manifold Runner Extensions -
+            Crawford Performance</a></li>
         <li><a target="_blank" href="https://www.instagram.com/p/B1eZAYQgRga/">CVT Cooler 15 Row stacked plate -
             Derale</a></li>
         <li>Pitchstop 75A bushings - Torque Solution</li>
@@ -197,13 +121,18 @@
           <a target="_blank" href="https://www.instagram.com/p/BDmfN8-JeCD/">Link 2</a>
         </li>
         <li>Lip Kit full body - All-Fit</li>
-        <li>Vinyl Fog Light Overlays - Lamin-X</li>
-        <li>2500K Hyper Yellow DRL/Highbeams - Nokya</li>
+        <li><a target="_blank" href="https://www.instagram.com/p/Bd6pyu5BHup/">Vinyl Fog Light Overlays - Lamin-X</a>
+        </li>
+        <li><a target="_blank" href="https://www.instagram.com/p/BwuL_bogIAx/">2500K Hyper Yellow DRL/Highbeams -
+            Nokya</a>
+
+
         <li><a target="_blank" href="https://www.instagram.com/p/Behm-7bBa2x/">5000k White LED w/ inline-resistor -
             generic</a></li>
         <li><a target="_blank" href="https://www.instagram.com/p/Bd5UbLQhGiu/">Front License Plate Delete - generic</a>
         </li>
-        <li>Ceramic Tint - 50%</li>
+        <li><a target="_blank" href="https://www.instagram.com/p/BATU8PNJeEG/">Ceramic Tint - 50%</a></li>
+
         <li><a target="_blank" href="https://www.instagram.com/p/BdE3cF8BjPC/">Tweeter Upgrade - Kicker</a></li>
 
       </ul>
