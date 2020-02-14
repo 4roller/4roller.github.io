@@ -22,6 +22,7 @@ a {
 }
 
 h1 {
+    text-align: center;
     padding: 10px;
     background: #444;
     color: #f0f0f0;
@@ -58,6 +59,7 @@ dl {
 
 .transmission .ratios {
     color: #555;
+    width: 100%;
 }
 
 .transmission .ratios thead {
@@ -75,7 +77,12 @@ dl {
 }
 
 .drivetrain figure img {
-    width: 80%;
+    width: 100%;
+}
+
+figure {
+    text-align: center;
+    margin: 1em 0 1em;
 }
 
 dl {
@@ -97,14 +104,14 @@ a:hover {
     text-decoration: underline;
 }
 
+
 figcaption {
     font-size: .7em;
     margin-top: 10px;
 }
 
 .main .a {
-    height: 600px;
-    width: 800px;
+    height: 640px;
     background-repeat: no-repeat;
     background-size: contain;
 }
