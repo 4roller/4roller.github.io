@@ -2,7 +2,7 @@ html {
     width: 100%;
     padding: 0;
     margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: sans-serif, 'Courier New', Courier, monospace;
     background: #ccd;
 }
 
@@ -12,15 +12,18 @@ a {
 }
 
 .oem-logo {
-    width: 80px;
+    max-height: 1em;
+    display: inline-block;    
+    vertical-align: middle;
 }
 
 h1 {
-    font-size: 3em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 10px;
     background: #444;
     color: #f0f0f0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .main .a {
@@ -32,6 +35,22 @@ h1 {
     border: 1px solid green;
 }
 
+dl {
+    
+    border: 1px solid green; 
+    border-radius: 5px;
+    padding: 10px;    
+    margin: 10px 0px 20px;        
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin: 0;
+}
+
 section {
     background: #999;
     border-radius: 10px;
@@ -40,8 +59,12 @@ section {
     box-sizing: border-box;
 }
 
-section li {
-    color: yellow;
+
+.info {display: none;}
+
+
+section li a {
+    color: blue;
 }
 
 section li a:hover {
