@@ -125,3 +125,12 @@ figcaption {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.drivetrain-hover-animation {
+    transition: transform 1s; 
+}
+
+.drivetrain-hover-animation:hover {        
+       
+    transform: translateY(140px) rotate(-90deg);
+}
