@@ -50,7 +50,10 @@ dl {
 
 .engine,
 .drivetrain,
-.transmission {
+.transmission,
+.wheels-brakes,
+.suspension,
+.chassis {
     display: grid;
     grid-template-columns: 50% 50%;
     border: 1px solid green;
@@ -58,10 +61,6 @@ dl {
     margin-bottom: 10px;
 }
 
-.rest {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-}
 
 .transmission .ratios {
     color: #555;
