@@ -3,11 +3,15 @@ html {
     padding: 0;
     margin: 0;
     font-family: sans-serif, 'Courier New', Courier, monospace;
-
+    font-size: .8em;
+    
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, .6) 13.5%);
 }
 
 body {
     margin: 0;
+    position: relative;
+
 }
 
 a {
@@ -23,11 +27,14 @@ a {
 
 h1 {
     text-align: center;
-    padding: 10px;
-    background: #444;
+    padding: 8px;
+    font-size: 2em;
+
     color: #f0f0f0;
     white-space: nowrap;
-    margin: 0;
+    margin: 1vh 0 0 0;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    color: gold;
 
 }
 
@@ -38,8 +45,11 @@ h1.model {
 
 .overlay {
     position: absolute;
-    bottom:0;
-    left:0;
+    top: 1vh;
+    left: 1vw;
+    transform: scale(0.6);
+    animation: turn-turn 10s infinite;
+    border-radius: 10px;
 }
 
 dl {
@@ -120,16 +130,49 @@ figcaption {
 }
 
 .main .a {
+
     height: 640px;
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
 }
 
-.drivetrain-hover-animation {
-    transition: transform 1s; 
+.drivetrain-top {
+    margin-top: 4vh;
+
+
 }
 
-.drivetrain-hover-animation:hover {        
-       
-    transform: translateY(140px) rotate(-90deg);
+.drivetrain-hover-animation:hover {}
+
+.sti15 {
+    transform: scale(0.8);
+}
+
+.gp7chassis,
+.suspension-diagram {
+    width: 100%;
+}
+
+.suspension-diagram {
+    /* filter: contrast(100%) brightness(3%); */
+}
+
+@keyframes turn-turn {
+    0% {
+
+        transform: rotateY(0deg);
+    }
+
+    30% {
+        transform: rotateY(10deg) rotateX(-11deg);
+    }
+
+    50% {
+        transform: rotateY(-40deg) rotateX(-21deg);
+    }
+
+    100% {
+        transform: rotateY(-360deg);
+    }
 }
