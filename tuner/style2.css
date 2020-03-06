@@ -143,22 +143,16 @@ figcaption {
 
 }
 
-.drivetrain-hover-animation:hover {}
-
-.sti15 {
-    transform: scale(0.8);
-}
 
 .gp7chassis,
 .alignment,
+.sti15,
 .suspension-diagram {
     width: 100%;
 }
 
 
-    /* filter: contrast(100%) brightness(3%); */
-}
-
+    
 @keyframes turn-turn {
     0% {
 
