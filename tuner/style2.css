@@ -150,11 +150,12 @@ figcaption {
 }
 
 .gp7chassis,
+.alignment,
 .suspension-diagram {
     width: 100%;
 }
 
-.suspension-diagram {
+
     /* filter: contrast(100%) brightness(3%); */
 }
 
