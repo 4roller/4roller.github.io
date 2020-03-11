@@ -16,64 +16,102 @@
 <script src="cars.js"></script>
 <script>
     let tabindex = 0;
+
+    const getPowerToWeight = function (obj) {
+        return (obj.hp / obj.weight * 10000).toFixed();
+    }
+
+    const calculateMods = function (c) {
+        let uc = { ...c };
+        let mods;
+
+        if (c.mods) {
+            mods = c.mods;
+            let totalPower = 0;
+            let totalWeight = 0;
+            let totalHandling = 0;
+
+            mods.forEach((m) => {
+                let key = Object.keys(m);
+                if (m[key]['power']) {
+                    totalPower = totalPower + m[key]['power'];
+                }
+                if (m[key]['weight']) {
+                    totalWeight = totalWeight + m[key]['weight'];
+                }
+                if (m[key]['handling']) {
+                    totalHandling = totalHandling + m[key]['handling'];
+                }
+
+            })
+            uc.hp = uc.hp + totalPower;
+            uc.weight = uc.weight - totalWeight;
+        }
+        return uc;
+    }
+
     const getVsCode = (car) => {
         const returnCarRow = document.createElement('div');
-        returnCarRow.classList.add('vehicle');
-        returnCarRow.setAttribute('tabindex', tabindex++);
-        returnCarRow.setAttribute('type', "radio");
-        returnCarRow.setAttribute('name', "vehicle");
-
-
         let c = car;
+        let p2w = getPowerToWeight(c);
+
         const tierClass = 'tier-' + getTier(c);
         returnCarRow.classList.add(tierClass);
+        returnCarRow.classList.add('vehicle');
+        returnCarRow.setAttribute('tabindex', tabindex++);
 
         let carRow = `        
-            <div class="exp">` + (c.hp / c.weight * 10000).toFixed() + `</div>
+            <div class="exp">` + p2w + `</div>
             <div class="image-wrap">
                 <img src="images/` + c.image + `.png" />
             </div>
-            <div class="mmy">` + c.oem + ` ` + c.model + `</div>
-            <div class="mmy">` + c.trim + ` ` + c.year + `</div>
+            <div class="vehicle-name">
+                <div class="mmy">` + c.oem + ` ` + c.model + `</div>
+                <div class="mmy">` + c.trim + ` ` + c.year + `</div>
+            </div>
             
             <div class="vehicle-data unit-sq">
                 <div class="ed">` + ENGINE_INDUCTION[c.engineType] + ` ` + c.drive + `</div>
                 <div class="et">` + c.displacement + `L ` + c.cylOr + c.cylNum + ` ` + c.trans + `</div>
-            </div>
-            <div class="hp">` + c.hp + `hp/` + c.weight + `lbs</div>
+                <div class="hp">` + c.hp + `hp/` + c.weight + `lbs</div>                
+            </div>            
         `
-
         returnCarRow.innerHTML = carRow;
         return returnCarRow;
     }
 
-    let carArr = [];
-    for (c in CARS) {
-        //console.log(   ((CARS[c].hp / CARS[c].weight) * 10).toFixed(3) );
-        carArr.push(CARS[c]);
-    }
 
-    let getPowerToWeight = function (obj) {
-        return (obj.hp / obj.weight * 10000).toFixed();
-
-    }
-
-    let getTier = function (c) {
+    const getTier = function (c) {
         const p2w = getPowerToWeight(c);
         c.tier = 0;
         // Tier 1 cars
-        if (p2w > 800) {
+        if (p2w < 400) {
             c.tier = 1;
         }
-        // Tier 3 cars
-        if (p2w <= 600) {
-            c.tier = 3;
+        if (p2w > 400) {
+            c.tier = 1;
         }
-        // Tier 2 cars
-        if (p2w > 600 && p2w <= 800) {
+        if (p2w > 550) {
             c.tier = 2;
         }
+        if (p2w > 700) {
+            c.tier = 3;
+        }
+        if (p2w > 800) {
+            c.tier = 4;
+        }
+        if (p2w > 950) {
+            c.tier = 5;
+        }
+
         return c.tier;
+    }
+
+
+    let carArr = [];
+    for (c in CARS) {
+        let uc = calculateMods(CARS[c]);        
+        carArr.push(uc);
     }
 
     let cars = carArr.sort(function (a, b) {

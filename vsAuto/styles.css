@@ -9,6 +9,9 @@ html {
     position: relative;
     bottom: 0;
     flex-flow: wrap;
+    /* border: 1px solid fuchsia; */
+    opacity: 1;
+    /* height: 89vh; */
 }
 
 .vehicle {
@@ -16,12 +19,26 @@ html {
     width: 200px;
     padding: 5px;
     margin: 10px;
+    /* position: absolute; */
+    
     position: relative;
+    bottom: 0;
+}
 
+
+.vehicle:after {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    content: '1';
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.0;
 }
 
 .vehicle.tier-3 .exp {
-    color: #555;
+    color: orange;
 }
 
 .vehicle.tier-2 .exp {
@@ -32,14 +49,40 @@ html {
     color: yellow;
 }
 
-.vehicle:hover {
+
+
+/* .vehicle.tier-1 {
+    bottom: 0px;
+}
+
+.vehicle.tier-2 {
+    bottom: 130px;
+}
+
+.vehicle.tier-3 {
+    bottom: 230px;
+}
+
+.vehicle.tier-4 {
+    bottom: 330px;
+}
+
+.vehicle.tier-5 {
+    bottom: 430px;
+} */
+
+
+
+.vehicle:hover,
+.vehicle:focus {
     background: #cc00cc;
     animation: fadeIn ease 1s;
     color: #ccc;
+    z-index: 100;
 }
 
 .vehicle:hover::after {
-    animation: spinner ease 0.5s;
+    /* animation: spinner ease 0.5s; */
 }
 
 .vehicle:active {
@@ -72,6 +115,7 @@ html {
     text-align: left;
     margin-bottom: 8px;
     padding: 1px 5px 1px 3px;
+    opacity: 0.6;
 
 }
 
@@ -94,6 +138,10 @@ html {
     line-clamp: 2;
 }
 
+.vehicle .vehicle-data,
+.vehicle .vehicle-name {
+    /* display: none; */
+}
 
 
 @keyframes fadeIn {

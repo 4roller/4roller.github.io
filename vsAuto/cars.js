@@ -194,18 +194,72 @@ const CARS = {
         drive: 'AWD',
         weight: 3109,
         image: '2016-Subaru-Impreza-Sport',
-        mods: [
+        mods: [            
             {
-                'Engine Pitch Stop': {
-                    manufacturer: "Subaru",
-                    description: "group N",
-                    power: 0.5,
+                'Tune': {
+                    manufacturer: "Throttle Happy",
+                    description: "Rev 5A 91/93 Ocatane",
+                    power: 5,
                 },
             },
             {
                 'Engine Pitch Stop': {
                     manufacturer: "Torque Solutions",
                     description: "75A",
+                    power: 1,
+                },
+            },
+            {
+                'Power Billet Blocks': {
+                    manufacturer: "Crawford",
+                    description: "Intake Runner Extensions",
+                    power: 3,
+                },
+            },
+            {
+                'Filter': {
+                    manufacturer: "Apexi",
+                    description: "high flow filter",
+                    power: 1,
+                },
+            },
+            {
+                'Airbox': {
+                    manufacturer: "DIY",
+                    description: "Throated airbox",
+                    power: 1,
+                },
+            },
+            {
+                'Differential Lockdown': {
+                    manufacturer: "Perrin",
+                    description: "",
+                    power: 1,
+                    handling: 1
+                },
+            },
+            {
+                'Coilovers': {
+                    manufacturer: "Fortune Auto",
+                    description: "500 Series",                    
+                    handling: 4,
+                    power: 2,
+                    weight: 15,
+                },
+            },
+            {
+                'Wheels': {
+                    manufacturer: "Enkei",
+                    description: "Subaru STI 15 spoke",
+                    handling: 2,
+                    weight: 28,
+                },
+            },
+            {
+                'Exhaust': {
+                    manufacturer: "Nameless",
+                    description: "5inch",
+                    weight: 5,
                     power: 1,
                 },
             },
@@ -230,6 +284,20 @@ const CARS = {
                     handling: 1.5,
                 }
             },
+            // {
+            //     'Rear Seat Delete': {
+            //         manufacturer: "DIY",
+            //         description: 'Removed rear seats',
+            //         weight: 75,
+            //     }
+            // },
+            // {
+            //     'Trunk Delete': {
+            //         manufacturer: "DIY",
+            //         description: 'Removed Trunk Interior',
+            //         weight: 40,
+            //     }
+            // },
         ]
     },
     SUBARU_STI_2008_TMT: {
