@@ -209,20 +209,20 @@ const CARS = {
                     power: 1,
                 },
             },
-            {
-                'Power Billet Blocks': {
-                    manufacturer: "Crawford",
-                    description: "Intake Runner Extensions",
-                    power: 3,
-                },
-            },
-            {
-                'Filter': {
-                    manufacturer: "Apexi",
-                    description: "high flow filter",
-                    power: 1,
-                },
-            },
+            // {
+            //     'Power Billet Blocks': {
+            //         manufacturer: "Crawford",
+            //         description: "Intake Runner Extensions",
+            //         power: 3,
+            //     },
+            // },
+            // {
+            //     'Filter': {
+            //         manufacturer: "Apexi",
+            //         description: "high flow filter",
+            //         power: 1,
+            //     },
+            // },
             {
                 'Airbox': {
                     manufacturer: "DIY",
@@ -230,23 +230,23 @@ const CARS = {
                     power: 1,
                 },
             },
-            {
-                'Differential Lockdown': {
-                    manufacturer: "Perrin",
-                    description: "",
-                    power: 1,
-                    handling: 1
-                },
-            },
-            {
-                'Coilovers': {
-                    manufacturer: "Fortune Auto",
-                    description: "500 Series",                    
-                    handling: 4,
-                    power: 2,
-                    weight: 15,
-                },
-            },
+            // {
+            //     'Differential Lockdown': {
+            //         manufacturer: "Perrin",
+            //         description: "",
+            //         power: 1,
+            //         handling: 1
+            //     },
+            // },
+            // {
+            //     'Coilovers': {
+            //         manufacturer: "Fortune Auto",
+            //         description: "500 Series",                    
+            //         handling: 4,
+            //         power: 2,
+            //         weight: 15,
+            //     },
+            // },
             {
                 'Wheels': {
                     manufacturer: "Enkei",
@@ -361,6 +361,21 @@ const CARS = {
         drive: 'FWD',
         weight: 2642,
         image: '2016-Honda-Fit-EX-L',
+    },
+    TOYOTA_CAMRY_2006_NAAT: {
+        oem: OEM.TOYOTA,
+        model: 'Camry',
+        year: 2006,
+        trim: 'LE',
+        engineType: 'NA',
+        trans: 'AT',
+        displacement: '2.4',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.I,
+        hp: 154,
+        drive: 'FWD',
+        weight: 3108,
+        image: '2006-Toyota-Camry-LE',
     },
     TOYOTA_MATRIX_2014_NAMT: {
         oem: OEM.TOYOTA,
