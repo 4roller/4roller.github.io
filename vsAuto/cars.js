@@ -199,7 +199,7 @@ const CARS = {
                 'Tune': {
                     manufacturer: "Throttle Happy",
                     description: "Rev 5A 91/93 Ocatane",
-                    power: 5,
+                    power: 10,
                 },
             },
             {
@@ -209,20 +209,20 @@ const CARS = {
                     power: 1,
                 },
             },
-            // {
-            //     'Power Billet Blocks': {
-            //         manufacturer: "Crawford",
-            //         description: "Intake Runner Extensions",
-            //         power: 3,
-            //     },
-            // },
-            // {
-            //     'Filter': {
-            //         manufacturer: "Apexi",
-            //         description: "high flow filter",
-            //         power: 1,
-            //     },
-            // },
+            {
+                'Power Billet Blocks': {
+                    manufacturer: "Crawford",
+                    description: "Intake Runner Extensions",
+                    power: 5,
+                },
+            },
+            {
+                'Filter': {
+                    manufacturer: "Apexi",
+                    description: "high flow filter",
+                    power: 1,
+                },
+            },
             {
                 'Airbox': {
                     manufacturer: "DIY",
@@ -230,23 +230,23 @@ const CARS = {
                     power: 1,
                 },
             },
-            // {
-            //     'Differential Lockdown': {
-            //         manufacturer: "Perrin",
-            //         description: "",
-            //         power: 1,
-            //         handling: 1
-            //     },
-            // },
-            // {
-            //     'Coilovers': {
-            //         manufacturer: "Fortune Auto",
-            //         description: "500 Series",                    
-            //         handling: 4,
-            //         power: 2,
-            //         weight: 15,
-            //     },
-            // },
+            {
+                'Differential Lockdown': {
+                    manufacturer: "Perrin",
+                    description: "",
+                    power: 1,
+                    handling: 1
+                },
+            },
+            {
+                'Coilovers': {
+                    manufacturer: "Fortune Auto",
+                    description: "500 Series",                    
+                    handling: 4,
+                    power: 2,
+                    weight: 15,
+                },
+            },
             {
                 'Wheels': {
                     manufacturer: "Enkei",

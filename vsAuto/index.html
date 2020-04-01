@@ -110,7 +110,8 @@
 
     let carArr = [];
     for (c in CARS) {
-        let uc = calculateMods(CARS[c]);        
+        let uc = calculateMods(CARS[c]);
+        //let uc = { ...CARS[c] };
         carArr.push(uc);
     }
 

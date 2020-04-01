@@ -21,17 +21,19 @@ h1 {
 
 ul {
     margin: 0;
-    padding: 0 0 0 40px;
+    padding: 0 0 0 20px;
 }
 
-.overview ul {
+.overview ul,
+.aftermarket ul {
     margin: 0 0 30px 26px;
     text-align: left;
 }
 
-.overview ul  li {
+.overview ul li,
+.aftermarket ul li {
     line-height: 2em;
-    
+
 }
 
 a {
@@ -91,8 +93,8 @@ a {
 
 
 .drivetrain {
-    min-height: 530px;
-    /* transition: height 1s ease-in-out; */
+    min-height: 360px;
+    
 }
 
 .overview {
@@ -101,10 +103,17 @@ a {
     font-weight: 100;
 }
 
+.aftermarket {
+    font-weight: 100;
+    font-size: 0.8em;
+}
+
 
 .transmission .ratios {
     color: #555;
-    width: 100%;
+    width: 80%;
+    margin: auto;
+
 }
 
 .transmission .ratios thead {
@@ -123,6 +132,7 @@ a {
 
 .drivetrain figure img {
     width: 100%;
+    transform: rotate(-90deg) scale(0.7) translateX(-40px);
 }
 
 figure {
@@ -130,10 +140,6 @@ figure {
     margin: 1em 0 1em;
 }
 
-.dyno {
-    transform: translateY(14px);
-    transition: transform 1s ease-in;
-}
 
 
 a:hover {
@@ -156,17 +162,6 @@ figcaption {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-}
-
-.drivetrain-top {
-
-    transform: translateY(10px) rotate(-90deg);
-
-}
-
-.aftermarket {
-    line-height: 1.3em;
-    font-weight: 100;
 }
 
 
