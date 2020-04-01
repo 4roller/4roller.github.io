@@ -3,15 +3,35 @@ html {
     padding: 0;
     margin: 0;
     font-family: sans-serif, 'Courier New', Courier, monospace;
-    font-size: .8em;
-    
-    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, .6) 13.5%);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, .6) 7.5%);
 }
 
 body {
     margin: 0;
     position: relative;
 
+}
+
+h1 {
+    background: maroon;
+    color: sandybrown;
+    padding: 15px 0 18px;
+    margin-top: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0 0 0 40px;
+}
+
+.overview ul {
+    margin: 0 0 30px 26px;
+    text-align: left;
+}
+
+.overview ul  li {
+    line-height: 2em;
+    
 }
 
 a {
@@ -25,38 +45,32 @@ a {
     vertical-align: middle;
 }
 
-h1 {
-    text-align: center;
-    padding: 8px;
-    font-size: 2em;
-
-    color: #f0f0f0;
-    white-space: nowrap;
-    margin: 1vh 0 0 0;
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    color: gold;
-
-}
-
-h1.make,
-h1.model {
-    text-decoration: dashed;
-}
 
 .overlay {
     position: absolute;
-    top: 1vh;
-    left: 1vw;
+    top: 6vh;
+    left: 41vw;
     transform: scale(0.6);
     animation: turn-turn 10s infinite;
     border-radius: 10px;
 }
 
-dl {
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px 0px 20px;
+.setup {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    animation: 1s ease-in-out;
 }
+
+.setup .a {
+    grid-template-columns: 70% 10% 10% 10%;
+}
+
+.setup img {
+    width: 100%;
+}
+
 
 .engine,
 .drivetrain,
@@ -66,9 +80,25 @@ dl {
 .chassis {
     display: grid;
     grid-template-columns: 50% 50%;
-    border: 1px solid green;
+    border: 1px solid gainsboro;
     border-radius: 10px;
     margin-bottom: 10px;
+    padding: 10px 10px 10px;
+    font-family: sans-serif, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 100;
+    font-size: 0.9em;
+}
+
+
+.drivetrain {
+    min-height: 530px;
+    /* transition: height 1s ease-in-out; */
+}
+
+.overview {
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 100;
 }
 
 
@@ -100,18 +130,9 @@ figure {
     margin: 1em 0 1em;
 }
 
-dl {
-    line-height: 1.5em;
-}
-
-dt {
-    font-weight: bold;
-    font-size: 1.2em;
-    display: inline;
-}
-
-dd {
-    margin: 0;
+.dyno {
+    transform: translateY(14px);
+    transition: transform 1s ease-in;
 }
 
 
@@ -131,16 +152,21 @@ figcaption {
 
 .main .a {
 
-    height: 640px;
+    height: 735px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 }
 
 .drivetrain-top {
-    margin-top: 4vh;
 
+    transform: translateY(10px) rotate(-90deg);
 
+}
+
+.aftermarket {
+    line-height: 1.3em;
+    font-weight: 100;
 }
 
 
@@ -152,7 +178,33 @@ figcaption {
 }
 
 
-    
+@keyframes drivetrain {
+    0% {
+        transform: translateX(0px) rotateZ(-90deg);
+    }
+
+    20% {
+        transform: translateX(0px) rotateZ(-90deg);
+    }
+
+    40% {
+        transform: translateX(0px) rotateZ(-90.3deg);
+    }
+
+    60% {
+        transform: translateX(0px) rotateZ(-89.5deg);
+    }
+
+    80% {
+        transform: translateX(1px) rotateZ(-90deg);
+    }
+
+    100% {
+        transform: translateX(0px) rotateZ(-90deg);
+    }
+}
+
+
 @keyframes turn-turn {
     0% {
 
