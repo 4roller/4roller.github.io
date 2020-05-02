@@ -60,6 +60,7 @@ blockquote::after {
 .scaleWrap:hover .zoom {
   transform: scale(2, 2) translateX(-8px) translateY(-180px);
   opacity: 0.9;
+  filter: contrast(1.1) brightness(1.5) hue-rotate(1deg);
   animation: zoomer .5s ease-in-out;
 }
 
@@ -71,6 +72,7 @@ blockquote::after {
   100% {
     transform: scale(2, 2) translateX(-8px) translateY(-180px);
     opacity: 0.9;
+    filter: contrast(1.1) brightness(1.5) hue-rotate(1deg);
   }
 }
 
@@ -97,9 +99,9 @@ blockquote::after {
   top: 0;
   left: 0;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.9;
   height: 35%;
-  background: black;
+  background: white;
   animation: opacity 1s ease-in-out;
   /* display: none; */
 }
@@ -110,9 +112,9 @@ blockquote::after {
   bottom: 0;
   left: 0;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.9;
   height: 35%;
-  background: black;
+  background: white;
   /* display: none; */
 }
 
