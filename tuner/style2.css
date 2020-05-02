@@ -3,6 +3,7 @@ html {
     padding: 0;
     margin: 0;
     font-family: sans-serif, 'Courier New', Courier, monospace;
+    font-size: 11px;
     background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, .6) 7.5%);
 }
 
@@ -13,12 +14,21 @@ body {
 }
 
 h1 {
-    background: maroon;
-    color: sandybrown;
-    padding: 15px 0 18px;
-    margin-top: 0;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px deeppink;
+    color: white;
+    margin-top: 0;    
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: lightgray;
 }
 
+
+h2 {
+    font-size: 1em;
+    font-weight: 400;
+    text-align: left;
+    margin: 20px;
+}
 ul {
     margin: 0;
     padding: 0 0 0 20px;
@@ -74,38 +84,53 @@ a {
 }
 
 
+
 .engine,
 .drivetrain,
 .transmission,
 .wheels-brakes,
 .suspension,
-.chassis {
-    display: grid;
-    grid-template-columns: 50% 50%;
+.chassis .aftermarket {
     border: 1px solid gainsboro;
     border-radius: 10px;
-    margin-bottom: 10px;
-    padding: 10px 10px 10px;
+    margin: 20px;
+    padding: 20px 20px;
     font-family: sans-serif, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 100;
-    font-size: 0.9em;
 }
 
 
-.drivetrain {
-    min-height: 360px;
-    
+h3 {
+    margin: 0
 }
+
+
 
 .overview {
     text-align: center;
-    font-size: 0.9em;
+
     font-weight: 100;
+
+}
+
+.stock {
+    display: none;
+}
+
+.overview p {
+    text-align: left;
+    padding: 0 20px;
+}
+
+.overview blockquote {
+    font-style: italic;
+    font-family: cursive;
 }
 
 .aftermarket {
     font-weight: 100;
-    font-size: 0.8em;
+
+    margin: 20px;
 }
 
 
@@ -132,7 +157,13 @@ a {
 
 .drivetrain figure img {
     width: 100%;
-    transform: rotate(-90deg) scale(0.7) translateX(-40px);
+    /* transform: rotate(-90deg) scale(0.7) translateX(-40px); */
+}
+
+
+.closed {
+    min-height: 20px;
+    position: relative;
 }
 
 figure {
@@ -154,6 +185,10 @@ figcaption {
 
 .main {
     position: relative;
+}
+
+.main img {
+    width: 100%;
 }
 
 .main .a {

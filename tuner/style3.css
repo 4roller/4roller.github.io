@@ -1,0 +1,131 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  color: #555;
+  position: relative;
+  width: 100%;
+}
+
+img {
+  position: relative;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+blockquote,
+aside {
+  font-style: italic;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+aside {
+  margin: 30px 90px;
+  text-align: justify;
+  text-indent: -6px;
+}
+
+aside::first-letter {
+  font-size: 2.3em;
+  line-height: 1px;
+  font-family: cursive;
+  padding-right: 2px;
+}
+
+blockquote::before,
+blockquote::after {
+  content: '"';
+}
+
+.scaleWrap {
+  overflow: hidden;
+  position: relative;
+
+}
+
+.scaleWrap .zoom {
+  animation: zoomer-out .5s ease-in-out;
+}
+
+
+.scaleWrap:hover .zoom {
+  transform: scale(2, 2) translateX(-8px) translateY(-108px);
+  animation: zoomer .5s ease-in-out;
+}
+
+@keyframes zoomer {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(2, 2) translateX(-8px) translateY(-108px);
+  }
+}
+
+@keyframes zoomer-out {
+  0% {
+    transform: scale(2, 2) translateX(-8px) translateY(-108px);
+  }
+
+  100% {
+    transform: scale(1, 1);
+
+  }
+}
+
+
+.zoom {
+  position: relative;
+}
+
+.scaleWrap:hover:before {
+  z-index: 2;
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.6;
+  height: 35%;
+  background: black;
+  animation: opacity 1s ease-in-out;
+  /* display: none; */
+}
+
+.scaleWrap:hover:after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.6;
+  height: 35%;
+  background: black;
+  /* display: none; */
+}
+
+
+.overview,
+.aftermarket {
+  margin: 0 20px;
+
+}
+
+.stock {
+  display: none;
+}
+
+.cherry {
+  color: #f3329e;
+}
