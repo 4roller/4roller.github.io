@@ -13,13 +13,14 @@ body {
   width: 100%;
 }
 
+
 img {
   position: relative;
   width: 100%;
 }
 
-h1 {
-  text-align: center;
+h1 {  
+  text-align: center;  
 }
 
 blockquote,
@@ -49,47 +50,50 @@ blockquote::after {
 
 .scaleWrap {
   overflow: hidden;
-  position: relative;
-
+  position: relative;  
 }
 
 .scaleWrap .zoom {
-  animation: zoomer-out .5s ease-in-out;
+  animation: zoomer-out 0.5s ease-in
 }
 
 .scaleWrap:hover .zoom {
-  transform: scale(2, 2) translateX(-8px) translateY(-180px);
-  opacity: 0.9;
-  filter: contrast(1.1) brightness(1.5) hue-rotate(1deg);
-  animation: zoomer .5s ease-in-out;
+  transform: scale(2.3, 2.3) translateX(-12px) translateY(-180px);
+  filter: contrast(1.1) brightness(1.5);
+  animation: zoomer .4s ease-in;
 }
 
 @keyframes zoomer {
   0% {
     transform: scale(1, 1);
+    filter: contrast(1) brightness(1) hue-rotate(0deg);
   }
 
   100% {
-    transform: scale(2, 2) translateX(-8px) translateY(-180px);
-    opacity: 0.9;
-    filter: contrast(1.1) brightness(1.5) hue-rotate(1deg);
+    transform: scale(2.3, 2.3) translateX(-8px) translateY(-180px);
+    filter: contrast(1.1) brightness(1.5);
   }
 }
 
 @keyframes zoomer-out {
   0% {
-    transform: scale(2, 2) translateX(-8px) translateY(-108px);
+    transform: scale(2, 2) translateX(-8px) translateY(-118px);
   }
 
   100% {
-    transform: scale(1, 1);
 
+    transform: scale(1, 1);
   }
 }
 
 
 .zoom {
   position: relative;
+}
+
+.scaleWrap:before,
+.scaleWrap:after {
+  animation: opaq-out;
 }
 
 .scaleWrap:hover:before {
@@ -99,11 +103,9 @@ blockquote::after {
   top: 0;
   left: 0;
   width: 100%;
-  opacity: 0.9;
-  height: 35%;
-  background: white;
-  animation: opacity 1s ease-in-out;
-  /* display: none; */
+  height: 30%;
+  background: black;
+  animation: opaq 0.5s ease-in;
 }
 
 .scaleWrap:hover:after {
@@ -112,10 +114,32 @@ blockquote::after {
   bottom: 0;
   left: 0;
   width: 100%;
-  opacity: 0.9;
-  height: 35%;
-  background: white;
-  /* display: none; */
+  height: 30%;
+  background: black;
+  animation: opaq 0.5s ease-in;
+}
+
+@keyframes opaq {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    height: 35%;
+    opacity: 0.9;
+
+  }
+}
+
+@keyframes opaq-out {
+  0% {
+    height: 35%;
+  }
+
+  100% {
+    height: 0;
+  }
+
 }
 
 
