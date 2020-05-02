@@ -57,9 +57,9 @@ blockquote::after {
   animation: zoomer-out .5s ease-in-out;
 }
 
-
 .scaleWrap:hover .zoom {
-  transform: scale(2, 2) translateX(-8px) translateY(-108px);
+  transform: scale(2, 2) translateX(-8px) translateY(-180px);
+  opacity: 0.9;
   animation: zoomer .5s ease-in-out;
 }
 
@@ -69,7 +69,8 @@ blockquote::after {
   }
 
   100% {
-    transform: scale(2, 2) translateX(-8px) translateY(-108px);
+    transform: scale(2, 2) translateX(-8px) translateY(-180px);
+    opacity: 0.9;
   }
 }
 
