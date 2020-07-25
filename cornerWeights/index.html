@@ -1,0 +1,85 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>🏋🏽‍♀️ Corner Weights v1.0</h1>
+  <input id="name" value="CC-01 Blitzer" />
+  <div class="cornerWeights">
+
+    <div class="ofNine">
+      <label for="fl">Front Left</label>
+      <input id="cw-fl" class="cw" type="number" name="fl" value="478" />
+    </div>
+
+
+    <div class="ofNine">
+      Front Weight Ratio
+      <input id="wr-front" class="wr" value="" />%
+    </div>
+
+
+    <div class="ofNine">
+      <label for="fr">Front Right</label>
+      <input id="cw-fr" class="cw" type="number" name="fr" value="429" />
+    </div>
+
+
+
+
+
+    <div class="ofNine">
+      Left Weight Ratio
+      <input id="wr-left" class="wr">%</input>
+    </div>
+
+    <div class="ofNine">
+      <div>Total Weight</div>
+      <input id="totalWeight" class="cw" type="number" name="total" value="1620" />
+      <div id="percentError"></div>
+    </div>
+
+    <div class="ofNine">
+      Right Weight Ratio
+      <input id="wr-right" class="wr">%</input>
+    </div>
+
+
+
+
+    <div class="ofNine">
+      <label for="rl">Rear Left</label>
+      <input id="cw-rl" class="cw" type="number" name="rl" value="355" />
+    </div>
+
+
+    <div class="ofNine">Rear Weight Ratio
+      <input id="wr-rear" class="wr">%</input>
+    </div>
+
+
+    <div class="ofNine">
+      <label for="rr">Rear Right</label>
+      <input id="cw-rr" class="cw" type="number" name="rr" value="351" />
+    </div>
+
+
+
+
+    <button id="reset" class="button">Reset</button>
+    <button id="calculate" class="button">Calculate</button>
+    <button id="save" class="button">Save</button>
+
+  </div>
+
+
+
+
+
+
+  <script src="cornerWeights.js"></script>
+</body>
+
+</html>
