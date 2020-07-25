@@ -37,7 +37,7 @@ let cw = (
 
     const populateFromCache = function () {
       let keys = Object.keys(window.localStorage);
-      let firstKey = keys[keys.length - 1];
+      let firstKey = keys[keys.length -1];
       console.log(firstKey);
       if (firstKey) {
         console.log("found saved");
@@ -72,27 +72,28 @@ let cw = (
 
       save: () => {
         let saveItemsArr = [totalWeight.value, cwFL.value, cwFR.value, cwRL.value, cwRR.value];
-        window.localStorage.setItem(name.value, saveItemsArr);
-        console.log(window.localStorage);
+        window.localStorage.setItem(name.value, saveItemsArr);        
       },
 
       calculate: () => {
         console.log('calulating');
         const totalWeightInt = parseInt(totalWeight.value);
+        
         const FLint = parseInt(cwFL.value);
         const FRint = parseInt(cwFR.value);
         const RLint = parseInt(cwRL.value);
         const RRint = parseInt(cwRR.value);
+        const totalCalculatedWeight = FLint + FRint + RLint + RRint;
 
-        wrFront.value = ((FLint + FRint) / totalWeightInt * 100).toFixed(2);
-        wrRear.value = ((RLint + RRint) / totalWeightInt * 100).toFixed(2);
-        wrLeft.value = ((FLint + RLint) / totalWeightInt * 100).toFixed(2);
-        wrRight.value = ((FRint + RRint) / totalWeightInt * 100).toFixed(2);
+        wrFront.value = ((FLint + FRint) / totalCalculatedWeight * 100).toFixed(2);
+        wrRear.value = ((RLint + RRint) / totalCalculatedWeight * 100).toFixed(2);
+        wrLeft.value = ((FLint + RLint) / totalCalculatedWeight * 100).toFixed(2);
+        wrRight.value = ((FRint + RRint) / totalCalculatedWeight * 100).toFixed(2);
         let cornerTotal = FLint + FRint + RLint + RRint;
-        let errorAmount = (1 - (cornerTotal / totalWeightInt)).toFixed(2);
+        let errorAmount = Math.abs((1-(cornerTotal / totalWeightInt)) *100).toFixed(2);        
         pError.innerHTML = "";
         if (errorAmount > 0 || errorAmount < 0) {
-          pError.innerHTML = "~" + errorAmount + "% error";
+          pError.innerHTML = "~" + errorAmount + "% error *";
         }
 
       },

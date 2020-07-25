@@ -5,14 +5,10 @@ html {
 .cornerWeights {
   box-sizing: border-box;
   display: grid;
-  grid-template:
-    "a a a" auto
-    "b b b" auto
-    "c c c" auto
-    "d d d" auto;
-    
-
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: 30% 30% 30% 10%;
   
+
 }
 
 .cornerWeights .ofNine {
@@ -21,25 +17,24 @@ html {
   border-radius: 10px;
   padding: 10px;
   text-align: center;
-
+  font-size: 2em;
   margin: 10px;
 
 }
 
 .cornerWeights div label {
-  font-size: 200%;
+  
 }
 
-.cornerWeights .cw, 
+.cornerWeights .cw,
 .cornerWeights .wr {
   display: block;
-  border: 0; 
+  border: 1px solid grey;
   text-align: center;
-  font-size: 150%;
-  height: 50px;
-  width: 100px;
+  font-size: 2em;
+  width: 70%;
   border-radius: 10px;
-  margin: 0px auto 0;
+  margin: 10px auto 0;
   outline: none;
 }
 
@@ -48,11 +43,10 @@ html {
 }
 
 .cornerWeights .wr {
-  height: 50px;
   background: greenyellow;
-  margin: 10px auto 0;
+  /* margin: 10px auto 0; */
   font-weight: bold;
-  font-size: 200%;  
+  
 }
 
 #totalWeight {
@@ -62,12 +56,13 @@ html {
 
 
 .button {
-  width: 100%;  
-  font-size: 200%;
+  width: 100%;
+  font-size: 2em;
   background: greenyellow;
   border-radius: 10px;
   outline: none;
   margin: 0px;
+  
 }
 
 input#name {
@@ -77,6 +72,11 @@ input#name {
   font-weight: bold;
   width: 90%;
 }
+
 input#name:hover {
-  border:1px solid green ;
+  border: 1px solid green;
+}
+
+details {
+  margin-top: 10px;
 }
