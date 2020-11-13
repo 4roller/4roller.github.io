@@ -2,12 +2,31 @@ html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 200;
     font-size: 12px;
-    color: #555;
+    color: #333;
 }
 
 .main img {
     width: 100%;
 }
+
+aside {
+    font-style: italic;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  aside {
+    margin: 30px 90px;
+    text-align: justify;
+    text-indent: -6px;
+  }
+  
+  aside::first-letter {
+    font-size: 2.3em;
+    line-height: 1px;
+    font-family: cursive;
+    padding-right: 2px;
+  }
 
 
 section {
@@ -103,41 +122,41 @@ img.sport-wheels {
 
 .dl-1 .two {
     position: absolute;
-    top: 60px;
+    top: 80px;
 }
 
 .dl-2 {
     left: 77%;
-    top: 44.5%;
+    top: 47%;
 }
 
 .dl-3 {
     left: 62%;
-    top: 44.5%;
+    top: 47%;
 }
 
 .dl-4 {
     left: 45.5%;
-    top: 44.5%;
+    top: 47%;
 }
 
 
 .dl-5 {
     font-size: 1.5em;
-    left: 15%;
-    top: 46%;
+    left: 14%;
+    top: 48%;
 }
 
 .dl-5 .one {
     position: absolute;
     top: -15px;
-    left: 22px;
+    left: 36px;
 }
 
 .dl-5 .two {
     position: absolute;
     top: 20px;
-    left: 22px;
+    left: 36px;
 }
 
 .dl-5 .three {
