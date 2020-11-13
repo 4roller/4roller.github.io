@@ -1,80 +1,63 @@
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 200;
-    font-size: 12px;
-    color: #333;
+    font-size: 14px;
+    color: #111;
+    background: #fcfcfc;
 }
 
 .main img {
     width: 100%;
 }
 
+blockquote::before,
+blockquote::after {
+    content: '"';
+}
+
+blockquote,
 aside {
     font-style: italic;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-  
-  aside {
+}
+
+aside {
     margin: 30px 90px;
     text-align: justify;
     text-indent: -6px;
-  }
-  
-  aside::first-letter {
+}
+
+aside::first-letter {
     font-size: 2.3em;
     line-height: 1px;
     font-family: cursive;
     padding-right: 2px;
-  }
-
-
-section {
-    padding: 20px 0;
 }
 
-
-
-.drivetrain,
-.engine,
-.transmission,
-.wheels,
-.suspension {
-    width: 100%;
-
-    display: flex;
-}
-
-
-figure img {
-    max-width: 350px;
-}
-
-.drivetrain figure,
-.engine figure,
-.transmision figure,
-.wheels figure,
-.suspension figure {
-    text-align: center;
-    /* border: 1px solid red;   */
+figure {
     margin: 0;
+}
+
+figure.engine,
+figure.dyno, 
+figure.cvt,
+figure.cvt-ratios {
+    width: 49%;
+    display: inline-block;    
+}
+
+figure.engine img,
+figure.dyno img,
+figure.cvt img {
+    width: 100%;    
+}
+
+figure.cvt-ratios table{
+    border: 1px solid #ccc;
     width: 50%;
-    display: inline-block;
 }
 
-.drivetrain ul,
-.engine ul,
-.transmission ul {
-    max-width: 320px;
-    margin: 0;
-    display: inline-block;
-
-
-}
-
-img.dyno-chart {
-    max-height: 220px;
-}
 
 img.gunma {
     max-width: 250px;
@@ -86,6 +69,9 @@ img.sport-wheels {
     max-width: 150px;
 }
 
+img.suspension-diagram {
+    max-width: 350px;
+}
 
 .driveline {
     position: relative;
@@ -105,9 +91,11 @@ img.sport-wheels {
 
 .dl-dot {
     position: absolute;
-    font-size: 3em;
+    font-size: 2em;
     opacity: .8;
 }
+
+
 
 .dl-1 {
     font-size: 2em;
