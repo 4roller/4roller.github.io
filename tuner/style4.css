@@ -10,6 +10,10 @@ html {
     width: 100%;
 }
 
+.toned {
+    max-width:fit-content;
+}
+
 blockquote::before,
 blockquote::after {
     content: '"';
