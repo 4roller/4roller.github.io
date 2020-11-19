@@ -1,18 +1,31 @@
-html {
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 200;
     font-size: 14px;
-    color: #111;
-    background: #fcfcfc;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.main img {
+h1 {
+    text-align: center
+}
+
+img {
     width: 100%;
 }
 
 .toned {
-    max-width:fit-content;
+    max-width: fit-content;
 }
+
+.quarter-spread {
+    display: grid;
+    width: 100%;    
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+
 
 blockquote::before,
 blockquote::after {
@@ -44,30 +57,24 @@ figure {
 }
 
 figure.engine,
-figure.dyno, 
+figure.dyno,
 figure.cvt,
 figure.cvt-ratios {
     width: 49%;
-    display: inline-block;    
+    display: inline-block;
 }
 
 figure.engine img,
 figure.dyno img,
 figure.cvt img {
-    width: 100%;    
+    width: 100%;
 }
 
-figure.cvt-ratios table{
+figure.cvt-ratios table {
     border: 1px solid #ccc;
     width: 50%;
 }
 
-
-img.gunma {
-    max-width: 250px;
-    vertical-align: top;
-    padding: 20px;
-}
 
 img.sport-wheels {
     max-width: 150px;
