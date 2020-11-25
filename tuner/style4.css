@@ -10,6 +10,15 @@ body {
 h1 {
     text-align: center
 }
+.main {
+    width: 100%;    
+    text-align: center;
+}
+.sized {
+    max-width: 900px;
+    
+    margin-left: 10px;
+}
 
 img {
     width: 100%;
@@ -62,6 +71,7 @@ figure.cvt,
 figure.cvt-ratios {
     width: 49%;
     display: inline-block;
+    position: relative;
 }
 
 figure.engine img,
@@ -76,6 +86,32 @@ figure.cvt-ratios table {
 }
 
 
+img.dyno-chart {
+   image-rendering: pixelated;
+    
+}
+
+.1dyno-chart-overlay {
+    width: 100%;
+    height: 100%;    
+    position:absolute;
+    top:0;
+    left:0;
+    mix-blend-mode: luminosity;
+    opacity: 0.5;
+background: #000;      
+}
+
+img.hood {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+}
+
+img.hood:hover {
+    object-fit: none;    
+}
+
 img.sport-wheels {
     max-width: 150px;
 }
@@ -89,16 +125,23 @@ img.suspension-diagram {
 }
 
 .driveline img {
-
     width: 100%;
     height: 100%;
 }
 
 .driveline-wrapper {
-    width: 100%;
+    max-width: 900px;
     height: 100%;
-    position: relative;
+    position: relative;    
 }
+
+.scaleWrap {
+    text-align: center;
+}
+.zoom {
+    max-width: 900px;
+}
+
 
 .dl-dot {
     position: absolute;
@@ -133,6 +176,22 @@ img.suspension-diagram {
     left: 62%;
     top: 47%;
 }
+
+.dl-3:before {
+    content: 'trieb';   
+    width: 340px;
+    height: 340px;
+    background-color: goldenrod;
+    position: absolute;
+    visibility: hidden;
+} 
+
+
+.dl-3:hover:before  {
+    visibility: visible;
+
+}
+
 
 .dl-4 {
     left: 45.5%;
