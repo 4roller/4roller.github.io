@@ -90,6 +90,11 @@ figure.cvt-ratios table {
     width: 50%;
 }
 
+.engine .before-after {
+    display: inline-flex;
+    font-size: 1.5em;
+}
+
 
 img.dyno-chart {
     position: absolute;
