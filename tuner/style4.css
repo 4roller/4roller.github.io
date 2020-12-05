@@ -10,13 +10,15 @@ body {
 h1 {
     text-align: center
 }
+
 .main {
-    width: 100%;    
+    width: 100%;
     text-align: center;
 }
+
 .sized {
     max-width: 900px;
-    
+
     margin-left: 10px;
 }
 
@@ -30,7 +32,7 @@ img {
 
 .quarter-spread {
     display: grid;
-    width: 100%;    
+    width: 100%;
     grid-template-columns: 25% 25% 25% 25%;
 }
 
@@ -65,18 +67,82 @@ figure {
     margin: 0;
 }
 
-figure.engine,
-figure.dyno,
+figure.engine {
+
+    position: relative;
+    /* height: 750px; */
+}
+
+figure.engine:hover img {
+    opacity: 0.2;
+    animation: fade 1s ease;
+    
+    
+    /* mix-blend-mode: exclusion; */
+}
+
+figure.engine:hover::before {
+    opacity: 0.8;
+    /* z-index: 2; */
+    /* mix-blend-mode: exclusion; */
+}
+
+
+figure.engine:hover::after {
+    /* mix-blend-mode: exclusion; */
+    /* transition-duration: 1s; */
+    opacity: 0.5;
+    /* z-index: 1; */
+}
+
+figure.engine img {
+    position: relative;
+    top: 75px;
+    opacity: 1;
+}
+
+
+figure.engine::before {
+    content: ' ';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: url(images/imprezaDyno.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    left: 0;
+    /* z-index: 2; */
+    top: 0;
+    /* transition-duration: 1000ms; */
+    opacity: 0.8;
+}
+
+figure.engine:after {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(images/first-log.jpg);
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: -12px;
+    background-size: contain;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    /* transition-duration: 1.2s; */
+    transform: scaleY(0.95) scaleX(0.8);
+}
+
+
+
 figure.cvt,
 figure.cvt-ratios {
     width: 49%;
     display: inline-block;
     position: relative;
-    /* height: 798px; */
-}
-
-figure.dyno {
-    height: 510px;
+    height: 798px;
 }
 
 figure.engine img,
@@ -90,34 +156,20 @@ figure.cvt-ratios table {
     width: 50%;
 }
 
+.engine {
+    position: relative;
+    width: 100%;
+}
+
+
 .engine .before-after {
     display: inline-flex;
     font-size: 1.5em;
 }
 
 
-img.dyno-chart {
-    position: absolute;
-    top: 0;
-    left: 0;
-   image-rendering: pixelated;
-    
-}
 
-img.dyno-chart-sport {
-    position: absolute;
-    opacity: 0.3;
-    top: 0px;
-    left: 250px;
-    margin-top: 44px;
-    transform: scaleY(1.3) scaleX(2);
-}
 
-img.dyno-chart-sport:hover {
-    opacity: 0.72;
-    background-color: green;
-    mix-blend-mode: multiply;
-}
 
 
 
@@ -128,7 +180,7 @@ img.hood {
 }
 
 img.hood:hover {
-    object-fit: none;    
+    object-fit: none;
 }
 
 img.sport-wheels {
@@ -151,12 +203,13 @@ img.suspension-diagram {
 .driveline-wrapper {
     max-width: 900px;
     height: 100%;
-    position: relative;    
+    position: relative;
 }
 
 .scaleWrap {
     text-align: center;
 }
+
 .zoom {
     max-width: 900px;
 }
@@ -197,16 +250,16 @@ img.suspension-diagram {
 }
 
 .dl-3:before {
-    content: 'trieb';   
+    content: 'trieb';
     width: 340px;
     height: 340px;
     background-color: goldenrod;
     position: absolute;
     visibility: hidden;
-} 
+}
 
 
-.dl-3:hover:before  {
+.dl-3:hover:before {
     visibility: visible;
 
 }
@@ -247,3 +300,15 @@ img.suspension-diagram {
     top: 21px;
     left: -32px;
 }
+
+
+
+@keyframes fade {
+    0% {
+      opacity: 0.9;
+    }
+  
+    100% {  
+      opacity: 0.2;
+    }
+  }
