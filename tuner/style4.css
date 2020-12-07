@@ -142,7 +142,7 @@ figure.cvt-ratios {
     width: 49%;
     display: inline-block;
     position: relative;
-    height: 798px;
+    /* height: 798px; */
 }
 
 figure.engine img,
@@ -152,8 +152,9 @@ figure.cvt img {
 }
 
 figure.cvt-ratios table {
-    border: 1px solid #ccc;
-    width: 50%;
+    /* border: 1px solid #ccc; */
+    width: 100%;
+    font-size: 2em;
 }
 
 .engine {
@@ -274,7 +275,17 @@ img.suspension-diagram {
 .dl-5 {
     font-size: 1.5em;
     left: 14%;
-    top: 48%;
+    top: 48%;    
+}
+
+.dl-5:hover:after {
+    content: 'hello';
+    background: white;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .dl-5 .one {
