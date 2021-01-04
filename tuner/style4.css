@@ -7,7 +7,8 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2 {
+h1,
+h2 {
     text-align: center
 }
 
@@ -80,8 +81,8 @@ figure.engine {
 figure.engine:hover img {
     opacity: 0.2;
     animation: fade 1s ease;
-    
-    
+
+
     /* mix-blend-mode: exclusion; */
 }
 
@@ -255,19 +256,44 @@ img.suspension-diagram {
 }
 
 .dl-3:before {
-    content: 'trieb';
+    content: ' ';
+    background-image: url(images/transmission-insert.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
     width: 340px;
-    height: 340px;
-    background-color: goldenrod;
+    height: 300px;
     position: absolute;
     visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    border-bottom: 0;
+    opacity: 1;
 }
 
+.dl-3:after {
+    content: 'A polyurethane transmission insert reduces oem bushing squishiness';
+    width: 330px;
+    position: absolute;
+    left: 0;
+    top: 300px;
+    padding-left: 10px;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    color: #555;
+    font-size: 0.8em;
+}
 
-.dl-3:hover:before {
+.dl-3:hover:before,
+.dl-3:hover:after {
     visibility: visible;
-
 }
+
+.dl-dot:hover {
+    opacity: 1;
+}
+
+
 
 
 .dl-4 {
@@ -279,7 +305,7 @@ img.suspension-diagram {
 .dl-5 {
     font-size: 1.5em;
     left: 14%;
-    top: 48%;    
+    top: 48%;
 }
 
 .dl-5:hover:after {
@@ -320,10 +346,10 @@ img.suspension-diagram {
 
 @keyframes fade {
     0% {
-      opacity: 0.9;
+        opacity: 0.9;
     }
-  
-    100% {  
-      opacity: 0.2;
+
+    100% {
+        opacity: 0.2;
     }
-  }
+}
