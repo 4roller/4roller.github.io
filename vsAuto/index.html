@@ -7,6 +7,12 @@
 
 <body>
     <h1>VS Auto</h1>
+    <div class="mods">
+        <div class="cost">0</div>
+        <div class="hp">0</div>
+        <div class="eff">0</div>
+        <div class="weight">0</div>
+    </div>
     <div class='v1'>
     </div>
 
@@ -21,44 +27,51 @@
     let tabindex = 0;
 
     const getPowerToWeight = function (obj) {
-        let loss = obj.hp * (DRIVETRAIN[obj.drive].driveloss / 100);
-        let whp = obj.hp-loss;
-        let outputPower = (whp / obj.weight * 10000).toFixed();
+        let outputPower = (obj.whp / obj.weight * 10000).toFixed();
         return outputPower;
     }
 
     const calculateMods = function (c) {
         let uc = { ...c };
         let mods;
+        let totalPower = 0;
+        let totalWeight = 0;
+        let totalHandling = 0;
+        let totalEfficiency = 0;
 
         if (c.mods) {
             mods = c.mods;
-            let totalPower = 0;
-            let totalWeight = 0;
-            let totalHandling = 0;
-            let totalEfficiency = 0;
 
             mods.forEach((m) => {
-                let key = Object.keys(m);
-                if (m[key]['power']) {
-                    totalPower = totalPower + m[key]['power'];
-                }
-                if (m[key]['weight']) {
-                    totalWeight = totalWeight + m[key]['weight'];
-                }
-                if (m[key]['handling']) {
-                    totalHandling = totalHandling + m[key]['handling'];
-                }
-                if (m[key]['drivetrain']) {
-                    totalEfficiency = totalEfficiency + m[key]['drivetrain'];
+                if (m.enabled) {
+                    if (m.power) {
+                        totalPower = totalPower + m.power;
+                    }
+                    if (m.weight) {
+                        totalWeight = totalWeight + m.weight;
+                    }
+                    if (m.handling) {
+                        totalHandling = totalHandling + m.handling;
+                    }
+                    if (m.drivetrain) {
+                        totalEfficiency = totalEfficiency + m.drivetrain;
+                    }
                 }
 
             })
-            
-            let whpGain = uc.hp * totalEfficiency/100;
-            uc.hp = uc.hp + whpGain + totalPower;
-            uc.weight = uc.weight - totalWeight;
         }
+
+        uc.effGain = totalEfficiency / 100;
+        let loss = uc.hp * ((DRIVETRAIN[uc.drive].driveloss / 100) - uc.effGain);
+
+        uc.hp = (uc.hp + totalPower).toFixed(0);
+
+        uc.powerGain = totalPower.toFixed(0);
+
+        uc.weight = uc.weight - totalWeight;
+
+        uc.whp = (uc.hp - loss).toFixed(0);
+
         return uc;
     }
 
@@ -70,6 +83,9 @@
         const tierClass = 'tier-' + getTier(c);
         returnCarRow.classList.add(tierClass);
         returnCarRow.classList.add('vehicle');
+        if (c.model === 'Impreza') {
+            returnCarRow.classList.add('impreza');
+        }
         returnCarRow.setAttribute('tabindex', tabindex++);
 
         let carRow = `        
@@ -86,6 +102,11 @@
                 <div class="ed">${ENGINE_INDUCTION[c.engineType]} ${c.drive}</div>
                 <div class="et">${c.displacement}L ${c.cylOr}${c.cylNum} ${c.trans}</div>
                 <div class="hp">${c.hp}hp/${c.weight}lbs</div>
+                <div class="gains">
+                    <span class="effGain">${(c.effGain * 100).toFixed(0)}%</span>
+                    <span class="hpGain">${c.powerGain}hp</span>
+                    <span class="whp">${c.whp}whp</span>
+                </div>
             </div>            
         `
         returnCarRow.innerHTML = carRow;
@@ -97,19 +118,19 @@
         const p2w = getPowerToWeight(c);
         c.tier = 0;
         // Tier 1 cars
-        if (p2w < 400) {
+        if (p2w < 300) {
             c.tier = 1;
         }
-        if (p2w > 400) {
+        if (p2w > 435) {
             c.tier = 1;
         }
-        if (p2w > 550) {
+        if (p2w > 500) {
             c.tier = 2;
         }
-        if (p2w > 700) {
+        if (p2w > 600) {
             c.tier = 3;
         }
-        if (p2w > 800) {
+        if (p2w > 700) {
             c.tier = 4;
         }
         if (p2w > 950) {
@@ -119,26 +140,138 @@
         return c.tier;
     }
 
+    const showMods = function () {
+        const mods = CARS['SUBARU_IMPREZA_2016_NACVT'].mods;
+        const ul = document.createElement('ul');
 
-    // console.log(CARS);
+        mods.forEach(el => {
+            let modEl = document.createElement('li');
+            modEl.classList.add('mod');
+            let power = '';
+            let weight = '';
+            let handling = '';
+            let drivetrain = '';
 
-    let carArr = [];
-    for (c in CARS) {
-        let uc = calculateMods(CARS[c]);
-        //let uc = { ...CARS[c] };
-        carArr.push(uc);
+            if (el.power) {
+                power = `+${el.power}HP`;
+            }
+            if (el.drivetrain) {
+                drivetrain = `+${el.drivetrain}% Drive Eff.`;
+            }
+            if (el.handling) {
+                handling = `+${el.handling}Aglilty`;
+            }
+            if (el.weight) {
+                weight = `${0 - el.weight}lbs`;
+            }
+
+            modEl.innerHTML = `                
+                <input type="checkbox" id="" name="${el.type}" value="${el.type}" >
+                <div class=type>${el.type}</div>
+                <div>${el.manufacturer}</div>
+                <div>${el.description}</div>
+                <div>${power} ${weight} ${handling} ${drivetrain}</div>
+                <div class="cost">${el.cost}</div>
+            `;
+            ul.appendChild(modEl);
+        })
+        return ul;
     }
 
-    let cars = carArr.sort(function (a, b) {
-        return getPowerToWeight(a) - getPowerToWeight(b);
-    });
+    const getParent = function (el, classToFind) {
+        if (el.className === classToFind) {
+            return el;
+        }
+        else {
+            return getParent(el.parentElement, classToFind);
+        }
+    }
 
-    //carArr.reverse();
+    const updateGains = function (gains) {
+        mods.querySelector('.cost').innerHTML = `${gains.cost}`;
+        mods.querySelector('.eff').innerHTML = `${gains.eff}`;
+        mods.querySelector('.hp').innerHTML = `${gains.hp}`;
+        mods.querySelector('.weight').innerHTML = `${0-gains.weight}`;
+
+    }
+
+    const handleModsClick = function (e) {
+        e.preventDefault();
+        let thing = getParent(e.target, 'mod');
+        let input = thing.querySelector('input');
+        input.checked = !input.checked;
+        selectedMod = thing.querySelector('.type').innerHTML;
+        let gains = {
+            eff: 0,
+            hp: 0,
+            whp: 0,
+            weight: 0,
+            cost: 0,
+        };
+        CARS.SUBARU_IMPREZA_2016_NACVT.mods.forEach(el => {
+            if (el.type === selectedMod) {
+                if (input.checked) {
+                    el.enabled = true;
+                } else {
+                    el.enabled = false;
+                    
+                }
+            }
+            if (el.enabled) {
+                if (el.cost) {
+                    gains.cost += el.cost;
+                }
+                if (el.drivetrain) {
+                    gains.eff += el.drivetrain;
+                }
+                if (el.power) {
+                    gains.hp += el.power;
+                }
+                if (el.weight) {
+                    gains.weight += el.weight;
+                }                                
+            }
+            updateGains(gains);
+            
+        });
+        paint();
+    }
+
+
+    const paint = function () {
+        tabindex = 0;
+        v1.innerHTML = '';
+        carArr = [];
+
+        for (c in CARS) {
+            let uc = calculateMods(CARS[c]);
+            //let uc = { ...CARS[c] };
+            carArr.push(uc);
+        }
+
+        let cars = carArr.sort(function (a, b) {
+            return getPowerToWeight(a) - getPowerToWeight(b);
+        });
+
+        cars.forEach(function (c) {
+            v1.appendChild(getVsCode(c));
+        });
+    }
+
+
+
+
+    let carArr = [];
     const v1 = document.querySelector('.v1');
+    const mods = document.querySelector('.mods');
+    mods.addEventListener('click', handleModsClick);
+    mods.appendChild(showMods());
+    paint();
 
-    cars.forEach(function (c) {
-        v1.appendChild(getVsCode(c));
-    });
+
+
+
+
 
 
 

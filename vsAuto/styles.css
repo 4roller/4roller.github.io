@@ -20,7 +20,7 @@ html {
     padding: 5px;
     margin: 10px;
     /* position: absolute; */
-    
+
     position: relative;
     bottom: 0;
 }
@@ -142,6 +142,57 @@ html {
 .vehicle .vehicle-name {
     /* display: none; */
 }
+
+.mods {
+    border: 1px solid black;
+    background: #222;
+    transform: scale(0.75);
+}
+
+.mods .cost:before {
+    content: '$';
+}
+.mods .hp:after {
+    content: ' HP';
+}
+.mods .eff:after {
+    content: ' % Drivetrain Efficiency ';
+}
+.mods .weight:after {
+    content: ' lbs';
+}
+
+.mods ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.mod {
+    font-size: 0.8em;
+    list-style-type: none;
+    min-width: 200px;
+    border: 1px solid #000;
+    padding: 10px;
+}
+
+.mod .type {
+    font-weight: bold;    
+    color: yellowgreen;
+}
+
+.mod .cost {
+    float: right;
+    color: yellow;
+}
+
+.mod input {
+    float: right;
+}
+
+
+
+
 
 
 @keyframes fadeIn {

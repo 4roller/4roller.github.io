@@ -20,9 +20,10 @@ const TRANSMISSION = {
 }
 
 const DRIVETRAIN = {
+
+    FWD: { name: 'front wheel drive', driveloss: 15 },
+    RWD: { name: 'rear wheel drive', driveloss: 20 },
     AWD: { name: 'all wheel drive', driveloss: 25 },
-    FWD: { name: 'front wheel drive', driveloss: 12 },
-    RWD: { name: 'rear wheel drive', driveloss: 18 },
 }
 
 const ENGINE_INDUCTION = {
@@ -196,145 +197,200 @@ const CARS = {
         image: '2016-Subaru-Impreza-Sport',
         mods: [
             // Power            
-            // {
-            //     'Tune': {
-            //         manufacturer: "Throttle Happy",
-            //         description: "Rev 5A 91/93 Ocatane",
-            //         power: 10,
-            //     },
-            // },
-            // {
-            //     'Engine Headers': {
-            //         manufacturer: "Inferno Fabrications",
-            //         description: "Equal Length 4-1 catted",
-            //         power: 10,
-            //         weight: 10,
-            //     },
-            // },
-            // {
-            //     'Airbox': {
-            //         manufacturer: "DIY",
-            //         description: "Throated airbox",
-            //         power: 1,
-            //     },
-            // },
-            //             {
-            //     'Power Billet Blocks': {
-            //         manufacturer: "Crawford",
-            //         description: "Intake Runner Extensions",
-            //         power: 5,
-            //     },
-            // },
-            // {
-            //     'Filter': {
-            //         manufacturer: "Apexi",
-            //         description: "high flow filter",
-            //         power: 1,
-            //     },
-            // },
-            // {
-            //     'Filter': {
-            //         manufacturer: "Takeda",
-            //         description: "Hybrid Intake Pipe",
-            //         power: 5,
-            //     },
-            // },
             {
-                'Engine Pitch Stop': {
-                    manufacturer: "Torque Solutions",
-                    description: "75A",
-                    drivetrain: 1,
-                },
+                type: 'Turbo',
+                manufacturer: "AVO",
+                description: "Turbo",
+                power: 60,
+                weight: -50,
+                cost: 5000,                
             },
             {
-                'Transmission Mount': {
-                    manufacturer: "CKE",
-                    description: "75A",
-                    drivetrain: 1,
-                },
+                type: 'Tune',
+                manufacturer: "Throttle Happy",
+                description: "Rev 5A 91/93 Ocatane",
+                power: 5,
+                cost: 300, 
             },
             {
-                'Differential Lockdown': {
-                    manufacturer: "Perrin",
-                    description: "",
-                    drivetrain: 1,
-                },
+                type: 'Engine Headers',
+                manufacturer: "Inferno Fabrications",
+                description: "Equal Length 4-1 catted",
+                power: 7,
+                weight: 10,
+                cost: 700,
             },
-            // {
-            //     'Exhaust': {
-            //         manufacturer: "Nameless",
-            //         description: "5inch",
-            //         weight: 5,
-            //         power: 1,
-            //     },
-            // },
+            {
+                type: 'Airbox',
+                manufacturer: "DIY",
+                description: "Throated airbox",
+                power: 1,
+                cost: 0,
+            },
 
+            {
+                type: 'Power Billet Blocks',
+                manufacturer: "Crawford",
+                description: "Intake Runner Extensions",
+                power: 5,
+                cost: 300,
+            },
+            {
+                type: 'Filter',
+                manufacturer: "Apexi",
+                description: "high flow filter",
+                power: 3,
+                cost: 50,
+            },
+            {
+                type: 'Intake',
+                manufacturer: "Takeda",
+                description: "Hybrid Intake Pipe",
+                power: 2,
+                cost: 200,
+            },
+            {
+                type: 'Exhaust',
+                manufacturer: "Nameless",
+                description: "5inch",
+                weight: 5,
+                power: 1,
+                cost: 150,
+            },
+            // Drivetrain
+            {
+                type: 'Engine Mounts',
+                manufacturer: "Perrin",
+                description: "75A",
+                drivetrain: 1,
+                cost: 300,
+            },
+            {
+                type: 'Carbon Driveshaft',
+                manufacturer: "Driveshaft Shop",
+                description: "Lightweight Driveshaft",
+                drivetrain: 2,
+                weight: 12,
+                cost: 1100,
+            },
+            {
+                type: 'Engine Pitch Stop',
+                manufacturer: "Torque Solutions",
+                description: "75A",
+                drivetrain: 1,
+                cost: 70,
+            },
+            {
+                type: 'Transmission Mount',
+                manufacturer: "CKE SSP",
+                description: "75A",
+                drivetrain: 1,
+                cost: 30,
+            },
+            {
+                type: 'Driveshaft Carrier',
+                manufacturer: "Torque Solution",
+                description: "alum. billet",
+                drivetrain: 1,
+                cost: 35,
+            },
+            {
+                type: 'Differential Lockdown',
+                manufacturer: "Perrin",
+                description: "",
+                drivetrain: 1,
+                cost: 115,
+            },
 
-            // //
+            //
             // Handling
             //
-            // {
-            //     'Steering Lockdown': {
-            //         manufacturer: "Torque Solutions",
-            //         description: '',
-            //         handling: 1,
-            //     }
-            // },
-            // {
-            //     'Front Strut Bar': {
-            //         manufacturer: "STI",
-            //         description: 'Flexible',
-            //         handling: 1,
-            //     }
-            // },
-            // {
-            //     'Front Sway Bar': {
-            //         manufacturer: "Subaru",
-            //         description: '24mm XV Crosstrek',
-            //         handling: 1,
-            //     }
-            // },
-            // {
-            //     'Rear Sway Bar': {
-            //         manufacturer: "Whiteline",
-            //         description: '22mm adjustable',
-            //         handling: 1.5,
-            //     }
-            // },
-            // {
-            //     'Coilovers': {
-            //         manufacturer: "Fortune Auto",
-            //         description: "500 Series",                    
-            //         handling: 4,
-            //         power: 2,
-            //         weight: 15,
-            //     },
-            // },
-            // {
-            //     'Wheels': {
-            //         manufacturer: "Enkei",
-            //         description: "Subaru STI 15 spoke",
-            //         handling: 2,
-            //         weight: 28,
-            //     },
-            // },
+
+            {
+                type: 'Steering Lockdown',
+                manufacturer: "Torque Solutions",
+                description: '',
+                handling: 1,
+                cost: 50,
+            },
+            {
+                type: 'Draw Stiffener',
+                manufacturer: "STI",
+                description: 'front chassis stiffener',
+                handling: 1,
+                cost: 270,
+            },
+            {
+                type: 'Front Strut Bar',
+                manufacturer: "STI",
+                description: 'Flexible',
+                handling: 1,
+                cost: 300,
+            },
+            {
+                type: 'Front Sway Bar',
+                manufacturer: "Subaru",
+                description: '24mm XV Crosstrek',
+                handling: 1,
+                cost: 100,
+            },
+            {
+                type: 'Rear Sway Bar',
+                manufacturer: "Whiteline",
+                description: '22mm adjustable',
+                handling: 1.5,
+                cost: 240,
+            },
+            {
+                type: 'Coilovers',
+                manufacturer: "Fortune Auto",
+                description: "500 Series",
+                handling: 4,
+                weight: 15,
+                drivetrain: 1,
+                cost: 1500,
+            },
+            {
+                type: 'Wheels',
+                manufacturer: "Enkei",
+                description: "Subaru STI 15 spoke",
+                handling: 2,
+                weight: 28,
+                cost: 1000,
+            },
+
             //
             // Weight
             //
-            // {
-            //     'Rear Seat Delete': {
-            //         manufacturer: "DIY",
-            //         description: 'Removed rear seats',
-            //         weight: 75,
-            //     }
-            // },
-            // {
-            //     'Trunk Delete': {
-            //         manufacturer: "DIY",
-            //         description: 'Removed Trunk Interior',
-            //         weight: 40,
-            //     }
-            // },
+            {
+                type: 'Interior Delete',
+                manufacturer: "DIY",
+                description: 'Removed interior',
+                weight: 100,
+                cost: 0,
+            },
+            {
+                type: 'Passenger Seat Delete',
+                manufacturer: "DIY",
+                description: 'Removed passenger seat',
+                weight: 40,
+                cost: 0,
+            },
+            {
+                type: 'Rear Seat Delete',
+                manufacturer: "DIY",
+                description: 'Removed rear seats',
+                weight: 80,
+                cost: 0,
+            },
+            {
+                type: 'Trunk Delete',
+                manufacturer: "DIY",
+                description: 'Removed Trunk Interior',
+                weight: 40,
+                cost: 0,
+            }
+
         ]
     },
     SUBARU_STI_2008_TMT: {
@@ -368,7 +424,21 @@ const CARS = {
         weight: 2762,
         image: '2014-Subaru-BRZ',
     },
-
+    HONDA_HRV_2020_NAAT: {
+        oem: OEM.HONDA,
+        model: 'HR-V',
+        year: 2020,
+        trim: 'Sport',
+        engineType: 'NA',
+        trans: 'AT',
+        displacement: '1.8',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.I,
+        hp: 141,
+        drive: 'FWD',
+        weight: 3096,
+        image: '2020-Honda-HRV-Sport',
+    },
     HONDA_ACCORD_2019_TAT: {
         oem: OEM.HONDA,
         model: 'Accord',
