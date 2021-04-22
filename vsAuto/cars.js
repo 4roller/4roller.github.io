@@ -210,7 +210,7 @@ const CARS = {
                 manufacturer: "Throttle Happy",
                 description: "Rev 5A 91/93 Ocatane",
                 power: 5,
-                cost: 300, 
+                cost: 300,                 
             },
             {
                 type: 'Engine Headers',
@@ -223,7 +223,7 @@ const CARS = {
             {
                 type: 'Airbox',
                 manufacturer: "DIY",
-                description: "Throated airbox",
+                description: "Charcol Filter Delete, Sealed",
                 power: 1,
                 cost: 0,
             },
@@ -258,6 +258,15 @@ const CARS = {
                 cost: 150,
             },
             // Drivetrain
+
+            {
+                type: 'Fluid Damper',
+                manufacturer: "Fluid Damper",
+                description: "Silicone vibration damper",
+                drivetrain: 2,
+                cost: 450,
+            },
+
             {
                 type: 'Engine Mounts',
                 manufacturer: "Perrin",
@@ -291,14 +300,14 @@ const CARS = {
                 type: 'Driveshaft Carrier',
                 manufacturer: "Torque Solution",
                 description: "alum. billet",
-                drivetrain: 1,
+                drivetrain: 0.5,
                 cost: 35,
             },
             {
                 type: 'Differential Lockdown',
                 manufacturer: "Perrin",
                 description: "",
-                drivetrain: 1,
+                drivetrain: 1.5,
                 cost: 115,
             },
 

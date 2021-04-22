@@ -7,14 +7,17 @@
 
 <body>
     <h1>VS Auto</h1>
+    <div class='v1'></div>
     <div class="mods">
-        <div class="cost">0</div>
-        <div class="hp">0</div>
-        <div class="eff">0</div>
-        <div class="weight">0</div>
+        <div class="overview">
+            <div class="cost">0</div>
+            <div class="hp">0</div>
+            <div class="eff">0</div>
+            <div class="weight">0</div>
+            <div class="whp">0</div>
+        </div>
     </div>
-    <div class='v1'>
-    </div>
+
 
 </body>
 
@@ -25,6 +28,14 @@
 <script>
 
     let tabindex = 0;
+
+    const GAINS_DEFUALT = {
+        eff: 0,
+        hp: 0,
+        whp: 0,
+        weight: 0,
+        cost: 0,
+    };
 
     const getPowerToWeight = function (obj) {
         let outputPower = (obj.whp / obj.weight * 10000).toFixed();
@@ -62,14 +73,15 @@
         }
 
         uc.effGain = totalEfficiency / 100;
-        let loss = uc.hp * ((DRIVETRAIN[uc.drive].driveloss / 100) - uc.effGain);
+        
 
         uc.hp = (uc.hp + totalPower).toFixed(0);
+        let loss = uc.hp * ((DRIVETRAIN[uc.drive].driveloss / 100) - uc.effGain);
 
         uc.powerGain = totalPower.toFixed(0);
 
         uc.weight = uc.weight - totalWeight;
-
+        
         uc.whp = (uc.hp - loss).toFixed(0);
 
         return uc;
@@ -179,7 +191,7 @@
     }
 
     const getParent = function (el, classToFind) {
-        if (el.className === classToFind) {
+        if (el.classList.contains(classToFind)) {
             return el;
         }
         else {
@@ -188,10 +200,26 @@
     }
 
     const updateGains = function (gains) {
+        if (!gains) {
+            let gains = GAINS_DEFUALT;
+        }
         mods.querySelector('.cost').innerHTML = `${gains.cost}`;
         mods.querySelector('.eff').innerHTML = `${gains.eff}`;
         mods.querySelector('.hp').innerHTML = `${gains.hp}`;
-        mods.querySelector('.weight').innerHTML = `${0-gains.weight}`;
+        mods.querySelector('.weight').innerHTML = `${0 - gains.weight}`;
+
+        const impreza = CARS['SUBARU_IMPREZA_2016_NACVT'];
+        let effGain = gains.eff / 100;
+        let hpGain = impreza.hp + gains.hp;
+
+
+        let loss = hpGain * ((DRIVETRAIN[impreza.drive].driveloss / 100) - effGain);
+
+        const stockLoss = impreza.hp * (DRIVETRAIN[impreza.drive].driveloss / 100);
+
+        let whp = ((hpGain - loss)).toFixed(0);
+
+        mods.querySelector('.whp').innerHTML = `${whp}`;
 
     }
 
@@ -200,6 +228,7 @@
         let thing = getParent(e.target, 'mod');
         let input = thing.querySelector('input');
         input.checked = !input.checked;
+        thing.classList.toggle('selected')
         selectedMod = thing.querySelector('.type').innerHTML;
         let gains = {
             eff: 0,
@@ -214,7 +243,6 @@
                     el.enabled = true;
                 } else {
                     el.enabled = false;
-                    
                 }
             }
             if (el.enabled) {
@@ -229,10 +257,10 @@
                 }
                 if (el.weight) {
                     gains.weight += el.weight;
-                }                                
+                }
             }
             updateGains(gains);
-            
+
         });
         paint();
     }
@@ -259,14 +287,17 @@
     }
 
 
-
-
-    let carArr = [];
     const v1 = document.querySelector('.v1');
     const mods = document.querySelector('.mods');
+    let carArr = [];
+
+    // VS AUTO!
+
+
     mods.addEventListener('click', handleModsClick);
     mods.appendChild(showMods());
     paint();
+    updateGains(GAINS_DEFUALT);
 
 
 

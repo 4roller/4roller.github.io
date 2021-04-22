@@ -7,16 +7,26 @@ html {
 .v1 {
     display: flex;
     position: relative;
-    bottom: 0;
+    top: 0;
     flex-flow: wrap;
     /* border: 1px solid fuchsia; */
     opacity: 1;
-    /* height: 89vh; */
+    max-width: 800px;
+    float: right;
+    transform: scale(1);
+
+    height: 0vh;
+}
+
+.impreza {
+    background: rgb(24, 25, 25);
+    opacity: 0.95;
 }
 
 .vehicle {
     border: 1px solid #222;
     width: 200px;
+
     padding: 5px;
     margin: 10px;
     /* position: absolute; */
@@ -75,7 +85,7 @@ html {
 
 .vehicle:hover,
 .vehicle:focus {
-    background: #cc00cc;
+    /* background: #cc00cc; */
     animation: fadeIn ease 1s;
     color: #ccc;
     z-index: 100;
@@ -143,21 +153,66 @@ html {
     /* display: none; */
 }
 
+
+
+
+
 .mods {
     border: 1px solid black;
     background: #222;
-    transform: scale(0.75);
+    transform: scale(1);
+    display: flex;
+    float: left;
+    flex-direction: column;
+    opacity: 0.95;
+    width: 400px;
+    top: 0;
+    border: 1px solid darkviolet;
+    border-radius: 4px;
+
 }
 
-.mods .cost:before {
+
+.mods .overview {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.mods .overview div {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.mods .overview .cost {
+ 
+    color: yellow;
+    font-size: 1.2em;
+    font-weight: bold;    
+}
+
+.mods .overview .cost:before {
+    content: '$';
+    color: yellow;
+}
+.mod .cost:before {
     content: '$';
 }
+
+
 .mods .hp:after {
     content: ' HP';
 }
+
+.mods .whp:after {
+    content: ' WHP';
+}
+
+
 .mods .eff:after {
     content: ' % Drivetrain Efficiency ';
 }
+
 .mods .weight:after {
     content: ' lbs';
 }
@@ -166,18 +221,35 @@ html {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    margin: 0;
+    padding: 0;
 }
 
 .mod {
+    box-sizing: border-box;
     font-size: 0.8em;
     list-style-type: none;
-    min-width: 200px;
-    border: 1px solid #000;
-    padding: 10px;
+    min-width: 200px;    
+    border: 2px solid #000;
+    border-radius: 2px;
+    padding: 3px 2px 2px 4px;
 }
 
+
+.mod input {
+    display:none;
+}
+.mod input:checked {
+    display:block;
+}
+
+.mod.selected, .mod:hover {
+    background: #333;
+}
+
+
 .mod .type {
-    font-weight: bold;    
+    font-weight: bold;
     color: yellowgreen;
 }
 
