@@ -16,13 +16,13 @@ const TRANSMISSION = {
     MT: 'manual transmission',
     AT: 'automatic transmission',
     AM: 'automated manual',
-    CVT: 'continuously variable transmission',    
+    CVT: 'continuously variable transmission',
 }
 
 const DRIVETRAIN = {
-    AWD: 'all wheel drive',
-    FWD: 'front wheel drive',
-    RWD: 'rear wheel drive',
+    AWD: { name: 'all wheel drive', driveloss: 25 },
+    FWD: { name: 'front wheel drive', driveloss: 12 },
+    RWD: { name: 'rear wheel drive', driveloss: 18 },
 }
 
 const ENGINE_INDUCTION = {
@@ -146,7 +146,7 @@ const CARS = {
         drive: 'FWD',
         weight: 3223,
         image: '2018-Ford-Focus-ST',
-    },    
+    },
     FORD_FOCUS_2018_NAAT: {
         oem: OEM.FORD,
         model: 'Focus',
@@ -177,7 +177,7 @@ const CARS = {
         drive: 'FWD',
         weight: 3223,
         image: '2018-Ford-Fiesta-ST',
-        
+
     },
     SUBARU_IMPREZA_2016_NACVT: {
         oem: OEM.SUBARU,
@@ -194,96 +194,133 @@ const CARS = {
         drive: 'AWD',
         weight: 3109,
         image: '2016-Subaru-Impreza-Sport',
-        mods: [            
-            {
-                'Tune': {
-                    manufacturer: "Throttle Happy",
-                    description: "Rev 5A 91/93 Ocatane",
-                    power: 10,
-                },
-            },
+        mods: [
+            // Power            
+            // {
+            //     'Tune': {
+            //         manufacturer: "Throttle Happy",
+            //         description: "Rev 5A 91/93 Ocatane",
+            //         power: 10,
+            //     },
+            // },
+            // {
+            //     'Engine Headers': {
+            //         manufacturer: "Inferno Fabrications",
+            //         description: "Equal Length 4-1 catted",
+            //         power: 10,
+            //         weight: 10,
+            //     },
+            // },
+            // {
+            //     'Airbox': {
+            //         manufacturer: "DIY",
+            //         description: "Throated airbox",
+            //         power: 1,
+            //     },
+            // },
+            //             {
+            //     'Power Billet Blocks': {
+            //         manufacturer: "Crawford",
+            //         description: "Intake Runner Extensions",
+            //         power: 5,
+            //     },
+            // },
+            // {
+            //     'Filter': {
+            //         manufacturer: "Apexi",
+            //         description: "high flow filter",
+            //         power: 1,
+            //     },
+            // },
+            // {
+            //     'Filter': {
+            //         manufacturer: "Takeda",
+            //         description: "Hybrid Intake Pipe",
+            //         power: 5,
+            //     },
+            // },
             {
                 'Engine Pitch Stop': {
                     manufacturer: "Torque Solutions",
                     description: "75A",
-                    power: 1,
+                    drivetrain: 1,
                 },
             },
             {
-                'Power Billet Blocks': {
-                    manufacturer: "Crawford",
-                    description: "Intake Runner Extensions",
-                    power: 5,
-                },
-            },
-            {
-                'Filter': {
-                    manufacturer: "Apexi",
-                    description: "high flow filter",
-                    power: 1,
-                },
-            },
-            {
-                'Airbox': {
-                    manufacturer: "DIY",
-                    description: "Throated airbox",
-                    power: 1,
+                'Transmission Mount': {
+                    manufacturer: "CKE",
+                    description: "75A",
+                    drivetrain: 1,
                 },
             },
             {
                 'Differential Lockdown': {
                     manufacturer: "Perrin",
                     description: "",
-                    power: 1,
-                    handling: 1
+                    drivetrain: 1,
                 },
             },
-            {
-                'Coilovers': {
-                    manufacturer: "Fortune Auto",
-                    description: "500 Series",                    
-                    handling: 4,
-                    power: 2,
-                    weight: 15,
-                },
-            },
-            {
-                'Wheels': {
-                    manufacturer: "Enkei",
-                    description: "Subaru STI 15 spoke",
-                    handling: 2,
-                    weight: 28,
-                },
-            },
-            {
-                'Exhaust': {
-                    manufacturer: "Nameless",
-                    description: "5inch",
-                    weight: 5,
-                    power: 1,
-                },
-            },
-            {
-                'Steering Lockdown': {
-                    manufacturer: "Torque Solutions",
-                    description: '',
-                    handling: 1,
-                }
-            },
-            {
-                'Front Sway Bar': {
-                    manufacturer: "Subaru",
-                    description: '24mm XV Crosstrek',
-                    handling: 1,
-                }
-            },
-            {
-                'Rear Sway Bar': {
-                    manufacturer: "Whiteline",
-                    description: '22mm adjustable',
-                    handling: 1.5,
-                }
-            },
+            // {
+            //     'Exhaust': {
+            //         manufacturer: "Nameless",
+            //         description: "5inch",
+            //         weight: 5,
+            //         power: 1,
+            //     },
+            // },
+
+
+            // //
+            // Handling
+            //
+            // {
+            //     'Steering Lockdown': {
+            //         manufacturer: "Torque Solutions",
+            //         description: '',
+            //         handling: 1,
+            //     }
+            // },
+            // {
+            //     'Front Strut Bar': {
+            //         manufacturer: "STI",
+            //         description: 'Flexible',
+            //         handling: 1,
+            //     }
+            // },
+            // {
+            //     'Front Sway Bar': {
+            //         manufacturer: "Subaru",
+            //         description: '24mm XV Crosstrek',
+            //         handling: 1,
+            //     }
+            // },
+            // {
+            //     'Rear Sway Bar': {
+            //         manufacturer: "Whiteline",
+            //         description: '22mm adjustable',
+            //         handling: 1.5,
+            //     }
+            // },
+            // {
+            //     'Coilovers': {
+            //         manufacturer: "Fortune Auto",
+            //         description: "500 Series",                    
+            //         handling: 4,
+            //         power: 2,
+            //         weight: 15,
+            //     },
+            // },
+            // {
+            //     'Wheels': {
+            //         manufacturer: "Enkei",
+            //         description: "Subaru STI 15 spoke",
+            //         handling: 2,
+            //         weight: 28,
+            //     },
+            // },
+            //
+            // Weight
+            //
             // {
             //     'Rear Seat Delete': {
             //         manufacturer: "DIY",
@@ -331,7 +368,7 @@ const CARS = {
         weight: 2762,
         image: '2014-Subaru-BRZ',
     },
-    
+
     HONDA_ACCORD_2019_TAT: {
         oem: OEM.HONDA,
         model: 'Accord',

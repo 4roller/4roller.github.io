@@ -17,11 +17,14 @@
 <script src="cars.js"></script>
 
 <script>
-    
+
     let tabindex = 0;
 
     const getPowerToWeight = function (obj) {
-        return (obj.hp / obj.weight * 10000).toFixed();
+        let loss = obj.hp * (DRIVETRAIN[obj.drive].driveloss / 100);
+        let whp = obj.hp-loss;
+        let outputPower = (whp / obj.weight * 10000).toFixed();
+        return outputPower;
     }
 
     const calculateMods = function (c) {
@@ -33,6 +36,7 @@
             let totalPower = 0;
             let totalWeight = 0;
             let totalHandling = 0;
+            let totalEfficiency = 0;
 
             mods.forEach((m) => {
                 let key = Object.keys(m);
@@ -45,9 +49,14 @@
                 if (m[key]['handling']) {
                     totalHandling = totalHandling + m[key]['handling'];
                 }
+                if (m[key]['drivetrain']) {
+                    totalEfficiency = totalEfficiency + m[key]['drivetrain'];
+                }
 
             })
-            uc.hp = uc.hp + totalPower;
+            
+            let whpGain = uc.hp * totalEfficiency/100;
+            uc.hp = uc.hp + whpGain + totalPower;
             uc.weight = uc.weight - totalWeight;
         }
         return uc;
@@ -64,19 +73,19 @@
         returnCarRow.setAttribute('tabindex', tabindex++);
 
         let carRow = `        
-            <div class="exp">` + p2w + `</div>
+            <div class="exp">${p2w}</div>
             <div class="image-wrap">
-                <img src="images/` + c.image + `.png" />
+                <img src="images/${c.image}.png" />
             </div>
             <div class="vehicle-name">
-                <div class="mmy">` + c.oem + ` ` + c.model + `</div>
-                <div class="mmy">` + c.trim + ` ` + c.year + `</div>
+                <div class="mmy">${c.oem} ${c.model}</div>
+                <div class="mmy">${c.trim} ${c.year}</div>
             </div>
             
             <div class="vehicle-data unit-sq">
-                <div class="ed">` + ENGINE_INDUCTION[c.engineType] + ` ` + c.drive + `</div>
-                <div class="et">` + c.displacement + `L ` + c.cylOr + c.cylNum + ` ` + c.trans + `</div>
-                <div class="hp">` + c.hp + `hp/` + c.weight + `lbs</div>                
+                <div class="ed">${ENGINE_INDUCTION[c.engineType]} ${c.drive}</div>
+                <div class="et">${c.displacement}L ${c.cylOr}${c.cylNum} ${c.trans}</div>
+                <div class="hp">${c.hp}hp/${c.weight}lbs</div>
             </div>            
         `
         returnCarRow.innerHTML = carRow;
@@ -111,7 +120,7 @@
     }
 
 
-    console.log(CARS);
+    // console.log(CARS);
 
     let carArr = [];
     for (c in CARS) {

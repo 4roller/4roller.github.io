@@ -250,6 +250,37 @@ img.suspension-diagram {
     top: 47%;
 }
 
+.dl-2:before {
+    content: ' ';
+    background-image: url(images/pitchstop.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 150px;
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    border-bottom: 0;
+    opacity: 1;
+}
+
+.dl-2:after {
+    content: 'A polyurethane/billet pitch stop reduces engine bucking under acceleration';
+    width: 330px;
+    position: absolute;
+    left: 0;
+    top: 150px;
+    padding-left: 10px;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    color: #555;
+    font-size: 0.8em;
+}
+
+
+
 .dl-3 {
     left: 62%;
     top: 47%;
@@ -284,10 +315,6 @@ img.suspension-diagram {
     font-size: 0.8em;
 }
 
-.dl-3:hover:before,
-.dl-3:hover:after {
-    visibility: visible;
-}
 
 .dl-dot:hover {
     opacity: 1;
@@ -308,14 +335,33 @@ img.suspension-diagram {
     top: 48%;
 }
 
-.dl-5:hover:after {
-    content: 'hello';
-    background: white;
-    width: 500px;
-    height: 500px;
+.dl-5:before {
+    content: ' ';
+    background-image: url(images/differentiallockdown.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 325px;
+    height: 290px;
     position: absolute;
-    top: 0;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    border-bottom: 0;
+    opacity: 1;
+}
+
+.dl-5:after {
+    content: 'Solid billet inserts (top) and polyurethane bushings (bottom) reduces differential movment under hard acceleration';
+    width: 315px;
+    position: absolute;
     left: 0;
+    top: 290px;
+    padding-left: 10px;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    color: #555;
+    font-size: 0.8em;
 }
 
 .dl-5 .one {
@@ -342,6 +388,17 @@ img.suspension-diagram {
     left: -32px;
 }
 
+
+
+.dl-2:hover:before,
+.dl-2:hover:after,
+.dl-3:hover:before,
+.dl-3:hover:after,
+.dl-5:hover:before,
+.dl-5:hover:after {
+    visibility: visible;
+    z-index: 1;
+}
 
 
 @keyframes fade {
