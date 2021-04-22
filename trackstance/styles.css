@@ -1,0 +1,31 @@
+html {
+    background: black;
+    color: #888;
+    font-family: sans-serif;
+    position: relative;
+}
+
+.bed {
+    border: 1px solid white;
+    width: 150px;
+    height: 200px;
+    position: relative;
+}
+
+.wheel {
+    position: relative;
+    border: 1px solid white;
+    width: 16px;
+    height: 80px; 
+    /* transform: rotate(1deg); */
+}
+
+.wheel::before {
+    content: ' ';
+    height: 160px;
+    border: 1px solid pink;
+    position: absolute;
+    top: -40px;
+    left: 7px;
+    
+}

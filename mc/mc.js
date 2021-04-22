@@ -1,7 +1,7 @@
 let mc = (() => {
 
   let d = document;
-  let rootPath = "../Media/";
+  let rootPath = "media/";
   let currentPathArr = [];
   // DOM vars
   let video, audio, listing, crumb;
