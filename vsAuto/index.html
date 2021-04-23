@@ -7,20 +7,21 @@
 
 <body>
     <h1><span class="brandStyle"><span class="italic">FB20</span> Tuner</span> 🚗💨 </h1>
-    <h2>🏁 Tuner Shop 🏁</h2> 
-    <div class='v1'></div>
-    <div class="mods">
-        <div class="overview">
-            <div class="weight">0</div>
-            <div class="hp">0</div>
-            <div class="eff">0</div>
-            <div class="whp">0</div>
-            
-            <div class="p2w">0</div>
-            <div class="cost">0</div>
-        </div>
+    <div class="spec">
+        <div class="p2w">0</div>
+        <div class="whp">0</div>
+        <div class="hp">0</div>
+        <div class="eff">0</div>
+        <div class="weight">0</div>
+        <div class="cost">0</div>
     </div>
-
+    <div class='v1'>        
+    </div>
+    
+    <div class="tunerShop">
+        <h2>🏁 Tuner Shop 🏁</h2>
+        <div class="mods"></div>
+    </div>
 
 </body>
 
@@ -103,7 +104,7 @@
             </div>
             <div class="vehicle-name">
                 <div class="mmy">${c.oem} ${c.model}</div>
-                <div class="mmy">${c.trim} ${c.year}</div>
+                <div class="mmy mmy-sub">${c.trim} ${c.year}</div>
             </div>
             
             <div class="vehicle-data unit-sq">
@@ -195,7 +196,7 @@
         }
     }
 
-    const updateGains = function (gains) {
+    const updateSpec = function (gains) {
         if (!gains) {
             let gains = GAINS_DEFUALT;
         }
@@ -207,26 +208,26 @@
         let loss = hpGain * (driveLossPercentage - effGain);
         const stockWhp = (impreza.hp - (impreza.hp * driveLossPercentage)).toFixed(0);
         const stockLoss = impreza.hp * (DRIVETRAIN[impreza.drive].driveloss / 100);
-        let whp = ((hpGain - loss)).toFixed(0);        
+        let whp = ((hpGain - loss)).toFixed(0);
 
         let cost = `${gains.cost}`;
-        let eff = `${gains.eff - DRIVETRAIN[impreza.drive].driveloss}%  (+${gains.eff}%) <br />${impreza.drive} loss`;
         let weight = `${impreza.weight - gains.weight} lb <br />(${0 - gains.weight} lb)`;
         let hp = `${impreza.hp} +${gains.hp} HP<br /><span class="elite">${impreza.hp + gains.hp} BHP</span>`;
-        let whpOutput = `${stockWhp}  +${whp-stockWhp} HP<br/> <span class="elite">${whp} WHP</span>`;
-
+        let whpOutput = `${stockWhp}  +${whp - stockWhp} HP<br/> <span class="elite">${whp} WHP</span>`;
+        let eff = `${gains.eff - DRIVETRAIN[impreza.drive].driveloss}%  ${impreza.drive}<br /><span class="elite">+${gains.eff}% gain</span>`;
         const obj = {
             'whp': whp,
             'weight': (impreza.weight - gains.weight),
         }
-        let p2w = `<span class="eliteRobin">${getPowerToWeight(obj)}</span><br />HP / LB`;
+        let p2w = `<span class="eliteRobin">${getPowerToWeight(obj)}</span><br />PowerIndex`;
 
-        mods.querySelector('.cost').innerHTML = cost;
-        mods.querySelector('.eff').innerHTML = eff;        
-        mods.querySelector('.weight').innerHTML = weight;
-        mods.querySelector('.hp').innerHTML = hp;
-        mods.querySelector('.whp').innerHTML = whpOutput;
-        mods.querySelector('.p2w').innerHTML = p2w;
+        spec.querySelector('.cost').innerHTML = cost;
+        spec.querySelector('.eff').innerHTML = eff;
+        spec.querySelector('.weight').innerHTML = weight;
+        spec.querySelector('.hp').innerHTML = hp;
+        spec.querySelector('.whp').innerHTML = whpOutput;
+        spec.querySelector('.p2w').innerHTML = p2w;
+        return;
     }
 
     const handleModsClick = function (e) {
@@ -243,6 +244,7 @@
             weight: 0,
             cost: 0,
         };
+
         CARS.SUBARU_IMPREZA_2016_NACVT.mods.forEach(el => {
             if (el.type === selectedMod) {
                 if (input.checked) {
@@ -265,7 +267,7 @@
                     gains.weight += el.weight;
                 }
             }
-            updateGains(gains);
+            updateSpec(gains);
 
         });
         paint();
@@ -294,6 +296,7 @@
 
 
     const v1 = document.querySelector('.v1');
+    const spec = document.querySelector('.spec');
     const mods = document.querySelector('.mods');
     let carArr = [];
 
@@ -303,7 +306,7 @@
     mods.addEventListener('click', handleModsClick);
     mods.appendChild(showMods());
     paint();
-    updateGains(GAINS_DEFUALT);
+    updateSpec(GAINS_DEFUALT);
 
 
 

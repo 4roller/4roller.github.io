@@ -21,7 +21,7 @@ const TRANSMISSION = {
 
 const DRIVETRAIN = {
 
-    FWD: { name: 'front wheel drive', driveloss: 16 },
+    FWD: { name: 'front wheel drive', driveloss: 17 },
     RWD: { name: 'rear wheel drive', driveloss: 20 },
     AWD: { name: 'all wheel drive', driveloss: 25 },
 }
@@ -369,18 +369,24 @@ const CARS = {
                 type: 'Trailing Links',
                 manufacturer: "Megan Racing",
                 description: 'Pillow ball bush, tubular steel',
-                handling: 0,
+                handling: 1,
                 drivetrain: 0.5,
                 cost: 120,
             },
             {
                 type: 'Rear Lower Control Arms',
                 manufacturer: "Super Pro",
-                description: '75A Poly Bushing, Steel, Eccentric Adjustble Camber, adj. toe arm',
-                itemCode: 'TRC0015',
-                handling: 2,
+                description: '75A Poly Bushing, Steel, adj. camber',            
+                handling: 1,
                 drivetrain: 0.5,
-                cost: 380,
+                cost: 250,
+            },
+            {
+                type: 'Rear Toe Arms',
+                manufacturer: "Super Pro",
+                description: '75A Poly Bushing, adj. toe',                
+                handling: 0.5,                
+                cost: 150,
             },
             {
                 type: 'Coilovers',
@@ -409,6 +415,7 @@ const CARS = {
                 description: 'Removed interior',
                 weight: 100,
                 cost: 0,
+                utility: -2
             },
             {
                 type: 'Passenger Seat Delete',
@@ -416,6 +423,7 @@ const CARS = {
                 description: 'Removed passenger seat',
                 weight: 40,
                 cost: 0,
+                utility: -1
             },
             {
                 type: 'Rear Seat Delete',
@@ -423,6 +431,7 @@ const CARS = {
                 description: 'Removed rear seats',
                 weight: 80,
                 cost: 0,
+                utility: -1
             },
             {
                 type: 'Trunk Delete',
@@ -430,6 +439,7 @@ const CARS = {
                 description: 'Removed spare tire, Trunk Interior',
                 weight: 40,
                 cost: 0,
+                utility: -1
             }
 
         ]
