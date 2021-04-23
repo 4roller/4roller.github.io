@@ -6,8 +6,8 @@
 
 
 <body>
-    <h1>VS Auto 🚗💨</h1>
-    <h2>🚧 Subaru Impreza Tuning Simulation 🚧</h2> 
+    <h1><span class="brandStyle"><span class="italic">FB20</span> Tuner</span> 🚗💨 </h1>
+    <h2>🏁 Tuner Shop 🏁</h2> 
     <div class='v1'></div>
     <div class="mods">
         <div class="overview">
@@ -15,8 +15,9 @@
             <div class="hp">0</div>
             <div class="eff">0</div>
             <div class="whp">0</div>
-            <div class="cost">0</div>
+            
             <div class="p2w">0</div>
+            <div class="cost">0</div>
         </div>
     </div>
 
@@ -218,7 +219,7 @@
             'whp': whp,
             'weight': (impreza.weight - gains.weight),
         }
-        let p2w = `<span class="elite">${getPowerToWeight(obj)}</span><br />HP / LB`;
+        let p2w = `<span class="eliteRobin">${getPowerToWeight(obj)}</span><br />HP / LB`;
 
         mods.querySelector('.cost').innerHTML = cost;
         mods.querySelector('.eff').innerHTML = eff;        

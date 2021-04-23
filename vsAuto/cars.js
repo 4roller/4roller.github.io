@@ -344,6 +344,14 @@ const CARS = {
                 cost: 300,
             },
             {
+                type: 'Rear Strut Bar',
+                manufacturer: "Cusco",
+                description: 'Attaches across rear struts',
+                handling: 1,
+                util: -1,
+                cost: 130,
+            },
+            {
                 type: 'Front Sway Bar',
                 manufacturer: "Subaru",
                 description: '24mm XV Crosstrek',
