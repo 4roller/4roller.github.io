@@ -6,15 +6,17 @@
 
 
 <body>
-    <h1>VS Auto</h1>
+    <h1>VS Auto 🚗💨</h1>
+    <h2>🚧 Subaru Impreza Tuning Simulation 🚧</h2> 
     <div class='v1'></div>
     <div class="mods">
         <div class="overview">
-            <div class="cost">0</div>
+            <div class="weight">0</div>
             <div class="hp">0</div>
             <div class="eff">0</div>
-            <div class="weight">0</div>
             <div class="whp">0</div>
+            <div class="cost">0</div>
+            <div class="p2w">0</div>
         </div>
     </div>
 
@@ -68,22 +70,15 @@
                         totalEfficiency = totalEfficiency + m.drivetrain;
                     }
                 }
-
             })
         }
 
         uc.effGain = totalEfficiency / 100;
-        
-
         uc.hp = (uc.hp + totalPower).toFixed(0);
         let loss = uc.hp * ((DRIVETRAIN[uc.drive].driveloss / 100) - uc.effGain);
-
         uc.powerGain = totalPower.toFixed(0);
-
         uc.weight = uc.weight - totalWeight;
-        
         uc.whp = (uc.hp - loss).toFixed(0);
-
         return uc;
     }
 
@@ -203,24 +198,34 @@
         if (!gains) {
             let gains = GAINS_DEFUALT;
         }
-        mods.querySelector('.cost').innerHTML = `${gains.cost}`;
-        mods.querySelector('.eff').innerHTML = `${gains.eff}`;
-        mods.querySelector('.hp').innerHTML = `${gains.hp}`;
-        mods.querySelector('.weight').innerHTML = `${0 - gains.weight}`;
 
         const impreza = CARS['SUBARU_IMPREZA_2016_NACVT'];
+        const driveLossPercentage = (DRIVETRAIN[impreza.drive].driveloss / 100);
         let effGain = gains.eff / 100;
         let hpGain = impreza.hp + gains.hp;
-
-
-        let loss = hpGain * ((DRIVETRAIN[impreza.drive].driveloss / 100) - effGain);
-
+        let loss = hpGain * (driveLossPercentage - effGain);
+        const stockWhp = (impreza.hp - (impreza.hp * driveLossPercentage)).toFixed(0);
         const stockLoss = impreza.hp * (DRIVETRAIN[impreza.drive].driveloss / 100);
+        let whp = ((hpGain - loss)).toFixed(0);        
 
-        let whp = ((hpGain - loss)).toFixed(0);
+        let cost = `${gains.cost}`;
+        let eff = `${gains.eff - DRIVETRAIN[impreza.drive].driveloss}%  (+${gains.eff}%) <br />${impreza.drive} loss`;
+        let weight = `${impreza.weight - gains.weight} lb <br />(${0 - gains.weight} lb)`;
+        let hp = `${impreza.hp} +${gains.hp} HP<br /><span class="elite">${impreza.hp + gains.hp} BHP</span>`;
+        let whpOutput = `${stockWhp}  +${whp-stockWhp} HP<br/> <span class="elite">${whp} WHP</span>`;
 
-        mods.querySelector('.whp').innerHTML = `${whp}`;
+        const obj = {
+            'whp': whp,
+            'weight': (impreza.weight - gains.weight),
+        }
+        let p2w = `<span class="elite">${getPowerToWeight(obj)}</span><br />HP / LB`;
 
+        mods.querySelector('.cost').innerHTML = cost;
+        mods.querySelector('.eff').innerHTML = eff;        
+        mods.querySelector('.weight').innerHTML = weight;
+        mods.querySelector('.hp').innerHTML = hp;
+        mods.querySelector('.whp').innerHTML = whpOutput;
+        mods.querySelector('.p2w').innerHTML = p2w;
     }
 
     const handleModsClick = function (e) {

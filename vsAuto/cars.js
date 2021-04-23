@@ -21,7 +21,7 @@ const TRANSMISSION = {
 
 const DRIVETRAIN = {
 
-    FWD: { name: 'front wheel drive', driveloss: 15 },
+    FWD: { name: 'front wheel drive', driveloss: 16 },
     RWD: { name: 'rear wheel drive', driveloss: 20 },
     AWD: { name: 'all wheel drive', driveloss: 25 },
 }
@@ -64,7 +64,7 @@ const CARS = {
         year: 1960,
         trim: '',
         engineType: 'NA',
-        trans: 'M',
+        trans: 'MT',
         displacement: '2.0',
         cylNum: 4,
         cylOr: CYLINDER_ORIENTATION.H,
@@ -202,15 +202,22 @@ const CARS = {
                 manufacturer: "AVO",
                 description: "Turbo",
                 power: 60,
-                weight: -50,
+                weight: -97,
                 cost: 5000,                
             },
             {
-                type: 'Tune',
+                type: 'Tune - Stage 1',
                 manufacturer: "Throttle Happy",
-                description: "Rev 5A 91/93 Ocatane",
+                description: "Stage 1",
                 power: 5,
                 cost: 300,                 
+            },
+            {
+                type: 'Tune - Stage2',
+                manufacturer: "XRT",
+                description: "Stage 2",
+                power: 10,
+                cost: 600,                 
             },
             {
                 type: 'Engine Headers',
@@ -229,7 +236,7 @@ const CARS = {
             },
 
             {
-                type: 'Power Billet Blocks',
+                type: 'Power Blocks',
                 manufacturer: "Crawford",
                 description: "Intake Runner Extensions",
                 power: 5,
@@ -253,7 +260,7 @@ const CARS = {
                 type: 'Exhaust',
                 manufacturer: "Nameless",
                 description: "5inch",
-                weight: 5,
+                weight: 10,
                 power: 1,
                 cost: 150,
             },
@@ -412,7 +419,7 @@ const CARS = {
             {
                 type: 'Trunk Delete',
                 manufacturer: "DIY",
-                description: 'Removed Trunk Interior',
+                description: 'Removed spare tire, Trunk Interior',
                 weight: 40,
                 cost: 0,
             }
@@ -615,6 +622,22 @@ const CARS = {
         drive: 'FWD',
         weight: 2906,
         image: '2019-Honda-Civic-SI',
+    },
+    NISSAN_PICKUP_1993_NAMT: {
+        oem: OEM.NISSAN,
+        model: 'Pickup',
+        year: 1993,
+        trim: 'Crew Cab',
+        engineType: 'NA',
+        trans: 'MT',
+        displacement: '2.4',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.V,
+        hp: 134,
+        drive: 'RWD',
+        weight: 3175,
+        image: '1993-Nissan-Pickup',
+
     },
     NISSAN_350Z_2009_NAMT: {
         oem: OEM.NISSAN,

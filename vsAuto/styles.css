@@ -13,7 +13,7 @@ html {
     opacity: 1;
     max-width: 800px;
     float: right;
-    transform: scale(1);
+    transform: scale(0.8);
 
     height: 0vh;
 }
@@ -25,12 +25,9 @@ html {
 
 .vehicle {
     border: 1px solid #222;
-    width: 200px;
-
+    width: 160px;
     padding: 5px;
-    margin: 10px;
     /* position: absolute; */
-
     position: relative;
     bottom: 0;
 }
@@ -131,7 +128,7 @@ html {
 
 .vehicle .image-wrap {
     margin-top: 16px;
-    height: 140px;
+    height: 100px;
     position: relative;
 
 }
@@ -165,7 +162,7 @@ html {
     float: left;
     flex-direction: column;
     opacity: 0.95;
-    width: 400px;
+    width: 465px;
     top: 0;
     border: 1px solid darkviolet;
     border-radius: 4px;
@@ -179,13 +176,19 @@ html {
     flex-direction: row;
 }
 
-.mods .overview div {
-    padding: 10px;
-    box-sizing: border-box;
+.elite {
+    font-weight: bold;
+    color: purple;
+    font-size: 1.2em;
 }
 
-.mods .overview .cost {
- 
+.mods .overview div {    
+    box-sizing: border-box;
+    min-width: 80px;
+    font-size: 0.8em;
+}
+
+.mods .overview .cost { 
     color: yellow;
     font-size: 1.2em;
     font-weight: bold;    
@@ -197,24 +200,6 @@ html {
 }
 .mod .cost:before {
     content: '$';
-}
-
-
-.mods .hp:after {
-    content: ' HP';
-}
-
-.mods .whp:after {
-    content: ' WHP';
-}
-
-
-.mods .eff:after {
-    content: ' % Drivetrain Efficiency ';
-}
-
-.mods .weight:after {
-    content: ' lbs';
 }
 
 .mods ul {
@@ -229,7 +214,7 @@ html {
     box-sizing: border-box;
     font-size: 0.8em;
     list-style-type: none;
-    min-width: 200px;    
+    width: 155px;    
     border: 2px solid #000;
     border-radius: 2px;
     padding: 3px 2px 2px 4px;
