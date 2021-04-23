@@ -5,10 +5,13 @@
 </head>
 
 
-<body>
+<body>    
     <h1><span class="brandStyle"><span class="italic">FB20</span> Tuner</span> 🚗💨 </h1>
+    <h2 class="name">Subaru Impreza</h2>
     <div class="spec">
+        
         <div class="p2w">0</div>
+        
         <div class="whp">0</div>
         <div class="hp">0</div>
         <div class="eff">0</div>
@@ -202,6 +205,7 @@
         }
 
         const impreza = CARS['SUBARU_IMPREZA_2016_NACVT'];
+        document.querySelector('h2.name').innerHTML = `${impreza.oem} ${impreza.model}`;
         const driveLossPercentage = (DRIVETRAIN[impreza.drive].driveloss / 100);
         let effGain = gains.eff / 100;
         let hpGain = impreza.hp + gains.hp;
@@ -307,6 +311,7 @@
     mods.appendChild(showMods());
     paint();
     updateSpec(GAINS_DEFUALT);
+    
 
 
 
