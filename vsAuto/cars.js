@@ -351,6 +351,23 @@ const CARS = {
                 cost: 240,
             },
             {
+                type: 'Trailing Links',
+                manufacturer: "Megan Racing",
+                description: 'Pillow ball bush, tubular steel',
+                handling: 0,
+                drivetrain: 0.5,
+                cost: 120,
+            },
+            {
+                type: 'Rear Lower Control Arms',
+                manufacturer: "Super Pro",
+                description: '75A Poly Bushing, Steel, Eccentric Adjustble Camber, adj. toe arm',
+                itemCode: 'TRC0015',
+                handling: 2,
+                drivetrain: 0.5,
+                cost: 380,
+            },
+            {
                 type: 'Coilovers',
                 manufacturer: "Fortune Auto",
                 description: "500 Series",
