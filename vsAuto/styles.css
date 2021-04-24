@@ -5,12 +5,19 @@ html {
     position: relative;
 }
 
+h1 {
+    display: inline-block;
+    font-size: 3em;
+    margin: 0;
+}
+
 h2 {
+    display: inline-block;
     padding: 0;
     margin: 0;
     text-indent: 10px;
     border: 0;
-    font-size: 1.9em;
+    font-size: 2em;
     font-family: Courier, monospace;
     font-style: italic;
 }
@@ -44,7 +51,7 @@ h2 {
     transform: scale(1);
     border: 1px solid darkviolet;
     overflow-y: scroll;
-    
+
 }
 
 .vehicle.impreza {
@@ -55,19 +62,21 @@ h2 {
 }
 
 .vehicle[data-id="1960-Volkswagen-Beetle"] .image-wrap {
-    border: 16px solid gold;
     transform: scale(0.65);
-    border-radius: 20px 80px 80px 20px;    
+    margin-top: 10px;
+
 }
 
 .vehicle {
     border: 1px solid #222;
-    min-width: 350px;
+    min-width: 250px;
     padding: 5px;
+    margin-right: 20px;
     position: relative;
 
 }
-.vehicle-data  {
+
+.vehicle-data {
     font-size: 0.6em;
 }
 
@@ -88,7 +97,7 @@ h2 {
 }
 
 .vehicle.tier-3 .exp {
-    color: orange;
+    color: rgb(220, 117, 14);
 }
 
 .vehicle.tier-2 .exp {
@@ -148,15 +157,16 @@ h2 {
 
 
 .vehicle .mmy {
-    color: fuchsia;
+    color: lightgrey;
     font-style: italic;
-    text-shadow: 1px 0px 1px #fa0;
+    font-size: 0.7em;
+
 
 }
 
 .vehicle .mmy-sub {
     font-size: .8em;
-    color: rgb(130, 0, 140);
+    color: rgb(186 87 194);
     letter-spacing: 0.5;
     font-style: normal;
 }
@@ -165,21 +175,23 @@ h2 {
     position: absolute;
     top: 5px;
     right: 5px;
-    font-size: 2.8em;
+    font-size: 2em;
     font-style: italic;
     text-align: left;
     margin-bottom: 8px;
     padding: 1px 5px 1px 3px;
     opacity: 0.6;
+    z-index: 10;
+    color: rgb(6, 207, 76);
 
 }
 
 .vehicle .image-wrap {
     margin-top: 16px;
     height: 130px;
-    text-indent: 15px;
+    text-indent: 10px;
     position: relative;
-    width: 65%;
+    width: 88%;
 
 }
 
@@ -208,9 +220,8 @@ h2 {
     border: 1px solid black;
     background: #222;
     transform: scale(1);
-    opacity: 0.95;
     width: 100%;
-    height: 50%;
+    height: 60%;
     top: 0;
     overflow: scroll;
     border-radius: 4px;
@@ -221,16 +232,21 @@ h2 {
     padding: 10px;
     position: sticky;
     display: flex;
-    font-size: 2.1em;
+    font-size: 1.8em;
+    box-sizing: border-box;
     flex-direction: row;
+    border: 2px solid #22a;
+
 }
 
-.spec .name { display: block;}
+.spec .name {
+    display: block;
+}
 
 .elite {
     font-weight: bold;
     color: purple;
-    font-size: 1.2em;
+    font-size: 1.15em;
 }
 
 .eliteRobin {
@@ -243,8 +259,8 @@ h2 {
 
 .spec div {
     box-sizing: border-box;
-    padding: 12px;
-    
+    padding: 10px;
+
 }
 
 .spec .cost {
@@ -263,23 +279,27 @@ h2 {
 }
 
 .mods ul {
-    display: flex;  
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0;
-    padding: 0;    
+    padding: 0;
     width: 100%;
     height: 100%;
 }
 
 .mod {
     box-sizing: border-box;
-    font-size: 0.8em;
+    font-size: 2em;
     list-style-type: none;
-    width: 45%;
+    width: 50%;
+    height: 180px;
     border: 2px solid #000;
     border-radius: 2px;
-    padding: 3px 2px 2px 4px;
+    position: relative;
+    padding: 0 0 0 10px;
+    opacity: 1;
+    margin: 10px 10px 0 0;
 }
 
 
@@ -296,6 +316,18 @@ h2 {
     background: #333;
 }
 
+.mod .description {
+    font-size: 0.8em;
+    color: rgb(142, 111, 144);
+}
+
+.mod .gains {
+    font-size: 0.8em;
+    color: rgb(32, 196, 95);    
+    position: absolute;
+    bottom: 13px;
+    left: 5px;
+}
 
 .mod .type {
     font-weight: bold;
@@ -303,8 +335,10 @@ h2 {
 }
 
 .mod .cost {
-    float: right;
     color: yellow;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
 }
 
 .mod input {

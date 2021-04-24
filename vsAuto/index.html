@@ -5,24 +5,22 @@
 </head>
 
 
-<body>    
-    <h1><span class="brandStyle"><span class="italic">FB20</span> Tuner</span> 🚗💨 </h1>
+<body>
+    <h1>🏁 <span class="brandStyle"><span class="italic">Tuner</span> Shop</span> 🚗💨 </h1>
     <h2 class="name">Subaru Impreza</h2>
     <div class="spec">
-        
         <div class="p2w">0</div>
-        
-        <div class="whp">0</div>
-        <div class="hp">0</div>
         <div class="eff">0</div>
+        <div class="hp">0</div>
+        <div class="whp">0</div>
         <div class="weight">0</div>
         <div class="cost">0</div>
     </div>
-    <div class='v1'>        
+    <div class='v1'>
     </div>
-    
+
     <div class="tunerShop">
-        <h2>🏁 Tuner Shop 🏁</h2>
+        <h2>🔧 Tuner Parts</h2>
         <div class="mods"></div>
     </div>
 
@@ -35,8 +33,8 @@
 <script>
 
     let tabindex = 0;
-
-    const GAINS_DEFUALT = {
+    let currentVehicle = 'SUBARU_IMPREZA_2016_NACVT';
+    const GAINS_DEFAULT = {
         eff: 0,
         hp: 0,
         whp: 0,
@@ -95,13 +93,11 @@
         const tierClass = 'tier-' + getTier(c);
         returnCarRow.classList.add(tierClass);
         returnCarRow.classList.add('vehicle');
-        console.log(c);
         returnCarRow.setAttribute('data-id', c.image);
-        
         returnCarRow.setAttribute('tabindex', tabindex++);
 
         let engineSpecial = '';
-        if(c.oem == 'Subaru') {
+        if (c.oem == 'Subaru') {
             engineSpecial = "Boxer 🥊"
         }
 
@@ -139,26 +135,32 @@
             c.tier = 1;
         }
         if (p2w > 435) {
-            c.tier = 1;
-        }
-        if (p2w > 500) {
             c.tier = 2;
         }
-        if (p2w > 600) {
+        if (p2w > 500) {
             c.tier = 3;
         }
-        if (p2w > 700) {
+        if (p2w > 600) {
             c.tier = 4;
         }
-        if (p2w > 950) {
+        if (p2w > 700) {
             c.tier = 5;
+        }
+        if (p2w > 950) {
+            c.tier = 6;
         }
 
         return c.tier;
     }
 
-    const showMods = function () {
-        const mods = CARS['SUBARU_IMPREZA_2016_NACVT'].mods;
+    const updateMods = function () {        
+        modsContainer.innerHTML = '';
+
+        const mods = CARS[currentVehicle].mods;
+        if (!mods) {
+            modsContainer.innerHTML = 'No mods available at this time';
+            return;
+        }
         const ul = document.createElement('ul');
 
         mods.forEach(el => {
@@ -173,26 +175,27 @@
                 power = `+${el.power}HP`;
             }
             if (el.drivetrain) {
-                drivetrain = `+${el.drivetrain}% Drive Eff.`;
+                drivetrain = `+${el.drivetrain}% EFF`;
             }
             if (el.handling) {
-                handling = `+${el.handling}Aglilty`;
+                handling = `+${el.handling} AGI`;
             }
             if (el.weight) {
-                weight = `${0 - el.weight}lbs`;
+                weight = `${0 - el.weight}lb`;
             }
 
             modEl.innerHTML = `                
                 <input type="checkbox" id="" name="${el.type}" value="${el.type}" >
                 <div class=type>${el.type}</div>
                 <div>${el.manufacturer}</div>
-                <div>${el.description}</div>
-                <div>${power} ${weight} ${handling} ${drivetrain}</div>
+                <div class="description">${el.description}</div>
+                <div class="gains">${power} ${weight} ${handling} ${drivetrain}</div>
                 <div class="cost">${el.cost}</div>
             `;
             ul.appendChild(modEl);
         })
-        return ul;
+        mods.innerHTML = '';
+        modsContainer.appendChild(ul);
     }
 
     const getParent = function (el, classToFind) {
@@ -204,38 +207,43 @@
         }
     }
 
-    const updateSpec = function (gains) {
-        if (!gains) {
-            let gains = GAINS_DEFUALT;
+    const updateSpec = function (gains, vehicle) {
+        if (typeof vehicle === 'string' || !vehicle) {
+            vehicle = CARS[vehicle];
         }
 
-        const impreza = CARS['SUBARU_IMPREZA_2016_NACVT'];
-        document.querySelector('h2.name').innerHTML = `${impreza.oem} ${impreza.model}`;
-        const driveLossPercentage = (DRIVETRAIN[impreza.drive].driveloss / 100);
+        let inVehicle = vehicle;
+        if (!vehicle) {
+            vehicle = CARS['SUBARU_IMPREZA_2016_NACVT'];
+        }
+
+        const v = vehicle;
+        document.querySelector('h2.name').innerHTML = `${v.oem} ${v.model} ${(v.engineName) ? v.engineName : ''}`;
+        const driveLossPercentage = (DRIVETRAIN[v.drive].driveloss / 100);
         let effGain = gains.eff / 100;
-        let hpGain = impreza.hp + gains.hp;
+        let hpGain = v.hp + gains.hp;
         let loss = hpGain * (driveLossPercentage - effGain);
-        const stockWhp = (impreza.hp - (impreza.hp * driveLossPercentage)).toFixed(0);
-        const stockLoss = impreza.hp * (DRIVETRAIN[impreza.drive].driveloss / 100);
+        const stockWhp = (v.hp - (v.hp * driveLossPercentage)).toFixed(0);
+        const stockLoss = v.hp * (DRIVETRAIN[v.drive].driveloss / 100);
         let whp = ((hpGain - loss)).toFixed(0);
 
         let cost = `${gains.cost}`;
-        let weight = `${impreza.weight - gains.weight} lb <br />(${0 - gains.weight} lb)`;
-        let hp = `${impreza.hp} +${gains.hp} HP<br /><span class="elite">${impreza.hp + gains.hp} BHP</span>`;
+        let weight = `${v.weight - gains.weight} lb <br />(${0 - gains.weight} lb)`;
+        let hp = `${v.hp} +${gains.hp} HP<br /><span class="elite">${v.hp + gains.hp} BHP</span>`;
         let whpOutput = `${stockWhp}  +${whp - stockWhp} HP<br/> <span class="elite">${whp} WHP</span>`;
-        let eff = `${gains.eff - DRIVETRAIN[impreza.drive].driveloss}%  ${impreza.drive}<br /><span class="elite">+${gains.eff}% gain</span>`;
+        let eff = `${gains.eff - DRIVETRAIN[v.drive].driveloss}%  ${v.drive}<br /><span class="elite">+${gains.eff}% gain</span>`;
         const obj = {
             'whp': whp,
-            'weight': (impreza.weight - gains.weight),
+            'weight': (v.weight - gains.weight),
         }
         let p2w = `<span class="eliteRobin">${getPowerToWeight(obj)}</span><br />PowerIndex`;
 
-        spec.querySelector('.cost').innerHTML = cost;
-        spec.querySelector('.eff').innerHTML = eff;
-        spec.querySelector('.weight').innerHTML = weight;
-        spec.querySelector('.hp').innerHTML = hp;
-        spec.querySelector('.whp').innerHTML = whpOutput;
-        spec.querySelector('.p2w').innerHTML = p2w;
+        specContaier.querySelector('.cost').innerHTML = cost;
+        specContaier.querySelector('.eff').innerHTML = eff;
+        specContaier.querySelector('.weight').innerHTML = weight;
+        specContaier.querySelector('.hp').innerHTML = hp;
+        specContaier.querySelector('.whp').innerHTML = whpOutput;
+        specContaier.querySelector('.p2w').innerHTML = p2w;
         return;
     }
 
@@ -246,15 +254,10 @@
         input.checked = !input.checked;
         thing.classList.toggle('selected')
         selectedMod = thing.querySelector('.type').innerHTML;
-        let gains = {
-            eff: 0,
-            hp: 0,
-            whp: 0,
-            weight: 0,
-            cost: 0,
-        };
+        let gains = { ...GAINS_DEFAULT };
 
-        CARS.SUBARU_IMPREZA_2016_NACVT.mods.forEach(el => {
+
+        CARS[currentVehicle].mods.forEach(el => {
             if (el.type === selectedMod) {
                 if (input.checked) {
                     el.enabled = true;
@@ -276,16 +279,15 @@
                     gains.weight += el.weight;
                 }
             }
-            updateSpec(gains);
-
         });
+        updateSpec(gains);
         paint();
     }
 
 
     const paint = function () {
         tabindex = 0;
-        v1.innerHTML = '';
+        v1Contaier.innerHTML = '';
         carArr = [];
 
         for (c in CARS) {
@@ -299,24 +301,40 @@
         });
 
         cars.forEach(function (c) {
-            v1.appendChild(getVsCode(c));
+            v1Contaier.appendChild(getVsCode(c));
         });
+
+
     }
 
+    const handleCarSelector = function (e) {
+        let thing = getParent(e.target, 'vehicle').getAttribute('data-id');
+        for (c in CARS) {
+            if (CARS[c].image == thing) {
+                currentVehicle = c;
+                updateSpec(GAINS_DEFAULT, CARS[c]);
+                updateMods();
+                break;
+            };
+        }
+        return;
+    };
 
-    const v1 = document.querySelector('.v1');
-    const spec = document.querySelector('.spec');
-    const mods = document.querySelector('.mods');
+
+    const v1Contaier = document.querySelector('.v1');
+    const specContaier = document.querySelector('.spec');
+    const modsContainer = document.querySelector('.mods');
     let carArr = [];
 
     // VS AUTO!
 
 
-    mods.addEventListener('click', handleModsClick);
-    mods.appendChild(showMods());
+    modsContainer.addEventListener('click', handleModsClick);
+    v1Contaier.addEventListener('click', handleCarSelector);
+
     paint();
-    updateSpec(GAINS_DEFUALT);
-    
+    updateSpec(GAINS_DEFAULT, currentVehicle);
+
 
 
 
