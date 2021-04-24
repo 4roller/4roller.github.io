@@ -239,6 +239,13 @@ h2 {
 
 }
 
+.spec .image {
+    width: 240px;    
+}
+.spec .image img {
+    width: 100%;    
+}
+
 .spec .name {
     display: block;
 }

@@ -15,6 +15,7 @@
         <div class="whp">0</div>
         <div class="weight">0</div>
         <div class="cost">0</div>
+        <div class="image"></div>
     </div>
     <div class='v1'>
     </div>
@@ -216,6 +217,9 @@
         if (!vehicle) {
             vehicle = CARS['SUBARU_IMPREZA_2016_NACVT'];
         }
+        if (currentVehicle) {
+            vehicle = CARS[currentVehicle];
+        }
 
         const v = vehicle;
         document.querySelector('h2.name').innerHTML = `${v.oem} ${v.model} ${(v.engineName) ? v.engineName : ''}`;
@@ -237,6 +241,7 @@
             'weight': (v.weight - gains.weight),
         }
         let p2w = `<span class="eliteRobin">${getPowerToWeight(obj)}</span><br />PowerIndex`;
+        let image = `<img src="images/${v.image}.png" />`;
 
         specContaier.querySelector('.cost').innerHTML = cost;
         specContaier.querySelector('.eff').innerHTML = eff;
@@ -244,6 +249,7 @@
         specContaier.querySelector('.hp').innerHTML = hp;
         specContaier.querySelector('.whp').innerHTML = whpOutput;
         specContaier.querySelector('.p2w').innerHTML = p2w;
+        specContaier.querySelector('.image').innerHTML = image;
         return;
     }
 

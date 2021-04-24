@@ -461,6 +461,71 @@ const CARS = {
         drive: 'AWD',
         weight: 3395,
         image: '2008-Subaru-WRX-STI',
+        mods: [
+            {
+                type: 'Fluid Damper',
+                manufacturer: "Fluid Damper",
+                description: "Silicone vibration damper",
+                drivetrain: 2,
+                cost: 450,
+            },
+
+            {
+                type: 'Engine Mounts',
+                manufacturer: "Perrin",
+                description: "75A",
+                drivetrain: 1,
+                cost: 300,
+            },
+            {
+                type: 'Carbon Driveshaft',
+                manufacturer: "Driveshaft Shop",
+                description: "Lightweight Driveshaft",
+                drivetrain: 2,
+                weight: 12,
+                cost: 1100,
+            },
+            {
+                type: 'Engine Pitch Stop',
+                manufacturer: "Torque Solutions",
+                description: "75A",
+                drivetrain: 1,
+                cost: 70,
+            },
+            {
+                type: 'Transmission Mount',
+                manufacturer: "CKE SSP",
+                description: "75A",
+                drivetrain: 1,
+                cost: 30,
+            },
+            {
+                type: 'Driveshaft Carrier',
+                manufacturer: "Torque Solution",
+                description: "Aluminum Billet",
+                drivetrain: 0.5,
+                cost: 35,
+            },
+            {
+                type: 'Differential Lockdown',
+                manufacturer: "Perrin",
+                description: "2pc Billet, 4pc 75A",
+                drivetrain: 1.5,
+                cost: 115,
+            },
+
+            //
+            // Handling
+            //
+
+            {
+                type: 'Steering Lockdown',
+                manufacturer: "Torque Solutions",
+                description: 'Tightens Steering Response',
+                handling: 1,
+                cost: 50,
+            },
+        ],
     },
     SUBARU_BRZ_2014_NAMT: {
         oem: OEM.SUBARU,
