@@ -6,8 +6,10 @@
 
 
 <body>
-    <h1>🏁 <span class="brandStyle"><span class="italic">Tuner</span> Shop</span> 🚗💨 </h1>
-    <h2 class="name">Subaru Impreza</h2>
+    <div class="top">
+        <h1>🏁 <span class="brandStyle"><span class="italic">Tuner</span> Shop</span> 🚗💨 </h1>
+        <h2 class="name">Subaru Impreza</h2>
+    </div>
     <div class="spec">
         <div class="p2w">0</div>
         <div class="eff">0</div>
@@ -154,7 +156,7 @@
         return c.tier;
     }
 
-    const updateMods = function () {        
+    const updateMods = function () {
         modsContainer.innerHTML = '';
 
         const mods = CARS[currentVehicle].mods;
@@ -290,8 +292,18 @@
         paint();
     }
 
+    const handleScroll = function () {
+        let key = CARS[currentVehicle].image;
+        let el = v1Contaier.querySelector(`.vehicle[data-id="${key}"]`);
+        el.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+        el.classList.add('selected');
+
+    }
+
 
     const paint = function () {
+
+
         tabindex = 0;
         v1Contaier.innerHTML = '';
         carArr = [];
@@ -310,10 +322,10 @@
             v1Contaier.appendChild(getVsCode(c));
         });
 
-
-
-
+        handleScroll();
     }
+
+
 
     const handleCarSelector = function (e) {
         let thing = getParent(e.target, 'vehicle').getAttribute('data-id');
