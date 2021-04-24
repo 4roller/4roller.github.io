@@ -95,10 +95,15 @@
         const tierClass = 'tier-' + getTier(c);
         returnCarRow.classList.add(tierClass);
         returnCarRow.classList.add('vehicle');
-        if (c.model === 'Impreza') {
-            returnCarRow.classList.add('impreza');
-        }
+        console.log(c);
+        returnCarRow.setAttribute('data-id', c.image);
+        
         returnCarRow.setAttribute('tabindex', tabindex++);
+
+        let engineSpecial = '';
+        if(c.oem == 'Subaru') {
+            engineSpecial = "Boxer 🥊"
+        }
 
         let carRow = `        
             <div class="exp">${p2w}</div>
@@ -111,8 +116,8 @@
             </div>
             
             <div class="vehicle-data unit-sq">
-                <div class="ed">${ENGINE_INDUCTION[c.engineType]} ${c.drive}</div>
-                <div class="et">${c.displacement}L ${c.cylOr}${c.cylNum} ${c.trans}</div>
+                <div class="ed">${c.drive} ${c.engineType} ${c.trans} </div>
+                <div class="et">${c.displacement}L ${c.cylOr}${c.cylNum} ${engineSpecial} </div>
                 <div class="hp">${c.hp}hp/${c.weight}lbs</div>
                 <div class="gains">
                     <span class="effGain">${(c.effGain * 100).toFixed(0)}%</span>
