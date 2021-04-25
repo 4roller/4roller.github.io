@@ -10,7 +10,7 @@ html {
     background: #444;
     border: 1px solid #555;
     border-width: 5px;
-    
+
 }
 
 h1 {
@@ -52,11 +52,11 @@ h2 {
 .v1 {
     display: inline-flex;
     position: relative;
-    /* flex-flow: wrap; */
     opacity: 1;
     width: 100%;
     transform: scale(1);
     overflow-y: scroll;
+    padding-bottom: 25px;
 
 }
 
@@ -77,10 +77,11 @@ h2 {
     padding: 5px;
     margin-right: 20px;
     position: relative;
-
+    box-shadow: rgb(55 55 55) 3px 3px 10px
 }
 
 .vehicle-data {
+    position: relative;
     font-size: 0.6em;
 }
 
@@ -179,7 +180,7 @@ h2 {
     position: absolute;
     top: 5px;
     right: 5px;
-    font-size: 2em;
+    font-size: 1.5em;
     font-style: italic;
     text-align: left;
     margin-bottom: 8px;
@@ -239,8 +240,8 @@ h2 {
     font-size: 1.8em;
     box-sizing: border-box;
     flex-direction: row;
-    border: 1px solid #0cf;
-
+    border-bottom: 1px solid #0cf;
+    margin-bottom: 15px;    
 }
 
 .spec .image {
@@ -304,7 +305,7 @@ h2 {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    height: 100%;    
 }
 
 .mod {
@@ -321,72 +322,60 @@ h2 {
     margin: 10px 10px 0 0;
 }
 
-.mod.wt {
-    background: rgb(64, 1, 64);
+
+.mod.intake {
+    background: linear-gradient(130deg, #0082ba, transparent);
+}
+
+.mod.engine {
+    background: linear-gradient(130deg, #6e0202, transparent);
+}
+.mod.exhaust {
+    background: linear-gradient(130deg, #903000, transparent);
+}
+.mod.drivetrain {
+    background: linear-gradient(130deg, #909000, transparent);
+}
+.mod.handling {
+    background: linear-gradient(130deg, #379000, transparent);
+}
+.mod.suspension {
+    background: linear-gradient(130deg, #005990, transparent);
+}
+.mod.wheels {
+    background: linear-gradient(130deg, #001390, transparent);
+}
+.mod.brake {
+    background: linear-gradient(130deg, #520090, transparent);
+}
+.mod.weight {
+    background: linear-gradient(130deg, #8e0090, transparent);
 }
 
 
-.mod.eff {
-    background: rgb(95, 103, 7);
-}
-
-.mod.agi {
-    background: rgb(0, 55, 8);
-}
 
 
-.mod.pwr {
-    background: rgb(55, 0, 0);
-}
-
-.mod.cost .cost{
-    /* background:rgb(75, 198, 217); */
-    
-}
-
-.mod.chip {
-    box-sizing: border-box;    
-    height: 14px;
-    width: 14px;
-    display: inline-block;
-    margin-bottom: 25px;
-    margin-right: 100px;
-}
-
-.mod.chip:after {
-    position: absolute;
-    top: 25px;    
-}
-.mod.chip.pwr:after {    
-    content: 'Power';
-}
-.mod.chip.eff:after {
-    content: 'Efficiency';
-}
-.mod.chip.agi:after {
-    content: 'Agility';
-}
-.mod.chip.wt:after {
-    content: 'Weight';
-}
-.mod.chip.cost:after {
-    content: 'cost';
-}
 
 
 
 .mod input {
     display: none;
 }
-
 .mod input:checked {
     display: block;
 }
 
-.mod.selected,
+.mod.selected {
+    background: black;
+}
+
 .mod:hover {
     background: #333;
-    border: 1px solid fuchsia;
+    border: 3px solid fuchsia;
+}
+
+.mod.selected:after {
+    border: 1px solid:rgb(6, 207, 76);
 }
 
 .mod .description {
@@ -419,6 +408,68 @@ h2 {
 }
 
 
+.oem {
+    width: 100px;
+    height: 50px;
+    background-image: url(images/oem-logo-sprite.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+
+.oem.audi {
+    background-position: -96px -48px;
+    width: 70px;
+}
+
+.oem.subaru {
+    background-position: -579px -47px;
+    width: 80px;
+}
+
+.oem.ford {
+    background-position: 5px 2px;
+    width: 80px;
+}
+
+.oem.chevrolet {
+    background-position: -91px 7px;
+    width: 80px;
+    background-color: #fff;
+}
+
+.oem.dodge {
+    background-position: -301px 5px;
+    width: 120px;
+}
+
+.oem.honda {
+    background-position: -453px -46px;
+    width: 73px;
+}
+
+.oem.toyota {
+    background-position: -781px 3px;
+    width: 60px;
+}
+
+.oem.nissan {
+    background-position: -698px 5px;
+    width: 60px;
+}
+
+.oem.volkswagen {
+    background-position: -703px -50px;
+    width: 50px;
+    background-color: white;
+}
+
+.oem.mazda {
+    background-position: -785px -53px;
+    width: 55px;
+}
 
 
 

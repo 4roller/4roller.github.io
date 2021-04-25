@@ -200,52 +200,16 @@ const CARS = {
         mods: [
             // Power            
             {
-                type: 'Turbo',
-                manufacturer: "AVO",
-                description: "Turbo",
-                power: 60,
-                weight: -97,
-                cost: 5000,                
-            },
-            {
-                type: 'Tune - Stage 1',
-                manufacturer: "Throttle Happy",
-                description: "Stage 1",
-                power: 5,
-                cost: 300,                 
-            },
-            {
-                type: 'Tune - Stage2',
-                manufacturer: "XRT",
-                description: "Stage 2",
-                power: 10,
-                cost: 600,                 
-            },
-            {
-                type: 'Engine Headers',
-                manufacturer: "Inferno Fabrications",
-                description: "Equal Length 4-1 catted",
-                power: 7,
-                weight: 10,
-                cost: 700,
-            },
-            {
                 type: 'Airbox',
+                category: 'intake',
                 manufacturer: "DIY",
                 description: "Charcol Filter Delete, Sealed",
                 power: 1,
                 cost: 0,
             },
-
-            {
-                type: 'Power Blocks',
-                manufacturer: "Crawford",
-                description: "Intake Runner Extensions",
-                power: 5,
-                cost: 300,
-            },
             {
                 type: 'Filter',
+                category: 'intake',
                 manufacturer: "Apexi",
                 description: "High Flow",
                 power: 3,
@@ -253,46 +217,80 @@ const CARS = {
             },
             {
                 type: 'Intake',
+                category: 'intake',
                 manufacturer: "Takeda",
                 description: "Hybrid Intake Pipe",
                 power: 2,
                 cost: 200,
             },
+
+            {
+                type: 'PCV Catch Can',
+                category: 'engine',
+                manufacturer: "DIY",
+                description: "Cleans up engine blow-by",
+                power: 1,
+                cost: 50,
+            },
+
+            {
+                type: 'Power Blocks',
+                category: 'engine',
+                manufacturer: "Crawford",
+                description: "Intake Runner Extensions",
+                power: 5,
+                cost: 300,
+            },
+
+            {
+                type: 'Turbo',
+                category: 'engine',
+                manufacturer: "AVO",
+                description: "Turbo",
+                power: 60,
+                weight: -97,
+                cost: 5000,
+            },
+            {
+                type: 'Tune - Stage 1',
+                category: 'engine',
+                manufacturer: "Throttle Happy",
+                description: "Stage 1",
+                power: 5,
+                cost: 300,
+            },
+            {
+                type: 'Tune - Stage 2',
+                category: 'engine',
+                manufacturer: "XRT",
+                description: "Stage 2",
+                power: 10,
+                cost: 600,
+            },
+            {
+                type: 'Engine Headers',
+                category: 'exhaust',
+                manufacturer: "Inferno Fabrications",
+                description: "Equal Length 4-1 catted",
+                power: 7,
+                weight: 10,
+                cost: 700,
+            },
             {
                 type: 'Exhaust',
+                category: 'exhaust',
                 manufacturer: "Nameless",
                 description: "5inch",
                 weight: 10,
                 power: 1,
                 cost: 150,
             },
+            
+            
             // Drivetrain
-
-            {
-                type: 'Fluid Damper',
-                manufacturer: "Fluid Damper",
-                description: "Silicone vibration damper",
-                drivetrain: 2,
-                cost: 450,
-            },
-
-            {
-                type: 'Engine Mounts',
-                manufacturer: "Perrin",
-                description: "75A",
-                drivetrain: 1,
-                cost: 300,
-            },
-            {
-                type: 'Carbon Driveshaft',
-                manufacturer: "Driveshaft Shop",
-                description: "Lightweight Driveshaft",
-                drivetrain: 2,
-                weight: 12,
-                cost: 1100,
-            },
             {
                 type: 'Engine Pitch Stop',
+                category: 'drivetrain',
                 manufacturer: "Torque Solutions",
                 description: "75A",
                 drivetrain: 1,
@@ -300,6 +298,7 @@ const CARS = {
             },
             {
                 type: 'Transmission Mount',
+                category: 'drivetrain',
                 manufacturer: "CKE SSP",
                 description: "75A",
                 drivetrain: 1,
@@ -307,6 +306,7 @@ const CARS = {
             },
             {
                 type: 'Driveshaft Carrier',
+                category: 'drivetrain',
                 manufacturer: "Torque Solution",
                 description: "Aluminum Billet",
                 drivetrain: 0.5,
@@ -314,18 +314,53 @@ const CARS = {
             },
             {
                 type: 'Differential Lockdown',
+                category: 'drivetrain',
                 manufacturer: "Perrin",
                 description: "2pc Billet, 4pc 75A",
                 drivetrain: 1.5,
                 cost: 115,
             },
+            {
+                type: 'Fluid Damper',
+                category: 'drivetrain',
+                manufacturer: "Fluid Damper",
+                description: "Silicone vibration damper",
+                drivetrain: 2,
+                cost: 450,
+            },
+            {
+                type: 'Engine Mounts',
+                category: 'drivetrain',
+                manufacturer: "Perrin",
+                description: "75A",
+                drivetrain: 1,
+                cost: 300,
+            },
+            {
+                type: 'Carbon Driveshaft',
+                category: 'drivetrain',
+                manufacturer: "Driveshaft Shop",
+                description: "Lightweight Driveshaft",
+                drivetrain: 2,
+                weight: 12,
+                cost: 1100,
+            },
+            {
+                type: 'Front Wheel Drive',
+                category: 'drivetrain',
+                manufacturer: "OEM",
+                description: "Disable AWD via fuse",
+                drivetrain: 5,
+                handling: -2,
+                cost: 0,
+            },
 
             //
             // Handling
             //
-
             {
                 type: 'Steering Lockdown',
+                category: 'handling',
                 manufacturer: "Torque Solutions",
                 description: 'Tightens Steering Response',
                 handling: 1,
@@ -333,13 +368,17 @@ const CARS = {
             },
             {
                 type: 'Draw Stiffener',
+                category: 'handling',
                 manufacturer: "STI",
                 description: 'Preloaded Front Chassis Stiffener',
                 handling: 1,
                 cost: 270,
             },
+
+            // Suspension
             {
                 type: 'Front Strut Bar',
+                category: 'suspension',
                 manufacturer: "STI",
                 description: 'Flexible',
                 handling: 1,
@@ -347,6 +386,7 @@ const CARS = {
             },
             {
                 type: 'Rear Strut Bar',
+                category: 'suspension',
                 manufacturer: "Cusco",
                 description: 'Attaches across rear struts',
                 handling: 1,
@@ -355,6 +395,7 @@ const CARS = {
             },
             {
                 type: 'Front Sway Bar',
+                category: 'suspension',
                 manufacturer: "Subaru",
                 description: '24mm XV Crosstrek',
                 handling: 1,
@@ -362,6 +403,7 @@ const CARS = {
             },
             {
                 type: 'Rear Sway Bar',
+                category: 'suspension',
                 manufacturer: "Whiteline",
                 description: '22mm adjustable',
                 handling: 1.5,
@@ -369,6 +411,7 @@ const CARS = {
             },
             {
                 type: 'Trailing Links',
+                category: 'suspension',
                 manufacturer: "Megan Racing",
                 description: 'Pillow ball bush, tubular steel',
                 handling: 1,
@@ -377,21 +420,24 @@ const CARS = {
             },
             {
                 type: 'Rear Lower Control Arms',
+                category: 'suspension',
                 manufacturer: "Super Pro",
-                description: '75A Poly Bushing, Steel, adj. camber',            
+                description: '75A Poly Bushing, Steel, adj. camber',
                 handling: 1,
                 drivetrain: 0.5,
                 cost: 250,
             },
             {
                 type: 'Rear Toe Arms',
+                category: 'suspension',
                 manufacturer: "Super Pro",
-                description: '75A Poly Bushing, adj. toe',                
-                handling: 0.5,                
+                description: '75A Poly Bushing, adj. toe',
+                handling: 0.5,
                 cost: 150,
             },
             {
                 type: 'Coilovers',
+                category: 'suspension',
                 manufacturer: "Fortune Auto",
                 description: "500 Series - Radial Bearing 8k Springs",
                 handling: 4,
@@ -399,13 +445,78 @@ const CARS = {
                 drivetrain: 1,
                 cost: 1500,
             },
+
             {
                 type: 'Wheels',
+                category: 'wheels',
                 manufacturer: "Enkei",
                 description: "Subaru STI 15 spoke",
                 handling: 2,
+                brake: 1,
                 weight: 28,
                 cost: 1000,
+            },
+
+            {
+                type: 'Tires',
+                category: 'wheels',
+                manufacturer: "Firestone",
+                description: "Firehawk Indy 500 UHP",
+                brake: 1,
+                handling: 1,
+                cost: 600,
+            },
+
+
+            // Braking 
+            {
+                type: 'Front Pads',
+                category: 'brake',
+                manufacturer: 'Project Mu',
+                description: 'B-spec 500C',
+                brake: 1.5,
+                cost: 100,
+            },
+            {
+                type: 'Rear Pads',
+                category: 'brake',
+                manufacturer: 'Hawk',
+                description: 'HPS 5.0 550C',
+                brake: 1,
+                cost: 100,
+            },
+            {
+                type: 'Front Rotors',
+                category: 'brake',
+                manufacturer: 'KNS/DBA',
+                description: 'Oversized, High Carbon',
+                brake: 2,
+                weight: -5,
+                cost: 300,
+            },
+            {
+                type: 'Stainless Brake Lines',
+                category: 'brake',
+                manufacturer: 'Goodridge',
+                description: 'firmer braking',
+                brake: 1,
+                cost: 100,
+            },
+            {
+                type: 'Master Cylinder Brace',
+                category: 'brake',
+                manufacturer: 'Torque Solutions',
+                description: 'firmer braking',
+                brake: 1,
+                cost: 100,
+            },
+            {
+                type: 'DOT 4 Fluid',
+                category: 'brake',
+                manufacturer: 'Pentosin',
+                description: 'High boiling point',
+                brake: 1,
+                cost: 15,
             },
 
             //
@@ -413,6 +524,7 @@ const CARS = {
             //
             {
                 type: 'Interior Delete',
+                category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed interior',
                 weight: 100,
@@ -421,6 +533,7 @@ const CARS = {
             },
             {
                 type: 'Passenger Seat Delete',
+                category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed passenger seat',
                 weight: 40,
@@ -429,6 +542,7 @@ const CARS = {
             },
             {
                 type: 'Rear Seat Delete',
+                category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed rear seats',
                 weight: 80,
@@ -437,6 +551,7 @@ const CARS = {
             },
             {
                 type: 'Trunk Delete',
+                category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed spare tire, Trunk Interior',
                 weight: 40,

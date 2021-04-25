@@ -22,10 +22,11 @@
 
     <div class="tunerShop">
         <h2>🔧 Tuner Parts</h2>
-        <div class="mod pwr chip"></div>
-        <div class="mod eff chip"></div>
-        <div class="mod agi chip"></div>
-        <div class="mod wt chip"></div>
+        <!-- <div class="mod pwr chip">Power</div>
+        <div class="mod eff chip">Efficiency</div> -->
+        <!-- <div class="mod agi chip">Agility</div> -->
+        <!-- <div class="mod wt chip">Weight</div> -->
+        <!-- <div class="mod brk chip">Brake</div> -->
         <div class="mods"></div>
     </div>
 
@@ -111,7 +112,8 @@
             engineSpecial = "Boxer 🥊"
         }
 
-        let carRow = `        
+        let carRow = `
+            <div class="oem ${c.oem.toLowerCase()}"></div>        
             <div class="exp">${p2w}</div>
             <div class="image-wrap">
                 <img src="images/${c.image}.png" />
@@ -129,8 +131,11 @@
                     <span class="effGain">${(c.effGain * 100).toFixed(0)}%</span>
                     <span class="hpGain">${c.powerGain}hp</span>
                     <span class="whp">${c.whp}whp</span>
-                </div>
-            </div>            
+                </div>                
+                
+            </div>    
+            
+            
         `
         returnCarRow.innerHTML = carRow;
         return returnCarRow;
@@ -171,26 +176,32 @@
             return;
         }
         const ul = document.createElement('ul');
-
+        let count = 0;
         mods.forEach(el => {
             let modEl = document.createElement('li');
             modEl.classList.add('mod');
             let power = '';
             let weight = '';
             let handling = '';
+            let brake = '';
             let drivetrain = '';
-
-            if (el.power) {
-                power = `+${el.power}HP`;
-                modEl.classList.add('pwr');
-            }
+            
             if (el.drivetrain) {
                 drivetrain = `+${el.drivetrain}% EFF`;
                 modEl.classList.add('eff');
             }
+            if (el.power) {
+                power = `+${el.power}HP`;
+                modEl.classList.add('pwr');
+            }
+            
             if (el.handling) {
-                handling = `+${el.handling} AGI`;
-                modEl.classList.add('agi');
+                handling = `${el.handling} AGI`;
+                modEl.classList.add('agi');            
+            }
+            if (el.brake) {
+                handling = `+${el.brake} BRK`;
+                modEl.classList.add('brk');
             }
             if (el.weight) {
                 weight = `${0 - el.weight}lb`;
@@ -200,12 +211,19 @@
                 modEl.classList.add('cost');
             }
 
+            // console.log(count++);
+            // // console.log(el);
+            if (el.category) {                
+                modEl.classList.add(el.category);                
+            }
+
+
             modEl.innerHTML = `                
                 <input type="checkbox" id="" name="${el.type}" value="${el.type}" >
                 <div class=type>${el.type}</div>
                 <div>${el.manufacturer}</div>
                 <div class="description">${el.description}</div>
-                <div class="gains">${power} ${weight} ${handling} ${drivetrain}</div>
+                <div class="gains">${power} ${weight} ${handling} ${drivetrain} ${brake}</div>
                 <div class="cost">${el.cost}</div>
             `;
             ul.appendChild(modEl);
@@ -258,6 +276,16 @@
         let p2w = `<span class="eliteRobin">${getPowerToWeight(obj)}</span><br />PowerIndex`;
         let image = `<img src="images/${v.image}.png" />`;
 
+        
+        let massKg = (v.weight - gains.weight)/2.2;
+        
+        let cornerSpeed  = Math.sqrt((1*(massKg*9.81)*100) / massKg);
+        
+
+
+        console.log(cornerSpeed);
+
+
         specContaier.querySelector('.cost').innerHTML = cost;
         specContaier.querySelector('.eff').innerHTML = eff;
         specContaier.querySelector('.weight').innerHTML = weight;
@@ -308,7 +336,7 @@
     const handleScroll = function () {
         let key = CARS[currentVehicle].image;
         let el = v1Contaier.querySelector(`.vehicle[data-id="${key}"]`);
-        el.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+        el.scrollIntoView({ behavior: "smooth", block: "center", inline: "start" });
         el.classList.add('selected');
 
     }
