@@ -4,7 +4,6 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
-
 <body>
     <div class="top">
         <h1>🏁 <span class="brandStyle"><span class="italic">Tuner</span> Shop</span> 🚗💨 </h1>
@@ -19,11 +18,14 @@
         <div class="cost">0</div>
         <div class="image"></div>
     </div>
-    <div class='v1'>
-    </div>
+    <div class='v1'></div>
 
     <div class="tunerShop">
         <h2>🔧 Tuner Parts</h2>
+        <div class="mod pwr chip"></div>
+        <div class="mod eff chip"></div>
+        <div class="mod agi chip"></div>
+        <div class="mod wt chip"></div>
         <div class="mods"></div>
     </div>
 
@@ -34,9 +36,14 @@
 <script src="cars.js"></script>
 
 <script>
-
+    const v1Contaier = document.querySelector('.v1');
+    const specContaier = document.querySelector('.spec');
+    const modsContainer = document.querySelector('.mods');
+    
+    let carArr = [];
     let tabindex = 0;
     let currentVehicle = 'SUBARU_IMPREZA_2016_NACVT';
+
     const GAINS_DEFAULT = {
         eff: 0,
         hp: 0,
@@ -129,7 +136,6 @@
         return returnCarRow;
     }
 
-
     const getTier = function (c) {
         const p2w = getPowerToWeight(c);
         c.tier = 0;
@@ -176,15 +182,22 @@
 
             if (el.power) {
                 power = `+${el.power}HP`;
+                modEl.classList.add('pwr');
             }
             if (el.drivetrain) {
                 drivetrain = `+${el.drivetrain}% EFF`;
+                modEl.classList.add('eff');
             }
             if (el.handling) {
                 handling = `+${el.handling} AGI`;
+                modEl.classList.add('agi');
             }
             if (el.weight) {
                 weight = `${0 - el.weight}lb`;
+                modEl.classList.add('wt');
+            }
+            if (el.cost >= 300) {                
+                modEl.classList.add('cost');
             }
 
             modEl.innerHTML = `                
@@ -300,7 +313,6 @@
 
     }
 
-
     const paint = function () {
 
 
@@ -325,8 +337,6 @@
         handleScroll();
     }
 
-
-
     const handleCarSelector = function (e) {
         let thing = getParent(e.target, 'vehicle').getAttribute('data-id');
         for (c in CARS) {
@@ -341,28 +351,13 @@
     };
 
 
-    const v1Contaier = document.querySelector('.v1');
-    const specContaier = document.querySelector('.spec');
-    const modsContainer = document.querySelector('.mods');
-    let carArr = [];
-
     // VS AUTO!
-
-
     modsContainer.addEventListener('click', handleModsClick);
     v1Contaier.addEventListener('click', handleCarSelector);
 
     paint();
     updateSpec(GAINS_DEFAULT, currentVehicle);
     updateMods();
-
-
-
-
-
-
-
-
 
 
 </script>

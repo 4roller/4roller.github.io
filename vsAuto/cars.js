@@ -757,7 +757,17 @@ const CARS = {
         hp: 121,
         drive: 'FWD',
         weight: 3050,
-        image: '2017-Toyota-Prius-Prime'
+        image: '2017-Toyota-Prius-Prime',
+        mods: [
+            {
+                type: 'Interior Delete',
+                manufacturer: "DIY",
+                description: 'Removed interior',
+                weight: 100,
+                cost: 0,
+                utility: -2
+            },
+        ]
     }
 
 
