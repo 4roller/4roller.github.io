@@ -40,7 +40,7 @@
     const v1Contaier = document.querySelector('.v1');
     const specContaier = document.querySelector('.spec');
     const modsContainer = document.querySelector('.mods');
-    
+
     let carArr = [];
     let tabindex = 0;
     let currentVehicle = 'SUBARU_IMPREZA_2016_NACVT';
@@ -63,6 +63,7 @@
         let mods;
         let totalPower = 0;
         let totalWeight = 0;
+        let totalHeight = 0;
         let totalHandling = 0;
         let totalEfficiency = 0;
 
@@ -74,6 +75,9 @@
                     if (m.power) {
                         totalPower = totalPower + m.power;
                     }
+                    if (m.height) {
+                        totalHeight = totalHeight + m.height;
+                    }
                     if (m.weight) {
                         totalWeight = totalWeight + m.weight;
                     }
@@ -83,16 +87,40 @@
                     if (m.drivetrain) {
                         totalEfficiency = totalEfficiency + m.drivetrain;
                     }
+                    if (m.trackWidth) {
+                        uc.trackWidth = {
+                            front: (m.trackWidth.front ? uc.trackWidth.front + m.trackWidth.front : uc.trackWidth.front),
+                            rear: (m.trackWidth.rear ? uc.trackWidth.rear + m.trackWidth.rear : uc.trackWidth.rear),
+                        }
+                    }
                 }
             })
         }
 
+
+        uc.clearance = uc.clearance - totalHeight;
         uc.effGain = totalEfficiency / 100;
         uc.hp = (uc.hp + totalPower).toFixed(0);
         let loss = uc.hp * ((DRIVETRAIN[uc.drive].driveloss / 100) - uc.effGain);
         uc.powerGain = totalPower.toFixed(0);
         uc.weight = uc.weight - totalWeight;
         uc.whp = (uc.hp - loss).toFixed(0);
+        if (uc.drive === 'AWD') {
+            totalHandling += 2;
+        }
+
+        let avgTrackWidth = (uc.trackWidth.front + uc.trackWidth.rear) / 2;
+        // let agilityIndex = ((1 / ((((((uc.wheelbase / avgTrackWidth) * uc.weight) * uc.clearance) / 100).toFixed(2)) - totalHandling)) * 100000).toFixed(0);
+
+        let agilityIndex = (avgTrackWidth / uc.wheelbase).toFixed(2);
+        uc.agilityIndex = (agilityIndex * (1 / uc.clearance)   ).toFixed(3);  
+        let cleranceWeight = (1/uc.clearance).toFixed(3) * uc.weight;
+        let removedWeight = cleranceWeight * uc.agilityIndex;
+
+        if (uc.model === "Impreza" || uc.model === "BRZ" || uc.trim === "SI") {
+            console.log(uc.agilityIndex,  removedWeight, cleranceWeight ,uc.clearance,  uc.model, uc.year, uc.trim);
+        }
+
         return uc;
     }
 
@@ -100,6 +128,8 @@
         const returnCarRow = document.createElement('div');
         let c = car;
         let p2w = getPowerToWeight(c);
+
+
 
         const tierClass = 'tier-' + getTier(c);
         returnCarRow.classList.add(tierClass);
@@ -127,10 +157,11 @@
                 <div class="ed">${c.drive} ${c.engineType} ${c.trans} </div>
                 <div class="et">${c.displacement}L ${c.cylOr}${c.cylNum} ${engineSpecial} </div>
                 <div class="hp">${c.hp}hp/${c.weight}lbs</div>
+                <span class="hp">${c.agilityIndex} AgilityIndex</span>
                 <div class="gains">
                     <span class="effGain">${(c.effGain * 100).toFixed(0)}%</span>
                     <span class="hpGain">${c.powerGain}hp</span>
-                    <span class="whp">${c.whp}whp</span>
+                    <span class="whp">${c.whp}whp</span>                    
                 </div>                
                 
             </div>    
@@ -185,7 +216,7 @@
             let handling = '';
             let brake = '';
             let drivetrain = '';
-            
+
             if (el.drivetrain) {
                 drivetrain = `+${el.drivetrain}% EFF`;
                 modEl.classList.add('eff');
@@ -194,10 +225,10 @@
                 power = `+${el.power}HP`;
                 modEl.classList.add('pwr');
             }
-            
+
             if (el.handling) {
                 handling = `${el.handling} AGI`;
-                modEl.classList.add('agi');            
+                modEl.classList.add('agi');
             }
             if (el.brake) {
                 handling = `+${el.brake} BRK`;
@@ -207,14 +238,13 @@
                 weight = `${0 - el.weight}lb`;
                 modEl.classList.add('wt');
             }
-            if (el.cost >= 300) {                
+            if (el.cost >= 300) {
                 modEl.classList.add('cost');
             }
 
-            // console.log(count++);
-            // // console.log(el);
-            if (el.category) {                
-                modEl.classList.add(el.category);                
+
+            if (el.category) {
+                modEl.classList.add(el.category);
             }
 
 
@@ -275,15 +305,6 @@
         }
         let p2w = `<span class="eliteRobin">${getPowerToWeight(obj)}</span><br />PowerIndex`;
         let image = `<img src="images/${v.image}.png" />`;
-
-        
-        let massKg = (v.weight - gains.weight)/2.2;
-        
-        let cornerSpeed  = Math.sqrt((1*(massKg*9.81)*100) / massKg);
-        
-
-
-        console.log(cornerSpeed);
 
 
         specContaier.querySelector('.cost').innerHTML = cost;

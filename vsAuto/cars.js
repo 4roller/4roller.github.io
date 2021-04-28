@@ -56,7 +56,14 @@ const CARS = {
         tq: 340,
         drive: 'RWD',
         weight: 3309,
-        image: '1994-Chevrolet-Corvette-ZR1'
+        image: '1994-Chevrolet-Corvette-ZR1',
+        clearance: 5.1,
+        wheelbase: 96.2,
+        trackWidth: {
+            front: 59.6,
+            rear: 60.6,
+        },
+
     },
     VW_BEETLE_1960_NAM: {
         oem: OEM.VW,
@@ -72,6 +79,13 @@ const CARS = {
         drive: 'RWD',
         weight: 1600,
         image: '1960-Volkswagen-Beetle',
+        clearance: 6,
+        wheelbase: 94.5,
+        trackWidth: {
+            front: 51.4,
+            rear: 49.2,
+        },
+
     },
     VW_GOLF_2015_TAM: {
         oem: OEM.VW,
@@ -87,6 +101,12 @@ const CARS = {
         drive: 'FWD',
         weight: 2972,
         image: '2015-Volkswagen-Golf-GTI',
+        clearance: 5,
+        wheelbase: 103.6,
+        trackWidth: {
+            front: 60.6,
+            rear: 59.7,
+        },
     },
     BMW_328_2014_TAM: {
         oem: OEM.BMW,
@@ -101,7 +121,13 @@ const CARS = {
         hp: 240,
         drive: 'RWD',
         weight: 3410,
-        image: '2014-BMW-328'
+        image: '2014-BMW-328',
+        clearance: 5.5,
+        wheelbase: 110.6,
+        trackWidth: {
+            front: 60.7,
+            rear: 62.3,
+        },
     },
     DODGE_CHARGER_2014_NAAT: {
         oem: OEM.DODGE,
@@ -115,8 +141,14 @@ const CARS = {
         cylOr: CYLINDER_ORIENTATION.V,
         hp: 292,
         drive: 'RWD',
-        weight: 4000,
-        image: '2014-Dodge-Charger'
+        weight: 3961,
+        image: '2014-Dodge-Charger',
+        clearance: 5,
+        wheelbase: 120.2,
+        trackWidth: {
+            front: 63.4,
+            rear: 63.8,
+        },
     },
     FORD_MUSTANG_2019_NAMT: {
         oem: OEM.FORD,
@@ -132,6 +164,12 @@ const CARS = {
         drive: 'RWD',
         weight: 3705,
         image: '2018-Ford-Mustang-GT',
+        clearance: 5,
+        wheelbase: 107.1,
+        trackWidth: {
+            front: 62.3,
+            rear: 64.9,
+        },
     },
     FORD_FOCUS_2018_TMT: {
         oem: OEM.FORD,
@@ -147,6 +185,12 @@ const CARS = {
         drive: 'FWD',
         weight: 3223,
         image: '2018-Ford-Focus-ST',
+        clearance: 5.5,
+        wheelbase: 104.3,
+        trackWidth: {
+            front: 61.2,
+            rear: 60.4,
+        },
     },
     FORD_FOCUS_2018_NAAT: {
         oem: OEM.FORD,
@@ -162,6 +206,12 @@ const CARS = {
         drive: 'FWD',
         weight: 3043,
         image: '2018-Ford-Focus-Titanium',
+        clearance: 6.4,
+        wheelbase: 104.3,
+        trackWidth: {
+            front: 61.6,
+            rear: 60.6,
+        },
     },
     FORD_FIESTA_2018_TMT: {
         oem: OEM.FORD,
@@ -176,8 +226,14 @@ const CARS = {
         hp: 197,
         tq: 202,
         drive: 'FWD',
-        weight: 3223,
+        weight: 2720,
         image: '2018-Ford-Fiesta-ST',
+        clearance: 6,
+        wheelbase: 98,
+        trackWidth: {
+            front: 57.7,
+            rear: 57.7,
+        },
 
     },
     SUBARU_IMPREZA_2016_NACVT: {
@@ -197,6 +253,12 @@ const CARS = {
         drive: 'AWD',
         weight: 3109,
         image: '2016-Subaru-Impreza-Sport',
+        wheelbase: 104.1,
+        clearance: 5.9,
+        trackWidth: {
+            front: 59.4,
+            rear: 59.6,
+        },
         mods: [
             // Power            
             {
@@ -285,8 +347,8 @@ const CARS = {
                 power: 1,
                 cost: 150,
             },
-            
-            
+
+
             // Drivetrain
             {
                 type: 'Engine Pitch Stop',
@@ -325,8 +387,8 @@ const CARS = {
                 category: 'drivetrain',
                 manufacturer: "Fluid Damper",
                 description: "Silicone vibration damper",
-                drivetrain: 2,
-                cost: 450,
+                drivetrain: 1,
+                cost: 400,
             },
             {
                 type: 'Engine Mounts',
@@ -375,7 +437,17 @@ const CARS = {
                 cost: 270,
             },
 
+            
+
             // Suspension
+            {
+                type: 'Lower',
+                category: 'suspension',
+                manufacturer: "None",
+                description: 'Lower 1 inch',
+                height: 1,
+                cost: 0,
+            },
             {
                 type: 'Front Strut Bar',
                 category: 'suspension',
@@ -446,6 +518,52 @@ const CARS = {
                 cost: 1500,
             },
 
+            // wheels
+
+            {
+                type: 'Front Wheel Spacers 15mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '15mm wheel spacers ',
+                trackWidth: {
+                    'front': 0.6,                    
+                } ,
+                weight: 5,
+                cost: 100,
+            },
+            {
+                type: 'Rear Wheel Spacers 15mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '15mm wheel spacers ',
+                trackWidth: {
+                    'rear': 0.6,                    
+                } ,
+                weight: 5,
+                cost: 100,
+            },
+            {
+                type: 'Front Wheel Spacers 25mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '25mm wheel spacers ',
+                trackWidth: {
+                    'front': 1,                    
+                } ,
+                weight: 5,
+                cost: 100,
+            },            
+            {
+                type: 'Rear Wheel Spacers 25mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '25mm wheel spacers ',
+                trackWidth: {
+                    'rear': 1,                    
+                } ,
+                weight: 5,
+                cost: 100,
+            },
             {
                 type: 'Wheels',
                 category: 'wheels',
@@ -576,13 +694,19 @@ const CARS = {
         drive: 'AWD',
         weight: 3395,
         image: '2008-Subaru-WRX-STI',
+        wheelbase: 103.3,
+        clearance: 6.1,
+        trackWidth: {
+            front: 60.2,
+            rear: 60.6,
+        },
         mods: [
             {
                 type: 'Fluid Damper',
                 manufacturer: "Fluid Damper",
                 description: "Silicone vibration damper",
                 drivetrain: 2,
-                cost: 450,
+                cost: 400,
             },
 
             {
@@ -658,6 +782,12 @@ const CARS = {
         drive: 'RWD',
         weight: 2762,
         image: '2014-Subaru-BRZ',
+        clearance: 4.9,
+        wheelbase: 101.2,
+        trackWidth: {
+            front: 59.8,
+            rear: 60.6,
+        }
     },
     HONDA_HRV_2020_NAAT: {
         oem: OEM.HONDA,
@@ -673,6 +803,12 @@ const CARS = {
         drive: 'FWD',
         weight: 3096,
         image: '2020-Honda-HRV-Sport',
+        clearance: 6.7,
+        wheelbase: 102.8,
+        trackWidth: {
+            front: 60.5,
+            rear: 60.6,
+        }
     },
     HONDA_ACCORD_2019_TAT: {
         oem: OEM.HONDA,
@@ -688,6 +824,12 @@ const CARS = {
         drive: 'FWD',
         weight: 3377,
         image: '2019-Honda-Accord-Sport',
+        clearance: 6.7,
+        wheelbase: 111.4,
+        trackWidth: {
+            front: 63,
+            rear: 63.4,
+        }
     },
     HONDA_FIT_2016_NAAT: {
         oem: OEM.HONDA,
@@ -703,6 +845,12 @@ const CARS = {
         drive: 'FWD',
         weight: 2642,
         image: '2016-Honda-Fit-EX-L',
+        clearance: 4.4,
+        wheelbase: 99.6,
+        trackWidth: {
+            front: 58.3,
+            rear: 58,
+        }
     },
     TOYOTA_CAMRY_2006_NAAT: {
         oem: OEM.TOYOTA,
@@ -718,6 +866,12 @@ const CARS = {
         drive: 'FWD',
         weight: 3108,
         image: '2006-Toyota-Camry-LE',
+        clearance: 5.5,
+        wheelbase: 107.1,
+        trackWidth: {
+            front: 60.8,
+            rear: 60.4,
+        }
     },
     TOYOTA_MATRIX_2014_NAMT: {
         oem: OEM.TOYOTA,
@@ -734,6 +888,12 @@ const CARS = {
         drive: 'AWD',
         weight: 3274,
         image: '2014-Toyota-Matrix-XRS',
+        clearance: 5.8,
+        wheelbase: 102.4,
+        trackWidth: {
+            front: 59.8,
+            rear: 59.9,
+        }
     },
     TOYOTA_YARIS_2012_NAAT: {
         oem: OEM.TOYOTA,
@@ -749,6 +909,12 @@ const CARS = {
         drive: 'FWD',
         weight: 2315,
         image: '2012-Toyota-Yaris',
+        wheelbase: 98.8,
+        clearance: 5.8,
+        trackWidth: {
+            front: 58.5,
+            rear: 57.9,
+        },
     },
     MAZDA_3_2008_NAMT: {
         oem: OEM.MAZDA,
@@ -764,6 +930,12 @@ const CARS = {
         drive: 'FWD',
         weight: 2959,
         image: '2008-Mazda-3',
+        clearance: 4.8,
+        wheelbase: 103.9,
+        trackWidth: {
+            front: 60.2,
+            rear: 59.6,
+        },
     },
     AUDI_A3_2008_TAM: {
         oem: OEM.AUDI,
@@ -779,6 +951,13 @@ const CARS = {
         drive: 'FWD',
         weight: 3296,
         image: '2008-Audi-A3',
+        wheelbase: 101.5,
+        clearance: 6.3,
+        trackWidth: {
+            front: 60.5,
+            rear: 59.3,
+        },
+
     },
     HONDA_CIVIC_1992_NAMT: {
         oem: OEM.HONDA,
@@ -794,6 +973,12 @@ const CARS = {
         drive: 'FWD',
         weight: 2326,
         image: '1992-Honda-Civic-SI',
+        clearance: 5.9,
+        wheelbase: 101.3,
+        trackWidth: {
+            front: 58.1,
+            rear: 57.7,
+        },
     },
     HONDA_CIVIC_2019_TAT: {
         oem: OEM.HONDA,
@@ -809,6 +994,12 @@ const CARS = {
         drive: 'FWD',
         weight: 3010,
         image: '2019-Honda-Civic-Sport',
+        clearance: 6,
+        wheelbase: 106.3,
+        trackWidth: {
+            front: 60.9,
+            rear: 61.5,
+        },
     },
     HONDA_CIVIC_2019_TMT: {
         oem: OEM.HONDA,
@@ -825,6 +1016,12 @@ const CARS = {
         drive: 'FWD',
         weight: 2906,
         image: '2019-Honda-Civic-SI',
+        clearance: 6,
+        wheelbase: 106.3,
+        trackWidth: {
+            front: 60.5,
+            rear: 61.2,
+        },
     },
     NISSAN_PICKUP_1993_NAMT: {
         oem: OEM.NISSAN,
@@ -840,6 +1037,12 @@ const CARS = {
         drive: 'RWD',
         weight: 3175,
         image: '1993-Nissan-Pickup',
+        clearance: 6.7,
+        wheelbase: 116.1,
+        trackWidth: {
+            front: 65,
+            rear: 66.5,
+        },
 
     },
     NISSAN_350Z_2009_NAMT: {
@@ -857,6 +1060,12 @@ const CARS = {
         drive: 'RWD',
         weight: 3602,
         image: '2009-Nissan-350z',
+        clearance: 4.7,
+        wheelbase: 104.3,
+        trackWidth: {
+            front: 60.5,
+            rear: 60.6,
+        },
 
     },
     TOYOTA_PRIUS_2017: {
@@ -873,6 +1082,12 @@ const CARS = {
         drive: 'FWD',
         weight: 3050,
         image: '2017-Toyota-Prius-Prime',
+        clearance: 4.8,
+        wheelbase: 106.3,
+        trackWidth: {
+            front: 60.2,
+            rear: 60.6,
+        },
         mods: [
             {
                 type: 'Interior Delete',
