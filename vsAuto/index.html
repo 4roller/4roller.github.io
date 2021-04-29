@@ -22,11 +22,6 @@
 
     <div class="tunerShop">
         <h2>🔧 Tuner Parts</h2>
-        <!-- <div class="mod pwr chip">Power</div>
-        <div class="mod eff chip">Efficiency</div> -->
-        <!-- <div class="mod agi chip">Agility</div> -->
-        <!-- <div class="mod wt chip">Weight</div> -->
-        <!-- <div class="mod brk chip">Brake</div> -->
         <div class="mods"></div>
     </div>
 
@@ -45,22 +40,15 @@
     let tabindex = 0;
     let currentVehicle = 'SUBARU_IMPREZA_2016_NACVT';
 
-    const GAINS_DEFAULT = {
-        eff: 0,
-        hp: 0,
-        whp: 0,
-        weight: 0,
-        cost: 0,
-    };
-
     const getPowerToWeight = function (obj) {
-        let outputPower = (obj.whp / obj.weight * 10000).toFixed();
+        let outputPower = ((obj.whp / obj.weight) * 10000).toFixed();
         return outputPower;
     }
 
     const calculateMods = function (c) {
         let uc = { ...c };
         let mods;
+        let totalCost = 0;
         let totalPower = 0;
         let totalWeight = 0;
         let totalHeight = 0;
@@ -72,6 +60,9 @@
 
             mods.forEach((m) => {
                 if (m.enabled) {
+                    if (m.cost) {
+                        totalCost = totalCost + m.cost;
+                    }
                     if (m.power) {
                         totalPower = totalPower + m.power;
                     }
@@ -97,29 +88,31 @@
             })
         }
 
-
+        uc.costGain = totalCost;
+        uc.weightGain = totalWeight;
         uc.clearance = uc.clearance - totalHeight;
         uc.effGain = totalEfficiency / 100;
-        uc.hp = (uc.hp + totalPower).toFixed(0);
+        uc.hp = parseInt((uc.hp + totalPower).toFixed(0));
         let loss = uc.hp * ((DRIVETRAIN[uc.drive].driveloss / 100) - uc.effGain);
-        uc.powerGain = totalPower.toFixed(0);
-        uc.weight = uc.weight - totalWeight;
-        uc.whp = (uc.hp - loss).toFixed(0);
-        if (uc.drive === 'AWD') {
-            totalHandling += 2;
-        }
+        uc.hpGain = parseInt(totalPower.toFixed(0));
+        uc.weight = uc.weight + totalWeight;
+        uc.whp = parseInt((uc.hp - loss).toFixed(0));
+        // if (uc.drive === 'AWD') {
+        //     totalHandling += 2;
+        // }
 
         let avgTrackWidth = (uc.trackWidth.front + uc.trackWidth.rear) / 2;
-        // let agilityIndex = ((1 / ((((((uc.wheelbase / avgTrackWidth) * uc.weight) * uc.clearance) / 100).toFixed(2)) - totalHandling)) * 100000).toFixed(0);
-
-        let agilityIndex = (avgTrackWidth / uc.wheelbase).toFixed(2);
-        uc.agilityIndex = (agilityIndex * (1 / uc.clearance)   ).toFixed(3);  
-        let cleranceWeight = (1/uc.clearance).toFixed(3) * uc.weight;
+        let agilityIndex = ((avgTrackWidth / uc.wheelbase) + (totalHandling / 100)).toFixed(2);
+        uc.agilityIndex = parseFloat((agilityIndex * (1 / uc.clearance)).toFixed(3));
+        let cleranceWeight = (1 / uc.clearance) * (uc.weight - totalHandling);
         let removedWeight = cleranceWeight * uc.agilityIndex;
 
-        if (uc.model === "Impreza" || uc.model === "BRZ" || uc.trim === "SI") {
-            console.log(uc.agilityIndex,  removedWeight, cleranceWeight ,uc.clearance,  uc.model, uc.year, uc.trim);
+        uc.effectiveWeight = parseInt((uc.weight - removedWeight).toFixed(0));
+
+        if (uc.model === "Impreza" || uc.model === "BRZ") {
+            console.log(uc.year, uc.model, uc.trim, uc.agilityIndex, uc.weight, uc.effectiveWeight)
         }
+        // uc.weight = uc.effectiveWeight;
 
         return uc;
     }
@@ -128,8 +121,6 @@
         const returnCarRow = document.createElement('div');
         let c = car;
         let p2w = getPowerToWeight(c);
-
-
 
         const tierClass = 'tier-' + getTier(c);
         returnCarRow.classList.add(tierClass);
@@ -211,6 +202,11 @@
         mods.forEach(el => {
             let modEl = document.createElement('li');
             modEl.classList.add('mod');
+
+            if (el.enabled) {
+                modEl.classList.add('selected');
+            }
+
             let power = '';
             let weight = '';
             let handling = '';
@@ -235,7 +231,7 @@
                 modEl.classList.add('brk');
             }
             if (el.weight) {
-                weight = `${0 - el.weight}lb`;
+                weight = `${el.weight}lb`;
                 modEl.classList.add('wt');
             }
             if (el.cost >= 300) {
@@ -247,9 +243,9 @@
                 modEl.classList.add(el.category);
             }
 
-
+            let isChecked = (el.enabled ? 'checked' : '');
             modEl.innerHTML = `                
-                <input type="checkbox" id="" name="${el.type}" value="${el.type}" >
+                <input type="checkbox" id="" name="${el.type}" value="${el.type}"  ${isChecked}>
                 <div class=type>${el.type}</div>
                 <div>${el.manufacturer}</div>
                 <div class="description">${el.description}</div>
@@ -271,7 +267,7 @@
         }
     }
 
-    const updateSpec = function (gains, vehicle) {
+    const updateSpec = function (vehicle) {
         if (typeof vehicle === 'string' || !vehicle) {
             vehicle = CARS[vehicle];
         }
@@ -284,26 +280,22 @@
             vehicle = CARS[currentVehicle];
         }
 
-        const v = vehicle;
+        const v = calculateMods(vehicle);
         document.querySelector('h2.name').innerHTML = `${v.oem} ${v.model} ${(v.engineName) ? v.engineName : ''}`;
         const driveLossPercentage = (DRIVETRAIN[v.drive].driveloss / 100);
-        let effGain = gains.eff / 100;
-        let hpGain = v.hp + gains.hp;
-        let loss = hpGain * (driveLossPercentage - effGain);
+
+        let hpGain = v.hp + v.hpGain;
+        let loss = hpGain * (driveLossPercentage - v.effGain);
         const stockWhp = (v.hp - (v.hp * driveLossPercentage)).toFixed(0);
         const stockLoss = v.hp * (DRIVETRAIN[v.drive].driveloss / 100);
         let whp = ((hpGain - loss)).toFixed(0);
 
-        let cost = `${gains.cost}`;
-        let weight = `${v.weight - gains.weight} lb <br />(${0 - gains.weight} lb)`;
-        let hp = `${v.hp} +${gains.hp} HP<br /><span class="elite">${v.hp + gains.hp} BHP</span>`;
+        let cost = `${v.costGain}`;
+        let weight = `${v.weight} lb <br />(${v.weightGain} lb)`;
+        let hp = `${v.hp} +${v.hpGain} HP<br /><span class="elite">${hpGain} BHP</span>`;
         let whpOutput = `${stockWhp}  +${whp - stockWhp} HP<br/> <span class="elite">${whp} WHP</span>`;
-        let eff = `${gains.eff - DRIVETRAIN[v.drive].driveloss}%  ${v.drive}<br /><span class="elite">+${gains.eff}% gain</span>`;
-        const obj = {
-            'whp': whp,
-            'weight': (v.weight - gains.weight),
-        }
-        let p2w = `<span class="eliteRobin">${getPowerToWeight(obj)}</span><br />PowerIndex`;
+        let eff = `${v.effGain * 100 - DRIVETRAIN[v.drive].driveloss}%  ${v.drive}<br /><span class="elite">+${(v.effGain * 100).toFixed(1)}% gain</span>`;
+        let p2w = `<span class="eliteRobin">${getPowerToWeight(v)}</span><br />PowerIndex`;
         let image = `<img src="images/${v.image}.png" />`;
 
 
@@ -324,8 +316,6 @@
         input.checked = !input.checked;
         thing.classList.toggle('selected')
         selectedMod = thing.querySelector('.type').innerHTML;
-        let gains = { ...GAINS_DEFAULT };
-
 
         CARS[currentVehicle].mods.forEach(el => {
             if (el.type === selectedMod) {
@@ -335,22 +325,8 @@
                     el.enabled = false;
                 }
             }
-            if (el.enabled) {
-                if (el.cost) {
-                    gains.cost += el.cost;
-                }
-                if (el.drivetrain) {
-                    gains.eff += el.drivetrain;
-                }
-                if (el.power) {
-                    gains.hp += el.power;
-                }
-                if (el.weight) {
-                    gains.weight += el.weight;
-                }
-            }
         });
-        updateSpec(gains);
+        updateSpec();
         paint();
     }
 
@@ -364,14 +340,12 @@
 
     const paint = function () {
 
-
         tabindex = 0;
         v1Contaier.innerHTML = '';
         carArr = [];
 
         for (c in CARS) {
             let uc = calculateMods(CARS[c]);
-            //let uc = { ...CARS[c] };
             carArr.push(uc);
         }
 
@@ -387,11 +361,11 @@
     }
 
     const handleCarSelector = function (e) {
-        let thing = getParent(e.target, 'vehicle').getAttribute('data-id');
+        let dataId = getParent(e.target, 'vehicle').getAttribute('data-id');
         for (c in CARS) {
-            if (CARS[c].image == thing) {
+            if (CARS[c].image == dataId) {
                 currentVehicle = c;
-                updateSpec(GAINS_DEFAULT, CARS[c]);
+                updateSpec(CARS[c]);
                 updateMods();
                 break;
             };
@@ -405,7 +379,7 @@
     v1Contaier.addEventListener('click', handleCarSelector);
 
     paint();
-    updateSpec(GAINS_DEFAULT, currentVehicle);
+    updateSpec(currentVehicle);
     updateMods();
 
 

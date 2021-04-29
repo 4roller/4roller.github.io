@@ -260,6 +260,22 @@ const CARS = {
             rear: 59.6,
         },
         mods: [
+            {
+                type: 'BRZ EQ Pack',
+                category: 'weight',
+                manufacturer: "DIY",
+                description: 'BRZ Parity',
+                weight: -347,
+                power: 57,
+                height: 1,
+                drivetrain: 5,
+                trackWidth: {
+                    front: 1.6,
+                    rear: 1.6,
+                },
+                cost: 0,                
+            },
+
             // Power            
             {
                 type: 'Airbox',
@@ -282,6 +298,7 @@ const CARS = {
                 category: 'intake',
                 manufacturer: "Takeda",
                 description: "Hybrid Intake Pipe",
+                weight: -2,
                 power: 2,
                 cost: 200,
             },
@@ -292,6 +309,7 @@ const CARS = {
                 manufacturer: "DIY",
                 description: "Cleans up engine blow-by",
                 power: 1,
+                weight: 3,
                 cost: 50,
             },
 
@@ -301,6 +319,7 @@ const CARS = {
                 manufacturer: "Crawford",
                 description: "Intake Runner Extensions",
                 power: 5,
+                weight: 5,
                 cost: 300,
             },
 
@@ -309,8 +328,8 @@ const CARS = {
                 category: 'engine',
                 manufacturer: "AVO",
                 description: "Turbo",
-                power: 60,
-                weight: -97,
+                power: 57,
+                weight: 97,
                 cost: 5000,
             },
             {
@@ -335,7 +354,7 @@ const CARS = {
                 manufacturer: "Inferno Fabrications",
                 description: "Equal Length 4-1 catted",
                 power: 7,
-                weight: 10,
+                weight: -10,
                 cost: 700,
             },
             {
@@ -343,7 +362,7 @@ const CARS = {
                 category: 'exhaust',
                 manufacturer: "Nameless",
                 description: "5inch",
-                weight: 10,
+                weight: -10,
                 power: 1,
                 cost: 150,
             },
@@ -388,6 +407,7 @@ const CARS = {
                 manufacturer: "Fluid Damper",
                 description: "Silicone vibration damper",
                 drivetrain: 1,
+                weight: 2,
                 cost: 400,
             },
             {
@@ -404,7 +424,7 @@ const CARS = {
                 manufacturer: "Driveshaft Shop",
                 description: "Lightweight Driveshaft",
                 drivetrain: 2,
-                weight: 12,
+                weight: -12,
                 cost: 1100,
             },
             {
@@ -434,6 +454,7 @@ const CARS = {
                 manufacturer: "STI",
                 description: 'Preloaded Front Chassis Stiffener',
                 handling: 1,
+                weight: 1,
                 cost: 270,
             },
 
@@ -454,6 +475,7 @@ const CARS = {
                 manufacturer: "STI",
                 description: 'Flexible',
                 handling: 1,
+                weight: 5,
                 cost: 300,
             },
             {
@@ -463,6 +485,7 @@ const CARS = {
                 description: 'Attaches across rear struts',
                 handling: 1,
                 util: -1,
+                weight: 5,
                 cost: 130,
             },
             {
@@ -513,7 +536,7 @@ const CARS = {
                 manufacturer: "Fortune Auto",
                 description: "500 Series - Radial Bearing 8k Springs",
                 handling: 4,
-                weight: 15,
+                weight: -15,
                 drivetrain: 1,
                 cost: 1500,
             },
@@ -528,7 +551,7 @@ const CARS = {
                 trackWidth: {
                     'front': 0.6,                    
                 } ,
-                weight: 5,
+                weight: 1,
                 cost: 100,
             },
             {
@@ -539,7 +562,7 @@ const CARS = {
                 trackWidth: {
                     'rear': 0.6,                    
                 } ,
-                weight: 5,
+                weight: 1,
                 cost: 100,
             },
             {
@@ -550,7 +573,7 @@ const CARS = {
                 trackWidth: {
                     'front': 1,                    
                 } ,
-                weight: 5,
+                weight: 1,
                 cost: 100,
             },            
             {
@@ -561,7 +584,7 @@ const CARS = {
                 trackWidth: {
                     'rear': 1,                    
                 } ,
-                weight: 5,
+                weight: 1,
                 cost: 100,
             },
             {
@@ -571,7 +594,7 @@ const CARS = {
                 description: "Subaru STI 15 spoke",
                 handling: 2,
                 brake: 1,
-                weight: 28,
+                weight: -28,
                 cost: 1000,
             },
 
@@ -609,7 +632,7 @@ const CARS = {
                 manufacturer: 'KNS/DBA',
                 description: 'Oversized, High Carbon',
                 brake: 2,
-                weight: -5,
+                weight: 5,
                 cost: 300,
             },
             {
@@ -645,7 +668,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed interior',
-                weight: 100,
+                weight: -100,
                 cost: 0,
                 utility: -2
             },
@@ -654,7 +677,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed passenger seat',
-                weight: 40,
+                weight: -40,
                 cost: 0,
                 utility: -1
             },
@@ -663,7 +686,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed rear seats',
-                weight: 80,
+                weight: -80,
                 cost: 0,
                 utility: -1
             },
@@ -672,10 +695,11 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed spare tire, Trunk Interior',
-                weight: 40,
+                weight: -40,
                 cost: 0,
                 utility: -1
-            }
+            },
+            
 
         ]
     },
@@ -700,71 +724,6 @@ const CARS = {
             front: 60.2,
             rear: 60.6,
         },
-        mods: [
-            {
-                type: 'Fluid Damper',
-                manufacturer: "Fluid Damper",
-                description: "Silicone vibration damper",
-                drivetrain: 2,
-                cost: 400,
-            },
-
-            {
-                type: 'Engine Mounts',
-                manufacturer: "Perrin",
-                description: "75A",
-                drivetrain: 1,
-                cost: 300,
-            },
-            {
-                type: 'Carbon Driveshaft',
-                manufacturer: "Driveshaft Shop",
-                description: "Lightweight Driveshaft",
-                drivetrain: 2,
-                weight: 12,
-                cost: 1100,
-            },
-            {
-                type: 'Engine Pitch Stop',
-                manufacturer: "Torque Solutions",
-                description: "75A",
-                drivetrain: 1,
-                cost: 70,
-            },
-            {
-                type: 'Transmission Mount',
-                manufacturer: "CKE SSP",
-                description: "75A",
-                drivetrain: 1,
-                cost: 30,
-            },
-            {
-                type: 'Driveshaft Carrier',
-                manufacturer: "Torque Solution",
-                description: "Aluminum Billet",
-                drivetrain: 0.5,
-                cost: 35,
-            },
-            {
-                type: 'Differential Lockdown',
-                manufacturer: "Perrin",
-                description: "2pc Billet, 4pc 75A",
-                drivetrain: 1.5,
-                cost: 115,
-            },
-
-            //
-            // Handling
-            //
-
-            {
-                type: 'Steering Lockdown',
-                manufacturer: "Torque Solutions",
-                description: 'Tightens Steering Response',
-                handling: 1,
-                cost: 50,
-            },
-        ],
     },
     SUBARU_BRZ_2014_NAMT: {
         oem: OEM.SUBARU,
@@ -1093,7 +1052,7 @@ const CARS = {
                 type: 'Interior Delete',
                 manufacturer: "DIY",
                 description: 'Removed interior',
-                weight: 100,
+                weight: -100,
                 cost: 0,
                 utility: -2
             },
