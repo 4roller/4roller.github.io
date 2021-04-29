@@ -1051,8 +1051,8 @@ const CARS = {
             {
                 type: 'Interior Delete',
                 manufacturer: "DIY",
-                description: 'Removed interior',
-                weight: -100,
+                description: 'Gutted',
+                weight: -250,
                 cost: 0,
                 utility: -2
             },

@@ -25,7 +25,7 @@ h2 {
     margin: 0;
     text-indent: 10px;
     border: 0;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: Courier, monospace;
     font-style: italic;
 }
@@ -73,7 +73,7 @@ h2 {
 
 .vehicle {
     border: 1px solid #222;
-    min-width: 250px;
+    min-width: 200px;
     padding: 5px;
     margin-right: 20px;
     position: relative;
@@ -165,12 +165,13 @@ h2 {
     color: lightgrey;
     font-style: italic;
     font-size: 0.7em;
+    font-weight: bold;
 
 
 }
 
 .vehicle .mmy-sub {
-    font-size: .8em;
+    
     color: rgb(186 87 194);
     letter-spacing: 0.5;
     font-style: normal;
@@ -193,7 +194,7 @@ h2 {
 
 .vehicle .image-wrap {
     margin-top: 16px;
-    height: 130px;
+    height: 100px;
     text-indent: 10px;
     position: relative;
     width: 88%;
@@ -236,8 +237,7 @@ h2 {
 .spec {
     padding: 10px;
     position: sticky;
-    display: flex;
-    font-size: 1.8em;
+    display: flex;    
     box-sizing: border-box;
     flex-direction: row;
     border-bottom: 1px solid #0cf;
@@ -268,7 +268,7 @@ h2 {
 .eliteRobin {
     font-weight: bold;
     color: teal;
-    font-size: 2.4em;
+    font-size: 1.5em;
     font-kerning: none;
 
 }
@@ -310,10 +310,10 @@ h2 {
 
 .mod {
     box-sizing: border-box;
-    font-size: 1.5em;
+    font-size: 1em;
     list-style-type: none;
     width: 25%;
-    height: 180px;
+    height: 120px;
     border: 2px solid #000;
     border-radius: 2px;
     position: relative;

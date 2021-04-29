@@ -41,8 +41,14 @@
     let currentVehicle = 'SUBARU_IMPREZA_2016_NACVT';
 
     const getPowerToWeight = function (obj) {
-        let outputPower = ((obj.whp / obj.weight) * 10000).toFixed();
-        return outputPower;
+        
+        
+        let outputPower = ((obj.whp / obj.weight) * 10000)
+        let powerIndex = (outputPower + (obj.agilityIndex * outputPower)).toFixed(0)
+            
+        
+        
+        return powerIndex;
     }
 
     const calculateMods = function (c) {
@@ -110,7 +116,7 @@
         uc.effectiveWeight = parseInt((uc.weight - removedWeight).toFixed(0));
 
         if (uc.model === "Impreza" || uc.model === "BRZ") {
-            console.log(uc.year, uc.model, uc.trim, uc.agilityIndex, uc.weight, uc.effectiveWeight)
+            // console.log(uc.year, uc.model, uc.trim, uc.agilityIndex, uc.weight, uc.effectiveWeight)
         }
         // uc.weight = uc.effectiveWeight;
 
@@ -378,8 +384,9 @@
     modsContainer.addEventListener('click', handleModsClick);
     v1Contaier.addEventListener('click', handleCarSelector);
 
-    paint();
     updateSpec(currentVehicle);
+    paint();
+
     updateMods();
 
 
