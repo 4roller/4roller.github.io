@@ -450,6 +450,11 @@ h2 {
     width: 73px;
 }
 
+.oem.hyundai {
+    background-position: -200px 2px;
+    width: 73px;
+}
+
 .oem.toyota {
     background-position: -781px 3px;
     width: 60px;

@@ -1,8 +1,9 @@
 const OEM = {
     SUBARU: 'Subaru',
     HONDA: 'Honda',
+    HYUNDAI: 'Hyundai',
     TOYOTA: 'Toyota',
-    MAZDA: 'Mazda',
+    MAZDA: 'Mazda',    
     AUDI: 'Audi',
     FORD: 'Ford',
     NISSAN: 'Nissan',
@@ -245,6 +246,7 @@ const CARS = {
         engineType: 'NA',
         engineName: 'FB20',
         trans: 'CVT',
+        transGear: 6,
         displacement: '2.0',
         cylNum: 4,
         cylOr: CYLINDER_ORIENTATION.H,
@@ -592,8 +594,9 @@ const CARS = {
                 category: 'wheels',
                 manufacturer: "Enkei",
                 description: "Subaru STI 15 spoke",
-                handling: 2,
-                brake: 1,
+                handling: 1,
+                drivetrain: 0.5,
+                brake: 1,                
                 weight: -28,
                 cost: 1000,
             },
@@ -1057,7 +1060,39 @@ const CARS = {
                 utility: -2
             },
         ]
+    },
+    HYUNDAI_VELOSTER_2021: {
+        oem: OEM.HYUNDAI,
+        model: 'Veloster',
+        year: 2021,
+        trim: 'Premium',
+        engineType: 'NA',
+        trans: 'AT',
+        transGear: 6,
+        displacement: '2.0',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.I,
+        hp: 147,
+        tq: 132,
+        drive: 'FWD',
+        weight: 2855,
+        image: '2021-Hyundai-Veloster-Premium',
+        clearance: 5.6,
+        wheelbase: 104.3,
+        trackWidth: {
+            front: 61,
+            rear: 61.5,
+        },
+        mods: [
+            {
+                type: 'Interior Delete',
+                manufacturer: "DIY",
+                description: 'Gutted',
+                weight: -250,
+                cost: 0,
+                utility: -2
+            },
+        ]
     }
-
 
 }
