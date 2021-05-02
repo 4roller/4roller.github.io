@@ -15,7 +15,7 @@ html {
 
 h1 {
     display: inline-block;
-    font-size: 3em;
+    font-size: 2em;
     margin: 0 0 0 10px;
 }
 
@@ -67,13 +67,12 @@ h2 {
 
 .vehicle[data-id="1960-Volkswagen-Beetle"] .image-wrap {
     transform: scale(0.65);
-    margin-top: 10px;
-
+    top: -10px;
 }
 
 .vehicle {
     border: 1px solid #222;
-    min-width: 200px;
+    min-width: 25%;
     padding: 5px;
     margin-right: 20px;
     position: relative;
@@ -171,17 +170,17 @@ h2 {
 }
 
 .vehicle .mmy-sub {
-    
     color: rgb(186 87 194);
     letter-spacing: 0.5;
     font-style: normal;
+    font-size: 0.5em;
 }
 
 .vehicle .exp {
     position: absolute;
     top: 5px;
     right: 5px;
-    font-size: 1.5em;
+    font-size: 1em;
     font-style: italic;
     text-align: left;
     margin-bottom: 8px;
@@ -193,18 +192,18 @@ h2 {
 }
 
 .vehicle .image-wrap {
-    margin-top: 16px;
-    height: 100px;
-    text-indent: 10px;
+    margin-top: 0px;
+    height: 80px;
     position: relative;
     width: 88%;
 
 }
 
 .vehicle .image-wrap img {
-    width: 100%;
+    width: 70%;
     opacity: 0.9;
     position: absolute;
+    left: 10%;
 
 }
 
@@ -214,9 +213,7 @@ h2 {
 }
 
 
-.vehicle .vehicle-name {
-    letter-spacing: .2em;
-}
+.vehicle .vehicle-name {}
 
 
 
@@ -237,11 +234,11 @@ h2 {
 .spec {
     padding: 10px;
     position: sticky;
-    display: flex;    
+    display: flex;
     box-sizing: border-box;
     flex-direction: row;
     border-bottom: 1px solid #0cf;
-    margin-bottom: 15px;    
+    margin-bottom: 15px;
 }
 
 .spec .image {
@@ -305,7 +302,7 @@ h2 {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;    
+    height: 100%;
 }
 
 .mod {
@@ -330,24 +327,31 @@ h2 {
 .mod.engine {
     background: linear-gradient(130deg, #6e0202, transparent);
 }
+
 .mod.exhaust {
     background: linear-gradient(130deg, #903000, transparent);
 }
+
 .mod.drivetrain {
     background: linear-gradient(130deg, #909000, transparent);
 }
+
 .mod.handling {
     background: linear-gradient(130deg, #379000, transparent);
 }
+
 .mod.suspension {
     background: linear-gradient(130deg, #005990, transparent);
 }
+
 .mod.wheels {
     background: linear-gradient(130deg, #001390, transparent);
 }
+
 .mod.brake {
     background: linear-gradient(130deg, #520090, transparent);
 }
+
 .mod.weight {
     background: linear-gradient(130deg, #8e0090, transparent);
 }
@@ -361,6 +365,7 @@ h2 {
 .mod input {
     display: none;
 }
+
 .mod input:checked {
     display: block;
 }
@@ -409,14 +414,14 @@ h2 {
 
 
 .oem {
+    transform: scale(0.8);
     width: 100px;
     height: 50px;
     background-image: url(images/oem-logo-sprite.png);
     background-repeat: no-repeat;
     position: absolute;
-    left: 0;
-    top: 0;
-
+    right: 0px;
+    bottom: 0px;
 }
 
 .oem.audi {
