@@ -408,7 +408,7 @@ const CARS = {
                 category: 'drivetrain',
                 manufacturer: "Fluid Damper",
                 description: "Silicone vibration damper",
-                drivetrain: 1,
+                drivetrain: 1.5,
                 weight: 2,
                 cost: 400,
             },
@@ -553,18 +553,18 @@ const CARS = {
                 trackWidth: {
                     'front': 0.6,                    
                 } ,
-                weight: 1,
+                weight: 5,
                 cost: 100,
             },
             {
-                type: 'Rear Wheel Spacers 15mm',
+                type: 'Front Wheel Spacers 20mm',
                 category: 'wheels',
                 manufacturer: "",
-                description: '15mm wheel spacers ',
+                description: '20mm wheel spacers ',
                 trackWidth: {
-                    'rear': 0.6,                    
+                    'front': 0.79,                    
                 } ,
-                weight: 1,
+                weight: 5,
                 cost: 100,
             },
             {
@@ -575,9 +575,32 @@ const CARS = {
                 trackWidth: {
                     'front': 1,                    
                 } ,
-                weight: 1,
+                weight: 5,
                 cost: 100,
             },            
+            {
+                type: 'Rear Wheel Spacers 15mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '15mm wheel spacers ',
+                trackWidth: {
+                    'rear': 0.6,                    
+                } ,
+                weight: 5,
+                cost: 100,
+            },
+            {
+                type: 'Rear Wheel Spacers 20mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '20mm wheel spacers ',
+                trackWidth: {
+                    'rear': 0.79,                    
+                } ,
+                weight: 5,
+                cost: 100,
+            },
+            
             {
                 type: 'Rear Wheel Spacers 25mm',
                 category: 'wheels',
@@ -586,7 +609,7 @@ const CARS = {
                 trackWidth: {
                     'rear': 1,                    
                 } ,
-                weight: 1,
+                weight: 5,
                 cost: 100,
             },
             {

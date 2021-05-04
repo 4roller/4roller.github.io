@@ -141,15 +141,14 @@
 
         let carRow = `
             <div class="oem ${c.oem.toLowerCase()}"></div>        
-            <div class="exp">${p2w}</div>
-            <div class="image-wrap">
-                <img src="images/${c.image}.png" />
-            </div>
+            <div class="exp">${p2w}</div>            
             <div class="vehicle-name">
                 <div class="mmy">${c.oem} ${c.model}</div>
                 <div class="mmy mmy-sub">${c.trim} ${c.year}</div>
             </div>
-            
+            <div class="image-wrap">
+                <img src="images/${c.image}.png" />
+            </div>
             <div class="vehicle-data unit-sq">
                 <div class="ed">${c.drive} ${c.engineType} ${c.trans} </div>
                 <div class="et">${c.displacement}L ${c.cylOr}${c.cylNum} ${engineSpecial} </div>
@@ -367,15 +366,22 @@
     }
 
     const handleCarSelector = function (e) {
-        let dataId = getParent(e.target, 'vehicle').getAttribute('data-id');
+        
+        const currentSelector = `.vehicle[data-id="${CARS[currentVehicle].image}"]`;
+        document.querySelector(currentSelector).classList.remove('selected');
+        
+        const vc = getParent(e.target, 'vehicle');
+        const dataId = vc.getAttribute('data-id');
+        
         for (c in CARS) {
-            if (CARS[c].image == dataId) {
+            if (CARS[c].image == dataId) {                
                 currentVehicle = c;
                 updateSpec(CARS[c]);
                 updateMods();
                 break;
             };
         }
+        vc.classList.add('selected');
         return;
     };
 
