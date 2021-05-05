@@ -40,7 +40,7 @@
     let tabindex = 0;
     let currentVehicle = 'SUBARU_IMPREZA_2016_NACVT';
 
-    const getPowerToWeight = function (obj) {
+    const getPowerToWeight =  function (obj) {
         
         
         let outputPower = ((obj.whp / obj.weight) * 10000)
@@ -123,7 +123,7 @@
         return uc;
     }
 
-    const getVsCode = (car) => {
+    const getVsCode = function (car) {
         const returnCarRow = document.createElement('div');
         let c = car;
         let p2w = getPowerToWeight(c);
@@ -287,19 +287,18 @@
 
         const v = calculateMods(vehicle);
         document.querySelector('h2.name').innerHTML = `${v.oem} ${v.model} ${(v.engineName) ? v.engineName : ''}`;
-        const driveLossPercentage = (DRIVETRAIN[v.drive].driveloss / 100);
-
+        const driveLossPercentage = (DRIVETRAIN[v.drive].driveloss / 100) + (TRANSMISSION[v.trans].driveloss /100);        
         let hpGain = v.hp + v.hpGain;
         let loss = hpGain * (driveLossPercentage - v.effGain);
         const stockWhp = (v.hp - (v.hp * driveLossPercentage)).toFixed(0);
-        const stockLoss = v.hp * (DRIVETRAIN[v.drive].driveloss / 100);
+        const stockLoss = v.hp * driveLossPercentage;
         let whp = ((hpGain - loss)).toFixed(0);
 
         let cost = `${v.costGain}`;
         let weight = `${v.weight} lb <br />(${v.weightGain} lb)`;
         let hp = `${v.hp} +${v.hpGain} HP<br /><span class="elite">${hpGain} BHP</span>`;
         let whpOutput = `${stockWhp}  +${whp - stockWhp} HP<br/> <span class="elite">${whp} WHP</span>`;
-        let eff = `${v.effGain * 100 - DRIVETRAIN[v.drive].driveloss}%  ${v.drive}<br /><span class="elite">+${(v.effGain * 100).toFixed(1)}% gain</span>`;
+        let eff = `${v.effGain * 100 - driveLossPercentage * 100}%  ${v.drive}/${v.trans}<br /><span class="elite">+${(v.effGain * 100).toFixed(1)}% gain</span>`;
         let p2w = `<span class="eliteRobin">${getPowerToWeight(v)}</span><br />PowerIndex`;
         let image = `<img src="images/${v.image}.png" />`;
 

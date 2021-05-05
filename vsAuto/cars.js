@@ -14,10 +14,10 @@ const OEM = {
 }
 
 const TRANSMISSION = {
-    MT: 'manual transmission',
-    AT: 'automatic transmission',
-    AM: 'automated manual',
-    CVT: 'continuously variable transmission',
+    MT: { name: 'manual transmission', driveloss: 0 },
+    AT: { name: 'automatic transmission', driveloss: 2 },
+    AM: { name: 'automated manual', driveloss: 2 },
+    CVT: {name: 'continuously variable transmission', driveloss: 2},
 }
 
 const DRIVETRAIN = {
