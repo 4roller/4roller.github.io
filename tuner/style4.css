@@ -107,6 +107,8 @@ figure {
 
 figure.engine {position: relative;/* height: 750px; */}
 
+.letsbox {max-width: 25%;}
+
 figure.engine:hover img {
     opacity: 0.2;
     animation: fade 1s ease;
@@ -150,6 +152,8 @@ figure.engine::before {
     top: 0;
     /* transition-duration: 1000ms; */
     opacity: 0.8;
+
+    filter: brightness(1.05);
 }
 
 figure.engine:after {
@@ -196,18 +200,8 @@ figure.cvt-ratios table {
     width: 100%;
 }
 
-
-
-
-
-
-
-
-
 img.hood {
-    object-fit: ;
     width: 100%;
-    height: 157px;
 }
 
 img.hood:hover {
@@ -253,6 +247,11 @@ img.suspension-diagram {
     opacity: .8;
 }
 
+.dl-0 {
+    font-size: 2em;
+    left: 92%;
+    top: 46.5%;
+}
 
 
 .dl-1 {
