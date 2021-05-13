@@ -29,6 +29,10 @@ h2 {
     font-family: Courier, monospace;
     font-style: italic;
 }
+h3 {
+    padding: 0;
+    margin: 0;
+}
 
 
 .brandStyle {
@@ -55,9 +59,7 @@ h2 {
     opacity: 1;
     width: 100%;
     transform: scale(1);
-    overflow-y: scroll;
-    padding-bottom: 25px;
-
+    overflow-y: scroll;    
 }
 
 
@@ -203,7 +205,7 @@ h2 {
     width: 70%;
     opacity: 0.9;
     position: absolute;
-    left: 10%;
+    left: 25%;
 
 }
 
@@ -229,6 +231,45 @@ h2 {
     overflow: scroll;
     border-radius: 4px;
 }
+
+.mods > div {
+    display: flex;
+    flex-direction: row;
+}
+
+.mods > div:before {
+    display: block;
+    min-width: 90px;
+}
+
+.mods > .intake:before {
+    content: 'Intake';
+}
+.mods > .engine:before {
+    content: 'Engine';
+}
+.mods > .exhaust:before {
+    content: 'Exhaust';
+}
+.mods > .drivetrain:before {
+    content: 'Drivetrain';
+}
+.mods > .handling:before {
+    content: 'Handling';
+}
+.mods > .suspension:before {
+    content: 'Suspension';
+}
+.mods > .wheels:before {
+    content: 'Wheels';
+}
+.mods > .brake:before {
+    content: 'Brake';
+}
+.mods > .weight:before {
+    content: 'Weight';
+}
+
 
 
 .spec {
@@ -309,14 +350,14 @@ h2 {
     box-sizing: border-box;
     font-size: 1em;
     list-style-type: none;
-    width: 25%;
+    min-width: 240px;
     height: 120px;
     border: 2px solid #000;
     border-radius: 2px;
     position: relative;
     padding: 10px;
     opacity: 1;
-    margin: 10px 10px 0 0;
+    /* margin: 10px 10px 0 0; */
 }
 
 

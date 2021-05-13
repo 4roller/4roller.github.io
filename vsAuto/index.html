@@ -21,7 +21,7 @@
     <div class='v1'></div>
 
     <div class="tunerShop">
-        <h2>🔧 Tuner Parts</h2>
+        <h3>🔧 Tuner Parts</h3>
         <div class="mods"></div>
     </div>
 
@@ -98,11 +98,11 @@
         uc.weightGain = totalWeight;
         uc.clearance = uc.clearance - totalHeight;
         uc.effGain = totalEfficiency / 100;
-        uc.hp = parseInt((uc.hp + totalPower).toFixed(0));
+        let hpUp = parseInt((uc.hp + totalPower).toFixed(0));
         let loss = uc.hp * ((DRIVETRAIN[uc.drive].driveloss / 100) - uc.effGain);
         uc.hpGain = parseInt(totalPower.toFixed(0));
         uc.weight = uc.weight + totalWeight;
-        uc.whp = parseInt((uc.hp - loss).toFixed(0));
+        uc.whp = parseInt((hpUp - loss).toFixed(0));
         // if (uc.drive === 'AWD') {
         //     totalHandling += 2;
         // }
@@ -202,11 +202,21 @@
             modsContainer.innerHTML = 'No mods available at this time';
             return;
         }
-        const ul = document.createElement('ul');
+        const frag = document.createDocumentFragment();
         let count = 0;
-        mods.forEach(el => {
-            let modEl = document.createElement('li');
+
+        let catArr = [];
+
+        mods.forEach(el => {            
+            let modEl = document.createElement('div');
             modEl.classList.add('mod');
+
+            if (el.category) {
+                modEl.classList.add(el.category);
+                if(!catArr[el.category]) {
+                    catArr[el.category] = [];
+                }
+            }
 
             if (el.enabled) {
                 modEl.classList.add('selected');
@@ -243,11 +253,6 @@
                 modEl.classList.add('cost');
             }
 
-
-            if (el.category) {
-                modEl.classList.add(el.category);
-            }
-
             let isChecked = (el.enabled ? 'checked' : '');
             modEl.innerHTML = `                
                 <input type="checkbox" id="" name="${el.type}" value="${el.type}"  ${isChecked}>
@@ -257,10 +262,25 @@
                 <div class="gains">${power} ${weight} ${handling} ${drivetrain} ${brake}</div>
                 <div class="cost">${el.cost}</div>
             `;
-            ul.appendChild(modEl);
+            catArr[el.category].push(modEl);            
         })
         mods.innerHTML = '';
-        modsContainer.appendChild(ul);
+        let keys = Object.keys(catArr);
+        console.log(catArr[keys[0]])
+        keys.forEach(function(key) {
+            let categoryDiv = document.createElement('div');
+            categoryDiv.classList.add(key);
+
+            catArr[key].forEach(function(el) {
+                categoryDiv.appendChild(el);
+            });
+
+            modsContainer.appendChild(categoryDiv);
+            
+            console.log();
+        })
+        //modsContainer.appendChild(frag);
+        
     }
 
     const getParent = function (el, classToFind) {

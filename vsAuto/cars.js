@@ -3,7 +3,7 @@ const OEM = {
     HONDA: 'Honda',
     HYUNDAI: 'Hyundai',
     TOYOTA: 'Toyota',
-    MAZDA: 'Mazda',    
+    MAZDA: 'Mazda',
     AUDI: 'Audi',
     FORD: 'Ford',
     NISSAN: 'Nissan',
@@ -17,7 +17,7 @@ const TRANSMISSION = {
     MT: { name: 'manual transmission', driveloss: 0 },
     AT: { name: 'automatic transmission', driveloss: 2 },
     AM: { name: 'automated manual', driveloss: 2 },
-    CVT: {name: 'continuously variable transmission', driveloss: 2},
+    CVT: { name: 'continuously variable transmission', driveloss: 2 },
 }
 
 const DRIVETRAIN = {
@@ -262,21 +262,6 @@ const CARS = {
             rear: 59.6,
         },
         mods: [
-            {
-                type: 'BRZ EQ Pack',
-                category: 'weight',
-                manufacturer: "DIY",
-                description: 'BRZ Parity',
-                weight: -347,
-                power: 57,
-                height: 1,
-                drivetrain: 5,
-                trackWidth: {
-                    front: 1.6,
-                    rear: 1.6,
-                },
-                cost: 0,                
-            },
 
             // Power            
             {
@@ -306,7 +291,18 @@ const CARS = {
             },
 
             {
-                type: 'PCV Catch Can',
+                type: 'PCV Air Oil Separator',
+                category: 'engine',
+                manufacturer: "Crawford",
+                description: "Baja Edition - Cleans up engine blow-by",
+                power: 0.5,
+                weight: 3,
+                cost: 200,
+            },
+
+
+            {
+                type: 'Breather Catch Can',
                 category: 'engine',
                 manufacturer: "DIY",
                 description: "Cleans up engine blow-by",
@@ -314,7 +310,14 @@ const CARS = {
                 weight: 3,
                 cost: 50,
             },
-
+            {
+                type: 'Tune - Stage 1',
+                category: 'engine',
+                manufacturer: "Throttle Happy",
+                description: "Stage 1",
+                power: 5,
+                cost: 300,
+            },
             {
                 type: 'Power Blocks',
                 category: 'engine',
@@ -322,24 +325,6 @@ const CARS = {
                 description: "Intake Runner Extensions",
                 power: 5,
                 weight: 5,
-                cost: 300,
-            },
-
-            {
-                type: 'Turbo',
-                category: 'engine',
-                manufacturer: "AVO",
-                description: "Turbo",
-                power: 57,
-                weight: 97,
-                cost: 5000,
-            },
-            {
-                type: 'Tune - Stage 1',
-                category: 'engine',
-                manufacturer: "Throttle Happy",
-                description: "Stage 1",
-                power: 5,
                 cost: 300,
             },
             {
@@ -351,6 +336,36 @@ const CARS = {
                 cost: 600,
             },
             {
+                type: 'Turbo',
+                category: 'engine',
+                manufacturer: "AVO",
+                description: "Turbo",
+                power: 57,
+                weight: 97,
+                cost: 5000,
+            },
+
+
+
+
+            {
+                type: 'Axleback',
+                category: 'exhaust',
+                manufacturer: "Nameless",
+                description: "Single exit 5inch muffler and 2.25in piping",
+                weight: -10,
+                power: 1,
+                cost: 150,
+            },
+            {
+                type: 'Midpipe',
+                category: 'exhaust',
+                manufacturer: "Nameless",
+                description: "resonator and 2.25in piping",
+                power: 1,
+                cost: 500,
+            },
+            {
                 type: 'Engine Headers',
                 category: 'exhaust',
                 manufacturer: "Inferno Fabrications",
@@ -359,16 +374,6 @@ const CARS = {
                 weight: -10,
                 cost: 700,
             },
-            {
-                type: 'Exhaust',
-                category: 'exhaust',
-                manufacturer: "Nameless",
-                description: "5inch",
-                weight: -10,
-                power: 1,
-                cost: 150,
-            },
-
 
             // Drivetrain
             {
@@ -460,16 +465,25 @@ const CARS = {
                 cost: 270,
             },
 
-            
+
 
             // Suspension
             {
-                type: 'Lower',
+                type: 'Rear Sway Bar 20mm',
                 category: 'suspension',
-                manufacturer: "None",
-                description: 'Lower 1 inch',
-                height: 1,
-                cost: 0,
+                manufacturer: "Subaru",
+                description: '20mm',
+                handling: 1,
+                cost: 100,
+            },
+
+            {
+                type: 'Rear Sway Bar 22mm',
+                category: 'suspension',
+                manufacturer: "Whiteline",
+                description: '22mm adjustable',
+                handling: 1.5,
+                cost: 240,
             },
             {
                 type: 'Front Strut Bar',
@@ -499,12 +513,31 @@ const CARS = {
                 cost: 100,
             },
             {
-                type: 'Rear Sway Bar',
+                type: 'Lowering Springs',
                 category: 'suspension',
-                manufacturer: "Whiteline",
-                description: '22mm adjustable',
-                handling: 1.5,
-                cost: 240,
+                manufacturer: "RS-R",
+                description: "Down Sus",
+                handling: 2,
+                weight: -5,
+                cost: 300,
+            },
+            {
+                type: 'Coilovers',
+                category: 'suspension',
+                manufacturer: "Fortune Auto",
+                description: "500 Series - Radial Bearing 8k Springs",
+                handling: 4,
+                weight: -15,
+                drivetrain: 1,
+                cost: 1500,
+            },
+            {
+                type: 'Lower',
+                category: 'suspension',
+                manufacturer: "None",
+                description: 'Lower 1 inch',
+                height: 1,
+                cost: 0,
             },
             {
                 type: 'Trailing Links',
@@ -532,86 +565,8 @@ const CARS = {
                 handling: 0.5,
                 cost: 150,
             },
-            {
-                type: 'Coilovers',
-                category: 'suspension',
-                manufacturer: "Fortune Auto",
-                description: "500 Series - Radial Bearing 8k Springs",
-                handling: 4,
-                weight: -15,
-                drivetrain: 1,
-                cost: 1500,
-            },
 
             // wheels
-
-            {
-                type: 'Front Wheel Spacers 15mm',
-                category: 'wheels',
-                manufacturer: "",
-                description: '15mm wheel spacers ',
-                trackWidth: {
-                    'front': 0.6,                    
-                } ,
-                weight: 5,
-                cost: 100,
-            },
-            {
-                type: 'Front Wheel Spacers 20mm',
-                category: 'wheels',
-                manufacturer: "",
-                description: '20mm wheel spacers ',
-                trackWidth: {
-                    'front': 0.79,                    
-                } ,
-                weight: 5,
-                cost: 100,
-            },
-            {
-                type: 'Front Wheel Spacers 25mm',
-                category: 'wheels',
-                manufacturer: "",
-                description: '25mm wheel spacers ',
-                trackWidth: {
-                    'front': 1,                    
-                } ,
-                weight: 5,
-                cost: 100,
-            },            
-            {
-                type: 'Rear Wheel Spacers 15mm',
-                category: 'wheels',
-                manufacturer: "",
-                description: '15mm wheel spacers ',
-                trackWidth: {
-                    'rear': 0.6,                    
-                } ,
-                weight: 5,
-                cost: 100,
-            },
-            {
-                type: 'Rear Wheel Spacers 20mm',
-                category: 'wheels',
-                manufacturer: "",
-                description: '20mm wheel spacers ',
-                trackWidth: {
-                    'rear': 0.79,                    
-                } ,
-                weight: 5,
-                cost: 100,
-            },
-            
-            {
-                type: 'Rear Wheel Spacers 25mm',
-                category: 'wheels',
-                manufacturer: "",
-                description: '25mm wheel spacers ',
-                trackWidth: {
-                    'rear': 1,                    
-                } ,
-                weight: 5,
-                cost: 100,
-            },
             {
                 type: 'Wheels',
                 category: 'wheels',
@@ -619,7 +574,7 @@ const CARS = {
                 description: "Subaru STI 15 spoke",
                 handling: 1,
                 drivetrain: 0.5,
-                brake: 1,                
+                brake: 1,
                 weight: -28,
                 cost: 1000,
             },
@@ -633,9 +588,93 @@ const CARS = {
                 handling: 1,
                 cost: 600,
             },
+            {
+                type: 'Front Wheel Spacers 15mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '15mm wheel spacers ',
+                trackWidth: {
+                    'front': 0.6,
+                },
+                weight: 5,
+                cost: 100,
+            },
+            {
+                type: 'Front Wheel Spacers 20mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '20mm wheel spacers ',
+                trackWidth: {
+                    'front': 0.79,
+                },
+                weight: 5,
+                cost: 100,
+            },
+            {
+                type: 'Front Wheel Spacers 25mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '25mm wheel spacers ',
+                trackWidth: {
+                    'front': 1,
+                },
+                weight: 5,
+                cost: 100,
+            },
+            {
+                type: 'Rear Wheel Spacers 15mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '15mm wheel spacers ',
+                trackWidth: {
+                    'rear': 0.6,
+                },
+                weight: 5,
+                cost: 100,
+            },
+            {
+                type: 'Rear Wheel Spacers 20mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '20mm wheel spacers ',
+                trackWidth: {
+                    'rear': 0.79,
+                },
+                weight: 5,
+                cost: 100,
+            },
+
+            {
+                type: 'Rear Wheel Spacers 25mm',
+                category: 'wheels',
+                manufacturer: "",
+                description: '25mm wheel spacers ',
+                trackWidth: {
+                    'rear': 1,
+                },
+                weight: 5,
+                cost: 100,
+            },
+
 
 
             // Braking 
+            {
+                type: 'DOT 4 Fluid',
+                category: 'brake',
+                manufacturer: 'Pentosin',
+                description: 'High boiling point',
+                brake: 1,
+                cost: 15,
+            },
+            {
+                type: 'Master Cylinder Brace',
+                category: 'brake',
+                manufacturer: 'Torque Solutions',
+                description: 'firmer braking',
+                brake: 1,
+                cost: 100,
+            },
             {
                 type: 'Front Pads',
                 category: 'brake',
@@ -669,40 +708,16 @@ const CARS = {
                 brake: 1,
                 cost: 100,
             },
-            {
-                type: 'Master Cylinder Brace',
-                category: 'brake',
-                manufacturer: 'Torque Solutions',
-                description: 'firmer braking',
-                brake: 1,
-                cost: 100,
-            },
-            {
-                type: 'DOT 4 Fluid',
-                category: 'brake',
-                manufacturer: 'Pentosin',
-                description: 'High boiling point',
-                brake: 1,
-                cost: 15,
-            },
+
 
             //
             // Weight
             //
             {
-                type: 'Interior Delete',
+                type: 'Trunk Delete',
                 category: 'weight',
                 manufacturer: "DIY",
-                description: 'Removed interior',
-                weight: -100,
-                cost: 0,
-                utility: -2
-            },
-            {
-                type: 'Passenger Seat Delete',
-                category: 'weight',
-                manufacturer: "DIY",
-                description: 'Removed passenger seat',
+                description: 'Removed spare tire, Trunk Interior',
                 weight: -40,
                 cost: 0,
                 utility: -1
@@ -717,15 +732,40 @@ const CARS = {
                 utility: -1
             },
             {
-                type: 'Trunk Delete',
+                type: 'Passenger Seat Delete',
                 category: 'weight',
                 manufacturer: "DIY",
-                description: 'Removed spare tire, Trunk Interior',
+                description: 'Removed passenger seat',
                 weight: -40,
                 cost: 0,
                 utility: -1
             },
-            
+            {
+                type: 'Interior Delete',
+                category: 'weight',
+                manufacturer: "DIY",
+                description: 'Removed interior',
+                weight: -100,
+                cost: 0,
+                utility: -2
+            },
+            {
+                type: 'BRZ EQ Pack',
+                category: 'weight',
+                manufacturer: "DIY",
+                description: 'BRZ Parity',
+                weight: -347,
+                power: 57,
+                height: 1,
+                drivetrain: 5,
+                trackWidth: {
+                    front: 1.6,
+                    rear: 1.6,
+                },
+                cost: 0,
+            },
+
+
 
         ]
     },
