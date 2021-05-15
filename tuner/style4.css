@@ -6,12 +6,13 @@ html, body
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1em;    
+    font-size: 1em;
     width: 100%;
     box-sizing: border-box;
     background: #000;
-    color: #999;    
+    color: #999;
+    padding: 0 20px;
+    font-family: sans-serif;
 }
 
 h1,
@@ -65,6 +66,7 @@ img {
 
 .quarter-spread {
     display: grid;
+    background: lightskyblue;
     width: 100%;
     grid-template-columns: 25% 25% 25% 25%;
 }
@@ -107,7 +109,7 @@ figure {
 
 figure.engine {position: relative;/* height: 750px; */}
 
-.letsbox {max-width: 25%;}
+.letsbox {width: 450px;margin: auto auto;position: relative;display: inherit;}
 
 figure.engine:hover img {
     opacity: 0.2;
@@ -173,7 +175,11 @@ figure.engine:after {
     transform: scaleY(0.95) scaleX(0.8);
 }
 
-
+.oem-cvt-cooler {
+    max-width: 200px;
+    float: right;
+    margin: 10px;
+}
 
 figure.cvt,
 figure.cvt-ratios {
@@ -204,6 +210,11 @@ img.hood {
     width: 100%;
 }
 
+img.hood.og {
+    position: relative;
+    top: 24px;
+}
+
 img.hood:hover {
     object-fit: cover;
 }
@@ -215,6 +226,57 @@ img.sport-wheels {
 img.suspension-diagram {
     max-width: 350px;
 }
+
+
+.engine-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.em {
+    position: absolute;
+}
+
+.e1 {
+    left: 8%;
+    top: 48%;
+}
+.e2 {
+    left: 28%;
+    top: 22%;
+}
+.e3 {
+    left: 29%;
+    top: 52%;
+    position: absolute;
+    /* border:  1px solid red; */
+    width: 40%;
+    height: 20px;
+}
+.e3 .first {
+    left: 0;
+    top: -18%;
+    position: absolute;
+}
+.e3 .second {
+    right: 0px;
+    top: -14%;
+    position: absolute;
+}
+.e4 {
+    left: 84%;
+    top: 70%;
+}
+.e5 {
+    left: 63%;
+    top: 18%;
+}
+
+
+
+
+
+
 
 .driveline {
     position: relative;
@@ -288,6 +350,7 @@ img.suspension-diagram {
     border: 5px solid black;
     border-bottom: 0;
     opacity: 1;
+    left: -150px;
 }
 
 .dl-2:after {
@@ -302,6 +365,7 @@ img.suspension-diagram {
     border: 5px solid black;
     color: #555;
     font-size: 0.8em;
+    left: -150px;
 }
 
 

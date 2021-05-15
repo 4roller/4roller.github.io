@@ -750,6 +750,15 @@ const CARS = {
                 utility: -2
             },
             {
+                type: 'Light Weight Battery',
+                category: 'weight',
+                manufacturer: "Braille",
+                description: 'Lithum Polymer',
+                weight: -30,
+                cost: 1500,                
+            },
+
+            {
                 type: 'BRZ EQ Pack',
                 category: 'weight',
                 manufacturer: "DIY",
