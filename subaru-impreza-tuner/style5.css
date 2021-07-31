@@ -1,0 +1,538 @@
+html,
+body {
+    margin: auto;
+    padding: 0;
+    width: 100%;
+
+}
+
+body {
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    /* background: #000;
+    color: #999; */
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 1em;
+}
+
+h3 {
+    font-size: 0.8em;
+}
+
+p {
+    /* width: 500px; */
+}
+
+.subaru {
+    font-size: 2em;
+    font-style: italic;
+    font-weight: 400;
+    color: blue;
+}
+
+caption {
+    font-size: 2.8em;
+
+}
+
+.main {
+    width: 100%;
+    /* opacity: 0.7; */
+    overflow: hidden;
+    /* transform: scale(1.5); */
+    max-height: 276px;
+    /* transform: skew(8deg, 0deg); */
+}
+
+.main video {
+    max-width: 80%;
+    filter: brightness(0.70);
+    transform: rotate(-4.3deg);
+    margin-left: 90px;
+}
+
+.layer2 {
+    transform: skew(6deg, 0deg);
+    position: relative;
+    left: 12%;
+}
+
+.layer3 {
+    /* transform: skew(6deg, 0deg); */
+    position: relative;
+    /* left: 12%; */
+    overflow: hidden;
+    transform: translate(-46px, -7px);
+    /* border: 1px solid green; */
+    /* width: 400px; */
+}
+
+.sized {
+    max-width: 50%;
+    margin-left: 10px;
+}
+
+img {
+    width: 100%;
+}
+
+.toned {
+    max-width: fit-content;
+}
+
+.quarter-spread {
+    display: grid;
+    background: lightskyblue;
+    width: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+
+
+blockquote::before,
+blockquote::after {
+    content: '"';
+}
+
+blockquote,
+aside {
+    font-style: italic;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+aside {
+    margin: 30px 90px;
+    text-align: justify;
+    text-indent: -6px;
+}
+
+aside::first-letter {
+    font-size: 2.3em;
+    line-height: 1px;
+    font-family: cursive;
+    padding-right: 2px;
+}
+
+figure {
+    margin: 0;
+}
+
+.size-by-side {
+    display: flex;
+    flex-direction: row;
+}
+
+figure.engine {
+    position: relative;
+    /* height: 750px; */
+}
+
+.letsbox {
+    width: 450px;
+    margin: auto auto;
+    position: relative;
+    display: inherit;
+}
+
+figure.engine:hover img {
+    opacity: 0.2;
+    animation: fade 1s ease;
+
+
+    /* mix-blend-mode: exclusion; */
+}
+
+figure.engine:hover::before {
+    opacity: 0.8;
+    /* z-index: 2; */
+    mix-blend-mode: exclusion;
+}
+
+
+figure.engine:hover::after {
+    /* mix-blend-mode: exclusion; */
+    transition-duration: 1s;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+figure.engine img {
+    position: relative;
+    top: 75px;
+    opacity: 1;
+}
+
+
+figure.engine::before {
+    content: ' ';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: url(images/imprezaDyno.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    left: 0;
+    /* z-index: 2; */
+    top: 0;
+    /* transition-duration: 1000ms; */
+    opacity: 0.8;
+
+    filter: brightness(1.05);
+}
+
+figure.engine:after {
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* background-image: url(images/first-log.jpg); */
+    background-repeat: no-repeat;
+    background-position-x: 0px;
+    background-position-y: -12px;
+    background-size: contain;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    /* transition-duration: 1.2s; */
+    transform: scaleY(0.95) scaleX(0.8);
+}
+
+.oem-cvt-cooler {
+    max-width: 200px;
+    float: right;
+    margin: 10px;
+}
+
+figure.cvt,
+figure.cvt-ratios {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    opacity: 0.91;
+}
+
+figure.engine img,
+figure.dyno img,
+figure.cvt img {}
+
+figure.cvt-ratios table {
+    /* border: 1px solid #ccc; */
+    width: 100%;
+    font-size: 2em;
+}
+
+.engine {
+    position: relative;
+    width: 100%;
+}
+
+img.hood {
+    width: 100%;
+}
+
+img.hood.og {
+    position: relative;
+    top: 24px;
+}
+
+img.hood:hover {
+    object-fit: cover;
+}
+
+img.sport-wheels {
+    max-width: 150px;
+}
+
+
+
+.engine-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.em {
+    position: absolute;
+}
+
+.e1 {
+    left: 8%;
+    top: 48%;
+}
+
+.e2 {
+    left: 28%;
+    top: 22%;
+}
+
+.e3 {
+    left: 29%;
+    top: 52%;
+    position: absolute;
+    /* border:  1px solid red; */
+    width: 40%;
+    height: 20px;
+}
+
+.e3 .first {
+    left: 0;
+    top: -18%;
+    position: absolute;
+}
+
+.e3 .second {
+    right: 0px;
+    top: -14%;
+    position: absolute;
+}
+
+.e4 {
+    left: 84%;
+    top: 70%;
+}
+
+.e5 {
+    left: 63%;
+    top: 18%;
+}
+
+
+
+
+
+
+
+.driveline {
+    position: relative;
+    width: 100%;
+}
+
+.driveline img {
+    width: 100%;
+    height: 100%;
+}
+
+.driveline-wrapper {
+    width: 100%;
+    /* height: 100%; */
+    position: relative;
+}
+
+.scaleWrap {
+    text-align: center;
+}
+
+.zoom {
+    max-width: 900px;
+}
+
+
+.dl-dot {
+    position: absolute;
+    font-size: 2em;
+    opacity: .8;
+}
+
+.dl-0 {
+    font-size: 2em;
+    left: 92%;
+    top: 46.5%;
+}
+
+
+.dl-1 {
+    font-size: 2em;
+    left: 85%;
+    top: 44.5%;
+}
+
+.dl-1 .one {
+    position: absolute;
+    top: -50px;
+}
+
+.dl-1 .two {
+    position: absolute;
+    top: 80px;
+}
+
+.dl-2 {
+    left: 77%;
+    top: 47%;
+}
+
+.dl-2:before {
+    content: ' ';
+    background-image: url(images/pitchstop.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 150px;
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    border-bottom: 0;
+    opacity: 1;
+    left: -150px;
+}
+
+.dl-2:after {
+    content: 'A polyurethane/billet pitch stop reduces engine bucking under acceleration';
+    width: 330px;
+    position: absolute;
+    left: 0;
+    top: 150px;
+    padding-left: 10px;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    color: #555;
+    font-size: 0.8em;
+    left: -150px;
+}
+
+
+
+.dl-3 {
+    left: 62%;
+    top: 47%;
+}
+
+.dl-3:before {
+    content: ' ';
+    background-image: url(images/transmission-insert.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 300px;
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    border-bottom: 0;
+    opacity: 1;
+}
+
+.dl-3:after {
+    content: 'A polyurethane transmission insert reduces oem bushing squishiness';
+    width: 330px;
+    position: absolute;
+    left: 0;
+    top: 300px;
+    padding-left: 10px;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    color: #555;
+    font-size: 0.8em;
+}
+
+
+.dl-dot:hover {
+    opacity: 1;
+}
+
+
+
+
+.dl-4 {
+    left: 45.5%;
+    top: 47%;
+}
+
+
+.dl-5 {
+    font-size: 1.5em;
+    left: 14%;
+    top: 48%;
+}
+
+.dl-5:before {
+    content: ' ';
+    background-image: url(images/differentiallockdown.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 325px;
+    height: 290px;
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    border-bottom: 0;
+    opacity: 1;
+}
+
+.dl-5:after {
+    content: 'Solid billet inserts (top) and polyurethane bushings (bottom) reduces differential movment under hard acceleration';
+    width: 315px;
+    position: absolute;
+    left: 0;
+    top: 290px;
+    padding-left: 10px;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    color: #555;
+    font-size: 0.8em;
+}
+
+.dl-5 .one {
+    position: absolute;
+    top: -15px;
+    left: 36px;
+}
+
+.dl-5 .two {
+    position: absolute;
+    top: 20px;
+    left: 36px;
+}
+
+.dl-5 .three {
+    position: absolute;
+    top: -15px;
+    left: -32px;
+}
+
+.dl-5 .four {
+    position: absolute;
+    top: 21px;
+    left: -32px;
+}
+
+
+
+.dl-2:hover:before,
+.dl-2:hover:after,
+.dl-3:hover:before,
+.dl-3:hover:after,
+.dl-5:hover:before,
+.dl-5:hover:after {
+    visibility: visible;
+    z-index: 1;
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
