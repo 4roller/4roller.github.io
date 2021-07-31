@@ -12,7 +12,11 @@ body {
     background: #000;
     color: #999;
     padding: 0 20px;
-    font-family: sans-serif;
+    font-family: sans-serif;        
+}
+
+a, a:visited {
+    color: turquoise;
 }
 
 h1,
@@ -198,12 +202,16 @@ figure.cvt img {
 figure.cvt-ratios table {
     /* border: 1px solid #ccc; */
     width: 100%;
-    font-size: 2em;
+    font-size: 0.8em;
 }
 
 .engine {
     position: relative;
     width: 100%;
+}
+
+.side-by-side {
+    display: flex;
 }
 
 img.hood {
@@ -475,6 +483,22 @@ img.suspension-diagram {
     position: absolute;
     top: 21px;
     left: -32px;
+}
+
+
+.dl-6 {
+    font-size: 1.5em;
+    left: 18%;
+    top: 50%;
+}
+.dl-6 .one {
+    position: absolute;
+    top: -149px;
+}
+
+.dl-6 .two {
+    position: absolute;
+    top: 112px;
 }
 
 

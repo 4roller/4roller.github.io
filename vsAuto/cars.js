@@ -345,14 +345,11 @@ const CARS = {
                 cost: 5000,
             },
 
-
-
-
             {
                 type: 'Axleback',
                 category: 'exhaust',
                 manufacturer: "Nameless",
-                description: "Single exit 5inch muffler and 2.25in piping",
+                description: 'Single exit 5" muffler and 2.25" piping',
                 weight: -10,
                 power: 1,
                 cost: 150,
