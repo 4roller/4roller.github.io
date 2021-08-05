@@ -1,3 +1,4 @@
+
 html,
 body {
     margin: auto;
@@ -7,7 +8,7 @@ body {
 }
 
 body {
-    font-size: 1em;
+    font-size: 12px;
     width: 100%;
     box-sizing: border-box;
     /* background: #000;
@@ -25,6 +26,10 @@ h3 {
 
 h2 {
     font-size: 1em;
+}
+
+h2.italic {
+    font-style: italic;
 }
 
 h3 {
@@ -48,12 +53,14 @@ caption {
 }
 
 .main {
+    padding-top: 10px;
     width: 100%;
     /* opacity: 0.7; */
     overflow: hidden;
-    /* transform: scale(1.5); */
+    transform: scale(1);
     max-height: 276px;
     /* transform: skew(8deg, 0deg); */
+    background: #111;    
 }
 
 .main video {
