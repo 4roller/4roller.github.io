@@ -3,18 +3,23 @@ html,
 body {
     margin: auto;
     padding: 0;
-    width: 100%;
+    width: 100%;    
 
 }
 
 body {
-    font-size: 12px;
+    font-size: 18px;
     width: 100%;
     box-sizing: border-box;
     /* background: #000;
     color: #999; */
     padding: 0 20px;
     font-family: sans-serif;
+}
+
+.ntb {
+    max-width: 1000px;
+    
 }
 
 h1,
