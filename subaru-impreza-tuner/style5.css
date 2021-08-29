@@ -40,6 +40,13 @@ p {
     /* width: 500px; */
 }
 
+.hero {
+    width: min(1000px, calc(70% + 100px));
+}
+
+.not-full {
+    width: min(1000px, calc(50% + 100px));
+}
 .subaru {
     font-size: 2em;
     font-style: italic;
