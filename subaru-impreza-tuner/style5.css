@@ -22,6 +22,20 @@ body {
     
 }
 
+.bullet {
+    max-width: 50px;
+    float: left;
+    padding-right: 15px;
+}
+
+section.go {
+    margin-top: 20px;
+}
+
+ul.specs {
+    font-size: 0.8em;
+}
+
 h1,
 h2,
 h3 {
@@ -55,6 +69,22 @@ p {
 
 figcaption {
     font-size: 0.6em;
+}
+
+.sti {
+    color: #ff59ff;
+    font-style: italic;
+    font-family: cursive, serif;
+}
+
+.highlight {
+    background: rosybrown;
+}
+
+.thumbnail {
+    width: 120px; 
+    float:left;
+    padding-right: 20px;    
 }
 
 .subaru {
@@ -132,15 +162,13 @@ blockquote::after {
 
 blockquote,
 aside {
-    font-style: italic;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;    
+    font-family: Georgia, 'Times New Roman', Times, serif;    
+    
 }
 
 aside {
-    margin: 30px 90px;
-    text-align: justify;
-    text-indent: -6px;
+    margin: 30px 90px;        
 }
 
 aside::first-letter {
