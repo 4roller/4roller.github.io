@@ -1,9 +1,8 @@
-
 html,
 body {
     margin: auto;
     padding: 0;
-    width: 100%;    
+    width: 100%;
 
 }
 
@@ -15,11 +14,12 @@ body {
     color: #999; */
     padding: 0 50px;
     font-family: sans-serif;
+    width: min(1000px, calc(88% + 100px));
 }
 
 .ntb {
     max-width: 1000px;
-    
+
 }
 
 .bullet {
@@ -51,9 +51,7 @@ h2.italic {
     font-style: italic;
 }
 
-h3 {
-    
-}
+h3 {}
 
 p {
     /* width: 500px; */
@@ -82,9 +80,9 @@ figcaption {
 }
 
 .thumbnail {
-    width: 120px; 
-    float:left;
-    padding-right: 20px;    
+    width: 120px;
+    float: left;
+    padding-right: 20px;
 }
 
 .subaru {
@@ -107,7 +105,7 @@ caption {
     transform: scale(1);
     max-height: 276px;
     /* transform: skew(8deg, 0deg); */
-    background: #111;    
+    background: #111;
 }
 
 .main video {
@@ -162,13 +160,13 @@ blockquote::after {
 
 blockquote,
 aside {
-    font-style: italic;    
-    font-family: Georgia, 'Times New Roman', Times, serif;    
-    
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 
 aside {
-    margin: 30px 90px;        
+    margin: 30px 90px;
 }
 
 aside::first-letter {
@@ -576,6 +574,198 @@ img.sport-wheels {
 .dl-5:hover:after {
     visibility: visible;
     z-index: 1;
+}
+
+figure.project-excelsior {
+    position: relative;
+}
+
+.project-excelsior .infobar {
+    position: absolute;
+    bottom: 2%;
+    border-radius: 10px;
+    /* border: 1px solid gold; */
+    width: 100%;
+    height: 4%;
+    background: seagreen;
+    padding: 5px 10px;
+    opacity: 0.7;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.spot {
+    /* border: 1px solid green; */
+    position: absolute;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.spot:hover {
+    background: sandybrown;
+    border-radius: 5px;
+}
+
+.spot.pe {
+    top: 53%;
+    left: 37%;
+    width: 15%;
+    height: 2%;
+}
+
+.spot.firestone {
+    top: 37%;
+    left: 18%;
+    width: 17%;
+    height: 4%;
+}
+
+.spot.enkei {
+    top: 37%;
+    left: 62%;
+    width: 12%;
+    height: 4%;
+}
+
+.spot.stoptech {
+    top: 41%;
+    left: 26%;
+    width: 10%;
+    height: 3%;
+}
+
+.spot.ckessp {
+    top: 41%;
+    left: 52%;
+    width: 11%;
+    height: 3%;
+}
+
+.spot.apexi {
+    top: 43%;
+    left: 18%;
+    width: 7%;
+    height: 5%;
+}
+
+.spot.derale {
+    top: 49%;
+    left: 18%;
+    width: 9%;
+    height: 4%;
+}
+
+.spot.perrin {
+    top: 50%;
+    left: 62%;
+    width: 11%;
+    height: 3%;
+}
+
+.spot.dba {
+    top: 50%;
+    left: 74%;
+    width: 11%;
+    height: 7%;
+}
+
+.spot.superpro {
+    top: 65%;
+    left: 7%;
+    width: 13%;
+    height: 4%;
+}
+
+.spot.megan {
+    top: 60%;
+    left: 8%;
+    width: 11%;
+    height: 4%;
+}
+
+.spot.hawk {
+    top: 56%;
+    left: 8%;
+    width: 8%;
+    height: 3%;
+}
+
+.spot.takeda {
+    top: 44%;
+    left: 64%;
+    width: 8%;
+    height: 3%;
+}
+
+.spot.torquesolution {
+    top: 54%;
+    left: 18%;
+    width: 11%;
+    height: 3%;
+}
+
+
+.spot.tbperformance {
+    top: 57%;
+    left: 35%;
+    width: 17%;
+    height: 3%;
+}
+
+.spot.whiteline {
+    top: 59%;
+    left: 71%;
+    width: 13%;
+    height: 11%;
+}
+
+.spot.nameless {
+    top: 63%;
+    left: 25%;
+    width: 38%;
+    height: 7%;
+}
+
+.spot.projectmu {
+    top: 74%;
+    left: 17%;
+    width: 11%;
+    height: 5%;
+}
+
+.spot.pentosin {
+    top: 74%;
+    left: 28%;
+    width: 8%;
+    height: 5%;
+}
+
+.spot.fortuneauto {
+    top: 76%;
+    left: 51%;
+    width: 11%;
+    height: 3%;
+}
+
+.spot.penzoil {
+    top: 75%;
+    left: 63%;
+    width: 7%;
+    height: 5%;
+}
+
+.spot.sti {
+    top: 51%;
+    left: 7%;
+    width: 10%;
+    height: 4%;
+}
+
+.spot.crawford {
+    top: 55%;
+    left: 62%;
+    width: 9%;
+    height: 3%;
 }
 
 
