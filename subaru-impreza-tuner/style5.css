@@ -17,6 +17,9 @@ body {
     width: min(1000px, calc(88% + 100px));
 }
 
+
+
+
 .ntb {
     max-width: 400px;
 
@@ -86,6 +89,16 @@ figcaption {
     font-weight: 400;
     color: blue;
 }
+
+.subaru::after {    
+    content: "_.__! ";
+    width: 300px;
+    background-size: 100px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url(images/sportlogo.png);        
+}
+
 
 caption {
     font-size: 2.8em;
