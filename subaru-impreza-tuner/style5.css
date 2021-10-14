@@ -213,6 +213,12 @@ figure.engine {
     /* height: 750px; */
 }
 
+figure.inline img {
+    position: relative;
+    
+    max-width: 25%
+}
+
 .letsbox {
     width: 450px;
     margin: auto auto;
@@ -339,6 +345,8 @@ img.sport-wheels {
 
 .em {
     position: absolute;
+    font-size: 3em;
+    color: rgb(148, 210, 140);
 }
 
 .e1 {
@@ -373,8 +381,8 @@ img.sport-wheels {
 }
 
 .e4 {
-    left: 84%;
-    top: 70%;
+    left: 81%;
+    top: 67%;
 }
 
 .e5 {
@@ -382,6 +390,21 @@ img.sport-wheels {
     top: 18%;
 }
 
+.e6 {
+    left: 51%;
+    top: 8%;
+}
+
+.swaysab {
+    position: relative;
+}
+.swaysab::after {
+    content: '22mm';
+    position:absolute;
+    left: 20%;
+    top: 49%;
+    font-size: 24px;
+}
 
 
 
