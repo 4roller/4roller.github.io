@@ -3,7 +3,8 @@ body {
     margin: auto;
     padding: 0;
     width: 100%;
-
+    background: black;
+    color: #999;
 }
 
 body {
