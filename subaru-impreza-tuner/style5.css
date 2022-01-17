@@ -26,8 +26,11 @@ a, a:visited {
 
 .ntb {
     max-width: 400px;
-
 }
+.ntb2 {
+    max-width: 200px;
+}
+
 
 .bullet {
     max-width: 50px;
