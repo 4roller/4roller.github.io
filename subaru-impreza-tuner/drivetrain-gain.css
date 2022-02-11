@@ -1,0 +1,8 @@
+.transmission, .drivetrain {
+    display: flex;
+ }
+
+ .drivetrain {
+    flex-direction: column;
+    
+ }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Subaru Impreza Tuner - Naturally Aspirated CVT Dreams - GP7 FB20 TR580</title>
+    <link rel="stylesheet" href="style5.css" />
+    <link rel="stylesheet" href="drivetrain-gain.css" />
+
+</head>
+
+<body>
+
+
+    <img src="images/driveline-rear.jpg" />
+
+    <div class="selectors">
+        <h3>TRANSMISSION</h3>
+        <div class="transmission">
+
+            <input type="radio" id="cvt" name="transmission" value="-2">
+            <label for="cvt" name="engineMount">CVT</label>
+
+            <input type="radio" id="manual" name="transmission" value="0">
+            <label for="manual" name="engineMount">Manual</label>
+        </div>
+        <h3>DRIVETRAIN</h3>
+        <div class="drivetrain">
+            <div class="hd">
+                <input type="checkbox" id="harmonicDampener" name="drivetrain" value="2.5">
+                <label for="harmonicDampener" name="harmonicDampener">Harmonic dampener</label>
+            </div>
+            <div class="enginemount">
+                <input type="checkbox" id="enginemount" name="drivetrain" value="2.5">
+                <label for="engineMount" name="engineMount">Engine mounts</label>
+            </div>
+            <div class="ps">
+                <input type="checkbox" id="dt" name="drivetrain" value="1">
+                <label>Pitch stop</label>
+            </div>
+            <div class="tm">
+                <input type="checkbox" id="dt" name="drivetrain" value="1.5">
+                <label>Transmission mount</label>
+            </div>
+            <div class="dc">
+                <input type="checkbox" id="driveshaftCarrier" name="drivetrain" value="0.5">
+                <label>Driveshaft carrier bushings</label>
+            </div>
+            <div class="dl">
+                <input type="checkbox" name="drivetrain" id="diffLockdown" value="2">
+                <label>Differential lockdown</label>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/drivetrainGain.js"></script>
+
+
+
+
+    <a href="../subaru-impreza-tuner/index.html">Back to Subaru Impreza Tuner</a>
+</body>
+
+</html>
