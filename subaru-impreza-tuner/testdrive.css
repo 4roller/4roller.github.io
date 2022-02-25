@@ -8,6 +8,10 @@
         text-size-adjust: 100%;
     }
     
+    h3 {
+        color: deeppink;
+    }
+    
     .main-image {
         background: url(images/Impreza-side-profile.png);
         background-size: contain;
