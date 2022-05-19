@@ -286,7 +286,7 @@ const CARS = {
                 manufacturer: "Takeda",
                 description: "Hybrid Intake Pipe",
                 weight: -2,
-                power: 2,
+                power: 3,
                 cost: 200,
             },
 
@@ -461,6 +461,43 @@ const CARS = {
                 weight: 1,
                 cost: 270,
             },
+            {
+                type: 'Front Strut Bar',
+                category: 'handling',
+                manufacturer: "STI",
+                description: 'Flexible',
+                handling: 1,
+                weight: 5,
+                cost: 300,
+            },
+            {
+                type: 'Rear Strut Bar',
+                category: 'handling',
+                manufacturer: "Unknown",
+                description: 'Attaches across rear struts',
+                handling: 1,                
+                weight: 6,
+                cost: 130,
+            },
+            {
+                type: 'Traction Bars',
+                category: 'handling',
+                manufacturer: "TB Performance",
+                description: 'Beefed up Tubular steel front suspension suport brackets',
+                handling: 1,
+                weight: 2,
+                cost: 150,
+            },
+            {
+                type: 'Rear Subframe Brace',
+                category: 'handling',
+                manufacturer: "Kein",
+                description: 'Tubular steel - ties rear subframe bolts',
+                handling: 1,
+                weight: 5,
+                cost: 100,
+            },
+
 
 
 
@@ -481,25 +518,6 @@ const CARS = {
                 description: '22mm adjustable',
                 handling: 1.5,
                 cost: 240,
-            },
-            {
-                type: 'Front Strut Bar',
-                category: 'suspension',
-                manufacturer: "STI",
-                description: 'Flexible',
-                handling: 1,
-                weight: 5,
-                cost: 300,
-            },
-            {
-                type: 'Rear Strut Bar',
-                category: 'suspension',
-                manufacturer: "Cusco",
-                description: 'Attaches across rear struts',
-                handling: 1,
-                util: -1,
-                weight: 5,
-                cost: 130,
             },
             {
                 type: 'Front Sway Bar',
@@ -542,6 +560,7 @@ const CARS = {
                 manufacturer: "Megan Racing",
                 description: 'Pillow ball bush, tubular steel',
                 handling: 1,
+                weight: 2,
                 drivetrain: 0.5,
                 cost: 120,
             },
@@ -560,7 +579,17 @@ const CARS = {
                 manufacturer: "Super Pro",
                 description: '75A Poly Bushing, adj. toe',
                 handling: 0.5,
+                weight: 2,
                 cost: 150,
+            },
+            {
+                type: 'Rear Subframe Buhsings',
+                category: 'suspension',
+                manufacturer: "Whiteline",
+                description: '8 subframe bushing inserts',
+                handling: 2,
+                drivetrain: 1,
+                cost: 50,
             },
 
             // wheels
@@ -714,7 +743,7 @@ const CARS = {
                 type: 'Trunk Delete',
                 category: 'weight',
                 manufacturer: "DIY",
-                description: 'Removed spare tire, Trunk Interior',
+                description: 'Removed spare tire, tools, Trunk liners',
                 weight: -40,
                 cost: 0,
                 utility: -1
@@ -724,7 +753,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed rear seats',
-                weight: -80,
+                weight: -20,
                 cost: 0,
                 utility: -1
             },
