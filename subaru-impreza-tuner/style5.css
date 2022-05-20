@@ -3,8 +3,8 @@ body {
     margin: auto;
     padding: 0;
     width: 100%;
-    background: black;
-    color: #999;
+    background: white;
+    color: black;
 }
 
 body {
@@ -18,19 +18,19 @@ body {
     width: min(1000px, calc(88% + 100px));
 }
 
-
-a, a:visited {
-    color: greenyellow;
-    text-decoration: none;
+a,
+a:visited {
+    color: black;
+    text-decoration: underline;
 }
 
 .ntb {
     max-width: 400px;
 }
+
 .ntb2 {
     max-width: 200px;
 }
-
 
 .bullet {
     max-width: 50px;
@@ -61,12 +61,10 @@ h2.italic {
     font-style: italic;
 }
 
-
 .hero {
     width: min(1000px, calc(88% + 100px));
     position: relative;
 }
-
 
 .hero:hover::after {
     opacity: 1;
@@ -74,11 +72,11 @@ h2.italic {
     background: url(images/impreza-sti-wolf.jpeg);
     content: " 1";
     position: absolute;
-    left:0;
+    left: 0;
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
 .not-full {
@@ -112,19 +110,17 @@ figcaption {
     color: blue;
 }
 
-.subaru::after {    
+.subaru::after {
     content: "_.__! ";
     width: 300px;
     background-size: 100px;
     display: inline-block;
     background-repeat: no-repeat;
-    background-image: url(images/sportlogo.png);        
+    background-image: url(images/sportlogo.png);
 }
-
 
 caption {
     font-size: 2.8em;
-
 }
 
 .main {
@@ -181,8 +177,6 @@ img {
     grid-template-columns: 25% 25% 25% 25%;
 }
 
-
-
 blockquote::before,
 blockquote::after {
     content: '"';
@@ -192,7 +186,6 @@ blockquote,
 aside {
     font-style: italic;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
 
 aside {
@@ -222,7 +215,6 @@ figure.engine {
 
 figure.inline img {
     position: relative;
-    
     max-width: 25%
 }
 
@@ -236,8 +228,6 @@ figure.inline img {
 figure.engine:hover img {
     opacity: 0.2;
     animation: fade 1s ease;
-
-
     /* mix-blend-mode: exclusion; */
 }
 
@@ -246,7 +236,6 @@ figure.engine:hover::before {
     /* z-index: 2; */
     mix-blend-mode: exclusion;
 }
-
 
 figure.engine:hover::after {
     /* mix-blend-mode: exclusion; */
@@ -260,7 +249,6 @@ figure.engine img {
     top: 75px;
     opacity: 1;
 }
-
 
 figure.engine::before {
     content: ' ';
@@ -276,7 +264,6 @@ figure.engine::before {
     top: 0;
     /* transition-duration: 1000ms; */
     opacity: 0.8;
-
     filter: brightness(1.05);
 }
 
@@ -343,8 +330,6 @@ img.sport-wheels {
     max-width: 150px;
 }
 
-
-
 .engine-wrapper {
     position: relative;
     width: 100%;
@@ -405,18 +390,14 @@ img.sport-wheels {
 .swaysab {
     position: relative;
 }
+
 .swaysab::after {
     content: '22mm';
-    position:absolute;
+    position: absolute;
     left: 20%;
     top: 49%;
     font-size: 24px;
 }
-
-
-
-
-
 
 .driveline {
     position: relative;
@@ -442,7 +423,6 @@ img.sport-wheels {
     max-width: 900px;
 }
 
-
 .dl-dot {
     position: absolute;
     font-size: 2em;
@@ -454,7 +434,6 @@ img.sport-wheels {
     left: 92%;
     top: 46.5%;
 }
-
 
 .dl-1 {
     font-size: 2em;
@@ -508,8 +487,6 @@ img.sport-wheels {
     left: -150px;
 }
 
-
-
 .dl-3 {
     left: 62%;
     top: 47%;
@@ -544,19 +521,14 @@ img.sport-wheels {
     font-size: 0.8em;
 }
 
-
 .dl-dot:hover {
     opacity: 1;
 }
-
-
-
 
 .dl-4 {
     left: 45.5%;
     top: 47%;
 }
-
 
 .dl-5 {
     font-size: 1.5em;
@@ -616,8 +588,6 @@ img.sport-wheels {
     top: 21px;
     left: -32px;
 }
-
-
 
 .dl-2:hover:before,
 .dl-2:hover:after,
@@ -757,7 +727,6 @@ figure.project-excelsior {
     height: 3%;
 }
 
-
 .spot.tbperformance {
     top: 57%;
     left: 35%;
@@ -820,7 +789,6 @@ figure.project-excelsior {
     width: 9%;
     height: 3%;
 }
-
 
 @keyframes fade {
     0% {
