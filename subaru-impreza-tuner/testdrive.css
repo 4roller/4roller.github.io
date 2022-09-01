@@ -1,24 +1,37 @@
     html {
         font-family: 'Courier New', Courier, monospace;
     }
-    
+
     body {
         padding: 10px;
         margin: 0;
         text-size-adjust: 100%;
+        
     }
-    
+
+    h1 {
+        font-size: 6.4vw;
+        margin:0;
+    }
+    h2 {
+        font-size: 2.8vw;
+    }
+
     h3 {
+        font-size: 2.3vw;
         color: deeppink;
+        font-weight: bold;
+        font-style: oblique;
     }
-    
+
     .main-image {
         background: url(images/Impreza-side-profile.png);
         background-size: contain;
         background-repeat: no-repeat;
-        height: 400px;
+        height: 430px;
+        background-position-y: bottom;
     }
-    
+
     .stat-box {
         display: flex;
         flex-wrap: wrap;
@@ -27,7 +40,7 @@
         background: aliceblue;
         max-width: 1000px;
     }
-    
+
     .stat-box .col {
         border: 1px solid #cecece;
         padding: 20px;
@@ -35,42 +48,43 @@
         flex-grow: 2;
         min-width: 500px;
     }
-    
+
     .stat-box .col.wide {
         box-sizing: border-box;
         text-align: center;
     }
-    
+
     .stat-box .col.wide img {
         width: 100%;
     }
-    
+
     .stat-box .head {
         border: 0px solid green;
         margin-bottom: 5px;
         clear: both;
+        font-size: 2em;
     }
-    
+
     .stat-box .head details {
         margin-bottom: 5px;
         display: inline-block;
         vertical-align: top;
     }
-    
+
     .stat-box .tail {
         float: right;
         text-align: right;
         border: 0px solid orange;
     }
-    
+
     .stat-box .f-tires:after {
         content: '(f)';
     }
-    
+
     .stat-box .r-tires:after {
         content: '(r)';
     }
-    
+
     .hide {
         display: none;
     }
