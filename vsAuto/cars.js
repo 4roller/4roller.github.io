@@ -306,8 +306,8 @@ const CARS = {
                 category: 'engine',
                 manufacturer: "DIY",
                 description: "Cleans up engine blow-by",
-                power: 1,
-                weight: 3,
+                power: 0.5,
+                weight: 2,
                 cost: 50,
             },
             {
@@ -499,8 +499,6 @@ const CARS = {
             },
 
 
-
-
             // Suspension
             {
                 type: 'Rear Sway Bar 20mm',
@@ -587,7 +585,7 @@ const CARS = {
                 category: 'suspension',
                 manufacturer: "Whiteline",
                 description: '8 subframe bushing inserts',
-                handling: 2,
+                handling: 1,
                 drivetrain: 1,
                 cost: 50,
             },

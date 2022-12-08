@@ -110,8 +110,8 @@
         let avgTrackWidth = (uc.trackWidth.front + uc.trackWidth.rear) / 2;
         let agilityIndex = ((avgTrackWidth / uc.wheelbase) + (totalHandling / 100)).toFixed(2);
         uc.agilityIndex = parseFloat((agilityIndex * (1 / uc.clearance)).toFixed(3));
-        let cleranceWeight = (1 / uc.clearance) * (uc.weight - totalHandling);
-        let removedWeight = cleranceWeight * uc.agilityIndex;
+        let clearanceWeight = (1 / uc.clearance) * (uc.weight - totalHandling);
+        let removedWeight = clearanceWeight * uc.agilityIndex;
 
         uc.effectiveWeight = parseInt((uc.weight - removedWeight).toFixed(0));
 
@@ -265,8 +265,7 @@
             catArr[el.category].push(modEl);            
         })
         mods.innerHTML = '';
-        let keys = Object.keys(catArr);
-        console.log(catArr[keys[0]])
+        let keys = Object.keys(catArr);        
         keys.forEach(function(key) {
             let categoryDiv = document.createElement('div');
             categoryDiv.classList.add(key);

@@ -6,12 +6,9 @@ var SoundBoard = (function () {
 		console.log('Adding listeners ...');
 		buttonWrapper.addEventListener('click', async function (e) {
 			e.preventDefault();
-			let path = 'sounds/' + e.target.getAttribute('data-src');
-			let blob = await fetch(path).then(r => r.blob());
-			let objUrl = window.URL.createObjectURL(blob);			
-
+		
 			if (ap0Status !== 'playing') {				
-				ap0.src = objUrl;
+				ap0.src = 'sounds/' + e.target.getAttribute('data-src');
 				ap0.play();
 			} else {
 				ap1.src = 'sounds/' + e.target.getAttribute('data-src');
