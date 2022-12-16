@@ -1,0 +1,60 @@
+html {
+    font-family: sans-serif;
+}
+
+.header {
+    display: flex;
+    border: 0px solid black;
+}
+
+h1 {
+    width: 66%;
+    text-transform: uppercase;
+}
+
+h2 {
+    width: 33%;
+    text-align: right;
+    margin-top: 32px;
+    text-transform: uppercase;
+}
+
+.adj {
+    border-bottom: 1px solid #2c2c2c;
+    width: 275px;
+    height: 48px;
+}
+
+input {
+    border: 0px solid black;
+    text-align: right;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: cursive;
+    width: 50%;
+}
+
+label {
+    width: 110px;
+    display: inline-block;
+}
+
+input[type=number] {
+    width: 3em;
+}
+
+.front-settings,
+.rear-settings {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.front-diagram {
+    max-width: 300px;
+    border: 0px solid red;
+
+}
+
+.front-diagram img {
+    width: 300px;
+}
