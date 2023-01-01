@@ -751,7 +751,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed rear seats',
-                weight: -20,
+                weight: -35,
                 cost: 0,
                 utility: -1
             },
