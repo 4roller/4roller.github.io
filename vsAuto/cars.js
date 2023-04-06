@@ -753,6 +753,15 @@ const CARS = {
                 utility: -1
             },
             {
+                type: 'Trunk Delete 2',
+                category: 'weight',
+                manufacturer: "DIY",
+                description: 'Removed rear seat belts and additional paneling',
+                weight: -17,
+                cost: 0,
+                utility: -1
+            },
+            {
                 type: 'Rear Seat Delete',
                 category: 'weight',
                 manufacturer: "DIY",
@@ -762,6 +771,15 @@ const CARS = {
                 utility: -1
             },
             {
+                type: 'Rear Door Card Delete',
+                category: 'weight',
+                manufacturer: "DIY",
+                description: 'Removed rear door cards and speakers',
+                weight: -11,
+                cost: 0,
+                utility: -2
+            },
+            {
                 type: 'Passenger Seat Delete',
                 category: 'weight',
                 manufacturer: "DIY",
@@ -769,15 +787,6 @@ const CARS = {
                 weight: -40,
                 cost: 0,
                 utility: -1
-            },
-            {
-                type: 'Interior Delete',
-                category: 'weight',
-                manufacturer: "DIY",
-                description: 'Removed interior',
-                weight: -100,
-                cost: 0,
-                utility: -2
             },
             {
                 type: 'Light Weight Battery',
