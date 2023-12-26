@@ -334,6 +334,15 @@ const CARS = {
                 cost: 600,
             },
             {
+                type: 'FB25 Engine',
+                category: 'engine',
+                manufacturer: "Subaru",
+                description: "FB25 Engine Swap",
+                power: 22,
+                weight: 25,
+                cost: 3500,
+            },
+            {
                 type: 'Turbo',
                 category: 'engine',
                 manufacturer: "AVO",
