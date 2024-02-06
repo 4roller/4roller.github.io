@@ -1,6 +1,6 @@
 html,
 body {
-    margin: auto;
+    margin: auto auto 10px;
     padding: 0;
     width: 100%;
     background: white;
@@ -155,7 +155,7 @@ caption {
 }
 
 .sized {
-    max-width: 50%;
+    max-width: 48%;
     margin-left: 10px;
 }
 
