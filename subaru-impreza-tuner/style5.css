@@ -296,10 +296,6 @@ figure.cvt-ratios {
     opacity: 0.91;
 }
 
-figure.engine img,
-figure.dyno img,
-figure.cvt img {}
-
 figure.cvt-ratios table {
     /* border: 1px solid #ccc; */
     width: 100%;
