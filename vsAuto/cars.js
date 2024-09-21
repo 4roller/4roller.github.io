@@ -328,10 +328,10 @@ const CARS = {
             {
                 type: 'Tune - Stage 2',
                 category: 'engine',
-                manufacturer: "XRT",
+                manufacturer: "Throttle Happy",
                 description: "Stage 2",
-                power: 10,
-                cost: 600,
+                power: 8,
+                cost: 50,
             },
             {
                 type: 'FB25 Engine',
@@ -413,6 +413,14 @@ const CARS = {
                 cost: 35,
             },
             {
+                type: 'Driveshaft Lockdown',
+                category: 'drivetrain',
+                manufacturer: "Perrin",
+                description: "Driveshaft bushing brace",
+                drivetrain: 1,
+                cost: 200,
+            },
+            {
                 type: 'Differential Lockdown',
                 category: 'drivetrain',
                 manufacturer: "Perrin",
@@ -488,8 +496,8 @@ const CARS = {
             {
                 type: 'Rear Strut Bar',
                 category: 'handling',
-                manufacturer: "Unknown",
-                description: 'Attaches across rear struts',
+                manufacturer: "RU",
+                description: '3 Point - Attaches across rear struts',
                 handling: 1,                
                 weight: 6,
                 cost: 130,
@@ -512,7 +520,24 @@ const CARS = {
                 weight: 5,
                 cost: 100,
             },
-
+            {
+                type: 'C-Pillar Brace',
+                category: 'handling',
+                manufacturer: "DIY",
+                description: 'Tubular steel - ties C-pillars together',
+                handling: 1,
+                weight: 5,
+                cost: 10,
+            },
+            {
+                type: 'Rear Seat Brace',
+                category: 'handling',
+                manufacturer: "DIY",
+                description: '2 pc. Tubular steel - ties Seat Brackets and Split Bracket',
+                handling: 1,
+                weight: 5,
+                cost: 10,
+            },
 
             // Suspension
             {
@@ -622,10 +647,20 @@ const CARS = {
                 type: 'Tires',
                 category: 'wheels',
                 manufacturer: "Firestone",
-                description: "Firehawk Indy 500 UHP",
+                description: "Firehawk Indy 500 UHP 340TW",
                 brake: 1,
                 handling: 1,
                 cost: 600,
+            },
+            {
+                type: 'Tires',
+                category: 'wheels',
+                manufacturer: "Hankook",
+                description: "Ventus RS-4 200TW",
+                brake: 1.2,
+                handling: 1.2,
+                weight: 8,
+                cost: 800,
             },
             {
                 type: 'Front Wheel Spacers 15mm',
