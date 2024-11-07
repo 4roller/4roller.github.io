@@ -50,6 +50,7 @@ h3 {
     background-color: #222;
     opacity: 1;
     width: 100%;
+    scrollbar-color: #333 #222;
 
 }
 
@@ -59,7 +60,9 @@ h3 {
     opacity: 1;
     width: 100%;
     transform: scale(1);
-    overflow-y: scroll;    
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scrollbar-color: #333 #222;
 }
 
 
@@ -202,7 +205,7 @@ h3 {
 }
 
 .vehicle .image-wrap img {
-    width: 70%;
+    width: 55%;
     opacity: 0.9;
     position: absolute;
     left: 25%;
@@ -332,6 +335,13 @@ h3 {
     content: '$';
 }
 
+.spec .temp label {
+    font-size: 2em;
+    display: inline-block;
+    color: #69ba00;
+    width: 75px;
+    text-align: right;
+}
 
 .spec .temp label:after {
     content: 'C';

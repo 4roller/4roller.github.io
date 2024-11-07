@@ -18,8 +18,8 @@
         <div class="weight">0</div>
         <div class="cost">0</div>
         <div class="temp">
-            <input type="range" min="-50" max="50" value="20" />
             <label>20</label>
+            <input type="range" min="-50" max="50" value="20" />
         </div>
         <div class="image"></div>
     </div>
@@ -106,7 +106,7 @@
         // if (uc.drive === 'AWD') {
         //     totalHandling += 2;
         // }
-
+        
         let avgTrackWidth = (uc.trackWidth.front + uc.trackWidth.rear) / 2;
         let agilityIndex = ((avgTrackWidth / uc.wheelbase) + (totalHandling / 100)).toFixed(2);
         uc.agilityIndex = parseFloat((agilityIndex * (1 / uc.clearance)).toFixed(3));
@@ -309,6 +309,9 @@
     }
 
     const updateSpec = function (vehicle) {
+
+        console.log(CARS);
+
         if (typeof vehicle === 'string' || !vehicle) {
             vehicle = CARS[vehicle];
         }
@@ -320,7 +323,7 @@
         if (currentVehicle) {
             vehicle = CARS[currentVehicle];
         }
-
+    
         const v = calculateMods(vehicle);
         const tempFactor = tempThing(document.querySelector('.temp input').value);
         document.querySelector('h2.name').innerHTML = `${v.oem} ${v.model} ${(v.engineName) ? v.engineName : ''}`;
