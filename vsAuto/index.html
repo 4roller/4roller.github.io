@@ -17,6 +17,10 @@
         <div class="whp">0</div>
         <div class="weight">0</div>
         <div class="cost">0</div>
+        <div class="temp">
+            <input type="range" min="-50" max="50" value="20" />
+            <label>20</label>
+        </div>
         <div class="image"></div>
     </div>
     <div class='v1'></div>
@@ -41,14 +45,9 @@
     let tabindex = 0;
     let currentVehicle = 'SUBARU_IMPREZA_2016_NACVT';
 
-    const getPowerToWeight =  function (obj) {
-        
-        
+    const getPowerToWeight = function (obj) {
         let outputPower = ((obj.whp / obj.weight) * 10000)
         let powerIndex = (outputPower + (obj.agilityIndex * outputPower)).toFixed(0)
-            
-        
-        
         return powerIndex;
     }
 
@@ -208,13 +207,13 @@
 
         let catArr = [];
 
-        mods.forEach(el => {            
+        mods.forEach(el => {
             let modEl = document.createElement('div');
             modEl.classList.add('mod');
 
             if (el.category) {
                 modEl.classList.add(el.category);
-                if(!catArr[el.category]) {
+                if (!catArr[el.category]) {
                     catArr[el.category] = [];
                 }
             }
@@ -263,24 +262,24 @@
                 <div class="gains">${power} ${weight} ${handling} ${drivetrain} ${brake}</div>
                 <div class="cost">${el.cost}</div>
             `;
-            catArr[el.category].push(modEl);            
+            catArr[el.category].push(modEl);
         })
         mods.innerHTML = '';
-        let keys = Object.keys(catArr);        
-        keys.forEach(function(key) {
+        let keys = Object.keys(catArr);
+        keys.forEach(function (key) {
             let categoryDiv = document.createElement('div');
             categoryDiv.classList.add(key);
 
-            catArr[key].forEach(function(el) {
+            catArr[key].forEach(function (el) {
                 categoryDiv.appendChild(el);
             });
 
             modsContainer.appendChild(categoryDiv);
-            
+
             console.log();
         })
         //modsContainer.appendChild(frag);
-        
+
     }
 
     const getParent = function (el, classToFind) {
@@ -290,6 +289,23 @@
         else {
             return getParent(el.parentElement, classToFind);
         }
+    }
+
+    const tempThing = function (temp) {
+        let t = parseInt(temp);
+
+        if (temp <= -50) { return 2.5; }
+        else if (temp <= 0) { return 2; }
+        else if (temp <= 5) { return 1.5; }
+        else if (temp <= 10) { return 1; }
+        else if (temp <= 15) { return 0.5; }
+        else if (temp <= 20) { return 0; }
+        else if (temp <= 25) { return -0.5; }
+        else if (temp <= 30) { return -1; }
+        else if (temp <= 35) { return -1.5; }
+        else if (temp <= 40) { return -2; }
+        else if (temp <= 45) { return -2.5; }
+        else if (temp <= 50) { return -3; }
     }
 
     const updateSpec = function (vehicle) {
@@ -306,10 +322,13 @@
         }
 
         const v = calculateMods(vehicle);
+        const tempFactor = tempThing(document.querySelector('.temp input').value);
         document.querySelector('h2.name').innerHTML = `${v.oem} ${v.model} ${(v.engineName) ? v.engineName : ''}`;
-        const driveLossPercentage = (DRIVETRAIN[v.drive].driveloss / 100) + (TRANSMISSION[v.trans].driveloss /100);        
+        const driveLossPercentage = (DRIVETRAIN[v.drive].driveloss / 100) + (TRANSMISSION[v.trans].driveloss / 100);
         let hpGain = v.hp + v.hpGain;
+        hpGain = hpGain + (hpGain * (tempFactor / 100));
         let loss = hpGain * (driveLossPercentage - v.effGain);
+
         const stockWhp = (v.hp - (v.hp * driveLossPercentage)).toFixed(0);
         const stockLoss = v.hp * driveLossPercentage;
         let whp = ((hpGain - loss)).toFixed(0);
@@ -385,15 +404,15 @@
     }
 
     const handleCarSelector = function (e) {
-        
+
         const currentSelector = `.vehicle[data-id="${CARS[currentVehicle].image}"]`;
         document.querySelector(currentSelector).classList.remove('selected');
-        
+
         const vc = getParent(e.target, 'vehicle');
         const dataId = vc.getAttribute('data-id');
-        
+
         for (c in CARS) {
-            if (CARS[c].image == dataId) {                
+            if (CARS[c].image == dataId) {
                 currentVehicle = c;
                 updateSpec(CARS[c]);
                 updateMods();
@@ -404,10 +423,19 @@
         return;
     };
 
+    const handleTemp = function (e) {
+        const selector = '.spec .temp input';
+        const thing = document.querySelector(selector).value;
+        updateSpec(currentVehicle);
+    }
 
     // VS AUTO!
     modsContainer.addEventListener('click', handleModsClick);
     v1Contaier.addEventListener('click', handleCarSelector);
+    specContaier.addEventListener('click', handleTemp);
+    document.querySelector('.temp input').oninput = function () {
+        document.querySelector('.temp label').innerHTML = this.value;
+    }
 
     updateSpec(currentVehicle);
     paint();

@@ -11,6 +11,7 @@ const OEM = {
     VW: 'Volkswagen',
     DODGE: 'Dodge',
     CHEVROLET: 'Chevrolet',
+    SCION: 'Scion',
 }
 
 const TRANSMISSION = {
@@ -42,6 +43,29 @@ const CYLINDER_ORIENTATION = {
 }
 
 const CARS = {
+    SCION_TC: {
+        oem: OEM.SCION,
+        model: 'tC',
+        year: 2016,
+        trim: '',
+        engineType: 'NA',
+        trans: 'MT',
+        displacement: '2.5',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.I,
+        hp: 179,
+        tq: 172,
+        drive: 'FWD',
+        weight: 3102,
+        image: '2016-Scion-tC',
+        clearance: 6.3,
+        wheelbase: 106.3,
+        trackWidth: {
+            front: 60.6,
+            rear: 61.4,
+        },
+
+    },
 
     CHEVROLET_CORVETTE_1994_NAMT: {
         oem: OEM.CHEVROLET,
@@ -418,7 +442,7 @@ const CARS = {
                 manufacturer: "Perrin",
                 description: "Driveshaft bushing brace",
                 drivetrain: 1,
-                cost: 200,
+                cost: 120,
             },
             {
                 type: 'Differential Lockdown',
@@ -639,7 +663,7 @@ const CARS = {
                 handling: 1,
                 drivetrain: 0.5,
                 brake: 1,
-                weight: -28,
+                weight: -24,
                 cost: 1000,
             },
 
@@ -650,6 +674,7 @@ const CARS = {
                 description: "Firehawk Indy 500 UHP 340TW",
                 brake: 1,
                 handling: 1,
+                weight: 4,
                 cost: 600,
             },
             {

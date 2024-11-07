@@ -333,7 +333,9 @@ h3 {
 }
 
 
-
+.spec .temp label:after {
+    content: 'C';
+}
 
 
 .mods ul {
@@ -503,6 +505,11 @@ h3 {
 
 .oem.toyota {
     background-position: -781px 3px;
+    width: 60px;
+}
+
+.oem.scion {
+    background-position: -855px 3px;
     width: 60px;
 }
 
