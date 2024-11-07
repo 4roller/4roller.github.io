@@ -335,6 +335,12 @@ h3 {
     content: '$';
 }
 
+.selectAll {
+    
+    background: purple;
+    display: inline-block;
+}
+
 .spec .temp label {
     font-size: 2em;
     display: inline-block;

@@ -27,7 +27,12 @@
 
     <div class="tunerShop">
         <h3>🔧 Tuner Parts</h3>
-        <div class="mods"></div>
+        <div class="selectAll">
+            <input class="" type="checkbox" name="selectall" value="" />
+            <label name="selectall"">Select All Mods</label>
+        </div>
+        <div class=" mods">
+        </div>
     </div>
 
 </body>
@@ -106,7 +111,7 @@
         // if (uc.drive === 'AWD') {
         //     totalHandling += 2;
         // }
-        
+
         let avgTrackWidth = (uc.trackWidth.front + uc.trackWidth.rear) / 2;
         let agilityIndex = ((avgTrackWidth / uc.wheelbase) + (totalHandling / 100)).toFixed(2);
         uc.agilityIndex = parseFloat((agilityIndex * (1 / uc.clearance)).toFixed(3));
@@ -296,21 +301,30 @@
 
         if (temp <= -50) { return 2.5; }
         else if (temp <= 0) { return 2; }
+        else if (temp <= 2.5) { return 1.75; }
         else if (temp <= 5) { return 1.5; }
+        else if (temp <= 7.5) { return 1.25; }
         else if (temp <= 10) { return 1; }
+        else if (temp <= 12.5) { return 0.75; }
         else if (temp <= 15) { return 0.5; }
+        else if (temp <= 17.5) { return 0.25; }
         else if (temp <= 20) { return 0; }
+        else if (temp <= 22.5) { return -0.25; }
         else if (temp <= 25) { return -0.5; }
+        else if (temp <= 27.5) { return -0.75; }
         else if (temp <= 30) { return -1; }
+        else if (temp <= 32.5) { return -1.25; }
         else if (temp <= 35) { return -1.5; }
+        else if (temp <= 37.5) { return -1.75; }
         else if (temp <= 40) { return -2; }
+        else if (temp <= 42.5) { return -2.25; }
         else if (temp <= 45) { return -2.5; }
+        else if (temp <= 47.5) { return -2.75; }
         else if (temp <= 50) { return -3; }
     }
 
     const updateSpec = function (vehicle) {
 
-        console.log(CARS);
 
         if (typeof vehicle === 'string' || !vehicle) {
             vehicle = CARS[vehicle];
@@ -323,7 +337,7 @@
         if (currentVehicle) {
             vehicle = CARS[currentVehicle];
         }
-    
+
         const v = calculateMods(vehicle);
         const tempFactor = tempThing(document.querySelector('.temp input').value);
         document.querySelector('h2.name').innerHTML = `${v.oem} ${v.model} ${(v.engineName) ? v.engineName : ''}`;
@@ -432,6 +446,29 @@
         updateSpec(currentVehicle);
     }
 
+    const handleSelectAllMods = function (e) {
+        const selectAllInput = document.querySelector('.selectAll input');
+        selectAllInput.checked = !selectAllInput.checked;
+
+        const mods = CARS[currentVehicle].mods;
+
+        if (selectAllInput.checked) {
+            mods.forEach((el) => {
+                console.log(el);
+                el.enabled = true;
+            });
+        } else if (selectAllInput.checked == false) {
+            mods.forEach((el) => {
+                console.log(el);
+                el.enabled = false;
+            });
+        }
+        updateMods();
+        updateSpec();
+        paint();
+
+    }
+
     // VS AUTO!
     modsContainer.addEventListener('click', handleModsClick);
     v1Contaier.addEventListener('click', handleCarSelector);
@@ -439,7 +476,7 @@
     document.querySelector('.temp input').oninput = function () {
         document.querySelector('.temp label').innerHTML = this.value;
     }
-
+    document.querySelector('.selectAll').addEventListener('click', handleSelectAllMods)
     updateSpec(currentVehicle);
     paint();
 
