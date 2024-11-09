@@ -245,6 +245,28 @@ const CARS = {
             rear: 63.8,
         },
     },
+    DODGE_DART_2016_NAMT: {
+        oem: OEM.DODGE,
+        model: 'Dart',
+        year: 2016,
+        trim: 'SXT',
+        engineType: 'NA',
+        trans: 'MT',
+        displacement: '2.4',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.I,
+        hp: 184,
+        tq: 171,
+        drive: 'FWD',
+        weight: 3297,
+        image: '2016-Dodge-Dart',
+        clearance: 4.4,
+        wheelbase: 106.4,
+        trackWidth: {
+            front: 61.7,
+            rear: 61.6,
+        },
+    },
     FORD_MUSTANG_2019_NAMT: {
         oem: OEM.FORD,
         model: 'Mustang',
@@ -438,21 +460,36 @@ const CARS = {
                 power: 3,
                 cost: 200,
             },
-
+            {
+                type: 'Throttle Body Coolant Bypass',
+                category: 'reliability',
+                enabled: true,
+                manufacturer: "",
+                description: "",
+                weight: 0,
+                cost: 0,
+            },
+            {
+                type: 'CVT Cooler',
+                category: 'reliability',
+                enabled: true,
+                manufacturer: "Derale",
+                description: "CVT Cooler, Fluid, Lines",
+                weight: 5,
+                cost: 200,
+            },
             {
                 type: 'PCV Air Oil Separator',
-                category: 'engine',
+                category: 'reliability',
                 enabled: true,
                 manufacturer: "Crawford",
-                description: "Baja Edition - Cleans up engine blow-by",
+                description: "Cleans up engine blow-by",
                 weight: 3,
                 cost: 200,
             },
-
-
             {
                 type: 'Breather Catch Can',
-                category: 'engine',
+                category: 'reliability',
                 enabled: true,
                 manufacturer: "DIY",
                 description: "Cleans up engine blow-by",              
@@ -626,7 +663,7 @@ const CARS = {
 
             //
             // Handling
-            //
+            //            
             {
                 type: 'Steering Lockdown',
                 category: 'handling',
@@ -981,6 +1018,14 @@ const CARS = {
             // Weight
             //
             {
+                type: 'Aero Crossbars',
+                category: 'weight',
+                manufacturer: "Subaru",
+                description: 'Crossbars + Bikerack',                                
+                weight: 12,
+                cost: 160,
+            },
+            {
                 type: 'Trunk Delete',
                 category: 'weight',
                 manufacturer: "DIY",
@@ -1166,6 +1211,30 @@ const CARS = {
             rear: 58,
         }
     },
+    
+    TOYOTA_86_NAM: {
+        oem: OEM.TOYOTA,
+        model: '86',
+        year: 2006,
+        trim: 'Premium',
+        engineType: 'NA',
+        trans: 'M',
+        transGear: 6,
+        displacement: '2.4',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.I,
+        hp: 228,
+        tq: 184,
+        drive: 'RWD',
+        weight: 2833,
+        image: '2024-Toyota-86',
+        clearance: 5.1,
+        wheelbase: 101.4,
+        trackWidth: {
+            front: 59.8,
+            rear: 61,
+        }
+    },
     TOYOTA_CAMRY_2006_NAAT: {
         oem: OEM.TOYOTA,
         model: 'Camry',
@@ -1185,6 +1254,29 @@ const CARS = {
         trackWidth: {
             front: 60.8,
             rear: 60.4,
+        }
+    },
+    TOYOTA_COROLLA_2024_TMT: {
+        oem: OEM.TOYOTA,
+        model: 'GR Corolla',
+        year: 2024,
+        trim: 'Circut Edition',
+        engineType: 'T',
+        trans: 'MT',
+        transGear: '6',
+        displacement: '1.6',
+        cylNum: 3,
+        cylOr: CYLINDER_ORIENTATION.I,
+        hp: 300,
+        tq: 273,
+        drive: 'AWD',
+        weight: 3261,
+        image: '2024-Toyota-GRCorolla-CircuitEdition',
+        clearance: 5.3,
+        wheelbase: 103.9,
+        trackWidth: {
+            front: 62.6,
+            rear: 62.6,
         }
     },
     TOYOTA_MATRIX_2014_NAMT: {
@@ -1294,6 +1386,29 @@ const CARS = {
         },
 
     },
+    AUDI_TT_2012_TAM: {
+        oem: OEM.AUDI,
+        model: 'TT',
+        year: 2012,
+        trim: 'QUATTRO',
+        engineType: 'T',
+        trans: 'MT',
+        displacement: '2.0',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.I,
+        hp: 211,
+        tq: 258,
+        drive: 'AWD',
+        weight: 3153,
+        image: '2012-Audi-TT',
+        wheelbase: 97.2,
+        clearance: 5.3,
+        trackWidth: {
+            front: 61.2,
+            rear: 61.4,
+        },
+
+    },
     HONDA_CIVIC_1992_NAMT: {
         oem: OEM.HONDA,
         model: 'Civic',
@@ -1377,6 +1492,29 @@ const CARS = {
         trackWidth: {
             front: 65,
             rear: 66.5,
+        },
+
+    },
+    NISSAN_ALTIMA_2007_NAAT: {
+        oem: OEM.NISSAN,
+        model: '    Altima',
+        year: 2007,
+        trim: 'S',
+        engineType: 'NA',
+        trans: 'CVT',
+        displacement: '2.5',
+        cylNum: 4,
+        cylOr: CYLINDER_ORIENTATION.V,
+        hp: 175,
+        tq: 180,
+        drive: 'FWD',
+        weight: 3184,
+        image: '2007-Nissan-Altima-S',
+        clearance: 5.2,
+        wheelbase: 109.3,
+        trackWidth: {
+            front: 61,
+            rear: 61,
         },
 
     },

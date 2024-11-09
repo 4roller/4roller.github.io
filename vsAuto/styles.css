@@ -248,6 +248,9 @@ h3 {
 .mods > .intake:before {
     content: 'Intake';
 }
+.mods > .reliability:before {
+    content: 'Reliability';
+}
 .mods > .engine:before {
     content: 'Engine';
 }
@@ -496,6 +499,11 @@ s
     width: 70px;
 }
 
+.oem.bmw {
+    background-position: -846px -52px;
+    width: 80px;
+}
+
 .oem.subaru {
     background-position: -579px -47px;
     width: 80px;
@@ -505,6 +513,7 @@ s
     background-position: 5px 2px;
     width: 80px;
 }
+
 
 .oem.chevrolet {
     background-position: -91px 7px;
