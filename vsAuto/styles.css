@@ -352,6 +352,14 @@ h3 {
 .spec .temp label:after {
     content: 'C';
 }
+s
+.arcadeMode:after {
+    margin-right: 150px;
+    display: inline-block;
+    border: 1px solid green;
+    content: 'Arcade Mode';
+    color :white;
+}
 
 
 .mods ul {
