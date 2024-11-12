@@ -29,6 +29,7 @@ h2 {
     font-family: Courier, monospace;
     font-style: italic;
 }
+
 h3 {
     padding: 0;
     margin: 0;
@@ -235,44 +236,53 @@ h3 {
     border-radius: 4px;
 }
 
-.mods > div {
+.mods>div {
     display: flex;
     flex-direction: row;
 }
 
-.mods > div:before {
+.mods>div:before {
     display: block;
     min-width: 90px;
 }
 
-.mods > .intake:before {
+.mods>.intake:before {
     content: 'Intake';
 }
-.mods > .reliability:before {
+
+.mods>.reliability:before {
     content: 'Reliability';
 }
-.mods > .engine:before {
+
+.mods>.engine:before {
     content: 'Engine';
 }
-.mods > .exhaust:before {
+
+.mods>.exhaust:before {
     content: 'Exhaust';
 }
-.mods > .drivetrain:before {
+
+.mods>.drivetrain:before {
     content: 'Drivetrain';
 }
-.mods > .handling:before {
+
+.mods>.handling:before {
     content: 'Handling';
 }
-.mods > .suspension:before {
+
+.mods>.suspension:before {
     content: 'Suspension';
 }
-.mods > .wheels:before {
+
+.mods>.wheels:before {
     content: 'Wheels';
 }
-.mods > .brake:before {
+
+.mods>.brake:before {
     content: 'Brake';
 }
-.mods > .weight:before {
+
+.mods>.weight:before {
     content: 'Weight';
 }
 
@@ -339,7 +349,7 @@ h3 {
 }
 
 .selectAll {
-    
+
     background: purple;
     display: inline-block;
 }
@@ -355,13 +365,13 @@ h3 {
 .spec .temp label:after {
     content: 'C';
 }
-s
-.arcadeMode:after {
+
+s .arcadeMode:after {
     margin-right: 150px;
     display: inline-block;
     border: 1px solid green;
     content: 'Arcade Mode';
-    color :white;
+    color: white;
 }
 
 

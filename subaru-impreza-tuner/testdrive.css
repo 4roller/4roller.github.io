@@ -6,19 +6,22 @@
         padding: 10px;
         margin: 0;
         text-size-adjust: 100%;
-        
+        text-align: left;
+
+    }
+
+    .car-title {
+        text-align: left;
     }
 
     h1 {
-        font-size: 6.4vw;
-        margin:0;
-    }
-    h2 {
-        font-size: 2.8vw;
+        font-size: 4.0vw;
+        margin: 0;
     }
 
+
     h3 {
-        font-size: 2.3vw;
+        font-size: 2vw;
         color: deeppink;
         font-weight: bold;
         font-style: oblique;
@@ -28,8 +31,10 @@
         background: url(images/Impreza-side-profile.png);
         background-size: contain;
         background-repeat: no-repeat;
-        height: 430px;
+        height: 300px;
+        text-align: center;
         background-position-y: bottom;
+        background-position-x: center;
     }
 
     .stat-box {
@@ -38,7 +43,7 @@
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         box-sizing: border-box;
         background: aliceblue;
-        max-width: 1000px;
+        max-width: 100%;
     }
 
     .stat-box .col {
@@ -46,12 +51,21 @@
         padding: 20px;
         box-sizing: border-box;
         flex-grow: 2;
-        min-width: 500px;
+        max-width: 33%;
     }
 
     .stat-box .col.wide {
         box-sizing: border-box;
         text-align: center;
+    }
+
+    .stat-box .col.wide.full {
+        padding: 0;
+
+    }
+
+    .stat-box .col.wide.full img {
+        height: 100%;
     }
 
     .stat-box .col.wide img {
@@ -62,7 +76,7 @@
         border: 0px solid green;
         margin-bottom: 5px;
         clear: both;
-        font-size: 2em;
+        font-size: 1em;
     }
 
     .stat-box .head details {

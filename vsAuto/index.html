@@ -27,10 +27,6 @@
 
     <div class="tunerShop">
         <h3>🔧 Tuner Parts</h3>
-        <div class="selectAll">
-            <input class="" type="checkbox" name="selectall" value="" />
-            <label name="selectall"">All Mods</label>
-        </div>
         <div>
             <input class=" arcadeMode" type="checkbox" name="arcade" />
             <label name="arcade">Arcade Mode </label>
@@ -39,6 +35,10 @@
             <input class=" agilityMode" type="checkbox" name="agility" />
             <label name="agility">Agility Mode </label>
         </div>
+        <div class="selectAll">
+            <input class="" type="checkbox" name="selectall" value="" />
+            <label name="selectall"">All Mods</label>
+        </div>        
         <div class=" mods">s
         </div>
     </div>
@@ -123,7 +123,12 @@
         uc.whp = parseInt((hpUp - loss).toFixed(0));
  
         let avgTrackWidth = (uc.trackWidth.front + uc.trackWidth.rear) / 2;
-        let agilityIndex = ((avgTrackWidth / uc.wheelbase)); // + (totalHandling / 100)).toFixed(2);
+        let agilityIndex = ((avgTrackWidth / uc.wheelbase));
+        
+        if (document.querySelector('.arcadeMode').checked) {            
+            agilityIndex = agilityIndex + (totalHandling / 100);
+        }
+            
         uc.agilityIndex = ((parseFloat((agilityIndex * (1 / uc.clearance))) / 1/uc.weight) *1000000).toFixed(3);
         
 
