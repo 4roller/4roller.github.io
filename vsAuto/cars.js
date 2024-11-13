@@ -987,6 +987,14 @@ const CARS = {
                 cost: 160,
             },
             {
+                type: 'Torklift Trailer Hitch',
+                category: 'weight',
+                manufacturer: "Subaru",
+                description: '2" Trailer Hitch',                                
+                weight: 60,
+                cost: 400,
+            },
+            {
                 type: 'Trunk Delete',
                 category: 'weight',
                 manufacturer: "DIY",

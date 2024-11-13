@@ -60,7 +60,7 @@
 
     const getPowerToWeight = function (obj) {
         let outputPower = ((obj.whp / obj.weight) * 10000)
-        if (document.querySelector('.arcadeMode').checked) {            
+        if (document.querySelector('.arcadeMode').checked) {
             let powerIndex = (outputPower + parseFloat(obj.agilityIndex)).toFixed(0);
             return powerIndex;
         }
@@ -70,7 +70,7 @@
     const calculateMods = function (c) {
         let uc = { ...c };
         let mods;
-        let totalCost = 0;  
+        let totalCost = 0;
         let totalPower = 0;
         let totalWeight = 0;
         let totalHeight = 0;
@@ -88,12 +88,12 @@
                     if (m.power) {
                         totalPower = totalPower + m.power;
                     }
-                    if (m.height) {                        
+                    if (m.height) {
                         totalHeight = totalHeight - m.height;
                     }
-                    if (m.weight) {                        
+                    if (m.weight) {
                         totalWeight = totalWeight + m.weight;
-                        
+
                     }
                     if (m.handling) {
                         totalHandling = totalHandling + m.handling;
@@ -121,16 +121,16 @@
         uc.hpGain = parseInt(totalPower.toFixed(0));
         uc.weight = uc.weight + totalWeight;
         uc.whp = parseInt((hpUp - loss).toFixed(0));
- 
+
         let avgTrackWidth = (uc.trackWidth.front + uc.trackWidth.rear) / 2;
         let agilityIndex = ((avgTrackWidth / uc.wheelbase));
-        
-        if (document.querySelector('.arcadeMode').checked) {            
+
+        if (document.querySelector('.arcadeMode').checked) {
             agilityIndex = agilityIndex + (totalHandling / 100);
         }
-            
-        uc.agilityIndex = ((parseFloat((agilityIndex * (1 / uc.clearance))) / 1/uc.weight) *1000000).toFixed(3);
-        
+
+        uc.agilityIndex = ((parseFloat((agilityIndex * (1 / uc.clearance))) / 1 / uc.weight) * 1000000).toFixed(3);
+
 
 
         // let clearanceWeight = (1 / uc.clearance) * (uc.weight - totalHandling);
@@ -174,7 +174,7 @@
                 <div class="ed">${c.drive} ${c.engineType} ${c.trans} </div>
                 <div class="et">${c.displacement}L ${c.cylOr}${c.cylNum} ${engineSpecial} </div>
                 <div class="hp">${c.hp}hp/${c.weight}lbs</div>
-                <span class="hp">${c.agilityIndex} AgilityIndex</span>
+                <span class="ai">${c.agilityIndex} AgilityIndex</span>
                 <div class="gains">
                     <span class="effGain">${(c.effGain * 100).toFixed(0)}%</span>
                     <span class="hpGain">${c.powerGain}hp</span>
@@ -376,7 +376,7 @@
         specContaier.querySelector('.cost').innerHTML = cost;
         specContaier.querySelector('.eff').innerHTML = eff;
         specContaier.querySelector('.weight').innerHTML = weight;
-        specContaier.querySelector('.hp').innerHTML = hp;
+        specContaier.querySelector('.hp').innerHTML = hp;   
         specContaier.querySelector('.whp').innerHTML = whpOutput;
         specContaier.querySelector('.p2w').innerHTML = p2w;
         specContaier.querySelector('.image').innerHTML = image;
@@ -433,6 +433,13 @@
         cars.forEach(function (c) {
             v1Contaier.appendChild(getVsCode(c));
         });
+
+        // Highligh Agility Index if AracdeMode
+        if (document.querySelector('.arcadeMode').checked) {            
+            document.querySelector('[data-id="2016-Subaru-Impreza-Sport-PE"] .ai').classList.add('oh');
+        }
+
+        document.querySelector('.eliteRobin').classList.add('oh');
 
         handleScroll();
     }

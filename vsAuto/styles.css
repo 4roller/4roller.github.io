@@ -218,10 +218,11 @@ h3 {
     line-clamp: 2;
 }
 
-
-.vehicle .vehicle-name {}
-
-
+.vehicle.selected .ai.oh,
+.eliteRobin.oh {
+    color: yellowgreen;
+    animation: fadeIn ease 1s;
+}
 
 
 
@@ -324,9 +325,8 @@ h3 {
     color: teal;
     font-size: 1.5em;
     font-kerning: none;
-
 }
-
+    
 .spec div {
     box-sizing: border-box;
     padding: 10px;
