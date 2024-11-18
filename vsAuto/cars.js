@@ -1996,7 +1996,7 @@ const CARS = {
         hp: 100,
         drive: 'FWD',
         weight: 2306,
-        image: '2014-Mazda-2',
+        image: '2014-Mazda-2-Sport',
         clearance: 5.6,
         wheelbase: 98,
         trackWidth: {
