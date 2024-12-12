@@ -3,24 +3,24 @@ body {
     margin: auto auto 10px;
     padding: 0;
     width: 100%;
-    background: white;
-    color: black;
+    background: #101010;
+    color: #efefef;
 }
 
-body {
-    font-size: 18px;
+body {    
     width: 100%;
     box-sizing: border-box;
     /* background: #000;
     color: #999; */
-    padding: 0 50px;
-    font-family: sans-serif;
+    padding: 20px 32px;
+    font-family: serif;
+    font-weight: 100;
     width: min(1000px, calc(88% + 100px));
 }
 
 a,
 a:visited {
-    color: black;
+    color: cyan;
     text-decoration: underline;
 }
 
@@ -47,7 +47,8 @@ section.go {
 }
 
 ul.specs {
-    font-size: 0.8em;
+    font-size: 0.9em;
+    font-family: sans-serif;
 }
 
 h1,
@@ -72,13 +73,13 @@ h2.italic {
 
 .hero:hover::after {
     opacity: 1;
-    animation: fade2 1s ease;
-    background: url(images/impreza-sti-wolf.jpeg);
-    content: " 1";
+    animation: fade2 200ms ease-in;
+    background: url(images/SubaruImpreza-parked-sideprofile.jpg);
+    content: " ";
     position: absolute;
     left: 0;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     width: 100%;
     height: 100%;
 }
@@ -515,6 +516,39 @@ img.sport-wheels {
     font-size: 0.8em;
 }
 
+.dl-4:before {
+    content: ' ';
+    background-image: url(images/driveshaft-lockdown.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 340px;
+    height: 180px;
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    border-bottom: 0;
+    opacity: 1;
+}
+
+.dl-4:after {
+    content: 'A driveshaft lockdown reduces oem bushing play';
+    width: 330px;
+    position: absolute;
+    left: 0;
+    top: 180px;
+    padding-left: 10px;
+    visibility: hidden;
+    background-color: white;
+    border: 5px solid black;
+    color: #555;
+    font-size: 0.8em;
+}
+
+
+
+
+
 .dl-dot:hover {
     opacity: 1;
 }
@@ -587,6 +621,8 @@ img.sport-wheels {
 .dl-2:hover:after,
 .dl-3:hover:before,
 .dl-3:hover:after,
+.dl-4:hover:before,
+.dl-4:hover:after,
 .dl-5:hover:before,
 .dl-5:hover:after {
     visibility: visible;
@@ -798,19 +834,19 @@ figure.project-excelsior {
         opacity: 0.1;
     }
     20% {
-        opacity: 0.4;
+        opacity: 0.3;
     }
     40% {
-        opacity: 0.6;
+        opacity: 0.4;
     }
     50% {
-        opacity: 0.7;
-    }
-    60% {
         opacity: 0.5;
     }
+    60% {
+        opacity: 0.6;
+    }
     80% {
-        opacity: 0.7;
+        opacity: 0.8;
     }
     100% {
         opacity: 1;

@@ -12,9 +12,11 @@ const OEM = {
     DODGE: 'Dodge',
     CHEVROLET: 'Chevrolet',
     SCION: 'Scion',
+    TESLA: 'Tesla'
 }
 
 const TRANSMISSION = {
+    D: { name: 'direct transmission', driveloss: 0 },
     MT: { name: 'manual transmission', driveloss: 0 },
     AT: { name: 'automatic transmission', driveloss: 2 },
     AM: { name: 'automated manual', driveloss: 2 },
@@ -25,6 +27,7 @@ const DRIVETRAIN = {
     FWD: { name: 'front wheel drive', driveloss: 17 },
     RWD: { name: 'rear wheel drive', driveloss: 20 },
     AWD: { name: 'all wheel drive', driveloss: 25 },
+    'D-RWD': { name: 'direct rear wheel drive', driveloss: 5 }
 }
 
 const ENGINE_INDUCTION = {
@@ -32,6 +35,7 @@ const ENGINE_INDUCTION = {
     SC: 'Supercharger',
     NA: 'Naturally Aspirated',
     HYB: 'Hybrid',
+    E: 'Electric',
 }
 
 const CYLINDER_ORIENTATION = {
@@ -403,7 +407,7 @@ const CARS = {
             rear: 61.1,
         },
     },
-    
+
     SUBARU_CROSSTREK_2016_NAMT: {
         id: 'SUBARU_CROSSTREK_2016_NAMT',
         oem: OEM.SUBARU,
@@ -483,7 +487,7 @@ const CARS = {
                 type: 'Breather Catch Can',
                 category: 'reliability',
                 manufacturer: "DIY",
-                description: "Cleans up engine blow-by",              
+                description: "Cleans up engine blow-by",
                 weight: 2,
                 cost: 50,
             },
@@ -587,7 +591,7 @@ const CARS = {
                 type: 'Driveshaft Carrier',
                 category: 'drivetrain',
                 manufacturer: "Torque Solution",
-                description: "Aluminum Billet",                
+                description: "Aluminum Billet",
                 drivetrain: 0.5,
                 cost: 35,
             },
@@ -677,7 +681,7 @@ const CARS = {
                 category: 'handling',
                 manufacturer: "RU",
                 description: '3 Point - Attaches across rear struts',
-                handling: 1,                
+                handling: 1,
                 weight: 6,
                 cost: 130,
             },
@@ -768,7 +772,7 @@ const CARS = {
                 type: 'Lift',
                 category: 'suspension',
                 manufacturer: "None",
-                description: 'Raise 1 inchs',                
+                description: 'Raise 1 inchs',
                 height: 1,
                 cost: 0,
             },
@@ -837,7 +841,7 @@ const CARS = {
                 manufacturer: "Firestone",
                 description: "Firehawk Indy 500 UHP 340TW",
                 handling: 1,
-                brake: 1,                
+                brake: 1,
                 weight: 4,
                 cost: 600,
             },
@@ -847,7 +851,7 @@ const CARS = {
                 manufacturer: "Hankook",
                 description: "Ventus RS-4 200TW",
                 handling: 1.2,
-                brake: 1.2,                
+                brake: 1.2,
                 weight: 8,
                 cost: 800,
             },
@@ -980,7 +984,7 @@ const CARS = {
                 type: 'Aero Crossbars',
                 category: 'weight',
                 manufacturer: "Subaru",
-                description: 'Crossbars + Bikerack',                                
+                description: 'Crossbars + Bikerack',
                 weight: 12,
                 cost: 160,
             },
@@ -988,7 +992,7 @@ const CARS = {
                 type: 'Torklift Trailer Hitch',
                 category: 'weight',
                 manufacturer: "Subaru",
-                description: '2" Trailer Hitch',                                
+                description: '2" Trailer Hitch',
                 weight: 60,
                 cost: 400,
             },
@@ -1015,7 +1019,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed rear seats',
-                weight: -25 ,
+                weight: -25,
                 cost: 0,
                 utility: -1
             },
@@ -1024,7 +1028,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed rear seats',
-                weight: -10 ,
+                weight: -10,
                 cost: 0,
                 utility: -1
             },
@@ -1052,7 +1056,7 @@ const CARS = {
                 manufacturer: "Braille",
                 description: 'Lithum Polymer',
                 weight: -30,
-                cost: 1500,                
+                cost: 1500,
             },
 
             {
@@ -1151,7 +1155,7 @@ const CARS = {
                 type: 'Breather Catch Can',
                 category: 'reliability',
                 manufacturer: "DIY",
-                description: "Cleans up engine blow-by",              
+                description: "Cleans up engine blow-by",
                 weight: 2,
                 cost: 50,
             },
@@ -1255,7 +1259,7 @@ const CARS = {
                 type: 'Driveshaft Carrier',
                 category: 'drivetrain',
                 manufacturer: "Torque Solution",
-                description: "Aluminum Billet",                
+                description: "Aluminum Billet",
                 drivetrain: 0.5,
                 cost: 35,
             },
@@ -1345,7 +1349,7 @@ const CARS = {
                 category: 'handling',
                 manufacturer: "RU",
                 description: '3 Point - Attaches across rear struts',
-                handling: 1,                
+                handling: 1,
                 weight: 6,
                 cost: 130,
             },
@@ -1436,7 +1440,7 @@ const CARS = {
                 type: 'Lift',
                 category: 'suspension',
                 manufacturer: "None",
-                description: 'Raise 1 inchs',                
+                description: 'Raise 1 inchs',
                 height: 1,
                 cost: 0,
             },
@@ -1505,7 +1509,7 @@ const CARS = {
                 manufacturer: "Firestone",
                 description: "Firehawk Indy 500 UHP 340TW",
                 handling: 1,
-                brake: 1,                
+                brake: 1,
                 weight: 4,
                 cost: 600,
             },
@@ -1515,7 +1519,7 @@ const CARS = {
                 manufacturer: "Hankook",
                 description: "Ventus RS-4 200TW",
                 handling: 1.2,
-                brake: 1.2,                
+                brake: 1.2,
                 weight: 8,
                 cost: 800,
             },
@@ -1648,7 +1652,7 @@ const CARS = {
                 type: 'Aero Crossbars',
                 category: 'weight',
                 manufacturer: "Subaru",
-                description: 'Crossbars + Bikerack',                                
+                description: 'Crossbars + Bikerack',
                 weight: 12,
                 cost: 160,
             },
@@ -1656,7 +1660,7 @@ const CARS = {
                 type: 'Torklift Trailer Hitch',
                 category: 'weight',
                 manufacturer: "Subaru",
-                description: '2" Trailer Hitch',                                
+                description: '2" Trailer Hitch',
                 weight: 60,
                 cost: 400,
             },
@@ -1683,7 +1687,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed rear seats',
-                weight: -25 ,
+                weight: -25,
                 cost: 0,
                 utility: -1
             },
@@ -1692,7 +1696,7 @@ const CARS = {
                 category: 'weight',
                 manufacturer: "DIY",
                 description: 'Removed rear seats',
-                weight: -10 ,
+                weight: -10,
                 cost: 0,
                 utility: -1
             },
@@ -1720,7 +1724,7 @@ const CARS = {
                 manufacturer: "Braille",
                 description: 'Lithum Polymer',
                 weight: -30,
-                cost: 1500,                
+                cost: 1500,
             },
 
             {
@@ -1851,7 +1855,7 @@ const CARS = {
             rear: 58,
         }
     },
-    
+
     TOYOTA_86_NAM: {
         oem: OEM.TOYOTA,
         model: '86',
@@ -2199,6 +2203,28 @@ const CARS = {
         trackWidth: {
             front: 60.5,
             rear: 60.6,
+        },
+
+    },
+    TESLA_MODEL_Y: {
+        oem: OEM.TESLA,
+        model: 'Model Y',
+        year: 2024,
+        trim: 'Long Range RWD',
+        engineType: 'E',
+        trans: 'D',
+        displacement: '',
+        cylNum: '',
+        cylOr: '',
+        hp: 342,
+        drive: 'D-RWD',
+        weight: 4211,
+        image: '2024-Tesla-Model-Y',
+        clearance: 6.8,
+        wheelbase: 113.8,
+        trackWidth: {
+            front: 64.4,
+            rear: 64.4,
         },
 
     },

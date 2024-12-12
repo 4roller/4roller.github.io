@@ -193,23 +193,29 @@
         const p2w = getPowerToWeight(c);
         c.tier = 0;
         // Tier 1 cars
-        if (p2w < 300) {
+        if (p2w > 400) {
             c.tier = 1;
         }
-        if (p2w > 435) {
+        if (p2w > 450) {
             c.tier = 2;
         }
         if (p2w > 500) {
             c.tier = 3;
         }
-        if (p2w > 600) {
+        if (p2w > 550) {
             c.tier = 4;
         }
-        if (p2w > 700) {
+        if (p2w > 600) {
             c.tier = 5;
         }
-        if (p2w > 950) {
+        if (p2w > 650) {
             c.tier = 6;
+        }
+        if (p2w > 700) {
+            c.tier = 7;
+        }
+        if (p2w > 750) {
+            c.tier = 8;
         }
 
         return c.tier;
@@ -356,6 +362,7 @@
         const tempFactor = tempThing(document.querySelector('.temp input').value);
         document.querySelector('h2.name').innerHTML = `${v.oem} ${v.model} ${(v.engineName) ? v.engineName : ''}`;
         const driveLossPercentage = (DRIVETRAIN[v.drive].driveloss / 100) + (TRANSMISSION[v.trans].driveloss / 100);
+
         let hpGain = v.hp + v.hpGain;
         hpGain = hpGain + (hpGain * (tempFactor / 100));
         let loss = hpGain * (driveLossPercentage - v.effGain);
