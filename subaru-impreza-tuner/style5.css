@@ -74,7 +74,7 @@ h2.italic {
 .hero:hover::after {
     opacity: 1;
     animation: fade2 200ms ease-in;
-    background: url(images/SubaruImpreza-parked-sideprofile.jpg);
+    background: url(images/top-down-rear-wing.jpg);
     content: " ";
     position: absolute;
     left: 0;
