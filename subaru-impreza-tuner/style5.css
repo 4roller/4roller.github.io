@@ -4,7 +4,7 @@ body {
     padding: 0;
     width: 100%;
     background: #101010;
-    color: #efefef;
+    color: #c9c9c9;
 }
 
 body {    
@@ -13,7 +13,7 @@ body {
     /* background: #000;
     color: #999; */
     padding: 20px 32px;
-    font-family: serif;
+    font-family: Geneva, Verdana, sans-serif;
     font-weight: 100;
     width: min(1000px, calc(88% + 100px));
 }
@@ -199,7 +199,7 @@ aside::first-letter {
 }
 
 figure {
-    margin: 0;
+    margin: 0 0 10px 0;
 }
 
 .size-by-side {
