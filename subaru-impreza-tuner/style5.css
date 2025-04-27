@@ -21,7 +21,7 @@ body {
 a,
 a:visited {
     color: cyan;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 p {
