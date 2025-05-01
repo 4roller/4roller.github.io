@@ -30,7 +30,7 @@ p {
 }
 
 p:first-letter {
-    font-size: 4em;
+    font-size: 3em;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 400;
 }
@@ -96,7 +96,7 @@ h2.italic {
 }
 
 figcaption {
-    font-size: 1em;
+    font-size: 0.65em;
 }
 
 .sti {
