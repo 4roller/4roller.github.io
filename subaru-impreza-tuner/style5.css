@@ -30,8 +30,7 @@ p {
 }
 
 p:first-letter {
-    font-size: 3em;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3em;
     font-weight: 400;
 }
 
