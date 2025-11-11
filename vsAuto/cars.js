@@ -557,7 +557,7 @@ const CARS = {
                 category: 'exhaust',
                 manufacturer: "Nameless",
                 description: "resonator and 2.25in piping",
-                power: 1,
+                power: 3,
                 cost: 500,
             },
             {
@@ -1225,7 +1225,7 @@ const CARS = {
                 category: 'exhaust',
                 manufacturer: "Nameless",
                 description: "resonator and 2.25in piping",
-                power: 1,
+                power: 3,
                 cost: 500,
             },
             {
@@ -1388,6 +1388,15 @@ const CARS = {
                 handling: 1,
                 weight: 5,
                 cost: 10,
+            },
+            {
+                type: 'Rear Seat Cross Brace',
+                category: 'handling',
+                manufacturer: "DIY",
+                description: '2 pc. Tubular steel - cross ties seat and c-pillars',
+                handling: 1,
+                weight: 5,
+                cost: 50,
             },
 
             // Suspension
