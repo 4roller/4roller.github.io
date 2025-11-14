@@ -8,9 +8,148 @@
 
 <body>
     <div class="header">
-        <h1>Subaru GP7 Chassis</h1>
-        <h2>Setting Sheet</h2>
+        <h1>Subaru Impreza</h1>
+
+
     </div>
+    <div class="vehicle-info">
+
+
+        <div class="adj">
+            <label>Year</label>
+            <input type="text" value="2016" />
+        </div>
+        <div class="adj">
+            <label>Chassis</label>
+            <input type="text" value="GP7 Hatchback" />
+        </div>
+        <div class="adj">
+            <label>Engine</label>
+            <input type="text" value="FB20B" />
+        </div>
+        <div class="adj">
+            <label>Transmission</label>
+            <input type="text" value="TR580" />
+        </div>
+        <div class="adj">
+            <label>Drive</label>
+            <input type="text" value="AWD" />
+        </div>
+    </div>
+
+    <div class="engine">
+        <h3>Engine</h3>
+        <div class="adj">
+            <label>Type</label>
+            <input type="text" value="Naturally Aspirated" />
+        </div>
+        <div class="adj">
+            <label>Displacement</label>
+            <input type="text" value="1995cc" />
+        </div>
+        <div class="adj">
+            <label>Cylinders</label>
+            <input type="text" value="4" />
+        </div>
+        <div class="adj">
+            <label>RPM Redline</label>
+            <input type="text" value="6200" />
+        </div>
+
+
+    </div>
+    <div class="additional-notes">
+        <textarea class="notes"></textarea>
+    </div>
+
+
+
+
+    <div class="dampers">
+        <h3>Suspension</h3>
+        <div class="adj">
+            <label>Damper model</label>
+            <input type="text" value="Fortune Auto 500" />
+        </div>
+
+        <div>
+            <div class="adj">
+                <label>Damper type</label>
+                <input type="text" value="Adj. Coilover" />
+            </div>
+
+        </div>
+
+
+        <div class="front-settings">
+            <div>Front</div>
+            <div>
+                <div class="adj">
+                    <label>Spring rate</label>
+                    <input type="number" step="100" value="8000" />
+                    <div>kg/mm</div>
+                </div>
+                <div class="adj">
+                    <label>Rebound adj.</label>
+                    <input type="number" step="1" value="12" />
+                    <div>clicks</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="rear-settings">
+            <div>Rear</div>
+            <div>
+                <div class="adj">
+                    <label>Spring rate</label>
+                    <input type="number" step="100" value="8000" />
+                    <div>kg/mm</div>
+                </div>
+                <div class="adj">
+                    <label>Rebound adj.</label>
+                    <input type="number" step="1" value="8" />
+                    <div>clicks</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="tires">
+        <h3>Wheels + Tires</h3>
+        <div class="front-settings">
+            <div>Front</div>
+            <div>
+                <div class="adj">
+                    <label>Tires</label>
+                    <input type="text" value="Hankook RS4 225/45/17R" />
+                </div>
+                <div class="adj">
+                    <label>Wheels</label>
+                    <input type="text" value='STI/Enkei 17-spoke 17x7.5"' />
+                </div>
+            </div>
+
+        </div>
+        <div class="rear-settings">
+            <div>Rear</div>
+            <div>
+                <div class="adj">
+                    <label>Tires</label>
+                    <input type="text" value="Hankook RS4 225/45/17R" />
+                </div>
+                <div class="adj">
+                    <label>Wheels</label>
+                    <input type="text" value='STI/Enkei 17-spoke 17x7.5"' />
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
 
 
 
@@ -26,14 +165,6 @@
             <div class="adj">
                 <label>Ground clearance</label>
                 <input type="number" step="0.1" value="5" />inch
-            </div>
-            <div class="adj">
-                <label>Spring rate</label>
-                <input type="number" step="100" value="8000" />kg/mm
-            </div>
-            <div class="adj">
-                <label>Rebound adj.</label>
-                <input type="number" step="1" value="12" />clicks
             </div>
             <div class="adj">
                 <label>Stablizer</label>
@@ -60,14 +191,6 @@
                 <input type="number" step="0.1" value="5.5" />inch
             </div>
             <div class="adj">
-                <label>Spring rate</label>
-                <input type="number" step="100" value="8000" />kg/mm
-            </div>
-            <div class="adj">
-                <label>Rebound adj.</label>
-                <input type="number" step="1" value="8" />clicks
-            </div>
-            <div class="adj">
                 <label>Stablizer</label>
                 <input type="number" step="1" value="22" />mm
             </div>
@@ -82,22 +205,8 @@
 
         </div>
     </div>
-    <div class="damper-settings">
-        <div class="front-diagram">
 
-        </div>
-        <div>
-            <div class="adj">
-                <label>Damper type</label>
-                <input type="text" value="Adj. Coilover" />
-            </div>
-            <div class="adj">
-                <label>Damper model</label>
-                <input type="text" value="Fortune Auto 500" />
-            </div>
 
-        </div>
-    </div>
 
 
 
