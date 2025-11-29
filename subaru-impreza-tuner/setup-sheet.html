@@ -9,12 +9,11 @@
 <body>
     <div class="header">
         <h1>Subaru Impreza</h1>
-
-
     </div>
-    <div class="vehicle-info">
 
 
+
+    <div class="vehicle-info section">
         <div class="adj">
             <label>Year</label>
             <input type="text" value="2016" />
@@ -37,7 +36,7 @@
         </div>
     </div>
 
-    <div class="engine">
+    <div class="engine  section">
         <h3>Engine</h3>
         <div class="adj">
             <label>Type</label>
@@ -55,17 +54,44 @@
             <label>RPM Redline</label>
             <input type="text" value="6200" />
         </div>
-
-
+        <h3>Notes:</h3>
+        <textarea class="notes">
+ECU Tune - Throttle Happy Rev 7 - CVT 91 Octane
+Intake Manifold Risers
+Hybrid CAI - High flow Filter
+Carbon Filter Delete
+PCV AOS
+CCV Catch Can
+Throttle Body Coolant Bypass
+        </textarea>
     </div>
-    <div class="additional-notes">
-        <textarea class="notes"></textarea>
+
+    <div class="exhaust section">
+        <h3>Exhaust</h3>
+        <div class="adj">
+            <label>Headers</label>
+            <input type="text" value='4-2-1 Equal Length 41.5mm primaries - 2.25"' />
+        </div>
+        <div class="adj">
+            <label>Front Pipe</label>
+            <input type="text" value='200 Cell Cat - 2.25"' />
+        </div>
+        <div class="adj">
+            <label>Midpipe</label>
+            <input type="text" value='OEM Resonated - 2.0"' />
+        </div>
+        <div class="adj">
+            <label>Tailpipe</label>
+            <input type="text" value='Nameless 5" muffler - 2.25"  ' />
+        </div>
+        <h3>Notes:</h3>
+        <textarea class="notes">
+Headers are wrapped and insulated
+        </textarea>
     </div>
 
 
-
-
-    <div class="dampers">
+    <div class="dampers  section">
         <h3>Suspension</h3>
         <div class="adj">
             <label>Damper model</label>
@@ -86,14 +112,20 @@
             <div>
                 <div class="adj">
                     <label>Spring rate</label>
-                    <input type="number" step="100" value="8000" />
-                    <div>kg/mm</div>
+                    <input type="number" step="100" value="8" />
+                    <div class="superscript">kg/mm</div>
                 </div>
                 <div class="adj">
                     <label>Rebound adj.</label>
                     <input type="number" step="1" value="12" />
-                    <div>clicks</div>
+                    <div class="superscript">clicks</div>
                 </div>
+                <div class="adj">
+                    <label>Sway bar</label>
+                    <input type="number" step="1" value="24" />
+                    <div class="superscript">mm</div>
+                </div>
+
             </div>
 
         </div>
@@ -102,22 +134,77 @@
             <div>
                 <div class="adj">
                     <label>Spring rate</label>
-                    <input type="number" step="100" value="8000" />
-                    <div>kg/mm</div>
+                    <input type="number" step="100" value="8" />
+                    <div class="superscript">kg/mm</div>
                 </div>
                 <div class="adj">
                     <label>Rebound adj.</label>
                     <input type="number" step="1" value="8" />
-                    <div>clicks</div>
+                    <div class="superscript">clicks</div>
+                </div>
+                <div class="adj">
+                    <label>Sway bar</label>
+                    <input type="number" step="1" value="22" />
+                    <div class="superscript">mm</div>
+                </div>
+                <div class="adj">
+                    <label>Swaybar adj.</label>
+                    <select>
+                        <option>medium</option>
+                    </select>
                 </div>
 
             </div>
         </div>
+        <h3>Notes:</h3>
+        <textarea class="notes">
+Sway Bar Support Brackets
+Poly Swaybar Bushings
+Poly LCA
+Poly Toe links
+Poly Trailing link 
+        </textarea>
+    </div>
+
+    <div class="Brakes  section">
+        <h3>Brakes</h3>
+
+        <div class="front-settings">
+            <div>Front</div>
+            <div>
+                <div class="adj">
+                    <label>Pads</label>
+                    <input type="text" value="Project Mu B-Spec" />
+                </div>
+                <div class="adj">
+                    <label>Rotors</label>
+                    <input type="text" value='KNS 295mm High Carbon' />
+                </div>
+            </div>
+
+        </div>
+        <div class="rear-settings">
+            <div>Rear</div>
+            <div>
+                <div class="adj">
+                    <label>Pads</label>
+                    <input type="text" value="Hawk 5.1" />
+                </div>
+                <div class="adj">
+                    <label>Rotors</label>
+                    <input type="text" value='Centric Cryo-Cooled' />
+                </div>
+            </div>
+        </div>
+        <h3>Notes:</h3>
+        <textarea class="notes">
+DOT 4 Fliud
+Master Cylinder Brace
+        </textarea>
 
     </div>
 
-
-    <div class="tires">
+    <div class="tires  section">
         <h3>Wheels + Tires</h3>
         <div class="front-settings">
             <div>Front</div>
@@ -146,67 +233,85 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
+    <div class="section">
+        <div class="front-settings">
+            <div>Front</div>
+            <div class="front-diagram">
+            </div>
+            <div>
+                <div class="adj">
+                    <label>Camber angle</label>
+                    <input type="number" step="0.1" value="-1.7" />
+                    <div class="superscript">deg</div>
+                </div>
+                <div class="adj">
+                    <label>Toe</label>
+                    <input type="number" step="0.1" value="0" />
+                    <div class="superscript">deg</div>
+                </div>
+                <div class="adj">
+                    <label>Ground clearance</label>
+                    <input type="number" step="0.1" value="5" />
+                    <div class="superscript">inch</div>
+                </div>
+            </div>
 
-
-
-    <div class="front-settings">
-        <div>Front</div>
-        <div class="front-diagram">
         </div>
-        <div>
-            <div class="adj">
-                <label>Camber angle</label>
-                <input type="number" step="0.1" value="-1.7" />deg
+        <div class="rear-settings">
+            <div>Rear</div>
+            <div class="front-diagram">
             </div>
-            <div class="adj">
-                <label>Ground clearance</label>
-                <input type="number" step="0.1" value="5" />inch
-            </div>
-            <div class="adj">
-                <label>Stablizer</label>
-                <input type="number" step="1" value="24" />mm
-            </div>
-            <div class="adj">
-                <label>Stablizer Bushing</label>
-                <input type="text" value="poly" />
-            </div>
-        </div>
+            <div>
+                <div class="adj">
+                    <label>Camber angle</label>
+                    <input type="number" step="0.1" value="-1.8" />
+                    <div class="superscript">deg</div>
+                </div>
+                <div class="adj">
+                    <label>Toe</label>
+                    <input type="number" step="0.1" value="0.1" />
+                    <div class="superscript">deg</div>
+                </div>
+                <div class="adj">
+                    <label>Ground clearance</label>
+                    <input type="number" step="0.1" value="5.5" />
+                    <div class="superscript">inch</div>
+                </div>
 
-    </div>
-    <div class="rear-settings">
-        <div>Rear</div>
-        <div class="front-diagram">
-        </div>
-        <div>
-            <div class="adj">
-                <label>Camber angle</label>
-                <input type="number" step="0.1" value="-1.8" />deg
-            </div>
-            <div class="adj">
-                <label>Ground clearance</label>
-                <input type="number" step="0.1" value="5.5" />inch
-            </div>
-            <div class="adj">
-                <label>Stablizer</label>
-                <input type="number" step="1" value="22" />mm
-            </div>
-            <div class="adj">
-                <label>Stablizer Bushing</label>
-                <input type="text" value="poly" />
-            </div>
-            <div class="adj">
-                <label>Stablizer setting</label>
-                <input type="text" value="medium" />
-            </div>
 
+            </div>
         </div>
     </div>
 
 
+    <div class="drivetrain  section">
+        <h3>Drivetrain</h3>
+        <h3>Notes:</h3>
+        <textarea class="notes">
+Pitchstop
+Transmission Bushing Insert
+Driveshaft Lockdown
+Driveshaft Carrier Bushings
+Differential Lockdown
+        </textarea>
+    </div>
+
+    <div class="bracing  section">
+        <h3>Bracing</h3>
+        <h3>Notes:</h3>
+        <textarea class="notes">
+STI Flexible Front Strut
+STI Flexible Front Draw Stiffener
+Tubular Front Support Brackets
+3 point Rear Strut Bar
+Subframe Brace
+Rear Seat Brace, C-Pillar Tie, Crossbracing
+Subframe Bushings
+Steering Damper Lockdown
+        </textarea>
+    </div>
 
 
 
