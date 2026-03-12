@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "cors": "^2.8.6",
+    "http-server": "^14.1.1",
+    "promise": "^8.3.0",
+    "request": "^2.88.2",
+    "xml2js": "^0.6.2"
+  }
+}
