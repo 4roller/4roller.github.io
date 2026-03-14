@@ -1,7 +1,6 @@
 var newsieFeedService = (function () {
 
 	// Requrires
-	var fs = require('fs');
 	var http = require('http');
 	var url = require('url');
 	var request = require('request');
